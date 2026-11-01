@@ -100,6 +100,10 @@
     "path": "/usr/bin/cp",
     "package": "coreutils 9.12-2"
   },
+  "cpupower": {
+    "package": "7.2.11-1",
+    "capture": "Linux installed help; 2026-11-01"
+  },
   "cryptsetup": {
     "package": "cryptsetup 2.8.8-1",
     "capture": "Linux installed help; 2026-11-01"
@@ -127,6 +131,10 @@
   "diff": {
     "path": "/usr/bin/diff",
     "package": "diffutils 3.12-2"
+  },
+  "direnv": {
+    "package": "2.38.2-1",
+    "capture": "Linux installed help; 2026-11-01"
   },
   "dirname": {
     "path": "/usr/bin/dirname",
@@ -243,6 +251,10 @@
   "getfacl": {
     "path": "/usr/bin/getfacl",
     "package": "acl 2.4.0-1"
+  },
+  "git-lfs": {
+    "package": "3.8.0-1",
+    "capture": "Linux installed help; 2026-11-01"
   },
   "glow": {
     "package": "3.0.0-2",
@@ -414,6 +426,10 @@
   },
   "luarocks": {
     "package": "luarocks 3.13.0-5",
+    "capture": "Linux installed help; 2026-11-01"
+  },
+  "magick": {
+    "package": "imagemagick 7.1.2.34-2",
     "capture": "Linux installed help; 2026-11-01"
   },
   "make": {
@@ -730,6 +746,10 @@
     "path": "/usr/bin/sort",
     "package": "coreutils 9.12-2"
   },
+  "sox": {
+    "package": "14.8.0.1-1",
+    "capture": "Linux installed help; 2026-11-01"
+  },
   "split": {
     "path": "/usr/bin/split",
     "package": "coreutils 9.12-2"
@@ -753,6 +773,10 @@
   "strings": {
     "path": "/usr/bin/strings",
     "package": "binutils 2.47-4"
+  },
+  "swapon": {
+    "package": "util-linux 2.42.4-1",
+    "capture": "Linux installed help; 2026-11-01"
   },
   "sync": {
     "package": "coreutils 9.12-2",
@@ -852,6 +876,10 @@
   },
   "vim": {
     "package": "vim 9.2.1178-1",
+    "capture": "Linux installed help; 2026-11-01"
+  },
+  "virtualenv": {
+    "package": "21.14.7-1",
     "capture": "Linux installed help; 2026-11-01"
   },
   "visudo": {

@@ -283,6 +283,23 @@
       "cmake --build build --clean-first"
     ]
   },
+  "cpupower": {
+    "batch": "media-and-environment",
+    "positive": [
+      {
+        "input": "cpupower frequency-ifno",
+        "argv": [
+          "cpupower",
+          "frequency-info"
+        ]
+      }
+    ],
+    "negative": [
+      "cpupower frequency-ste --freq 1000",
+      "cpupower idle-set --disable 0",
+      "cpupower --cpu frequency-info --deubg"
+    ]
+  },
   "cryptsetup": {
     "batch": "administration-inspection",
     "positive": [
@@ -385,6 +402,24 @@
       "deno eval \"text\"",
       "deno uninstal example",
       "deno check --no-check example.ts"
+    ]
+  },
+  "direnv": {
+    "batch": "media-and-environment",
+    "positive": [
+      {
+        "input": "direnv stauts --json",
+        "argv": [
+          "direnv",
+          "status",
+          "--json"
+        ]
+      }
+    ],
+    "negative": [
+      "direnv alow .",
+      "direnv exec . command",
+      "direnv status --unknown"
     ]
   },
   "dmidecode": {
@@ -683,6 +718,23 @@
       "gh release create v1",
       "gh co 1",
       "gh copilot suggest \"private text\""
+    ]
+  },
+  "git-lfs": {
+    "batch": "media-and-environment",
+    "positive": [
+      {
+        "input": "git-lfs stauts",
+        "argv": [
+          "git-lfs",
+          "status"
+        ]
+      }
+    ],
+    "negative": [
+      "git-lfs ls-fiels --deleted",
+      "git-lfs uninstal",
+      "git-lfs checkout path"
     ]
   },
   "glow": {
@@ -1248,6 +1300,25 @@
       "luarocks purge --froce",
       "luarocks remvoe example",
       "luarocks showw"
+    ]
+  },
+  "magick": {
+    "batch": "media-and-environment",
+    "positive": [
+      {
+        "input": "magick identify -verbsoe \"example image.png\"",
+        "argv": [
+          "magick",
+          "identify",
+          "-verbose",
+          "example image.png"
+        ]
+      }
+    ],
+    "negative": [
+      "magick mogrify -resize 10x10 image.png",
+      "magick identify -write out image.png",
+      "magick identify -format"
     ]
   },
   "makepkg": {
@@ -2296,6 +2367,24 @@
       "sops --input-type --decrypt --output-tyep json example.yaml"
     ]
   },
+  "sox": {
+    "batch": "media-and-environment",
+    "positive": [
+      {
+        "input": "sox --inof \"audio file.wav\"",
+        "argv": [
+          "sox",
+          "--info",
+          "audio file.wav"
+        ]
+      }
+    ],
+    "negative": [
+      "sox --inof --clobber example.wav",
+      "sox --no-clobber input.wav output.wav",
+      "sox --inof"
+    ]
+  },
   "sqlite3": {
     "batch": "developer-data",
     "positive": [
@@ -2358,6 +2447,24 @@
       "stow --adopt example",
       "stow --simulate --delete example",
       "stow --dir --simulate --dotfiels example"
+    ]
+  },
+  "swapon": {
+    "batch": "media-and-environment",
+    "positive": [
+      {
+        "input": "swapon --show --noheadigns",
+        "argv": [
+          "swapon",
+          "--show",
+          "--noheadings"
+        ]
+      }
+    ],
+    "negative": [
+      "swapon --show --noheadigns /dev/example",
+      "swapon --all --verbsoe",
+      "swapon --priority 1 /dev/example"
     ]
   },
   "sync": {
@@ -2673,6 +2780,25 @@
       "vim --claen -c \"write!\" example",
       "vim --claen --cmd \"echo test\"",
       "vim --remote-sned keys"
+    ]
+  },
+  "virtualenv": {
+    "batch": "media-and-environment",
+    "positive": [
+      {
+        "input": "virtualenv --system-site-packgaes --no-download \"example venv\"",
+        "argv": [
+          "virtualenv",
+          "--system-site-packages",
+          "--no-download",
+          "example venv"
+        ]
+      }
+    ],
+    "negative": [
+      "virtualenv --clear --system-site-packgaes example",
+      "virtualenv --extra-search-dir wheels --no-downlaod example",
+      "virtualenv --prompt --no-download --system-site-packgaes"
     ]
   },
   "visudo": {

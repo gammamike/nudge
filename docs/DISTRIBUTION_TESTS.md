@@ -36,7 +36,7 @@ See [packaging instructions](PACKAGING.md) to reproduce the checks and
 
 ## Command expansion recheck
 
-The 260-adapter expansion was rebuilt with Rust 1.88.0 for
+The 267-adapter expansion was rebuilt with Rust 1.88.0 for
 `x86_64-unknown-linux-musl`. Its development bundle passed the same lifecycle
 smoke test in all four userspaces above, with read-only bundle mounts and
 networking disabled. [Results and tested archive hash](../tests/fixtures/expansion-distribution-results.json)

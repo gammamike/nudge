@@ -3,10 +3,10 @@
   "method": "Bubblewrap, read-only rootfs and bundle, disposable temporary filesystem, network disabled; shared host kernel",
   "toolchain": "Rust 1.88.0",
   "target": "x86_64-unknown-linux-musl",
-  "executable_count": 260,
+  "executable_count": 267,
   "build_kind": "development bundle from the tested working tree before its local commit",
   "archive": "nudge-0.1.0-linux-x86_64.tar.gz",
-  "sha256": "37f7b0b416228d987fe2bed1587a702f5857640217419b22c586cf325d6d03b1",
+  "sha256": "7365fbb41e9cca42f9090294db02323381f49e6a96cfe3918f582b323d451432",
   "checks": [
     "install",
     "idempotent reinstall",

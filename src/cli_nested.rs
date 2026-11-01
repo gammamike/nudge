@@ -81,6 +81,12 @@ pub(crate) fn supports(root: &str) -> bool {
     registry().contains_key(root)
 }
 
+pub(crate) fn local_only(root: &str) -> bool {
+    registry()
+        .get(root)
+        .is_some_and(|profile| profile.kind == Kind::Generic)
+}
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum Arity {
     Count(usize),

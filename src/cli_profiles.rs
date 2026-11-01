@@ -34,6 +34,8 @@ struct CommandSpec {
 struct Profile {
     help: Vec<String>,
     #[serde(default)]
+    local_only: bool,
+    #[serde(default)]
     fresh_commands: Vec<String>,
     #[serde(default = "success")]
     statuses: Vec<i32>,
@@ -76,6 +78,12 @@ pub(crate) fn roots() -> impl Iterator<Item = &'static str> {
 
 pub(crate) fn supports(root: &str) -> bool {
     registry().contains_key(root)
+}
+
+pub(crate) fn local_only(root: &str) -> bool {
+    registry()
+        .get(root)
+        .is_some_and(|profile| profile.local_only)
 }
 
 fn declared(spec: &str) -> Flags {

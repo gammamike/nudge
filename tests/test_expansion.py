@@ -5,10 +5,11 @@ import pty
 import select
 import shlex
 import signal
+import subprocess
 import time
 import unittest
 
-from support import ROOT
+from support import BINARY, ROOT
 import test_cli_profiles as profiles
 import test_cli_adapters as adapters
 
@@ -52,6 +53,18 @@ class ExpansionTests(unittest.TestCase):
         self.assertFalse((self.path / 'executed').exists())
         calls = [json.loads(line) for line in (self.path / 'calls').read_text().splitlines()]
         self.assertTrue(all(name == 'kubectl' for name, _ in calls))
+
+    def test_force_ai_respects_local_adapter_boundaries(self):
+        for command in ['gh pr lsit', 'magick identfiy example.png']:
+            with self.subTest(command=command):
+                result = subprocess.run(
+                    [str(BINARY), 'suggest', '--command', command, '--force-ai',
+                     '--provider', 'codex'],
+                    env=self.env, capture_output=True, text=True, check=True,
+                )
+                self.assertIsNone(json.loads(result.stdout)['suggestion'])
+        self.assertFalse((self.path / 'ai-prompt').exists())
+        self.assertFalse((self.path / 'executed').exists())
 
     def test_kubectl_requires_separate_global_option_evidence(self):
         data = json.loads(self.fixture_path.read_text())

@@ -23,7 +23,7 @@ The [nested CLI batch](NESTED_CLI_BATCH.md) adds Nix, iwctl, Zellij, and strace,
 bringing the registry at that point to 120 executable names.
 All tools absent from these implementation reports remain planned.
 
-Current registry: **260 executable names**. See the [latest expansion](CLI_EXPANSION.md)
+Current registry: **267 executable names**. See the [latest expansion](CLI_EXPANSION.md)
 and [complete requested-status ledger](CLI_STATUS.md) before assuming a listed
 tool or nested command is supported.
 

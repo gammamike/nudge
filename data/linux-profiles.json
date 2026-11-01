@@ -412,6 +412,47 @@
     "abbreviate": true,
     "min_operands": 2
   },
+  "cpupower": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--debug -d --cpu= -c=",
+    "commands": {
+      "frequency-info": {
+        "min": 0,
+        "max": 0,
+        "help": [
+          "help",
+          "frequency-info"
+        ]
+      },
+      "idle-info": {
+        "min": 0,
+        "max": 0,
+        "help": [
+          "help",
+          "idle-info"
+        ]
+      },
+      "powercap-info": {
+        "min": 0,
+        "max": 0,
+        "help": [
+          "help",
+          "powercap-info"
+        ]
+      },
+      "info": {
+        "min": 0,
+        "max": 0,
+        "help": [
+          "help",
+          "info"
+        ]
+      }
+    },
+    "local_only": true
+  },
   "cryptsetup": {
     "help": [
       "--help"
@@ -479,6 +520,28 @@
     "flags": "--help --version --unified? -u --context? -c --brief -q --recursive -r --report-identical-files -s --ignore-case -i --ignore-space-change -b --ignore-all-space -w --side-by-side -y --width= -W= --label= --exclude= -x= --exclude-from= -X=",
     "abbreviate": true,
     "min_operands": 2
+  },
+  "direnv": {
+    "help": [
+      "--help"
+    ],
+    "flags": "",
+    "commands": {
+      "status": {
+        "min": 0,
+        "max": 0,
+        "flags": "--json"
+      },
+      "version": {
+        "min": 0,
+        "max": 0
+      },
+      "stdlib": {
+        "min": 0,
+        "max": 0
+      }
+    },
+    "local_only": true
   },
   "dirname": {
     "help": [
@@ -688,6 +751,31 @@
       "--help"
     ],
     "flags": "--help --version --access -a --default -d --omit-header -c --all-effective -e --skip-base -s --recursive -R --absolute-names -p --numeric -n --physical -P --logical -L"
+  },
+  "git-lfs": {
+    "help": [
+      "--help"
+    ],
+    "flags": "",
+    "commands": {
+      "status": {
+        "min": 0,
+        "max": 0
+      },
+      "env": {
+        "min": 0,
+        "max": 0
+      },
+      "version": {
+        "min": 0,
+        "max": 0
+      },
+      "ls-files": {
+        "min": 0,
+        "max": 0
+      }
+    },
+    "local_only": true
   },
   "glow": {
     "help": [
@@ -1284,6 +1372,25 @@
         "flags": ""
       }
     }
+  },
+  "magick": {
+    "help": [
+      "--help"
+    ],
+    "single_dash": true,
+    "flags": "-help -version",
+    "commands": {
+      "identify": {
+        "min": 1,
+        "max": 32,
+        "flags": "-help -version -verbose -ping -format= -quiet -precision=",
+        "help": [
+          "identify",
+          "-help"
+        ]
+      }
+    },
+    "local_only": true
   },
   "make": {
     "help": [
@@ -2299,6 +2406,17 @@
     "flags": "--help --version --reverse -r --numeric-sort -n --human-numeric-sort -h --version-sort -V --unique -u --ignore-case -f --key= -k= --field-separator= -t= --output= -o= --check? -c --stable -s --zero-terminated -z",
     "abbreviate": true
   },
+  "sox": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --info --i",
+    "min_operands": 1,
+    "require_any": [
+      "--info",
+      "--i"
+    ]
+  },
   "split": {
     "help": [
       "--help"
@@ -2348,6 +2466,18 @@
       "--help"
     ],
     "flags": "--help --version --all -a --print-file-name -f --bytes= -n= --encoding= -e= --radix= -t= --output-separator= --target= -T="
+  },
+  "swapon": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --show? --output-all --noheadings --raw --bytes --summary -s",
+    "max_operands": 0,
+    "require_any": [
+      "--show",
+      "--summary",
+      "-s"
+    ]
   },
   "sync": {
     "help": [
@@ -2672,6 +2802,14 @@
       "--help"
     ],
     "flags": "--help -h --version --clean -R -n -d --noplugin"
+  },
+  "virtualenv": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version --with-traceback --read-only-app-data --no-vcs-ignore --system-site-packages --symlinks --copies --always-copy --no-seed --without-pip --no-download --never-download --no-pip --no-setuptools --no-periodic-update --prompt= --python= -p= --quiet -q --verbose -v",
+    "min_operands": 1,
+    "max_operands": 1
   },
   "visudo": {
     "help": [

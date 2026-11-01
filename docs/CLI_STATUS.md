@@ -1,6 +1,6 @@
 # Requested command status
 
-The registry contains **260 executable names**. This ledger preserves the
+The registry contains **267 executable names**. This ledger preserves the
 requested inventory and distinguishes scoped support from pending work.
 The full requested inventory is **not yet complete**. See the
 [expansion report](CLI_EXPANSION.md) and previous batch reports for exact scopes.
@@ -28,21 +28,21 @@ not add executable names to the registry.
 | Shell builtins and wrappers | — | `cd`, `pwd`, `export`, `unset`, `source`, `type`, `command`, `history`, `jobs`, `fg`, `bg`, `alias`, `unalias`, `sudo`, `doas` |
 | Desktop / Wayland | `hyprctl`, `hyprpaper`, `hyprlock`, `hypridle`, `waybar`, `walker`, `mako`, `makoctl`, `notify-send`, `wl-copy`, `wl-paste`, `xdg-open`, `playerctl`, `brightnessctl`, `wpctl`, `pamixer`, `bluetoothctl`, `iwctl`, `gsettings`, `fc-list`, `fc-cache` | `grim`, `slurp`, `xdg-mime`, `pactl`, `swww`, `wlr-randr` |
 | Boot, kernel, and low-level system | `mkinitcpio`, `dracut`, `limine`, `bootctl`, `efibootmgr`, `modprobe`, `lsmod`, `sysctl`, `udevadm`, `systemd-analyze`, `coredumpctl`, `networkctl`, `busctl` | `grub-mkconfig`, `rmmod`, `systemd-run`, `reflector`, `fwupdmgr` |
-| Disks and filesystems | `fdisk`, `parted`, `sync`, `cryptsetup`, `snapper`, `smartctl` | `gdisk`, `mkfs`, `fsck`, `dd`, `lvs`, `pvs`, `vgs`, `lvcreate`, `btrfs`, `zfs`, `zpool`, `mdadm`, `swapon`, `swapoff` |
+| Disks and filesystems | `fdisk`, `parted`, `sync`, `cryptsetup`, `snapper`, `smartctl`, `swapon` | `gdisk`, `mkfs`, `fsck`, `dd`, `lvs`, `pvs`, `vgs`, `lvcreate`, `btrfs`, `zfs`, `zpool`, `mdadm`, `swapoff` |
 | Debugging and performance | `fuser`, `strace`, `ltrace`, `gdb`, `ldd`, `objdump`, `nm`, `vmstat`, `iostat`, `hyperfine` | `lsof`, `perf`, `valgrind`, `iotop`, `nethogs`, `iftop` |
-| Hardware information | `sensors`, `nvidia-smi`, `upower`, `dmidecode`, `lshw`, `fastfetch` | `nvtop`, `powertop`, `cpupower`, `inxi` |
+| Hardware information | `sensors`, `nvidia-smi`, `upower`, `dmidecode`, `lshw`, `fastfetch`, `cpupower` | `nvtop`, `powertop`, `inxi` |
 | Security and keys | `gpg`, `openssl`, `age`, `sops`, `visudo`, `getfacl` | `ssh-keygen`, `ssh-add`, `ssh-copy-id`, `ssh-agent`, `pass`, `certbot`, `nft`, `iptables`, `fail2ban-client`, `setfacl`, `chattr`, `lsattr` |
 | Scheduling | `systemctl list-timers` | `crontab`, `at` |
 | Text and files | `tree`, `column`, `tac`, `rev`, `nl`, `fold`, `fmt`, `join`, `comm`, `split`, `shuf`, `seq`, `base64`, `hexdump`, `od`, `iconv`, `envsubst`, `rename`, `inotifywait` | `xxd`, `shred`, `truncate`, `entr` |
 | Networking | `ethtool`, `mtr`, `whois`, `wg`, `tailscale`, `http`, `aria2c` | `iw`, `netstat`, `arp`, `wg-quick`, `openvpn`, `socat`, `iperf3` |
 | Containers | `docker buildx`, `buildah`, `skopeo`, `kustomize`, `lazydocker` | `k9s`, `kubectx`, `kubens`, `k3s`, `distrobox`, `toolbox` |
-| Version control | `lazygit`, `pre-commit` | `tig`, `git-lfs`, `jj` |
-| Languages and tooling | `pytest`, `ruff`, `black`, `mypy`, `rustfmt`, `ruby`, `luarocks`, `meson`, `just`, `pkg-config`, `makepkg` | `pyenv`, `conda`, `mamba`, `virtualenv`, `nvm`, `fnm`, `asdf`, `tsc`, `eslint`, `prettier`, `vite`, `vitest`, `jest`, `gofmt`, `golangci-lint`, `zig`, `rails`, `php`, `artisan`, `lua`, `perl`, `mix`, `ghc`, `cabal`, `stack`, `kotlin`, `swift`, `bazel`, `task` |
+| Version control | `lazygit`, `pre-commit`, `git-lfs` | `tig`, `jj` |
+| Languages and tooling | `pytest`, `ruff`, `black`, `mypy`, `rustfmt`, `ruby`, `luarocks`, `meson`, `just`, `pkg-config`, `makepkg`, `virtualenv` | `pyenv`, `conda`, `mamba`, `nvm`, `fnm`, `asdf`, `tsc`, `eslint`, `prettier`, `vite`, `vitest`, `jest`, `gofmt`, `golangci-lint`, `zig`, `rails`, `php`, `artisan`, `lua`, `perl`, `mix`, `ghc`, `cabal`, `stack`, `kotlin`, `swift`, `bazel`, `task` |
 | Package management | `nix`, `paccache` | `nix-shell`, `nix-env`, `nixos-rebuild`, `home-manager`, `emerge`, `xbps-install`, `pkg`, `pamac`, `topgrade` |
 | Data and databases | `pg_dump`, `pg_restore` | `mysqldump`, `mongosh`, `duckdb`, `sqlcmd`, `clickhouse-client`, `csvkit`, `qsv` |
 | Cloud and deployment | — | `doctl`, `flyctl`, `vercel`, `netlify`, `wrangler`, `heroku`, `railway`, `firebase`, `supabase`, `pulumi`, `packer`, `vagrant`, `eksctl`, `hcloud`, `vault`, `gsutil`, `bq`, `cdk`, `sam` |
-| Media and documents | `ffmpeg`, `ffprobe`, `yt-dlp`, `mpv`, `pandoc`, `qpdf` | `magick`, `exiftool`, `pdftk`, `gs`, `sox` |
-| Shell, dotfiles, and help | `man`, `tldr`, `info`, `apropos`, `stow`, `chezmoi`, `starship`, `atuin` | `zsh`, `fish`, `chsh`, `direnv`, `echo`, `printf`, `read`, `test`, `eval`, `exec`, `trap`, `set`, `ulimit`, `umask`, `wait`, `disown` |
+| Media and documents | `ffmpeg`, `ffprobe`, `yt-dlp`, `mpv`, `pandoc`, `qpdf`, `magick`, `sox` | `exiftool`, `pdftk`, `gs` |
+| Shell, dotfiles, and help | `man`, `tldr`, `info`, `apropos`, `stow`, `chezmoi`, `starship`, `atuin`, `direnv` | `zsh`, `fish`, `chsh`, `echo`, `printf`, `read`, `test`, `eval`, `exec`, `trap`, `set`, `ulimit`, `umask`, `wait`, `disown` |
 | Interactive tools and editors | `zellij`, `micro`, `glow` | `byobu`, `hx`, `emacs`, `yazi`, `ranger`, `nnn`, `lf`, `broot` |
 | Modern replacements | `dust`, `duf`, `procs`, `sd`, `delta`, `lsd`, `btm`, `tokei` | — |
 | AI command-line tools | — | `gemini`, `aider`, `opencode`, `llm`, `gh copilot`, `goose`, `crush`, `amp`, `cursor-agent` |

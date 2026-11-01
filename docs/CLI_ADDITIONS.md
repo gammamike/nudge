@@ -3,8 +3,8 @@
 Entries here are a roadmap, not support claims merely because they are listed.
 The first implemented batch is Git, Docker/Compose, systemctl, and journalctl;
 its scoped support and completed tests are recorded in [the batch report](FIRST_CLI_BATCH.md).
-The [latest expansion](CLI_EXPANSION.md) adds another 140 executable adapters
-and Docker Buildx inspection, for **260 executable names**. The
+The [latest expansion](CLI_EXPANSION.md) adds another 147 executable adapters
+and Docker Buildx inspection, for **267 executable names**. The
 [status ledger](CLI_STATUS.md) identifies the remaining requested tools.
 
 The [Linux profile batch](LINUX_PROFILES.md) now records 110 implemented,

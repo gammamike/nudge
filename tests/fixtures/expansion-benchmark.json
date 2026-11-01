@@ -3,88 +3,96 @@
     "batch": "build-data-security",
     "command": "age --decrpyt -i \"key file\" example.age",
     "samples": 25,
-    "cold_engine_ms": 2.599919,
-    "warm_engine_median_ms": 0.382859,
-    "warm_wall_median_ms": 1.3868730020476505
+    "cold_engine_ms": 2.937556,
+    "warm_engine_median_ms": 0.580081,
+    "warm_wall_median_ms": 1.6355590050807223
   },
   {
     "batch": "project-tooling",
     "command": "atuin history lsit --cmd-only",
     "samples": 25,
-    "cold_engine_ms": 9.161865,
-    "warm_engine_median_ms": 0.5464559999999999,
-    "warm_wall_median_ms": 1.3764710020041093
+    "cold_engine_ms": 13.622274,
+    "warm_engine_median_ms": 0.869567,
+    "warm_wall_median_ms": 2.1481370058609173
   },
   {
     "batch": "files-archives-wrappers",
     "command": "awk --field-separtaor : -f program.awk input.txt",
     "samples": 25,
-    "cold_engine_ms": 2.810575,
-    "warm_engine_median_ms": 0.38075499999999995,
-    "warm_wall_median_ms": 1.133062003646046
+    "cold_engine_ms": 2.85568,
+    "warm_engine_median_ms": 0.48868,
+    "warm_wall_median_ms": 1.6020469920476899
   },
   {
     "batch": "desktop-modern-utilities",
     "command": "awww qurey",
     "samples": 25,
-    "cold_engine_ms": 2.5257880000000004,
-    "warm_engine_median_ms": 0.308448,
-    "warm_wall_median_ms": 1.00613699760288
+    "cold_engine_ms": 2.5150010000000003,
+    "warm_engine_median_ms": 0.44547,
+    "warm_wall_median_ms": 1.4984879962867126
   },
   {
     "batch": "system-inspection-networking",
     "command": "blkid --list-filesystmes",
     "samples": 25,
-    "cold_engine_ms": 2.6133699999999997,
-    "warm_engine_median_ms": 0.35857100000000003,
-    "warm_wall_median_ms": 0.9777550003491342
+    "cold_engine_ms": 2.5792710000000003,
+    "warm_engine_median_ms": 0.56041,
+    "warm_wall_median_ms": 1.6075750027084723
   },
   {
     "batch": "containers-orchestration",
     "command": "buildah contianers",
     "samples": 25,
-    "cold_engine_ms": 44.058875,
-    "warm_engine_median_ms": 0.542502,
-    "warm_wall_median_ms": 1.4150429924484342
+    "cold_engine_ms": 43.940650999999995,
+    "warm_engine_median_ms": 0.757192,
+    "warm_wall_median_ms": 1.9890519906766713
+  },
+  {
+    "batch": "media-and-environment",
+    "command": "cpupower frequency-ifno",
+    "samples": 25,
+    "cold_engine_ms": 19.425518,
+    "warm_engine_median_ms": 0.486554,
+    "warm_wall_median_ms": 1.526658990769647
   },
   {
     "batch": "administration-inspection",
     "command": "cryptsetup stauts example",
     "samples": 25,
-    "cold_engine_ms": 5.593843000000001,
-    "warm_engine_median_ms": 0.704621,
-    "warm_wall_median_ms": 1.6869309911271557
+    "cold_engine_ms": 3.5066490000000003,
+    "warm_engine_median_ms": 1.029905,
+    "warm_wall_median_ms": 2.073569005005993
   },
   {
     "batch": "developer-nested",
     "command": "deno chekc example.ts",
     "samples": 25,
-    "cold_engine_ms": 11.848664,
-    "warm_engine_median_ms": 0.617411,
-    "warm_wall_median_ms": 1.401465997332707
+    "cold_engine_ms": 9.155064,
+    "warm_engine_median_ms": 0.7381580000000001,
+    "warm_wall_median_ms": 1.9199829985154793
   },
   {
     "batch": "network-diagnostics-editors",
     "command": "dmidecode --list-stirngs",
     "samples": 25,
-    "cold_engine_ms": 2.4824970000000004,
-    "warm_engine_median_ms": 0.308028,
-    "warm_wall_median_ms": 1.043010997818783
+    "cold_engine_ms": 2.700491,
+    "warm_engine_median_ms": 0.468683,
+    "warm_wall_median_ms": 1.4879059890517965
   },
   {
     "batch": "utilities-editors",
     "command": "inotifywait --recusrive \"example dir\"",
     "samples": 25,
-    "cold_engine_ms": 2.6560759999999997,
-    "warm_engine_median_ms": 0.416552,
-    "warm_wall_median_ms": 1.1830619914690033
+    "cold_engine_ms": 3.0340290000000003,
+    "warm_engine_median_ms": 0.643762,
+    "warm_wall_median_ms": 1.688523989287205
   },
   {
     "batch": "developer-data",
     "command": "jq --raw-outptu . data.json",
     "samples": 25,
-    "cold_engine_ms": 2.9068929999999997,
-    "warm_engine_median_ms": 0.39174400000000004,
-    "warm_wall_median_ms": 1.0175990028074011
+    "cold_engine_ms": 2.622379,
+    "warm_engine_median_ms": 0.646219,
+    "warm_wall_median_ms": 1.7055070056812838
   }
 ]

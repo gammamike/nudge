@@ -59,6 +59,10 @@
       "version": "4.4.4-1",
       "source": "Linux installed or extracted repository package metadata"
     },
+    "cpupower": {
+      "version": "7.2.11-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
     "cryptsetup": {
       "version": "cryptsetup 2.8.8-1",
       "source": "Linux installed or extracted repository package metadata"
@@ -73,6 +77,10 @@
     },
     "deno": {
       "version": "deno 2.9.8-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "direnv": {
+      "version": "2.38.2-1",
       "source": "Linux installed or extracted repository package metadata"
     },
     "dmidecode": {
@@ -130,6 +138,10 @@
     "gh": {
       "version": "gh version 2.103.3 (2026-10-26)",
       "source": "Linux executable --version"
+    },
+    "git-lfs": {
+      "version": "3.8.0-1",
+      "source": "Linux installed or extracted repository package metadata"
     },
     "glow": {
       "version": "3.0.0-2",
@@ -245,6 +257,10 @@
     },
     "luarocks": {
       "version": "luarocks 3.13.0-5",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "magick": {
+      "version": "imagemagick 7.1.2.34-2",
       "source": "Linux installed or extracted repository package metadata"
     },
     "makepkg": {
@@ -451,6 +467,10 @@
       "version": "3.13.3-1",
       "source": "Linux installed or extracted repository package metadata"
     },
+    "sox": {
+      "version": "14.8.0.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
     "sqlite3": {
       "version": "sqlite 3.54.0-1",
       "source": "Linux installed or extracted repository package metadata"
@@ -461,6 +481,10 @@
     },
     "stow": {
       "version": "2.4.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "swapon": {
+      "version": "util-linux 2.42.4-1",
       "source": "Linux installed or extracted repository package metadata"
     },
     "sync": {
@@ -525,6 +549,10 @@
     },
     "vim": {
       "version": "vim 9.2.1178-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "virtualenv": {
+      "version": "21.14.7-1",
       "source": "Linux installed or extracted repository package metadata"
     },
     "visudo": {

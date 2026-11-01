@@ -1,7 +1,7 @@
 # Linux command expansion
 
-Checked on Linux x86_64 on 2026-11-01. This expansion adds **140 executable
-adapters**, increasing the registry from 120 to **260**, and extends the existing
+Checked on Linux x86_64 on 2026-11-01. This expansion adds **147 executable
+adapters**, increasing the registry from 120 to **267**, and extends the existing
 Docker adapter with Buildx inspection commands. These are scoped corrections,
 not complete coverage of every CLI or every requested tool. See the
 [remaining inventory](CLI_STATUS.md).
@@ -26,6 +26,7 @@ request was executed by these checks.
 | 9. network diagnostics editors | 17 | `dmidecode`, `ethtool`, `gdb`, `glow`, `htop`, `http`, `iostat`, `lshw`, `ltrace`, `micro`, `mtr`, `nano`, `nmap`, `screen`, `smartctl`, `tcpdump`, `wget` |
 | 10. build data security | 12 | `age`, `aria2c`, `black`, `cmake`, `dracut`, `just`, `mypy`, `ninja`, `pandoc`, `pytest`, `sops`, `stow` |
 | 11. project tooling | 5 | `atuin`, `chezmoi`, `meson`, `pre-commit`, `ruff` |
+| 12. media and environment | 7 | `cpupower`, `direnv`, `git-lfs`, `magick`, `sox`, `swapon`, `virtualenv` |
 
 Docker Buildx supports `ls`, `inspect`, `du`, and `version`. Creation, removal,
 build execution, and `inspect --bootstrap` are excluded. Buildx's own version is
@@ -38,6 +39,8 @@ included in its metadata cache key.
 - New generic nested profiles use unique local one-edit corrections only. They
   do not send unknown extensions, command names, or operands to a model. Existing
   eligible adapters retain optional Codex, Claude Code, and local LLM selection.
+  The new `magick`, `cpupower`, `direnv`, and `git-lfs` command profiles are also
+  local-only. `--force-ai` does not override these adapter boundaries.
 - Kubectl global options come from its separate `options` metadata. Installed
   `kubectl-NAME` executables prevent rewriting that root command name. Podman and
   other reviewed aliases are checked against parent or leaf help before use.
@@ -212,15 +215,22 @@ Package archive provenance includes runtime dependencies, not additional adapter
 | `whois` | Options: --help, --version, --host, --port, --verbose, --no-recursion | Literal operands; reviewed flags only | `whois --no-recusrion example.invalid` |
 | `xz` | Options: --help, --version, --test, --stdout, --quiet, --verbose, --keep, --list, --decompress | Requires --test, -t, --stdout, -c, --list, -l | `xz --tset archive.bin` |
 | `zoxide` | Commands: query | Reviewed route-specific flags; local corrections only | `zoxide qeury --list "example dir"` |
+| `cpupower` | Commands: frequency-info, idle-info, powercap-info, info | Local corrections only | `cpupower frequency-ifno` |
+| `direnv` | Commands: status, version, stdlib | Local corrections only | `direnv stauts --json` |
+| `git-lfs` | Commands: status, env, version, ls-files | Local corrections only | `git-lfs stauts` |
+| `magick` | Commands: identify | Local corrections only | `magick identify -verbsoe "example image.png"` |
+| `sox` | Options: --help, --version, --info, --i | Requires --info, --i | `sox --inof "audio file.wav"` |
+| `swapon` | Options: --help, --version, --show, --output-all, --noheadings, --raw, --bytes, --summary | Requires --show, --summary, -s; no positional arguments | `swapon --show --noheadigns` |
+| `virtualenv` | Options: --help, --version, --with-traceback, --read-only-app-data, --no-vcs-ignore, --system-site-packages, --symlinks, --copies, --always-copy, --no-seed, --without-pip, --no-download, --never-download, --no-pip, --no-setuptools, --no-periodic-update, --prompt, --python, --quiet, --verbose | Exactly one destination; clearing excluded | `virtualenv --system-site-packgaes --no-download "example venv"` |
 
 ## Validation
 
-All 11 batches passed their focused tests. The complete suite passed **11 Rust
-unit tests and 76 integration tests**, including the existing 1,823 catalog
+All 12 batches passed their focused tests. The complete suite passed **11 Rust
+unit tests and 77 integration tests**, including the existing 1,823 catalog
 regression cases. The integration suite includes positive correction, correctly
 spelled runtime failure, missing metadata, and excluded-operation cases for each
 new executable; Bash PTY cancellation/acceptance for one representative per
-batch; Kubectl plugin/global-option checks; and Codex, Claude Code, and local LLM
+batch; Kubectl plugin/global-option and forced-provider boundary checks; and Codex, Claude Code, and local LLM
 mock regressions. No accepted operation runs against a real target executable.
 
 Formatting, Clippy with warnings denied, release build, and Bash syntax checks
@@ -246,16 +256,17 @@ cross-machine latency guarantee.
 
 | Input | Cold engine ms | Warm engine median ms | Warm process wall median ms |
 |---|---:|---:|---:|
-| `age --decrpyt -i "key file" example.age` | 2.600 | 0.383 | 1.387 |
-| `atuin history lsit --cmd-only` | 9.162 | 0.546 | 1.376 |
-| `awk --field-separtaor : -f program.awk input.txt` | 2.811 | 0.381 | 1.133 |
-| `awww qurey` | 2.526 | 0.308 | 1.006 |
-| `blkid --list-filesystmes` | 2.613 | 0.359 | 0.978 |
-| `buildah contianers` | 44.059 | 0.543 | 1.415 |
-| `cryptsetup stauts example` | 5.594 | 0.705 | 1.687 |
-| `deno chekc example.ts` | 11.849 | 0.617 | 1.401 |
-| `dmidecode --list-stirngs` | 2.482 | 0.308 | 1.043 |
-| `inotifywait --recusrive "example dir"` | 2.656 | 0.417 | 1.183 |
-| `jq --raw-outptu . data.json` | 2.907 | 0.392 | 1.018 |
+| `age --decrpyt -i "key file" example.age` | 2.938 | 0.580 | 1.636 |
+| `atuin history lsit --cmd-only` | 13.622 | 0.870 | 2.148 |
+| `awk --field-separtaor : -f program.awk input.txt` | 2.856 | 0.489 | 1.602 |
+| `awww qurey` | 2.515 | 0.445 | 1.498 |
+| `blkid --list-filesystmes` | 2.579 | 0.560 | 1.608 |
+| `buildah contianers` | 43.941 | 0.757 | 1.989 |
+| `cpupower frequency-ifno` | 19.426 | 0.487 | 1.527 |
+| `cryptsetup stauts example` | 3.507 | 1.030 | 2.074 |
+| `deno chekc example.ts` | 9.155 | 0.738 | 1.920 |
+| `dmidecode --list-stirngs` | 2.700 | 0.469 | 1.488 |
+| `inotifywait --recusrive "example dir"` | 3.034 | 0.644 | 1.689 |
+| `jq --raw-outptu . data.json` | 2.622 | 0.646 | 1.706 |
 
 [Raw measurements](../tests/fixtures/expansion-benchmark.json).

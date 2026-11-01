@@ -9,7 +9,7 @@ source tree and do not imply a published package or stable release.
 
 - Rust correction engine and interactive Bash 5+ integration for Linux.
 - Enter-to-run confirmation, single-key cancellation, and literal argument passing.
-- 260 scoped executable adapters, with installed command metadata and explicit
+- 267 scoped executable adapters, with installed command metadata and explicit
   eligibility rules. See the [coverage documentation](README.md#command-coverage).
 - Nix, iwctl, Zellij, and strace adapters with nested-command, selector, option,
   and command-payload handling.
@@ -24,11 +24,12 @@ source tree and do not imply a published package or stable release.
 - Static x86_64 Linux bundle, matching source archive, checksums, and dependency
   notices; package CI matrix for Ubuntu, Debian, Fedora, and Alpine.
 
-- 140 additional executable adapters across 11 tested batches, plus Docker Buildx
+- 147 additional executable adapters across 12 tested batches, plus Docker Buildx
   inspection commands, with captured metadata and regression cases.
 
 ### Changed
 
+- Local-only adapter policies also apply when `--force-ai` is requested.
 - Nested aliases and Kubectl global options are validated against installed help.
 - Required inspection/dry-run flags cannot be satisfied by argument values.
 - Configuration and cache follow XDG paths; installed copies no longer depend

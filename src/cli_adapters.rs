@@ -599,7 +599,11 @@ pub(crate) fn suggest(line: &str, options: &Options<'_>, runner: &Runner) -> Res
         if close.len() == 1 && !options.force_ai {
             selected = Some(close[0].clone());
             result.source = "local".into();
-        } else if !options.local_only && !problem.flag {
+        } else if !options.local_only
+            && !problem.flag
+            && !crate::cli_profiles::local_only(&words[0])
+            && !crate::cli_nested::local_only(&words[0])
+        {
             // Only command syntax is sent to AI. Arguments, resource names,
             // option values, paths and config data never leave this adapter.
             let entries: Vec<_> = problem

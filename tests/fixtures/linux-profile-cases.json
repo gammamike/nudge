@@ -194,6 +194,13 @@
       "private operand"
     ]
   },
+  "cpupower": {
+    "input": "cpupower frequency-ifno",
+    "argv": [
+      "cpupower",
+      "frequency-info"
+    ]
+  },
   "cryptsetup": {
     "input": "cryptsetup stauts example",
     "argv": [
@@ -248,6 +255,14 @@
       "--unified",
       "private operand",
       "private operand"
+    ]
+  },
+  "direnv": {
+    "input": "direnv stauts --json",
+    "argv": [
+      "direnv",
+      "status",
+      "--json"
     ]
   },
   "dirname": {
@@ -462,6 +477,13 @@
     "argv": [
       "getfacl",
       "--access"
+    ]
+  },
+  "git-lfs": {
+    "input": "git-lfs stauts",
+    "argv": [
+      "git-lfs",
+      "status"
     ]
   },
   "glow": {
@@ -797,6 +819,15 @@
       "luarocks",
       "search",
       "example"
+    ]
+  },
+  "magick": {
+    "input": "magick identify -verbsoe \"example image.png\"",
+    "argv": [
+      "magick",
+      "identify",
+      "-verbose",
+      "example image.png"
     ]
   },
   "make": {
@@ -1429,6 +1460,14 @@
       "--reverse"
     ]
   },
+  "sox": {
+    "input": "sox --inof \"audio file.wav\"",
+    "argv": [
+      "sox",
+      "--info",
+      "audio file.wav"
+    ]
+  },
   "split": {
     "input": "split --bytse 'private value'",
     "argv": [
@@ -1475,6 +1514,14 @@
     "argv": [
       "strings",
       "--print-file-name"
+    ]
+  },
+  "swapon": {
+    "input": "swapon --show --noheadigns",
+    "argv": [
+      "swapon",
+      "--show",
+      "--noheadings"
     ]
   },
   "sync": {
@@ -1675,6 +1722,15 @@
       "vim",
       "--clean",
       "example file"
+    ]
+  },
+  "virtualenv": {
+    "input": "virtualenv --system-site-packgaes --no-download \"example venv\"",
+    "argv": [
+      "virtualenv",
+      "--system-site-packages",
+      "--no-download",
+      "example venv"
     ]
   },
   "visudo": {
