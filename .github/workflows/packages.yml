@@ -5,12 +5,13 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: linux-packages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -61,3 +62,18 @@ jobs:
           NUDGE_TEST_IMAGE: ${{ matrix.image }}
         run: |
           scripts/test-distribution.sh dist/nudge-*-linux-x86_64.tar.gz "$NUDGE_TEST_IMAGE"
+
+  arch:
+    needs: bundle
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: linux-x86_64
+          path: dist
+      - name: Build, lint, install, and remove source and binary Arch packages
+        run: scripts/test-arch.sh dist

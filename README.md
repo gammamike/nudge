@@ -67,6 +67,17 @@ Set `NUDGE_ENABLED=0` to disable the hook in the current shell.
 For development without installation, build with `cargo build --locked --release`
 and run `./try-bash`. The source-build executable is `target/release/nudge-rust`.
 
+## System and package installation
+
+For staged installs and distro packages, use the `nudge-bash` command. The
+Makefile supports `PREFIX` and `DESTDIR` and installs a man page, Bash completion,
+and license notices. Activation is explicit; package installation does not edit
+user startup files. See [system installation](docs/SYSTEM_INSTALL.md).
+
+AUR recipes and a tag-triggered draft-release workflow are prepared. Packages
+and public release downloads have not been published. See the
+[release and AUR guide](docs/RELEASING.md) for validation and submission.
+
 ## Local corrections and model providers
 
 To use deterministic local corrections without any model calls:

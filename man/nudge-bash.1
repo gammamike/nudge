@@ -1,0 +1,84 @@
+.TH NUDGE-BASH 1 "" "Nudge" "User Commands"
+.SH NAME
+nudge-bash \- local-first command correction for Bash on Linux
+.SH SYNOPSIS
+.B nudge-bash
+.I action
+.RI [ options ]
+.SH DESCRIPTION
+Nudge suggests corrections after a failed command in an interactive Bash 5+
+shell. Press Enter to accept a displayed correction; any other key cancels.
+The executable name must be spelled correctly. Command support is scoped to
+reviewed syntax and installed metadata. Shell expansions, pipelines, aliases,
+functions, and builtins are not corrected.
+.SH ACTIONS
+.TP
+.B supported
+List registered executable adapters. Registration does not imply all forms
+of a command are supported.
+.TP
+.B refresh
+Refresh command catalog metadata.
+.TP
+.B suggest
+Return a suggestion as JSON without executing it.
+.TP
+.B confirm
+Prompt for confirmation and emit the accepted argument vector for the Bash hook.
+.TP
+.B config
+Show effective settings, or save provider, model, and endpoint options.
+.TP
+.B models
+List models from the selected local model server.
+.SH OPTIONS
+.TP
+.BI --command " TEXT"
+Failed command line to analyze.
+.TP
+.BI --status " CODE"
+Original exit status (default 1). Successful and interrupted commands are skipped.
+.TP
+.B --local-only
+Use deterministic corrections only.
+.TP
+.BI --provider " codex|claude|ollama|local"
+Select optional Codex, Claude Code, or local LLM fallback.
+.TP
+.BI --model " ID"
+Choose a model available through the selected backend.
+.TP
+.BI --endpoint " URL"
+Set a loopback HTTP endpoint for a local model server.
+.TP
+.B --force-ai
+Request a model for eligible adapters. Local-only adapter boundaries still apply.
+.TP
+.BR --help , " -h"
+Show usage.
+.TP
+.BR --version , " -V"
+Show the version.
+.SH ACTIVATION
+Add the following guarded line to your own Bash startup file for a system package:
+.PP
+.nf
+[[ -r /usr/lib/nudge-bash/nudge.bash ]] && source /usr/lib/nudge-bash/nudge.bash
+.fi
+.PP
+For a manual Makefile installation, substitute its prefix (default /usr/local).
+Start a new Bash shell. Remove an earlier Nudge source line before enabling a
+different installation. Package installation does not edit startup files.
+.SH FILES
+Configuration uses $XDG_CONFIG_HOME/nudge/config.json, or ~/.config/nudge/config.json.
+Cache uses $XDG_CACHE_HOME/nudge, or ~/.cache/nudge.
+.SH ENVIRONMENT
+NUDGE_ENABLED=0 disables suggestions. NUDGE_LOCAL_ONLY=1 disables model fallback.
+NUDGE_PROVIDER selects the backend. See PROVIDERS.md for model-specific settings.
+Explicit options override environment variables, which override saved settings.
+.SH MAINTENANCE
+Use the package manager for package updates and removal. The per-user install,
+uninstall, and rollback actions are unavailable from this installation.
+User configuration and cache are retained when package files are removed.
+.SH LICENSE
+GPL-3.0-only. Dependency and toolchain notices accompany the distribution.

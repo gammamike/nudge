@@ -53,22 +53,12 @@ runtime dependency, and optional model backends separately. Follow the
 test in a clean Arch chroot, and inspect the package with `namcap` as described in
 the [package guidelines](https://wiki.archlinux.org/title/Arch_package_guidelines).
 
-**Implementation needed before AUR submission:**
-
-- Add a package-managed layout and enable instructions. The current installer
-  manages per-user releases and edits the invoking user's Bash configuration;
-  it must not run from a root package-install hook.
-- Stage files beneath `$pkgdir/usr`; do not install into a builder's home or
-  `/usr/local`. Keep Bash activation explicit and per-user.
-- Check executable-file collisions too. A different package name alone does not
-  resolve two packages shipping `/usr/bin/nudge`. A package command such as
-  `nudge-bash`, with a private backend under `/usr/lib/nudge-bash`, is an option.
-- Ensure updates/removal use the package manager for the system package and
-  cannot accidentally invoke the per-user rollback/uninstall workflow.
-- Test installation, activation, upgrade, package removal, and preservation of
-  unrelated shell configuration before uploading the recipe.
-
-These are proposed packaging changes; they have not been made or published.
+**Packaging implementation:** the repository now provides the staged layout,
+`nudge-bash` command, explicit Bash activation, lifecycle protection, and source
+and binary recipe generation. See [system installation](SYSTEM_INSTALL.md) and
+[release/AUR maintenance](RELEASING.md). Public artifacts and AUR listings are
+still unpublished. Publishing requires a tested clean release, validation against
+its actual download URLs, a name-availability recheck, and maintainer submission.
 
 ## Omarchy's plugin marketplace
 

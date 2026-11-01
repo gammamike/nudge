@@ -7,6 +7,11 @@ source tree and do not imply a published package or stable release.
 
 ### Added
 
+- Staged Makefile installation, a `nudge-bash` entry point, man page, Bash
+  completion, and package-managed lifecycle protection.
+- Checksum-pinned AUR recipe generation, isolated Arch package checks, and
+  a version/commit-verified draft-release workflow.
+
 - Rust correction engine and interactive Bash 5+ integration for Linux.
 - Enter-to-run confirmation, single-key cancellation, and literal argument passing.
 - 267 scoped executable adapters, with installed command metadata and explicit

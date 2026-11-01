@@ -1,0 +1,4 @@
+FROM archlinux:base-devel@sha256:cb06b309ab9424b354a8e1099a934fc48b13e62c3d4453d19d50beaa72c6caee
+RUN sed -i 's@usr/share/doc/\*@@g; s@usr/share/man/\*@@g' /etc/pacman.conf \
+    && pacman -Syu --noconfirm --needed rust python namcap \
+    && useradd -m -u 1000 builder

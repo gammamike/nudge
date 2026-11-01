@@ -30,9 +30,17 @@ for package in metadata['packages']:
         shutil.copyfile(source, target / source.name)
     rows.append(f"| {name} | {package['license']} |")
 rust_docs = args.sysroot / 'share/doc/rust'
+rust_copyright = rust_docs / 'COPYRIGHT.html'
+rust_licenses = rust_docs / 'licenses'
+if not rust_copyright.is_file():
+    # Arch's Rust package keeps copyright and license texts in separate trees.
+    rust_copyright = args.sysroot / 'share/licenses/rust/COPYRIGHT.html.rustc'
+    rust_licenses = args.sysroot / 'share/doc/rustc/licenses'
+if not rust_copyright.is_file() or not rust_licenses.is_dir():
+    raise SystemExit('Rust license inventory is missing. Install the selected toolchain with its license documentation; check pacman NoExtract rules on Arch.')
 # Preserve the toolchain's full notice inventory, including native musl components.
-shutil.copyfile(rust_docs / 'COPYRIGHT.html', licenses / 'RUST-COPYRIGHT.html')
-shutil.copytree(rust_docs / 'licenses', licenses / 'rust')
+shutil.copyfile(rust_copyright, licenses / 'RUST-COPYRIGHT.html')
+shutil.copytree(rust_licenses, licenses / 'rust')
 (args.output / 'THIRD_PARTY_NOTICES.md').write_text(
     '# Third-party notices\n\n'
     'Dependency license files are included under `licenses/`. Rust toolchain and\n'
