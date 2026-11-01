@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+root=$(builtin cd -- "$(command dirname -- "${BASH_SOURCE[0]}")" && builtin pwd)
+python3 "$root/nudge.py" refresh
+exec bash --rcfile "$root/interactive.bash" -i

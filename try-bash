@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+root=$(builtin cd -- "$(command dirname -- "${BASH_SOURCE[0]}")" && builtin pwd)
+if [[ ! -x "$root/target/release/nudge-rust" ]]; then
+    printf 'Build first: cargo build --release --manifest-path %s/Cargo.toml\n' "$root" >&2
+    exit 1
+fi
+"$root/target/release/nudge-rust" refresh
+exec bash --rcfile "$root/interactive.bash" -i

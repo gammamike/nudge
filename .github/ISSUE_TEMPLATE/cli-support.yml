@@ -1,0 +1,50 @@
+name: CLI support request
+description: Request a Linux command-line tool or an additional command form.
+title: "CLI support: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check existing issues first. Replace credentials, private paths, hostnames, and resource names with placeholders. Do not paste shell history or account configuration.
+  - type: input
+    id: executable
+    attributes:
+      label: Executable and version
+      placeholder: "example-cli 1.2.3"
+    validations:
+      required: true
+  - type: input
+    id: distribution
+    attributes:
+      label: Linux distribution and installation method
+    validations:
+      required: true
+  - type: input
+    id: documentation
+    attributes:
+      label: Official documentation or source
+    validations:
+      required: true
+  - type: textarea
+    id: corrections
+    attributes:
+      label: Expected corrections
+      description: Show the mistyped command and the exact correction you expect.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: refusals
+    attributes:
+      label: Commands that should be left alone
+      description: Include valid commands that fail because of permissions, missing resources, or other runtime conditions.
+  - type: textarea
+    id: metadata
+    attributes:
+      label: Relevant help output
+      render: text
+  - type: textarea
+    id: effects
+    attributes:
+      label: Effects and privileges
+      description: Does this command change files, packages, services, devices, or credentials? Does it require elevated privileges?

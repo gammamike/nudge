@@ -1,0 +1,804 @@
+{
+  "apropos": {
+    "input": "apropos --exatc",
+    "argv": [
+      "apropos",
+      "--exact"
+    ]
+  },
+  "base64": {
+    "input": "base64 --decoed",
+    "argv": [
+      "base64",
+      "--decode"
+    ]
+  },
+  "basename": {
+    "input": "basename --multipel 'private operand'",
+    "argv": [
+      "basename",
+      "--multiple",
+      "private operand"
+    ]
+  },
+  "bat": {
+    "input": "bat --numbre",
+    "argv": [
+      "bat",
+      "--number"
+    ]
+  },
+  "bluetoothctl": {
+    "input": "bluetoothctl deviecs",
+    "argv": [
+      "bluetoothctl",
+      "devices"
+    ]
+  },
+  "bootctl": {
+    "input": "bootctl statsu",
+    "argv": [
+      "bootctl",
+      "status"
+    ]
+  },
+  "brightnessctl": {
+    "input": "brightnessctl --lits",
+    "argv": [
+      "brightnessctl",
+      "--list"
+    ]
+  },
+  "btop": {
+    "input": "btop --debgu",
+    "argv": [
+      "btop",
+      "--debug"
+    ]
+  },
+  "cargo": {
+    "input": "cargo buidl",
+    "argv": [
+      "cargo",
+      "build"
+    ]
+  },
+  "cat": {
+    "input": "cat --numbre",
+    "argv": [
+      "cat",
+      "--number"
+    ]
+  },
+  "column": {
+    "input": "column --tabel",
+    "argv": [
+      "column",
+      "--table"
+    ]
+  },
+  "comm": {
+    "input": "comm --check-ordre 'private operand' 'private operand'",
+    "argv": [
+      "comm",
+      "--check-order",
+      "private operand",
+      "private operand"
+    ]
+  },
+  "coredumpctl": {
+    "input": "coredumpctl lits",
+    "argv": [
+      "coredumpctl",
+      "list"
+    ]
+  },
+  "cp": {
+    "input": "cp --verboes 'private operand' 'private operand'",
+    "argv": [
+      "cp",
+      "--verbose",
+      "private operand",
+      "private operand"
+    ]
+  },
+  "curl": {
+    "input": "curl --verboes",
+    "argv": [
+      "curl",
+      "--verbose"
+    ]
+  },
+  "cut": {
+    "input": "cut --bytse 'private value'",
+    "argv": [
+      "cut",
+      "--bytes",
+      "private value"
+    ]
+  },
+  "date": {
+    "input": "date --daet 'private value'",
+    "argv": [
+      "date",
+      "--date",
+      "private value"
+    ]
+  },
+  "df": {
+    "input": "df --human-readabel",
+    "argv": [
+      "df",
+      "--human-readable"
+    ]
+  },
+  "diff": {
+    "input": "diff --unifide 'private operand' 'private operand'",
+    "argv": [
+      "diff",
+      "--unified",
+      "private operand",
+      "private operand"
+    ]
+  },
+  "dirname": {
+    "input": "dirname --zeor 'private operand'",
+    "argv": [
+      "dirname",
+      "--zero",
+      "private operand"
+    ]
+  },
+  "dmesg": {
+    "input": "dmesg --humna",
+    "argv": [
+      "dmesg",
+      "--human"
+    ]
+  },
+  "du": {
+    "input": "du --human-readabel",
+    "argv": [
+      "du",
+      "--human-readable"
+    ]
+  },
+  "envsubst": {
+    "input": "envsubst --variablse",
+    "argv": [
+      "envsubst",
+      "--variables"
+    ]
+  },
+  "eza": {
+    "input": "eza --logn",
+    "argv": [
+      "eza",
+      "--long"
+    ]
+  },
+  "fastfetch": {
+    "input": "fastfetch --list-logso",
+    "argv": [
+      "fastfetch",
+      "--list-logos"
+    ]
+  },
+  "fc-cache": {
+    "input": "fc-cache --verboes",
+    "argv": [
+      "fc-cache",
+      "--verbose"
+    ]
+  },
+  "fc-list": {
+    "input": "fc-list --verboes",
+    "argv": [
+      "fc-list",
+      "--verbose"
+    ]
+  },
+  "fd": {
+    "input": "fd --hiddne",
+    "argv": [
+      "fd",
+      "--hidden"
+    ]
+  },
+  "ffmpeg": {
+    "input": "ffmpeg -licenes",
+    "argv": [
+      "ffmpeg",
+      "-license"
+    ]
+  },
+  "ffprobe": {
+    "input": "ffprobe -licenes",
+    "argv": [
+      "ffprobe",
+      "-license"
+    ]
+  },
+  "file": {
+    "input": "file --brife",
+    "argv": [
+      "file",
+      "--brief"
+    ]
+  },
+  "findmnt": {
+    "input": "findmnt --bytse",
+    "argv": [
+      "findmnt",
+      "--bytes"
+    ]
+  },
+  "fmt": {
+    "input": "fmt --crown-margni",
+    "argv": [
+      "fmt",
+      "--crown-margin"
+    ]
+  },
+  "fold": {
+    "input": "fold --bytse",
+    "argv": [
+      "fold",
+      "--bytes"
+    ]
+  },
+  "free": {
+    "input": "free --bytse",
+    "argv": [
+      "free",
+      "--bytes"
+    ]
+  },
+  "fzf": {
+    "input": "fzf --mulit",
+    "argv": [
+      "fzf",
+      "--multi"
+    ]
+  },
+  "getfacl": {
+    "input": "getfacl --accses",
+    "argv": [
+      "getfacl",
+      "--access"
+    ]
+  },
+  "gpg": {
+    "input": "gpg --list-kesy",
+    "argv": [
+      "gpg",
+      "--list-keys"
+    ]
+  },
+  "grep": {
+    "input": "grep --ignore-caes",
+    "argv": [
+      "grep",
+      "--ignore-case"
+    ]
+  },
+  "head": {
+    "input": "head --linse 'private value'",
+    "argv": [
+      "head",
+      "--lines",
+      "private value"
+    ]
+  },
+  "hexdump": {
+    "input": "hexdump --canonicla",
+    "argv": [
+      "hexdump",
+      "--canonical"
+    ]
+  },
+  "hostnamectl": {
+    "input": "hostnamectl statsu",
+    "argv": [
+      "hostnamectl",
+      "status"
+    ]
+  },
+  "hyprctl": {
+    "input": "hyprctl activewindwo",
+    "argv": [
+      "hyprctl",
+      "activewindow"
+    ]
+  },
+  "iconv": {
+    "input": "iconv --lits",
+    "argv": [
+      "iconv",
+      "--list"
+    ]
+  },
+  "id": {
+    "input": "id --usre",
+    "argv": [
+      "id",
+      "--user"
+    ]
+  },
+  "info": {
+    "input": "info --apropso 'private value'",
+    "argv": [
+      "info",
+      "--apropos",
+      "private value"
+    ]
+  },
+  "join": {
+    "input": "join --ignore-caes 'private operand' 'private operand'",
+    "argv": [
+      "join",
+      "--ignore-case",
+      "private operand",
+      "private operand"
+    ]
+  },
+  "lazygit": {
+    "input": "lazygit --paht 'private value'",
+    "argv": [
+      "lazygit",
+      "--path",
+      "private value"
+    ]
+  },
+  "limine": {
+    "input": "limine hepl",
+    "argv": [
+      "limine",
+      "help"
+    ]
+  },
+  "localectl": {
+    "input": "localectl statsu",
+    "argv": [
+      "localectl",
+      "status"
+    ]
+  },
+  "loginctl": {
+    "input": "loginctl list-sessiosn",
+    "argv": [
+      "loginctl",
+      "list-sessions"
+    ]
+  },
+  "ls": {
+    "input": "ls --almost-lal",
+    "argv": [
+      "ls",
+      "--almost-all"
+    ]
+  },
+  "lsblk": {
+    "input": "lsblk --bytse",
+    "argv": [
+      "lsblk",
+      "--bytes"
+    ]
+  },
+  "lscpu": {
+    "input": "lscpu --onlien",
+    "argv": [
+      "lscpu",
+      "--online"
+    ]
+  },
+  "make": {
+    "input": "make --directoyr 'private value'",
+    "argv": [
+      "make",
+      "--directory",
+      "private value"
+    ]
+  },
+  "man": {
+    "input": "man --apropso",
+    "argv": [
+      "man",
+      "--apropos"
+    ]
+  },
+  "md5sum": {
+    "input": "md5sum --chekc",
+    "argv": [
+      "md5sum",
+      "--check"
+    ]
+  },
+  "mkdir": {
+    "input": "mkdir --parenst 'private operand'",
+    "argv": [
+      "mkdir",
+      "--parents",
+      "private operand"
+    ]
+  },
+  "mkinitcpio": {
+    "input": "mkinitcpio --listhoosk",
+    "argv": [
+      "mkinitcpio",
+      "--listhooks"
+    ]
+  },
+  "mpv": {
+    "input": "mpv --fullscrene",
+    "argv": [
+      "mpv",
+      "--fullscreen"
+    ]
+  },
+  "mv": {
+    "input": "mv --verboes 'private operand' 'private operand'",
+    "argv": [
+      "mv",
+      "--verbose",
+      "private operand",
+      "private operand"
+    ]
+  },
+  "networkctl": {
+    "input": "networkctl lits",
+    "argv": [
+      "networkctl",
+      "list"
+    ]
+  },
+  "nl": {
+    "input": "nl --body-numberign 'private value'",
+    "argv": [
+      "nl",
+      "--body-numbering",
+      "private value"
+    ]
+  },
+  "nm": {
+    "input": "nm --demangel",
+    "argv": [
+      "nm",
+      "--demangle"
+    ]
+  },
+  "notify-send": {
+    "input": "notify-send --urgenyc 'private value'",
+    "argv": [
+      "notify-send",
+      "--urgency",
+      "private value"
+    ]
+  },
+  "objdump": {
+    "input": "objdump --all-headesr",
+    "argv": [
+      "objdump",
+      "--all-headers"
+    ]
+  },
+  "od": {
+    "input": "od --address-radxi 'private value'",
+    "argv": [
+      "od",
+      "--address-radix",
+      "private value"
+    ]
+  },
+  "openssl": {
+    "input": "openssl versino",
+    "argv": [
+      "openssl",
+      "version"
+    ]
+  },
+  "pacman": {
+    "input": "pacman --queyr",
+    "argv": [
+      "pacman",
+      "--query"
+    ]
+  },
+  "pamixer": {
+    "input": "pamixer --get-voluem",
+    "argv": [
+      "pamixer",
+      "--get-volume"
+    ]
+  },
+  "paste": {
+    "input": "paste --delimitesr 'private value'",
+    "argv": [
+      "paste",
+      "--delimiters",
+      "private value"
+    ]
+  },
+  "pkg-config": {
+    "input": "pkg-config --modversino",
+    "argv": [
+      "pkg-config",
+      "--modversion"
+    ]
+  },
+  "printenv": {
+    "input": "printenv --nlul",
+    "argv": [
+      "printenv",
+      "--null"
+    ]
+  },
+  "qpdf": {
+    "input": "qpdf --chekc",
+    "argv": [
+      "qpdf",
+      "--check"
+    ]
+  },
+  "readlink": {
+    "input": "readlink --canonicaliez 'private operand'",
+    "argv": [
+      "readlink",
+      "--canonicalize",
+      "private operand"
+    ]
+  },
+  "realpath": {
+    "input": "realpath --canonicaliez 'private operand'",
+    "argv": [
+      "realpath",
+      "--canonicalize",
+      "private operand"
+    ]
+  },
+  "rev": {
+    "input": "rev --zeor",
+    "argv": [
+      "rev",
+      "--zero"
+    ]
+  },
+  "rg": {
+    "input": "rg --ignore-caes",
+    "argv": [
+      "rg",
+      "--ignore-case"
+    ]
+  },
+  "rmdir": {
+    "input": "rmdir --parenst 'private operand'",
+    "argv": [
+      "rmdir",
+      "--parents",
+      "private operand"
+    ]
+  },
+  "rsync": {
+    "input": "rsync --archiev",
+    "argv": [
+      "rsync",
+      "--archive"
+    ]
+  },
+  "rustc": {
+    "input": "rustc --explani 'private value'",
+    "argv": [
+      "rustc",
+      "--explain",
+      "private value"
+    ]
+  },
+  "rustfmt": {
+    "input": "rustfmt --chekc",
+    "argv": [
+      "rustfmt",
+      "--check"
+    ]
+  },
+  "seq": {
+    "input": "seq --equal-widht",
+    "argv": [
+      "seq",
+      "--equal-width"
+    ]
+  },
+  "sha256sum": {
+    "input": "sha256sum --chekc",
+    "argv": [
+      "sha256sum",
+      "--check"
+    ]
+  },
+  "sha512sum": {
+    "input": "sha512sum --chekc",
+    "argv": [
+      "sha512sum",
+      "--check"
+    ]
+  },
+  "shuf": {
+    "input": "shuf --ecoh",
+    "argv": [
+      "shuf",
+      "--echo"
+    ]
+  },
+  "sort": {
+    "input": "sort --reveres",
+    "argv": [
+      "sort",
+      "--reverse"
+    ]
+  },
+  "split": {
+    "input": "split --bytse 'private value'",
+    "argv": [
+      "split",
+      "--bytes",
+      "private value"
+    ]
+  },
+  "ss": {
+    "input": "ss --listenign",
+    "argv": [
+      "ss",
+      "--listening"
+    ]
+  },
+  "stat": {
+    "input": "stat --file-systme 'private operand'",
+    "argv": [
+      "stat",
+      "--file-system",
+      "private operand"
+    ]
+  },
+  "strings": {
+    "input": "strings --print-file-naem",
+    "argv": [
+      "strings",
+      "--print-file-name"
+    ]
+  },
+  "systemd-analyze": {
+    "input": "systemd-analyze tiem",
+    "argv": [
+      "systemd-analyze",
+      "time"
+    ]
+  },
+  "tac": {
+    "input": "tac --befoer",
+    "argv": [
+      "tac",
+      "--before"
+    ]
+  },
+  "tail": {
+    "input": "tail --linse 'private value'",
+    "argv": [
+      "tail",
+      "--lines",
+      "private value"
+    ]
+  },
+  "tee": {
+    "input": "tee --appedn",
+    "argv": [
+      "tee",
+      "--append"
+    ]
+  },
+  "timedatectl": {
+    "input": "timedatectl statsu",
+    "argv": [
+      "timedatectl",
+      "status"
+    ]
+  },
+  "tldr": {
+    "input": "tldr --lits",
+    "argv": [
+      "tldr",
+      "--list"
+    ]
+  },
+  "touch": {
+    "input": "touch --no-creaet 'private operand'",
+    "argv": [
+      "touch",
+      "--no-create",
+      "private operand"
+    ]
+  },
+  "uname": {
+    "input": "uname --kernel-naem",
+    "argv": [
+      "uname",
+      "--kernel-name"
+    ]
+  },
+  "uniq": {
+    "input": "uniq --coutn",
+    "argv": [
+      "uniq",
+      "--count"
+    ]
+  },
+  "uptime": {
+    "input": "uptime --pretyt",
+    "argv": [
+      "uptime",
+      "--pretty"
+    ]
+  },
+  "watch": {
+    "input": "watch --intervla 'private value'",
+    "argv": [
+      "watch",
+      "--interval",
+      "private value"
+    ]
+  },
+  "wc": {
+    "input": "wc --bytse",
+    "argv": [
+      "wc",
+      "--bytes"
+    ]
+  },
+  "who": {
+    "input": "who --coutn",
+    "argv": [
+      "who",
+      "--count"
+    ]
+  },
+  "wl-copy": {
+    "input": "wl-copy --paste-onec",
+    "argv": [
+      "wl-copy",
+      "--paste-once"
+    ]
+  },
+  "wl-paste": {
+    "input": "wl-paste --no-newlien",
+    "argv": [
+      "wl-paste",
+      "--no-newline"
+    ]
+  },
+  "wpctl": {
+    "input": "wpctl statsu",
+    "argv": [
+      "wpctl",
+      "status"
+    ]
+  },
+  "xdg-open": {
+    "input": "xdg-open --manula",
+    "argv": [
+      "xdg-open",
+      "--manual"
+    ]
+  },
+  "yay": {
+    "input": "yay --queyr",
+    "argv": [
+      "yay",
+      "--query"
+    ]
+  },
+  "yt-dlp": {
+    "input": "yt-dlp --list-formast",
+    "argv": [
+      "yt-dlp",
+      "--list-formats"
+    ]
+  }
+}

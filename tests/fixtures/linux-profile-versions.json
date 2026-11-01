@@ -1,0 +1,445 @@
+{
+  "apropos": {
+    "path": "/usr/bin/apropos",
+    "package": "man-db 2.13.1-2"
+  },
+  "base64": {
+    "path": "/usr/bin/base64",
+    "package": "coreutils 9.12-2"
+  },
+  "basename": {
+    "path": "/usr/bin/basename",
+    "package": "coreutils 9.12-2"
+  },
+  "bat": {
+    "path": "/usr/bin/bat",
+    "package": "bat 0.26.1-3"
+  },
+  "bluetoothctl": {
+    "path": "/usr/bin/bluetoothctl",
+    "package": "bluez-utils 5.87-2"
+  },
+  "bootctl": {
+    "path": "/usr/bin/bootctl",
+    "package": "systemd 262.1-1"
+  },
+  "brightnessctl": {
+    "path": "/usr/bin/brightnessctl",
+    "package": "brightnessctl 0.5.1-3"
+  },
+  "btop": {
+    "path": "/usr/bin/btop",
+    "package": "btop 1.4.7-1"
+  },
+  "cargo": {
+    "path": "/home/example/.cargo/bin/cargo",
+    "package": "rustup-managed",
+    "tool_version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+  },
+  "cat": {
+    "path": "/usr/bin/cat",
+    "package": "coreutils 9.12-2"
+  },
+  "column": {
+    "path": "/usr/bin/column",
+    "package": "util-linux 2.42.4-1"
+  },
+  "comm": {
+    "path": "/usr/bin/comm",
+    "package": "coreutils 9.12-2"
+  },
+  "coredumpctl": {
+    "path": "/usr/bin/coredumpctl",
+    "package": "systemd 262.1-1"
+  },
+  "cp": {
+    "path": "/usr/bin/cp",
+    "package": "coreutils 9.12-2"
+  },
+  "curl": {
+    "path": "/usr/bin/curl",
+    "package": "curl 8.23.0-1"
+  },
+  "cut": {
+    "path": "/usr/bin/cut",
+    "package": "coreutils 9.12-2"
+  },
+  "date": {
+    "path": "/usr/bin/date",
+    "package": "coreutils 9.12-2"
+  },
+  "df": {
+    "path": "/usr/bin/df",
+    "package": "coreutils 9.12-2"
+  },
+  "diff": {
+    "path": "/usr/bin/diff",
+    "package": "diffutils 3.12-2"
+  },
+  "dirname": {
+    "path": "/usr/bin/dirname",
+    "package": "coreutils 9.12-2"
+  },
+  "dmesg": {
+    "path": "/usr/bin/dmesg",
+    "package": "util-linux 2.42.4-1"
+  },
+  "du": {
+    "path": "/usr/bin/du",
+    "package": "coreutils 9.12-2"
+  },
+  "envsubst": {
+    "path": "/usr/bin/envsubst",
+    "package": "gettext 1.0-2"
+  },
+  "eza": {
+    "path": "/usr/bin/eza",
+    "package": "eza 0.23.5-2"
+  },
+  "fastfetch": {
+    "path": "/usr/bin/fastfetch",
+    "package": "fastfetch 2.70.0-1"
+  },
+  "fc-cache": {
+    "path": "/usr/bin/fc-cache",
+    "package": "fontconfig 2:2.18.3-2"
+  },
+  "fc-list": {
+    "path": "/usr/bin/fc-list",
+    "package": "fontconfig 2:2.18.3-2"
+  },
+  "fd": {
+    "path": "/usr/bin/fd",
+    "package": "fd 10.5.0-3"
+  },
+  "ffmpeg": {
+    "path": "/usr/bin/ffmpeg",
+    "package": "ffmpeg 2:9.0.2-2"
+  },
+  "ffprobe": {
+    "path": "/usr/bin/ffprobe",
+    "package": "ffmpeg 2:9.0.2-2"
+  },
+  "file": {
+    "path": "/usr/bin/file",
+    "package": "file 5.48-1"
+  },
+  "findmnt": {
+    "path": "/usr/bin/findmnt",
+    "package": "util-linux 2.42.4-1"
+  },
+  "fmt": {
+    "path": "/usr/bin/fmt",
+    "package": "coreutils 9.12-2"
+  },
+  "fold": {
+    "path": "/usr/bin/fold",
+    "package": "coreutils 9.12-2"
+  },
+  "free": {
+    "path": "/usr/bin/free",
+    "package": "procps-ng 4.0.7-1"
+  },
+  "fzf": {
+    "path": "/usr/bin/fzf",
+    "package": "fzf 0.74.5-1"
+  },
+  "getfacl": {
+    "path": "/usr/bin/getfacl",
+    "package": "acl 2.4.0-1"
+  },
+  "gpg": {
+    "path": "/usr/bin/gpg",
+    "package": "gnupg 2.4.9-3"
+  },
+  "grep": {
+    "path": "/usr/bin/grep",
+    "package": "grep 3.12-2"
+  },
+  "head": {
+    "path": "/usr/bin/head",
+    "package": "coreutils 9.12-2"
+  },
+  "hexdump": {
+    "path": "/usr/bin/hexdump",
+    "package": "util-linux 2.42.4-1"
+  },
+  "hostnamectl": {
+    "path": "/usr/bin/hostnamectl",
+    "package": "systemd 262.1-1"
+  },
+  "hyprctl": {
+    "path": "/usr/bin/hyprctl",
+    "package": "hyprland 0.56.2-4"
+  },
+  "iconv": {
+    "path": "/usr/bin/iconv",
+    "package": "glibc 2.44+r50+g1848099f063e-1"
+  },
+  "id": {
+    "path": "/usr/bin/id",
+    "package": "coreutils 9.12-2"
+  },
+  "info": {
+    "path": "/usr/bin/info",
+    "package": "texinfo 7.3-3"
+  },
+  "join": {
+    "path": "/usr/bin/join",
+    "package": "coreutils 9.12-2"
+  },
+  "lazygit": {
+    "path": "/usr/bin/lazygit",
+    "package": "lazygit 0.66.2-1"
+  },
+  "limine": {
+    "path": "/usr/bin/limine",
+    "package": "limine 12.9.4-1"
+  },
+  "localectl": {
+    "path": "/usr/bin/localectl",
+    "package": "systemd 262.1-1"
+  },
+  "loginctl": {
+    "path": "/usr/bin/loginctl",
+    "package": "systemd 262.1-1"
+  },
+  "ls": {
+    "path": "/usr/bin/ls",
+    "package": "coreutils 9.12-2"
+  },
+  "lsblk": {
+    "path": "/usr/bin/lsblk",
+    "package": "util-linux 2.42.4-1"
+  },
+  "lscpu": {
+    "path": "/usr/bin/lscpu",
+    "package": "util-linux 2.42.4-1"
+  },
+  "make": {
+    "path": "/usr/bin/make",
+    "package": "make 4.4.1-3"
+  },
+  "man": {
+    "path": "/usr/bin/man",
+    "package": "man-db 2.13.1-2"
+  },
+  "md5sum": {
+    "path": "/usr/bin/md5sum",
+    "package": "coreutils 9.12-2"
+  },
+  "mkdir": {
+    "path": "/usr/bin/mkdir",
+    "package": "coreutils 9.12-2"
+  },
+  "mkinitcpio": {
+    "path": "/usr/local/bin/mkinitcpio",
+    "package": "limine-mkinitcpio-hook 1.40.0-2"
+  },
+  "mpv": {
+    "path": "/usr/bin/mpv",
+    "package": "mpv 1:0.41.0-6"
+  },
+  "mv": {
+    "path": "/usr/bin/mv",
+    "package": "coreutils 9.12-2"
+  },
+  "networkctl": {
+    "path": "/usr/bin/networkctl",
+    "package": "systemd 262.1-1"
+  },
+  "nl": {
+    "path": "/usr/bin/nl",
+    "package": "coreutils 9.12-2"
+  },
+  "nm": {
+    "path": "/usr/bin/nm",
+    "package": "binutils 2.47-4"
+  },
+  "notify-send": {
+    "path": "/usr/bin/notify-send",
+    "package": "libnotify 0.8.9-1"
+  },
+  "objdump": {
+    "path": "/usr/bin/objdump",
+    "package": "binutils 2.47-4"
+  },
+  "od": {
+    "path": "/usr/bin/od",
+    "package": "coreutils 9.12-2"
+  },
+  "openssl": {
+    "path": "/usr/bin/openssl",
+    "package": "openssl 3.6.5-1"
+  },
+  "pacman": {
+    "path": "/usr/bin/pacman",
+    "package": "pacman 7.1.0.r9.g54d9411-3"
+  },
+  "pamixer": {
+    "path": "/usr/bin/pamixer",
+    "package": "pamixer 1.6-4"
+  },
+  "paste": {
+    "path": "/usr/bin/paste",
+    "package": "coreutils 9.12-2"
+  },
+  "pkg-config": {
+    "path": "/usr/bin/pkg-config",
+    "package": "pkgconf 3.0.10-1"
+  },
+  "printenv": {
+    "path": "/usr/bin/printenv",
+    "package": "coreutils 9.12-2"
+  },
+  "qpdf": {
+    "path": "/usr/bin/qpdf",
+    "package": "qpdf 12.4.2-1"
+  },
+  "readlink": {
+    "path": "/usr/bin/readlink",
+    "package": "coreutils 9.12-2"
+  },
+  "realpath": {
+    "path": "/usr/bin/realpath",
+    "package": "coreutils 9.12-2"
+  },
+  "rev": {
+    "path": "/usr/bin/rev",
+    "package": "util-linux 2.42.4-1"
+  },
+  "rg": {
+    "path": "/usr/bin/rg",
+    "package": "ripgrep 15.2.0-1"
+  },
+  "rmdir": {
+    "path": "/usr/bin/rmdir",
+    "package": "coreutils 9.12-2"
+  },
+  "rsync": {
+    "path": "/usr/bin/rsync",
+    "package": "rsync 3.5.1-3"
+  },
+  "rustc": {
+    "path": "/home/example/.cargo/bin/rustc",
+    "package": "rustup-managed",
+    "tool_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+  },
+  "rustfmt": {
+    "path": "/home/example/.cargo/bin/rustfmt",
+    "package": "rustup-managed",
+    "tool_version": "rustfmt 1.10.0-stable (58cf8f9c35 2026-10-13)"
+  },
+  "seq": {
+    "path": "/usr/bin/seq",
+    "package": "coreutils 9.12-2"
+  },
+  "sha256sum": {
+    "path": "/usr/bin/sha256sum",
+    "package": "coreutils 9.12-2"
+  },
+  "sha512sum": {
+    "path": "/usr/bin/sha512sum",
+    "package": "coreutils 9.12-2"
+  },
+  "shuf": {
+    "path": "/usr/bin/shuf",
+    "package": "coreutils 9.12-2"
+  },
+  "sort": {
+    "path": "/usr/bin/sort",
+    "package": "coreutils 9.12-2"
+  },
+  "split": {
+    "path": "/usr/bin/split",
+    "package": "coreutils 9.12-2"
+  },
+  "ss": {
+    "path": "/usr/bin/ss",
+    "package": "iproute2 7.3.0-1"
+  },
+  "stat": {
+    "path": "/usr/bin/stat",
+    "package": "coreutils 9.12-2"
+  },
+  "strings": {
+    "path": "/usr/bin/strings",
+    "package": "binutils 2.47-4"
+  },
+  "systemd-analyze": {
+    "path": "/usr/bin/systemd-analyze",
+    "package": "systemd 262.1-1"
+  },
+  "tac": {
+    "path": "/usr/bin/tac",
+    "package": "coreutils 9.12-2"
+  },
+  "tail": {
+    "path": "/usr/bin/tail",
+    "package": "coreutils 9.12-2"
+  },
+  "tee": {
+    "path": "/usr/bin/tee",
+    "package": "coreutils 9.12-2"
+  },
+  "timedatectl": {
+    "path": "/usr/bin/timedatectl",
+    "package": "systemd 262.1-1"
+  },
+  "tldr": {
+    "path": "/usr/bin/tldr",
+    "package": "tldr 3.4.4-1"
+  },
+  "touch": {
+    "path": "/usr/bin/touch",
+    "package": "coreutils 9.12-2"
+  },
+  "uname": {
+    "path": "/usr/bin/uname",
+    "package": "coreutils 9.12-2"
+  },
+  "uniq": {
+    "path": "/usr/bin/uniq",
+    "package": "coreutils 9.12-2"
+  },
+  "uptime": {
+    "path": "/usr/bin/uptime",
+    "package": "procps-ng 4.0.7-1"
+  },
+  "watch": {
+    "path": "/usr/bin/watch",
+    "package": "procps-ng 4.0.7-1"
+  },
+  "wc": {
+    "path": "/usr/bin/wc",
+    "package": "coreutils 9.12-2"
+  },
+  "who": {
+    "path": "/usr/bin/who",
+    "package": "coreutils 9.12-2"
+  },
+  "wl-copy": {
+    "path": "/usr/bin/wl-copy",
+    "package": "wl-clipboard 1:2.3.0-1"
+  },
+  "wl-paste": {
+    "path": "/usr/bin/wl-paste",
+    "package": "wl-clipboard 1:2.3.0-1"
+  },
+  "wpctl": {
+    "path": "/usr/bin/wpctl",
+    "package": "wireplumber 0.5.18-1"
+  },
+  "xdg-open": {
+    "path": "/usr/bin/xdg-open",
+    "package": "xdg-utils 1.2.1-2"
+  },
+  "yay": {
+    "path": "/usr/bin/yay",
+    "package": "yay 13.0.1-1"
+  },
+  "yt-dlp": {
+    "path": "/usr/bin/yt-dlp",
+    "package": "yt-dlp 2026.08.19-1"
+  }
+}

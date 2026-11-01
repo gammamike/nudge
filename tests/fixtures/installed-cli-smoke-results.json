@@ -1,0 +1,315 @@
+{
+  "date": "2026-11-01",
+  "method": "One suggestion-only request per case against installed Linux metadata. No suggested commands executed. Metadata cache may be warm; timings are observations, not a controlled benchmark.",
+  "versions": {
+    "git": "git version 2.56.0",
+    "docker": "Docker version 29.9.2, build a82e528901",
+    "compose": "5.6.1",
+    "systemd": "systemd 262 (262.1-1-arch)"
+  },
+  "passed": 26,
+  "results": [
+    {
+      "command": "git statsu",
+      "suggestion": "git status",
+      "source": "local",
+      "argv": [
+        "git",
+        "status"
+      ],
+      "executable": "/usr/bin/git",
+      "evidence": "installed git command/help metadata",
+      "elapsed_ms": 9.831321
+    },
+    {
+      "command": "git chekout feature/example",
+      "suggestion": "git checkout feature/example",
+      "source": "local",
+      "argv": [
+        "git",
+        "checkout",
+        "feature/example"
+      ],
+      "executable": "/usr/bin/git",
+      "evidence": "installed git command/help metadata",
+      "elapsed_ms": 8.481584
+    },
+    {
+      "command": "git logs --oneline -5",
+      "suggestion": "git log --oneline -5",
+      "source": "local",
+      "argv": [
+        "git",
+        "log",
+        "--oneline",
+        "-5"
+      ],
+      "executable": "/usr/bin/git",
+      "evidence": "installed git command/help metadata",
+      "elapsed_ms": 10.55429
+    },
+    {
+      "command": "git status --shrot",
+      "suggestion": "git status --short",
+      "source": "local",
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "executable": "/usr/bin/git",
+      "evidence": "installed git command/help metadata",
+      "elapsed_ms": 11.263971
+    },
+    {
+      "command": "docker contianer ls",
+      "suggestion": "docker container ls",
+      "source": "local",
+      "argv": [
+        "docker",
+        "container",
+        "ls"
+      ],
+      "executable": "/usr/bin/docker",
+      "evidence": "installed docker command/help metadata",
+      "elapsed_ms": 5.006618
+    },
+    {
+      "command": "docker logs --tial 10 api",
+      "suggestion": "docker logs --tail 10 api",
+      "source": "local",
+      "argv": [
+        "docker",
+        "logs",
+        "--tail",
+        "10",
+        "api"
+      ],
+      "executable": "/usr/bin/docker",
+      "evidence": "installed docker command/help metadata",
+      "elapsed_ms": 5.860983
+    },
+    {
+      "command": "docker comopse ps",
+      "suggestion": "docker compose ps",
+      "source": "local",
+      "argv": [
+        "docker",
+        "compose",
+        "ps"
+      ],
+      "executable": "/usr/bin/docker",
+      "evidence": "installed docker command/help metadata",
+      "elapsed_ms": 60.563787
+    },
+    {
+      "command": "docker compose -f 'compose dev.yml' restat api",
+      "suggestion": "docker compose -f 'compose dev.yml' restart api",
+      "source": "local",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose dev.yml",
+        "restart",
+        "api"
+      ],
+      "executable": "/usr/bin/docker",
+      "evidence": "installed docker command/help metadata",
+      "elapsed_ms": 83.985316
+    },
+    {
+      "command": "systemctl --user restat example.service",
+      "suggestion": "systemctl --user restart example.service",
+      "source": "local",
+      "argv": [
+        "systemctl",
+        "--user",
+        "restart",
+        "example.service"
+      ],
+      "executable": "/usr/bin/systemctl",
+      "evidence": "installed systemctl command/help metadata",
+      "elapsed_ms": 3.782033
+    },
+    {
+      "command": "systemctl --lines 10 statsu example.service",
+      "suggestion": "systemctl --lines 10 status example.service",
+      "source": "local",
+      "argv": [
+        "systemctl",
+        "--lines",
+        "10",
+        "status",
+        "example.service"
+      ],
+      "executable": "/usr/bin/systemctl",
+      "evidence": "installed systemctl command/help metadata",
+      "elapsed_ms": 2.387009
+    },
+    {
+      "command": "systemctl list-timres",
+      "suggestion": "systemctl list-timers",
+      "source": "local",
+      "argv": [
+        "systemctl",
+        "list-timers"
+      ],
+      "executable": "/usr/bin/systemctl",
+      "evidence": "installed systemctl command/help metadata",
+      "elapsed_ms": 2.354614
+    },
+    {
+      "command": "journalctl --uint example.service -n 20 --no-pager",
+      "suggestion": "journalctl --unit example.service -n 20 --no-pager",
+      "source": "local",
+      "argv": [
+        "journalctl",
+        "--unit",
+        "example.service",
+        "-n",
+        "20",
+        "--no-pager"
+      ],
+      "executable": "/usr/bin/journalctl",
+      "evidence": "installed journalctl command/help metadata",
+      "elapsed_ms": 2.161208
+    },
+    {
+      "command": "journalctl --sinec '1 hour ago'",
+      "suggestion": "journalctl --since '1 hour ago'",
+      "source": "local",
+      "argv": [
+        "journalctl",
+        "--since",
+        "1 hour ago"
+      ],
+      "executable": "/usr/bin/journalctl",
+      "evidence": "installed journalctl command/help metadata",
+      "elapsed_ms": 2.130932
+    },
+    {
+      "command": "git status",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 6.138857
+    },
+    {
+      "command": "docker logs nonexistent",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 2.8875319999999998
+    },
+    {
+      "command": "systemctl status nonexistent.service",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 2.010672
+    },
+    {
+      "command": "journalctl --unit nonexistent.service",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 1.767918
+    },
+    {
+      "command": "git st",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 2.408965
+    },
+    {
+      "command": "git rset --hard",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 4.479407
+    },
+    {
+      "command": "git chekout --forc main",
+      "suggestion": null,
+      "source": "local",
+      "reason": "correction would leave unsupported or invalid syntax",
+      "elapsed_ms": 10.111937999999999
+    },
+    {
+      "command": "git chekout -- file.txt",
+      "suggestion": null,
+      "source": "local",
+      "reason": "correction would leave unsupported or invalid syntax",
+      "elapsed_ms": 5.83695
+    },
+    {
+      "command": "docker system pruen",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 3.450952
+    },
+    {
+      "command": "systemctl rebot",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 2.094033
+    },
+    {
+      "command": "journalctl --vacum-time=1d",
+      "suggestion": null,
+      "source": "none",
+      "reason": "unsupported syntax or no actionable syntax error",
+      "elapsed_ms": 1.2560419999999999
+    },
+    {
+      "command": "docker stpo",
+      "suggestion": null,
+      "source": "local",
+      "reason": "correction would leave unsupported or invalid syntax",
+      "elapsed_ms": 29.326656
+    },
+    {
+      "command": "systemctl restat",
+      "suggestion": null,
+      "source": "local",
+      "reason": "correction would leave unsupported or invalid syntax",
+      "elapsed_ms": 2.3564670000000003
+    }
+  ],
+  "normal_bash_cancellation": [
+    {
+      "input": "git statsu",
+      "suggestion": "git status",
+      "cancelled": true,
+      "terminal_elapsed_ms": 16.62
+    },
+    {
+      "input": "docker contianer ls",
+      "suggestion": "docker container ls",
+      "cancelled": true,
+      "terminal_elapsed_ms": 19.85
+    },
+    {
+      "input": "docker compose restat",
+      "suggestion": "docker compose restart",
+      "cancelled": true,
+      "terminal_elapsed_ms": 130.75
+    },
+    {
+      "input": "systemctl statsu",
+      "suggestion": "systemctl status",
+      "cancelled": true,
+      "terminal_elapsed_ms": 9.28
+    },
+    {
+      "input": "journalctl --uint=example.service --no-pager",
+      "suggestion": "journalctl --unit=example.service --no-pager",
+      "cancelled": true,
+      "terminal_elapsed_ms": 8.93
+    }
+  ]
+}

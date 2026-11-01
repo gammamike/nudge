@@ -1,0 +1,777 @@
+{
+  "samples_per_tool": 25,
+  "tools": 110,
+  "scope": "One empty-cache suggestion, then warm suggestions; includes process launch. No failed-command execution, Bash prompt rendering, user confirmation or AI latency.",
+  "results": {
+    "apropos": {
+      "command": "apropos --exatc",
+      "cold_process_ms": 3.93,
+      "warm_process_p50_ms": 1.404,
+      "warm_process_p95_ms": 1.513,
+      "warm_engine_p50_ms": 0.29
+    },
+    "base64": {
+      "command": "base64 --decoed",
+      "cold_process_ms": 3.67,
+      "warm_process_p50_ms": 1.357,
+      "warm_process_p95_ms": 1.511,
+      "warm_engine_p50_ms": 0.284
+    },
+    "basename": {
+      "command": "basename --multipel 'private operand'",
+      "cold_process_ms": 3.729,
+      "warm_process_p50_ms": 1.393,
+      "warm_process_p95_ms": 1.622,
+      "warm_engine_p50_ms": 0.292
+    },
+    "bat": {
+      "command": "bat --numbre",
+      "cold_process_ms": 5.903,
+      "warm_process_p50_ms": 1.928,
+      "warm_process_p95_ms": 2.095,
+      "warm_engine_p50_ms": 0.807
+    },
+    "bluetoothctl": {
+      "command": "bluetoothctl deviecs",
+      "cold_process_ms": 4.687,
+      "warm_process_p50_ms": 1.693,
+      "warm_process_p95_ms": 2.026,
+      "warm_engine_p50_ms": 0.68
+    },
+    "bootctl": {
+      "command": "bootctl statsu",
+      "cold_process_ms": 4.194,
+      "warm_process_p50_ms": 1.596,
+      "warm_process_p95_ms": 1.819,
+      "warm_engine_p50_ms": 0.543
+    },
+    "brightnessctl": {
+      "command": "brightnessctl --lits",
+      "cold_process_ms": 3.748,
+      "warm_process_p50_ms": 1.363,
+      "warm_process_p95_ms": 1.472,
+      "warm_engine_p50_ms": 0.287
+    },
+    "btop": {
+      "command": "btop --debgu",
+      "cold_process_ms": 3.84,
+      "warm_process_p50_ms": 1.355,
+      "warm_process_p95_ms": 1.479,
+      "warm_engine_p50_ms": 0.276
+    },
+    "cargo": {
+      "command": "cargo buidl",
+      "cold_process_ms": 29.516,
+      "warm_process_p50_ms": 17.238,
+      "warm_process_p95_ms": 20.782,
+      "warm_engine_p50_ms": 15.703
+    },
+    "cat": {
+      "command": "cat --numbre",
+      "cold_process_ms": 3.539,
+      "warm_process_p50_ms": 1.395,
+      "warm_process_p95_ms": 1.611,
+      "warm_engine_p50_ms": 0.296
+    },
+    "column": {
+      "command": "column --tabel",
+      "cold_process_ms": 3.816,
+      "warm_process_p50_ms": 1.458,
+      "warm_process_p95_ms": 1.563,
+      "warm_engine_p50_ms": 0.353
+    },
+    "comm": {
+      "command": "comm --check-ordre 'private operand' 'private operand'",
+      "cold_process_ms": 3.553,
+      "warm_process_p50_ms": 1.419,
+      "warm_process_p95_ms": 1.615,
+      "warm_engine_p50_ms": 0.315
+    },
+    "coredumpctl": {
+      "command": "coredumpctl lits",
+      "cold_process_ms": 3.834,
+      "warm_process_p50_ms": 1.425,
+      "warm_process_p95_ms": 1.581,
+      "warm_engine_p50_ms": 0.303
+    },
+    "cp": {
+      "command": "cp --verboes 'private operand' 'private operand'",
+      "cold_process_ms": 4.149,
+      "warm_process_p50_ms": 1.665,
+      "warm_process_p95_ms": 1.845,
+      "warm_engine_p50_ms": 0.568
+    },
+    "curl": {
+      "command": "curl --verboes",
+      "cold_process_ms": 6.455,
+      "warm_process_p50_ms": 2.295,
+      "warm_process_p95_ms": 2.422,
+      "warm_engine_p50_ms": 1.183
+    },
+    "cut": {
+      "command": "cut --bytse 'private value'",
+      "cold_process_ms": 3.806,
+      "warm_process_p50_ms": 1.49,
+      "warm_process_p95_ms": 1.627,
+      "warm_engine_p50_ms": 0.368
+    },
+    "date": {
+      "command": "date --daet 'private value'",
+      "cold_process_ms": 3.43,
+      "warm_process_p50_ms": 1.581,
+      "warm_process_p95_ms": 1.759,
+      "warm_engine_p50_ms": 0.521
+    },
+    "df": {
+      "command": "df --human-readabel",
+      "cold_process_ms": 4.094,
+      "warm_process_p50_ms": 1.407,
+      "warm_process_p95_ms": 1.579,
+      "warm_engine_p50_ms": 0.344
+    },
+    "diff": {
+      "command": "diff --unifide 'private operand' 'private operand'",
+      "cold_process_ms": 4.199,
+      "warm_process_p50_ms": 1.647,
+      "warm_process_p95_ms": 1.813,
+      "warm_engine_p50_ms": 0.551
+    },
+    "dirname": {
+      "command": "dirname --zeor 'private operand'",
+      "cold_process_ms": 3.688,
+      "warm_process_p50_ms": 1.386,
+      "warm_process_p95_ms": 1.614,
+      "warm_engine_p50_ms": 0.271
+    },
+    "dmesg": {
+      "command": "dmesg --humna",
+      "cold_process_ms": 3.616,
+      "warm_process_p50_ms": 1.41,
+      "warm_process_p95_ms": 1.695,
+      "warm_engine_p50_ms": 0.305
+    },
+    "du": {
+      "command": "du --human-readabel",
+      "cold_process_ms": 3.92,
+      "warm_process_p50_ms": 1.572,
+      "warm_process_p95_ms": 1.648,
+      "warm_engine_p50_ms": 0.465
+    },
+    "envsubst": {
+      "command": "envsubst --variablse",
+      "cold_process_ms": 3.488,
+      "warm_process_p50_ms": 1.307,
+      "warm_process_p95_ms": 1.493,
+      "warm_engine_p50_ms": 0.281
+    },
+    "eza": {
+      "command": "eza --logn",
+      "cold_process_ms": 4.101,
+      "warm_process_p50_ms": 1.547,
+      "warm_process_p95_ms": 1.693,
+      "warm_engine_p50_ms": 0.508
+    },
+    "fastfetch": {
+      "command": "fastfetch --list-logso",
+      "cold_process_ms": 4.334,
+      "warm_process_p50_ms": 1.769,
+      "warm_process_p95_ms": 1.918,
+      "warm_engine_p50_ms": 0.723
+    },
+    "fc-cache": {
+      "command": "fc-cache --verboes",
+      "cold_process_ms": 3.752,
+      "warm_process_p50_ms": 1.361,
+      "warm_process_p95_ms": 1.426,
+      "warm_engine_p50_ms": 0.259
+    },
+    "fc-list": {
+      "command": "fc-list --verboes",
+      "cold_process_ms": 3.64,
+      "warm_process_p50_ms": 1.346,
+      "warm_process_p95_ms": 1.53,
+      "warm_engine_p50_ms": 0.246
+    },
+    "fd": {
+      "command": "fd --hiddne",
+      "cold_process_ms": 6.64,
+      "warm_process_p50_ms": 2.188,
+      "warm_process_p95_ms": 2.353,
+      "warm_engine_p50_ms": 1.137
+    },
+    "ffmpeg": {
+      "command": "ffmpeg -licenes",
+      "cold_process_ms": 29.45,
+      "warm_process_p50_ms": 2.166,
+      "warm_process_p95_ms": 2.413,
+      "warm_engine_p50_ms": 1.136
+    },
+    "ffprobe": {
+      "command": "ffprobe -licenes",
+      "cold_process_ms": 36.263,
+      "warm_process_p50_ms": 5.72,
+      "warm_process_p95_ms": 7.329,
+      "warm_engine_p50_ms": 4.61
+    },
+    "file": {
+      "command": "file --brife",
+      "cold_process_ms": 3.935,
+      "warm_process_p50_ms": 1.43,
+      "warm_process_p95_ms": 1.606,
+      "warm_engine_p50_ms": 0.383
+    },
+    "findmnt": {
+      "command": "findmnt --bytse",
+      "cold_process_ms": 3.556,
+      "warm_process_p50_ms": 1.42,
+      "warm_process_p95_ms": 1.701,
+      "warm_engine_p50_ms": 0.43
+    },
+    "fmt": {
+      "command": "fmt --crown-margni",
+      "cold_process_ms": 3.486,
+      "warm_process_p50_ms": 1.413,
+      "warm_process_p95_ms": 1.729,
+      "warm_engine_p50_ms": 0.3
+    },
+    "fold": {
+      "command": "fold --bytse",
+      "cold_process_ms": 3.451,
+      "warm_process_p50_ms": 1.352,
+      "warm_process_p95_ms": 1.52,
+      "warm_engine_p50_ms": 0.263
+    },
+    "free": {
+      "command": "free --bytse",
+      "cold_process_ms": 3.806,
+      "warm_process_p50_ms": 1.363,
+      "warm_process_p95_ms": 1.455,
+      "warm_engine_p50_ms": 0.285
+    },
+    "fzf": {
+      "command": "fzf --mulit",
+      "cold_process_ms": 3.943,
+      "warm_process_p50_ms": 1.929,
+      "warm_process_p95_ms": 2.134,
+      "warm_engine_p50_ms": 0.876
+    },
+    "getfacl": {
+      "command": "getfacl --accses",
+      "cold_process_ms": 3.75,
+      "warm_process_p50_ms": 1.324,
+      "warm_process_p95_ms": 1.533,
+      "warm_engine_p50_ms": 0.276
+    },
+    "gpg": {
+      "command": "gpg --list-kesy",
+      "cold_process_ms": 3.787,
+      "warm_process_p50_ms": 1.589,
+      "warm_process_p95_ms": 1.712,
+      "warm_engine_p50_ms": 0.487
+    },
+    "grep": {
+      "command": "grep --ignore-caes",
+      "cold_process_ms": 4.02,
+      "warm_process_p50_ms": 1.619,
+      "warm_process_p95_ms": 1.738,
+      "warm_engine_p50_ms": 0.497
+    },
+    "head": {
+      "command": "head --linse 'private value'",
+      "cold_process_ms": 3.89,
+      "warm_process_p50_ms": 1.365,
+      "warm_process_p95_ms": 1.49,
+      "warm_engine_p50_ms": 0.305
+    },
+    "hexdump": {
+      "command": "hexdump --canonicla",
+      "cold_process_ms": 3.762,
+      "warm_process_p50_ms": 1.374,
+      "warm_process_p95_ms": 1.476,
+      "warm_engine_p50_ms": 0.295
+    },
+    "hostnamectl": {
+      "command": "hostnamectl statsu",
+      "cold_process_ms": 3.757,
+      "warm_process_p50_ms": 1.367,
+      "warm_process_p95_ms": 1.547,
+      "warm_engine_p50_ms": 0.278
+    },
+    "hyprctl": {
+      "command": "hyprctl activewindwo",
+      "cold_process_ms": 5.576,
+      "warm_process_p50_ms": 1.374,
+      "warm_process_p95_ms": 1.76,
+      "warm_engine_p50_ms": 0.38
+    },
+    "iconv": {
+      "command": "iconv --lits",
+      "cold_process_ms": 3.772,
+      "warm_process_p50_ms": 1.37,
+      "warm_process_p95_ms": 1.479,
+      "warm_engine_p50_ms": 0.269
+    },
+    "id": {
+      "command": "id --usre",
+      "cold_process_ms": 3.851,
+      "warm_process_p50_ms": 1.37,
+      "warm_process_p95_ms": 1.462,
+      "warm_engine_p50_ms": 0.291
+    },
+    "info": {
+      "command": "info --apropso 'private value'",
+      "cold_process_ms": 3.978,
+      "warm_process_p50_ms": 1.384,
+      "warm_process_p95_ms": 1.625,
+      "warm_engine_p50_ms": 0.343
+    },
+    "join": {
+      "command": "join --ignore-caes 'private operand' 'private operand'",
+      "cold_process_ms": 3.968,
+      "warm_process_p50_ms": 1.461,
+      "warm_process_p95_ms": 1.581,
+      "warm_engine_p50_ms": 0.392
+    },
+    "lazygit": {
+      "command": "lazygit --paht 'private value'",
+      "cold_process_ms": 7.429,
+      "warm_process_p50_ms": 1.376,
+      "warm_process_p95_ms": 1.712,
+      "warm_engine_p50_ms": 0.325
+    },
+    "limine": {
+      "command": "limine hepl",
+      "cold_process_ms": 3.498,
+      "warm_process_p50_ms": 1.297,
+      "warm_process_p95_ms": 1.426,
+      "warm_engine_p50_ms": 0.224
+    },
+    "localectl": {
+      "command": "localectl statsu",
+      "cold_process_ms": 3.763,
+      "warm_process_p50_ms": 1.383,
+      "warm_process_p95_ms": 1.558,
+      "warm_engine_p50_ms": 0.293
+    },
+    "loginctl": {
+      "command": "loginctl list-sessiosn",
+      "cold_process_ms": 3.825,
+      "warm_process_p50_ms": 1.393,
+      "warm_process_p95_ms": 1.568,
+      "warm_engine_p50_ms": 0.365
+    },
+    "ls": {
+      "command": "ls --almost-lal",
+      "cold_process_ms": 3.872,
+      "warm_process_p50_ms": 1.685,
+      "warm_process_p95_ms": 1.84,
+      "warm_engine_p50_ms": 0.543
+    },
+    "lsblk": {
+      "command": "lsblk --bytse",
+      "cold_process_ms": 3.793,
+      "warm_process_p50_ms": 1.467,
+      "warm_process_p95_ms": 1.58,
+      "warm_engine_p50_ms": 0.369
+    },
+    "lscpu": {
+      "command": "lscpu --onlien",
+      "cold_process_ms": 3.576,
+      "warm_process_p50_ms": 1.405,
+      "warm_process_p95_ms": 1.462,
+      "warm_engine_p50_ms": 0.31
+    },
+    "make": {
+      "command": "make --directoyr 'private value'",
+      "cold_process_ms": 3.585,
+      "warm_process_p50_ms": 1.395,
+      "warm_process_p95_ms": 1.613,
+      "warm_engine_p50_ms": 0.374
+    },
+    "man": {
+      "command": "man --apropso",
+      "cold_process_ms": 3.715,
+      "warm_process_p50_ms": 1.48,
+      "warm_process_p95_ms": 1.602,
+      "warm_engine_p50_ms": 0.421
+    },
+    "md5sum": {
+      "command": "md5sum --chekc",
+      "cold_process_ms": 3.834,
+      "warm_process_p50_ms": 1.37,
+      "warm_process_p95_ms": 1.587,
+      "warm_engine_p50_ms": 0.328
+    },
+    "mkdir": {
+      "command": "mkdir --parenst 'private operand'",
+      "cold_process_ms": 3.462,
+      "warm_process_p50_ms": 1.387,
+      "warm_process_p95_ms": 1.455,
+      "warm_engine_p50_ms": 0.289
+    },
+    "mkinitcpio": {
+      "command": "mkinitcpio --listhoosk",
+      "cold_process_ms": 12.282,
+      "warm_process_p50_ms": 1.454,
+      "warm_process_p95_ms": 1.666,
+      "warm_engine_p50_ms": 0.368
+    },
+    "mpv": {
+      "command": "mpv --fullscrene",
+      "cold_process_ms": 61.518,
+      "warm_process_p50_ms": 3.576,
+      "warm_process_p95_ms": 4.213,
+      "warm_engine_p50_ms": 2.499
+    },
+    "mv": {
+      "command": "mv --verboes 'private operand' 'private operand'",
+      "cold_process_ms": 3.431,
+      "warm_process_p50_ms": 1.524,
+      "warm_process_p95_ms": 1.627,
+      "warm_engine_p50_ms": 0.41
+    },
+    "networkctl": {
+      "command": "networkctl lits",
+      "cold_process_ms": 3.448,
+      "warm_process_p50_ms": 1.397,
+      "warm_process_p95_ms": 1.501,
+      "warm_engine_p50_ms": 0.308
+    },
+    "nl": {
+      "command": "nl --body-numberign 'private value'",
+      "cold_process_ms": 3.783,
+      "warm_process_p50_ms": 1.422,
+      "warm_process_p95_ms": 1.555,
+      "warm_engine_p50_ms": 0.359
+    },
+    "nm": {
+      "command": "nm --demangel",
+      "cold_process_ms": 3.599,
+      "warm_process_p50_ms": 1.416,
+      "warm_process_p95_ms": 1.639,
+      "warm_engine_p50_ms": 0.396
+    },
+    "notify-send": {
+      "command": "notify-send --urgenyc 'private value'",
+      "cold_process_ms": 3.842,
+      "warm_process_p50_ms": 1.417,
+      "warm_process_p95_ms": 1.563,
+      "warm_engine_p50_ms": 0.336
+    },
+    "objdump": {
+      "command": "objdump --all-headesr",
+      "cold_process_ms": 6.269,
+      "warm_process_p50_ms": 1.615,
+      "warm_process_p95_ms": 1.897,
+      "warm_engine_p50_ms": 0.62
+    },
+    "od": {
+      "command": "od --address-radxi 'private value'",
+      "cold_process_ms": 3.421,
+      "warm_process_p50_ms": 1.578,
+      "warm_process_p95_ms": 1.82,
+      "warm_engine_p50_ms": 0.499
+    },
+    "openssl": {
+      "command": "openssl versino",
+      "cold_process_ms": 8.641,
+      "warm_process_p50_ms": 1.313,
+      "warm_process_p95_ms": 1.497,
+      "warm_engine_p50_ms": 0.298
+    },
+    "pacman": {
+      "command": "pacman --queyr",
+      "cold_process_ms": 7.57,
+      "warm_process_p50_ms": 1.405,
+      "warm_process_p95_ms": 1.635,
+      "warm_engine_p50_ms": 0.36
+    },
+    "pamixer": {
+      "command": "pamixer --get-voluem",
+      "cold_process_ms": 5.886,
+      "warm_process_p50_ms": 1.308,
+      "warm_process_p95_ms": 1.462,
+      "warm_engine_p50_ms": 0.284
+    },
+    "paste": {
+      "command": "paste --delimitesr 'private value'",
+      "cold_process_ms": 3.728,
+      "warm_process_p50_ms": 1.386,
+      "warm_process_p95_ms": 1.534,
+      "warm_engine_p50_ms": 0.284
+    },
+    "pkg-config": {
+      "command": "pkg-config --modversino",
+      "cold_process_ms": 3.936,
+      "warm_process_p50_ms": 1.624,
+      "warm_process_p95_ms": 1.802,
+      "warm_engine_p50_ms": 0.519
+    },
+    "printenv": {
+      "command": "printenv --nlul",
+      "cold_process_ms": 3.811,
+      "warm_process_p50_ms": 1.333,
+      "warm_process_p95_ms": 1.438,
+      "warm_engine_p50_ms": 0.251
+    },
+    "qpdf": {
+      "command": "qpdf --chekc",
+      "cold_process_ms": 8.179,
+      "warm_process_p50_ms": 3.539,
+      "warm_process_p95_ms": 4.378,
+      "warm_engine_p50_ms": 2.424
+    },
+    "readlink": {
+      "command": "readlink --canonicaliez 'private operand'",
+      "cold_process_ms": 3.746,
+      "warm_process_p50_ms": 1.334,
+      "warm_process_p95_ms": 1.644,
+      "warm_engine_p50_ms": 0.3
+    },
+    "realpath": {
+      "command": "realpath --canonicaliez 'private operand'",
+      "cold_process_ms": 3.317,
+      "warm_process_p50_ms": 1.352,
+      "warm_process_p95_ms": 1.593,
+      "warm_engine_p50_ms": 0.285
+    },
+    "rev": {
+      "command": "rev --zeor",
+      "cold_process_ms": 3.943,
+      "warm_process_p50_ms": 1.322,
+      "warm_process_p95_ms": 1.486,
+      "warm_engine_p50_ms": 0.225
+    },
+    "rg": {
+      "command": "rg --ignore-caes",
+      "cold_process_ms": 7.457,
+      "warm_process_p50_ms": 4.595,
+      "warm_process_p95_ms": 5.966,
+      "warm_engine_p50_ms": 3.274
+    },
+    "rmdir": {
+      "command": "rmdir --parenst 'private operand'",
+      "cold_process_ms": 3.755,
+      "warm_process_p50_ms": 1.32,
+      "warm_process_p95_ms": 1.471,
+      "warm_engine_p50_ms": 0.269
+    },
+    "rsync": {
+      "command": "rsync --archiev",
+      "cold_process_ms": 6.584,
+      "warm_process_p50_ms": 1.966,
+      "warm_process_p95_ms": 2.147,
+      "warm_engine_p50_ms": 0.872
+    },
+    "rustc": {
+      "command": "rustc --explani 'private value'",
+      "cold_process_ms": 14.472,
+      "warm_process_p50_ms": 1.514,
+      "warm_process_p95_ms": 1.667,
+      "warm_engine_p50_ms": 0.418
+    },
+    "rustfmt": {
+      "command": "rustfmt --chekc",
+      "cold_process_ms": 10.083,
+      "warm_process_p50_ms": 1.356,
+      "warm_process_p95_ms": 1.54,
+      "warm_engine_p50_ms": 0.316
+    },
+    "seq": {
+      "command": "seq --equal-widht",
+      "cold_process_ms": 3.361,
+      "warm_process_p50_ms": 1.372,
+      "warm_process_p95_ms": 1.531,
+      "warm_engine_p50_ms": 0.311
+    },
+    "sha256sum": {
+      "command": "sha256sum --chekc",
+      "cold_process_ms": 3.404,
+      "warm_process_p50_ms": 1.432,
+      "warm_process_p95_ms": 1.704,
+      "warm_engine_p50_ms": 0.33
+    },
+    "sha512sum": {
+      "command": "sha512sum --chekc",
+      "cold_process_ms": 3.665,
+      "warm_process_p50_ms": 1.407,
+      "warm_process_p95_ms": 1.554,
+      "warm_engine_p50_ms": 0.326
+    },
+    "shuf": {
+      "command": "shuf --ecoh",
+      "cold_process_ms": 3.677,
+      "warm_process_p50_ms": 1.404,
+      "warm_process_p95_ms": 1.537,
+      "warm_engine_p50_ms": 0.291
+    },
+    "sort": {
+      "command": "sort --reveres",
+      "cold_process_ms": 4.185,
+      "warm_process_p50_ms": 1.563,
+      "warm_process_p95_ms": 1.734,
+      "warm_engine_p50_ms": 0.505
+    },
+    "split": {
+      "command": "split --bytse 'private value'",
+      "cold_process_ms": 3.756,
+      "warm_process_p50_ms": 1.46,
+      "warm_process_p95_ms": 1.57,
+      "warm_engine_p50_ms": 0.38
+    },
+    "ss": {
+      "command": "ss --listenign",
+      "cold_process_ms": 3.964,
+      "warm_process_p50_ms": 1.472,
+      "warm_process_p95_ms": 1.681,
+      "warm_engine_p50_ms": 0.413
+    },
+    "stat": {
+      "command": "stat --file-systme 'private operand'",
+      "cold_process_ms": 4.017,
+      "warm_process_p50_ms": 1.501,
+      "warm_process_p95_ms": 1.621,
+      "warm_engine_p50_ms": 0.474
+    },
+    "strings": {
+      "command": "strings --print-file-naem",
+      "cold_process_ms": 3.804,
+      "warm_process_p50_ms": 1.296,
+      "warm_process_p95_ms": 1.477,
+      "warm_engine_p50_ms": 0.241
+    },
+    "systemd-analyze": {
+      "command": "systemd-analyze tiem",
+      "cold_process_ms": 6.123,
+      "warm_process_p50_ms": 1.605,
+      "warm_process_p95_ms": 1.788,
+      "warm_engine_p50_ms": 0.499
+    },
+    "tac": {
+      "command": "tac --befoer",
+      "cold_process_ms": 3.761,
+      "warm_process_p50_ms": 1.379,
+      "warm_process_p95_ms": 1.515,
+      "warm_engine_p50_ms": 0.277
+    },
+    "tail": {
+      "command": "tail --linse 'private value'",
+      "cold_process_ms": 3.949,
+      "warm_process_p50_ms": 1.45,
+      "warm_process_p95_ms": 1.66,
+      "warm_engine_p50_ms": 0.397
+    },
+    "tee": {
+      "command": "tee --appedn",
+      "cold_process_ms": 3.355,
+      "warm_process_p50_ms": 1.354,
+      "warm_process_p95_ms": 1.591,
+      "warm_engine_p50_ms": 0.29
+    },
+    "timedatectl": {
+      "command": "timedatectl statsu",
+      "cold_process_ms": 3.615,
+      "warm_process_p50_ms": 1.388,
+      "warm_process_p95_ms": 1.427,
+      "warm_engine_p50_ms": 0.296
+    },
+    "tldr": {
+      "command": "tldr --lits",
+      "cold_process_ms": 63.059,
+      "warm_process_p50_ms": 1.374,
+      "warm_process_p95_ms": 1.605,
+      "warm_engine_p50_ms": 0.297
+    },
+    "touch": {
+      "command": "touch --no-creaet 'private operand'",
+      "cold_process_ms": 3.844,
+      "warm_process_p50_ms": 1.354,
+      "warm_process_p95_ms": 1.519,
+      "warm_engine_p50_ms": 0.321
+    },
+    "uname": {
+      "command": "uname --kernel-naem",
+      "cold_process_ms": 3.844,
+      "warm_process_p50_ms": 1.363,
+      "warm_process_p95_ms": 1.658,
+      "warm_engine_p50_ms": 0.295
+    },
+    "uniq": {
+      "command": "uniq --coutn",
+      "cold_process_ms": 3.379,
+      "warm_process_p50_ms": 1.38,
+      "warm_process_p95_ms": 1.567,
+      "warm_engine_p50_ms": 0.325
+    },
+    "uptime": {
+      "command": "uptime --pretyt",
+      "cold_process_ms": 3.779,
+      "warm_process_p50_ms": 1.307,
+      "warm_process_p95_ms": 1.377,
+      "warm_engine_p50_ms": 0.224
+    },
+    "watch": {
+      "command": "watch --intervla 'private value'",
+      "cold_process_ms": 3.697,
+      "warm_process_p50_ms": 1.344,
+      "warm_process_p95_ms": 1.505,
+      "warm_engine_p50_ms": 0.288
+    },
+    "wc": {
+      "command": "wc --bytse",
+      "cold_process_ms": 3.329,
+      "warm_process_p50_ms": 1.424,
+      "warm_process_p95_ms": 1.565,
+      "warm_engine_p50_ms": 0.322
+    },
+    "who": {
+      "command": "who --coutn",
+      "cold_process_ms": 3.425,
+      "warm_process_p50_ms": 1.348,
+      "warm_process_p95_ms": 1.576,
+      "warm_engine_p50_ms": 0.314
+    },
+    "wl-copy": {
+      "command": "wl-copy --paste-onec",
+      "cold_process_ms": 3.667,
+      "warm_process_p50_ms": 1.273,
+      "warm_process_p95_ms": 1.458,
+      "warm_engine_p50_ms": 0.265
+    },
+    "wl-paste": {
+      "command": "wl-paste --no-newlien",
+      "cold_process_ms": 3.761,
+      "warm_process_p50_ms": 1.351,
+      "warm_process_p95_ms": 1.465,
+      "warm_engine_p50_ms": 0.262
+    },
+    "wpctl": {
+      "command": "wpctl statsu",
+      "cold_process_ms": 5.408,
+      "warm_process_p50_ms": 1.332,
+      "warm_process_p95_ms": 1.473,
+      "warm_engine_p50_ms": 0.284
+    },
+    "xdg-open": {
+      "command": "xdg-open --manula",
+      "cold_process_ms": 3.728,
+      "warm_process_p50_ms": 1.279,
+      "warm_process_p95_ms": 1.359,
+      "warm_engine_p50_ms": 0.216
+    },
+    "yay": {
+      "command": "yay --queyr",
+      "cold_process_ms": 20.48,
+      "warm_process_p50_ms": 1.634,
+      "warm_process_p95_ms": 1.907,
+      "warm_engine_p50_ms": 0.545
+    },
+    "yt-dlp": {
+      "command": "yt-dlp --list-formast",
+      "cold_process_ms": 144.909,
+      "warm_process_p50_ms": 3.149,
+      "warm_process_p95_ms": 4.043,
+      "warm_engine_p50_ms": 2.041
+    }
+  }
+}
