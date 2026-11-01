@@ -1,0 +1,63 @@
+name: Linux packages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  bundle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Prepare static Linux toolchain
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup override set stable
+          rustup target add x86_64-unknown-linux-musl
+      - name: Build binary and matching source archives
+        run: scripts/package.sh
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: linux-x86_64
+          path: dist/*
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+
+  distribution:
+    needs: bundle
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - ubuntu:24.04@sha256:78d4744ead1f5b19b04d0df558ab182a5300903900755e515b2ca4d10eb2044d
+          - debian:12-slim@sha256:a3bba7dc7dbcc1f37c2856c51fc9a7fac96608f50cb87b1b4e4d8b8c85ae988e
+          - fedora:43@sha256:1ad64e0ebefee83263fffacc5cb139b37ff70def215e4fe44720896c83353132
+          - alpine:3.22@sha256:dc92f017beea8e7f43263073d717f7bc011228c95d5312e440deb4d035bb4eec
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: linux-x86_64
+          path: dist
+      - name: Test install, update, rollback, Bash integration, and uninstall
+        env:
+          NUDGE_TEST_IMAGE: ${{ matrix.image }}
+        run: |
+          scripts/test-distribution.sh dist/nudge-*-linux-x86_64.tar.gz "$NUDGE_TEST_IMAGE"

@@ -103,9 +103,11 @@ application commands and REPL input are not Bash command corrections.
 - [ ] Publish release artifacts and verify their documented coverage.
 - [ ] Confirm Linux CI passes on the hosted runner and enable private vulnerability
   reporting in repository settings before announcing a release.
-- [ ] Complete the standalone packaging, install/uninstall, and release checks
-  including upgrades and rollback; command coverage alone does not establish
-  release readiness.
+- [x] Implement per-user install/uninstall, updates, rollback, and static x86_64
+  packaging; validate lifecycle behavior in four isolated distribution userspaces.
+  See [the distribution report](DISTRIBUTION_TESTS.md).
+- [ ] Verify the final published downloads; local package tests alone do not
+  establish release readiness.
 - [x] Create the public Nudge issue tracker, link it from the README, and expose
   the niche-tool request template in its new-issue flow.
 

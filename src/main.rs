@@ -13,13 +13,14 @@ mod cli_profiles;
 mod codex;
 mod config;
 mod engine;
+mod install;
 mod local;
+mod paths;
 mod process;
 mod shell_words;
 mod terminal;
 
 use std::env;
-use std::path::PathBuf;
 use std::process::ExitCode;
 use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, Ordering};
@@ -36,6 +37,13 @@ use crate::process::Runner;
 fn execute(runner: &Runner) -> Result<()> {
     let mut args = env::args().skip(1);
     let action = args.next().unwrap_or_else(|| "--help".to_owned());
+    if matches!(action.as_str(), "--version" | "-V") {
+        println!("nudge {}", env!("CARGO_PKG_VERSION"));
+        return Ok(());
+    }
+    if matches!(action.as_str(), "install" | "uninstall" | "rollback") {
+        return install::execute(&action, args.collect());
+    }
     if action == "supported" {
         for root in [
             "herdr",
@@ -54,7 +62,7 @@ fn execute(runner: &Runner) -> Result<()> {
     }
     if matches!(action.as_str(), "--help" | "-h") {
         println!(
-            "nudge-rust <refresh|suggest|confirm|config|models|supported> [--command TEXT] [--status CODE] [--local-only] [--provider codex|claude|ollama|local] [--model ID] [--endpoint URL] [--force-ai]\nconfig: show effective settings, or save supplied provider/model/endpoint.\nmodels: list models from the selected local server.\nsupported: list registered Linux executable adapters; see docs for each adapter's scope. Settings precedence: flags > environment > config > defaults."
+            "nudge <refresh|suggest|confirm|config|models|supported> [--command TEXT] [--status CODE] [--local-only] [--provider codex|claude|ollama|local] [--model ID] [--endpoint URL] [--force-ai]\nnudge <install|uninstall|rollback> [--prefix PATH]; install also accepts --bashrc PATH and --no-modify-shell.\nnudge --version\nconfig: show effective settings, or save supplied provider/model/endpoint.\nmodels: list models from the selected local server.\nsupported: list registered Linux executable adapters; see docs for each adapter's scope. Settings precedence: flags > environment > config > defaults."
         );
         return Ok(());
     }
@@ -62,9 +70,7 @@ fn execute(runner: &Runner) -> Result<()> {
         ["refresh", "suggest", "confirm", "config", "models"].contains(&action.as_str()),
         "unknown action"
     );
-    let cache = env::var_os("NUDGE_CACHE_DIR")
-        .map(PathBuf::from)
-        .unwrap_or_else(|| PathBuf::from(env!("CARGO_MANIFEST_DIR")).join(".cache"));
+    let cache = paths::cache()?;
     let config_path = config::path()?;
     let mut saved = config::Config::load(&config_path)?;
     let mut provider_override = None;

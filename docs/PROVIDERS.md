@@ -10,8 +10,8 @@ supply arbitrary executable code. Every suggestion still requires confirmation.
 ## Settings
 
 ```bash
-./target/release/nudge-rust config
-./target/release/nudge-rust config --provider claude --model haiku
+nudge config
+nudge config --provider claude --model haiku
 ```
 
 Settings are saved atomically in `~/.config/nudge/config.json`, respecting
@@ -33,7 +33,7 @@ then defaults. An exported environment setting overrides a saved setting.
 | `NUDGE_OLLAMA_URL` | Default `http://127.0.0.1:11434` |
 | `NUDGE_LOCAL_URL` | Default `http://127.0.0.1:1234/v1` |
 | `NUDGE_CONFIG` | Explicit configuration-file path |
-| `NUDGE_CACHE_DIR` | Metadata-cache directory; default is `.cache` in the build's source directory |
+| `NUDGE_CACHE_DIR` | Metadata-cache directory; default is `${XDG_CACHE_HOME:-$HOME/.cache}/nudge` |
 | `NUDGE_AI_TIMEOUT` | Request timeout in seconds; default 15 |
 | `NUDGE_CODEX_TIMEOUT`, `NUDGE_CLAUDE_TIMEOUT`, `NUDGE_OLLAMA_TIMEOUT`, `NUDGE_LOCAL_TIMEOUT` | Provider-specific timeouts when `NUDGE_AI_TIMEOUT` is unset |
 
@@ -51,7 +51,7 @@ rejects API authentication, and removes API-key overrides from the subprocess.
 It uses an isolated, ephemeral selection request with tools disabled.
 
 ```bash
-./target/release/nudge-rust config --provider codex --model gpt-6-luna
+nudge config --provider codex --model gpt-6-luna
 ```
 
 Nudge delegates authentication to the CLI. It does not copy tokens or add an API
@@ -66,7 +66,7 @@ Install Claude Code and sign in through `claude auth login`. Nudge checks
 token overrides, and cloud-provider authentication are rejected.
 
 ```bash
-./target/release/nudge-rust config --provider claude --model haiku
+nudge config --provider claude --model haiku
 ```
 
 The request runs from a temporary directory with safe mode, user/project settings
@@ -85,11 +85,11 @@ Start a local server and install or load a model using its own tools. Nudge does
 not download weights or install an inference runtime. Local HTTP requires `curl`.
 
 ```bash
-./target/release/nudge-rust models --provider ollama
-./target/release/nudge-rust config --provider ollama --model YOUR_INSTALLED_MODEL_ID
+nudge models --provider ollama
+nudge config --provider ollama --model YOUR_INSTALLED_MODEL_ID
 
-./target/release/nudge-rust models --provider local --endpoint http://127.0.0.1:1234/v1
-./target/release/nudge-rust config --provider local --model YOUR_MODEL_ID --endpoint http://127.0.0.1:1234/v1
+nudge models --provider local --endpoint http://127.0.0.1:1234/v1
+nudge config --provider local --model YOUR_MODEL_ID --endpoint http://127.0.0.1:1234/v1
 ```
 
 Ollama uses `/api/show`, `/api/chat`, and `/api/tags`. The `local` provider uses

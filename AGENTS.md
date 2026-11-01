@@ -24,7 +24,8 @@ supported platforms. Keep command support claims scoped to tested behavior.
 - Build with `cargo build --locked --release`.
 - Run `cargo fmt --check`, `cargo clippy --locked --all-targets -- -D warnings`,
   `cargo test --locked`, and `python3 -m unittest discover -s tests -v`.
-- Check Bash syntax with `bash -n nudge.bash interactive.bash try-bash`.
+- Run `bash -n` separately for `nudge.bash`, `interactive.bash`, `try-bash`,
+  `install.sh`, each `scripts/*.sh`, and `tests/distribution-smoke.sh`.
 - Integration tests must use mocks for accepted commands and model requests.
   Never execute a proposed system/file/package operation just to test a correction.
 - Keep the per-executable support matrix and fixtures consistent with changes.

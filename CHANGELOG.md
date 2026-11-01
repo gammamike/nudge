@@ -19,14 +19,23 @@ source tree and do not imply a published package or stable release.
 - Linux CI, contribution and issue templates, troubleshooting, and security
   reporting guidance.
 
+- Per-user Rust installer with managed Bash setup, backups, explicit updates,
+  rollback, and uninstall that preserves user settings and cache.
+- Static x86_64 Linux bundle, matching source archive, checksums, and dependency
+  notices; package CI matrix for Ubuntu, Debian, Fedora, and Alpine.
+
 ### Changed
 
+- Configuration and cache follow XDG paths; installed copies no longer depend
+  on the source checkout.
 - Literal `#` inside an argument is accepted for forms such as Nix flake references.
 - Catalog and shell regressions validate the Rust executable against fixed
   expected results and mocks.
 
 ### Release status
 
-Source-checkout installation is available. A standalone installer, distribution
-packages, release artifacts, and broader clean-distribution validation remain
-planned. Hosted CI results must be reviewed after the workflow is first pushed.
+Source and binary-bundle installation are implemented. Local lifecycle tests
+passed in isolated Ubuntu, Debian, Fedora, and Alpine userspaces. Public release
+artifacts, native distribution packages, other architectures, and broader CLI
+coverage remain pending. Hosted CI results must be reviewed after the workflows
+are first pushed.

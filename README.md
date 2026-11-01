@@ -14,7 +14,8 @@ git status
 
 Nudge is written in Rust for **Linux and Bash 5+**. It does not require a specific
 Linux distribution or desktop environment. It is under active development;
-command coverage and a standalone installer are not yet complete.
+command coverage is still expanding. A per-user installer and portable x86_64
+Linux bundle are available; public release artifacts have not been published.
 
 ## How it works
 
@@ -30,58 +31,41 @@ The executable name must be correct: `git statsu` can become `git status`, but
 `gti status` is ignored. Valid commands that fail because of permissions,
 connectivity, or missing resources are not automatically retried.
 
-## Build and enable
+## Install and enable
 
-Requirements: Linux, Bash 5+, and Rust 1.88 or newer to build. Running Nudge
-requires the compiled binary and Bash hook. Local LLM support also requires
-`curl` and a separately running inference server.
+From source, requirements are Linux, Bash 5+, and Rust 1.88+ with Cargo:
 
 ```bash
 git clone https://github.com/gammamike/nudge.git
 cd nudge
-cargo build --locked --release
-```
-
-The executable is currently named `target/release/nudge-rust`.
-
-To try it in a separate shell:
-
-```bash
-./try-bash
-```
-
-To enable it in normal interactive shells, add a guarded source block to
-`~/.bashrc`, replacing `/absolute/path/to/nudge` with this checkout's location:
-
-```bash
-if [[ -r /absolute/path/to/nudge/nudge.bash &&
-      -x /absolute/path/to/nudge/target/release/nudge-rust ]]; then
-    source /absolute/path/to/nudge/nudge.bash
-fi
-```
-
-Run `exec bash` or open a new terminal. Keep the checkout in place: the hook uses
-its release executable. Rebuild after updating the source, then start a new shell
-to load any newly registered executables.
-
-To disable Nudge for the current shell:
-
-```bash
-export NUDGE_ENABLED=0
-```
-
-To remove Nudge, delete its source block from `~/.bashrc` and start a new shell,
-then remove the checkout if you no longer need it. Configuration is kept in
-`~/.config/nudge/config.json` by default, or the configured XDG/override path.
-Remove that file separately if you want to discard saved settings.
-
-To update an existing checkout:
-
-```bash
-git pull --ff-only
-cargo build --locked --release
+./install.sh
 exec bash
 ```
+
+The installer copies Nudge into per-user directories, backs up `~/.bashrc`, and
+adds one managed setup block. The installed copy does not depend on the checkout.
+If you already source `nudge.bash` manually, remove that source block first.
+Use `--no-modify-shell` to manage your own shell setup.
+
+A static x86_64 binary bundle requires no Rust toolchain at runtime. See
+[installation instructions](docs/INSTALLATION.md) for bundle verification,
+custom paths, and XDG locations. Local LLM support also requires `curl` and a
+separately running inference server.
+
+To update from your checkout, run `git pull --ff-only`, `./install.sh`, then
+`exec bash`. For binary updates, run the installer from a new verified bundle.
+
+```bash
+nudge rollback   # Restore the previous installed payload, if available.
+nudge uninstall  # Remove Nudge and its managed shell setup.
+```
+
+These are separate lifecycle actions. Start a fresh Bash shell afterward.
+Uninstall preserves settings, cache, backups, and unrelated shell configuration.
+Set `NUDGE_ENABLED=0` to disable the hook in the current shell.
+
+For development without installation, build with `cargo build --locked --release`
+and run `./try-bash`. The source-build executable is `target/release/nudge-rust`.
 
 ## Local corrections and model providers
 
@@ -99,13 +83,13 @@ Choose one provider; the following are alternatives, not a setup sequence:
 
 | Provider | Saved configuration example |
 |---|---|
-| Codex subscription CLI | `./target/release/nudge-rust config --provider codex --model YOUR_MODEL_ID` |
-| Claude Code subscription CLI | `./target/release/nudge-rust config --provider claude --model YOUR_MODEL_ID` |
-| Local LLM with Ollama | `./target/release/nudge-rust config --provider ollama --model YOUR_INSTALLED_MODEL_ID` |
-| Local LLM with a compatible HTTP server | `./target/release/nudge-rust config --provider local --model YOUR_MODEL_ID --endpoint http://127.0.0.1:1234/v1` |
+| Codex subscription CLI | `nudge config --provider codex --model YOUR_MODEL_ID` |
+| Claude Code subscription CLI | `nudge config --provider claude --model YOUR_MODEL_ID` |
+| Local LLM with Ollama | `nudge config --provider ollama --model YOUR_INSTALLED_MODEL_ID` |
+| Local LLM with a compatible HTTP server | `nudge config --provider local --model YOUR_MODEL_ID --endpoint http://127.0.0.1:1234/v1` |
 
 Replace model placeholders with an available model ID or supported alias. Run
-`./target/release/nudge-rust config` to inspect effective settings. Local models
+`nudge config` to inspect effective settings. Local models
 can be listed with `models --provider ollama` or `models --provider local`.
 
 Codex is the default provider; Claude Code and local LLMs are selectable
@@ -132,13 +116,13 @@ A listed executable does not imply support for every option or subcommand.
 List registered executable names:
 
 ```bash
-./target/release/nudge-rust supported
+nudge supported
 ```
 
 Inspect a suggestion without executing it:
 
 ```bash
-./target/release/nudge-rust suggest --local-only --command 'git statsu'
+nudge suggest --local-only --command 'git statsu'
 ```
 
 Pipelines, shell expansions, compound commands, executable-name typos, and Bash
@@ -165,7 +149,7 @@ cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked
 python3 -m unittest discover -s tests -v
-bash -n nudge.bash interactive.bash try-bash
+for script in nudge.bash interactive.bash try-bash install.sh scripts/*.sh tests/distribution-smoke.sh; do bash -n "$script"; done
 ```
 
 Integration tests require Python 3 and `curl`. They exercise the Rust binary
@@ -173,6 +157,7 @@ using captured metadata, mock executables, and loopback servers. No model login
 or live model requests are needed.
 
 See [contribution guidelines](CONTRIBUTING.md), [development notes](docs/DEVELOPMENT.md),
+[packaging instructions](docs/PACKAGING.md), the [distribution test report](docs/DISTRIBUTION_TESTS.md),
 and the [changelog](CHANGELOG.md). For setup problems, see
 [troubleshooting](docs/TROUBLESHOOTING.md).
 

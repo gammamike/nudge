@@ -12,7 +12,7 @@ cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked
 python3 -m unittest discover -s tests -v
-bash -n nudge.bash interactive.bash try-bash
+for script in nudge.bash interactive.bash try-bash install.sh scripts/*.sh tests/distribution-smoke.sh; do bash -n "$script"; done
 ```
 
 Use `--offline` with Cargo after the locked dependencies have been downloaded.
@@ -29,6 +29,19 @@ mocks during automated checks.
 the minimum supported Rust version (1.88). It uses read-only repository
 permissions and requires no provider credentials. Its first hosted result must
 be checked after the workflow is pushed.
+
+## Installer and distribution checks
+
+The installer is part of the Rust executable (`src/install.rs`); `install.sh`
+wraps source builds and binary bundles. `src/paths.rs` supplies relocatable XDG
+paths. Installer integration tests use disposable homes and mock commands to
+cover installation, updates, rollback, conflicts, backups, and Bash behavior.
+No test should install into the developer's real home directory.
+
+`scripts/package.sh` creates a static Linux bundle, matching source, checksums,
+and notices. Python is used only for developer tests and notice collection.
+See [packaging](PACKAGING.md) and [distribution results](DISTRIBUTION_TESTS.md).
+The separate package workflow validates Ubuntu, Debian, Fedora, and Alpine.
 
 ## Fixtures and coverage
 

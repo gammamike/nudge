@@ -1,16 +1,17 @@
 # Troubleshooting
 
 Nudge supports Linux and interactive Bash 5+. Start with a fresh shell after
-changing the source block or rebuilding: `exec bash`.
+installing, updating, or rolling back: `exec bash`.
 
 ## No suggestion appears
 
-Check that the release binary exists, the source block in `~/.bashrc` points to
-the current checkout, and `NUDGE_ENABLED` is unset or `1`.
+Check `command -v nudge`, the managed setup block in `~/.bashrc`, and whether
+`NUDGE_ENABLED` is unset or `1`. For source-only development, use
+`target/release/nudge-rust` instead of `nudge` below.
 
 ```bash
-./target/release/nudge-rust supported
-./target/release/nudge-rust suggest --local-only --command 'git statsu' --status 1
+nudge supported
+nudge suggest --local-only --command 'git statsu' --status 1
 ```
 
 The second command prints a result without executing a correction. The executable
@@ -25,7 +26,7 @@ unsupported syntax can legitimately produce no suggestion.
 ## Local corrections work, but model selection does not
 
 ```bash
-./target/release/nudge-rust config
+nudge config
 ```
 
 Check the selected provider and model, and whether `NUDGE_LOCAL_ONLY=1` disables
@@ -53,14 +54,31 @@ without deleting existing state, run a suggestion with an empty temporary cache:
 
 ```bash
 nudge_test_cache=$(mktemp -d)
-NUDGE_CACHE_DIR="$nudge_test_cache" ./target/release/nudge-rust suggest --local-only --command 'git statsu'
+NUDGE_CACHE_DIR="$nudge_test_cache" nudge suggest --local-only --command 'git statsu'
 ```
 
-The default cache is `.cache` in the build's source directory; `NUDGE_CACHE_DIR`
-overrides it. Keep the source checkout in place when using the current setup.
+The default cache is `${XDG_CACHE_HOME:-$HOME/.cache}/nudge`; `NUDGE_CACHE_DIR`
+overrides it. Installed copies do not depend on the source checkout.
+
+## Installer refuses shell setup or an update
+
+An earlier manual `nudge.bash` source block must be removed before automatic
+setup. A symlinked startup file or a block edited after installation requires
+manual setup with `--no-modify-shell`, or review of the existing block. Nudge
+refuses to overwrite unrelated launchers and unowned installation directories.
+
+A `.lock` file prevents overlapping installation operations. If an operation
+was interrupted, confirm no installer is running before removing that file from
+the installation directory. Do not remove a live installer's lock.
+
+Use `nudge rollback` to restore the previous installed payload, then `exec bash`.
+See [installation and update details](INSTALLATION.md) for custom prefixes,
+backups, path restrictions, and interrupted-operation behavior.
 
 ## Disable or remove Nudge
 
-Set `NUDGE_ENABLED=0` to disable the hook in the current shell. Remove its source
-block from `~/.bashrc` and start a new shell to disable it permanently. See
-[setup and removal](../README.md#build-and-enable) for files to remove.
+Set `NUDGE_ENABLED=0` to disable the hook in the current shell. Run
+`nudge uninstall` and start a fresh shell to remove a managed installation.
+Settings, cache, startup-file backups, and unrelated shell content are retained.
+For a manual source-only setup, remove its source block yourself. See
+[removal instructions](INSTALLATION.md#uninstall).

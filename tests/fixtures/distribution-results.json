@@ -1,0 +1,45 @@
+{
+  "tested_on": "2026-11-01",
+  "architecture": "x86_64",
+  "method": "Official OCI filesystem layers verified by SHA256, extracted into temporary directories, and run with Bubblewrap user/pid/network namespaces. Writable state stayed in disposable filesystems. Alpine added bash and coreutils using apk.",
+  "scope": [
+    "install",
+    "idempotent reinstall",
+    "update",
+    "rollback",
+    "Bash hook loading",
+    "mock command correction",
+    "uninstall",
+    "settings/cache preservation"
+  ],
+  "images": [
+    {
+      "image": "ubuntu:24.04",
+      "digest": "sha256:78d4744ead1f5b19b04d0df558ab182a5300903900755e515b2ca4d10eb2044d",
+      "architecture": "amd64",
+      "bash_version": "5.2.21",
+      "result": "passed"
+    },
+    {
+      "image": "debian:12-slim",
+      "digest": "sha256:a3bba7dc7dbcc1f37c2856c51fc9a7fac96608f50cb87b1b4e4d8b8c85ae988e",
+      "architecture": "amd64",
+      "bash_version": "5.2.15",
+      "result": "passed"
+    },
+    {
+      "image": "fedora:43",
+      "digest": "sha256:1ad64e0ebefee83263fffacc5cb139b37ff70def215e4fe44720896c83353132",
+      "architecture": "amd64",
+      "bash_version": "5.3.0",
+      "result": "passed"
+    },
+    {
+      "image": "alpine:3.22",
+      "digest": "sha256:dc92f017beea8e7f43263073d717f7bc011228c95d5312e440deb4d035bb4eec",
+      "architecture": "amd64",
+      "bash_version": "5.2.37",
+      "result": "passed"
+    }
+  ]
+}

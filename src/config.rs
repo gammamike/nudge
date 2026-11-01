@@ -23,11 +23,7 @@ pub(crate) fn path() -> Result<PathBuf> {
     if let Some(path) = env::var_os("NUDGE_CONFIG") {
         return Ok(PathBuf::from(path));
     }
-    let directory = env::var_os("XDG_CONFIG_HOME")
-        .filter(|value| !value.is_empty())
-        .map(PathBuf::from)
-        .or_else(|| env::var_os("HOME").map(|value| PathBuf::from(value).join(".config")))
-        .context("HOME or XDG_CONFIG_HOME must be set, or use NUDGE_CONFIG")?;
+    let directory = crate::paths::xdg("XDG_CONFIG_HOME", ".config")?;
     Ok(directory.join("nudge/config.json"))
 }
 

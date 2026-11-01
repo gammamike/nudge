@@ -13,11 +13,19 @@ else
     _NUDGE_ROOT=.
 fi
 _NUDGE_ROOT="$(builtin cd -- "${_NUDGE_ROOT:-/}" && builtin pwd)"
+if [[ -x $_NUDGE_ROOT/bin/nudge ]]; then
+    _NUDGE_BINARY=$_NUDGE_ROOT/bin/nudge
+elif [[ -x $_NUDGE_ROOT/target/release/nudge-rust ]]; then
+    _NUDGE_BINARY=$_NUDGE_ROOT/target/release/nudge-rust
+else
+    printf 'nudge: executable missing; reinstall or rebuild the release binary\n' >&2
+    return 1
+fi
 _NUDGE_LOADED=1
 declare -gA _NUDGE_EXECUTABLES=()
 while IFS= read -r _nudge_name; do
     [[ $_nudge_name =~ ^[a-zA-Z0-9][a-zA-Z0-9_-]*$ ]] && _NUDGE_EXECUTABLES["$_nudge_name"]=1
-done < <(command "$_NUDGE_ROOT/target/release/nudge-rust" supported)
+done < <(command "$_NUDGE_BINARY" supported)
 unset _nudge_name
 _NUDGE_LAST_HISTORY="$(HISTTIMEFORMAT= builtin history 1)"
 
@@ -30,6 +38,7 @@ _nudge_prompt() {
     fi
     _NUDGE_LAST_HISTORY=$item
     [[ ${NUDGE_ENABLED:-1} == 1 ]] || return "$original_status"
+    [[ -x $_NUDGE_BINARY ]] || return "$original_status"
     (( original_status != 0 && original_status != 130 )) || return "$original_status"
     # History entry number followed by two spaces. Multiline/complex commands
     # are rejected by the backend. Ignored/repeated history entries are skipped.
@@ -41,7 +50,7 @@ _nudge_prompt() {
     [[ $(type -t -- "$root") == file ]] || return "$original_status"
     [[ ${NUDGE_LOCAL_ONLY:-0} == 1 ]] && nudge_options+=(--local-only)
     mapfile -d '' -t nudge_args < <(
-        command "$_NUDGE_ROOT/target/release/nudge-rust" confirm --command "$line" \
+        command "$_NUDGE_BINARY" confirm --command "$line" \
             --status "$original_status" "${nudge_options[@]}"
     )
     if (( ${#nudge_args[@]} )); then
