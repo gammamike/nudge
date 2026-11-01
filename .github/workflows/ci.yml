@@ -35,7 +35,7 @@ jobs:
       - name: Check formatting and Bash syntax
         run: |
           cargo fmt --check
-          for script in nudge.bash interactive.bash try-bash install.sh completions/nudge-bash scripts/*.sh tests/*smoke.sh; do bash -n "$script"; done
+          for script in nudge.bash interactive.bash try-bash install.sh completions/nudge-bash scripts/*.sh companion/omarchy/*.sh tests/*smoke.sh; do bash -n "$script"; done
       - name: Lint and test Rust
         run: |
           cargo clippy --locked --all-targets -- -D warnings

@@ -7,6 +7,9 @@ source tree and do not imply a published package or stable release.
 
 ### Added
 
+- Optional Omarchy settings panel with live theme integration, Codex, Claude
+  Code, and local LLM provider/model selection, local model discovery, and
+  installation and Bash activation instructions.
 - Staged Makefile installation, a `nudge-bash` entry point, man page, Bash
   completion, and package-managed lifecycle protection.
 - Checksum-pinned AUR recipe generation, isolated Arch package checks, and

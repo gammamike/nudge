@@ -78,6 +78,13 @@ AUR recipes and a tag-triggered draft-release workflow are prepared. Packages
 and public release downloads have not been published. See the
 [release and AUR guide](docs/RELEASING.md) for validation and submission.
 
+### Optional desktop companion
+
+An optional [Omarchy companion](docs/OMARCHY_COMPANION.md) provides a settings
+panel for Codex, Claude Code, and local LLMs, including local model discovery
+and Bash setup instructions. It is developed in this repository and is not yet
+listed in the marketplace. Nudge itself works without this companion or desktop.
+
 ## Local corrections and model providers
 
 To use deterministic local corrections without any model calls:
@@ -162,10 +169,10 @@ cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked
 python3 -m unittest discover -s tests -v
-for script in nudge.bash interactive.bash try-bash install.sh scripts/*.sh tests/distribution-smoke.sh; do bash -n "$script"; done
+for script in nudge.bash interactive.bash try-bash install.sh scripts/*.sh companion/omarchy/*.sh tests/distribution-smoke.sh; do bash -n "$script"; done
 ```
 
-Integration tests require Python 3 and `curl`. They exercise the Rust binary
+Integration tests require Python 3.11+, `curl`, and `jq`. They exercise the Rust binary
 using captured metadata, mock executables, and loopback servers. No model login
 or live model requests are needed.
 
