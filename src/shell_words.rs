@@ -56,7 +56,8 @@ pub(crate) fn parse(line: &str) -> Option<Vec<String>> {
                     active = true;
                 }
                 '$' | '`' | ';' | '|' | '&' | '<' | '>' | '(' | ')' | '*' | '?' | '[' | ']'
-                | '{' | '}' | '~' | '!' | '#' => return None,
+                | '{' | '}' | '~' | '!' => return None,
+                '#' if !active => return None,
                 _ => {
                     word.push(c);
                     active = true;
@@ -121,8 +122,16 @@ mod tests {
             "git add <(id)",
             "git add $'x'",
             "git add {a,b}",
+            "nix build # comment",
         ] {
             assert!(parse(input).is_none(), "{input}");
         }
+    }
+
+    #[test]
+    fn hash_inside_a_word_is_literal() {
+        let words = parse("nix build nixpkgs#hello .#app").unwrap();
+        assert_eq!(&words[2..], ["nixpkgs#hello", ".#app"]);
+        assert_eq!(parse(&display(&words)).unwrap(), words);
     }
 }

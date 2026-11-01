@@ -1,8 +1,9 @@
 # Linux profile batch
 
 Implemented and checked on this Omarchy machine on 2026-11-01: **110 new executable
-adapters**, bringing the registry to **116 executable names**. Docker Compose is
-a nested Docker adapter, not another executable in that count. Linux and Bash 5+
+adapters**, bringing the registry at that point to **116 executable names**.
+The subsequent [nested CLI batch](NESTED_CLI_BATCH.md) brings the total to **120**.
+Docker Compose is a nested Docker adapter, not another executable in that count. Linux and Bash 5+
 only; the binary rejects non-Linux builds and the hook skips non-Linux shells.
 
 This is scoped syntax correction, not complete CLI emulation. The remaining
@@ -228,15 +229,12 @@ reviewed subcommands. All other forms remain outside that row's coverage.
 
 ## Remaining top-priority work
 
-Fourteen of the 21 top-priority names now have scoped adapters. The following
-seven remain planned, with no suggestion handler advertised:
+This batch covered fourteen of the 21 top-priority names. The subsequent
+[nested CLI batch](NESTED_CLI_BATCH.md) adds Nix, iwctl, Zellij, and strace.
+Eighteen now have scoped adapters; these three remain planned:
 
 | Tool | Remaining work |
 |---|---|
-| nix | Experimental-feature settings, nested commands, and installed grammar fixtures |
-| iwctl | Commands separated by device/station IDs; preserve identifiers while validating action slots |
-| zellij | Session commands, nested actions, and opaque command payloads |
-| strace | Long-option/optional-value rules and traced-command boundary; unavailable on this machine |
 | crontab | Primarily short flags and impactful edit/remove semantics; no confident correction rule yet |
 | ssh-keygen | Primarily short flags whose one-letter differences select very different key operations |
 | lsof | Dense short-option syntax; no useful reviewed long-option correction set in this installed version |

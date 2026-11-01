@@ -1,0 +1,603 @@
+{
+  "nix": {
+    "kind": "nix",
+    "root": {
+      "help": [
+        "__dump-cli"
+      ],
+      "flags": "--help --version --verbose -v --quiet --debug --log-format= --print-build-logs -L --offline --refresh --show-trace --store= --extra-experimental-features= --experimental-features=",
+      "commands": {
+        "build": {
+          "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2 --no-link --out-link= -o= --json --dry-run --print-out-paths",
+          "min": 0,
+          "max": null
+        },
+        "eval": {
+          "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2 --json --raw --apply=",
+          "min": 0,
+          "max": 1
+        },
+        "search": {
+          "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2 --json",
+          "min": 0,
+          "max": null
+        },
+        "path-info": {
+          "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2 --json --size -S --closure-size --recursive -r",
+          "min": 0,
+          "max": null
+        },
+        "develop": {
+          "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2 --command* -c*",
+          "min": 0,
+          "max": 1
+        },
+        "run": {
+          "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2",
+          "min": 0,
+          "max": 1,
+          "payload": "after-separator"
+        },
+        "shell": {
+          "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2 --command* -c*",
+          "min": 0,
+          "max": null,
+          "metadata_path": [
+            "env",
+            "shell"
+          ]
+        },
+        "env": {
+          "commands": {
+            "shell": {
+              "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2 --command* -c*",
+              "min": 0,
+              "max": null
+            }
+          }
+        },
+        "flake": {
+          "commands": {
+            "show": {
+              "flags": "--json --all-systems --legacy --arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2",
+              "min": 0,
+              "max": 1
+            },
+            "metadata": {
+              "flags": "--json --arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2",
+              "min": 0,
+              "max": 1
+            },
+            "check": {
+              "flags": "--no-build --keep-going --all-systems --arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2",
+              "min": 0,
+              "max": 1
+            },
+            "update": {
+              "flags": "--flake= --commit-lock-file",
+              "min": 0,
+              "max": null
+            },
+            "lock": {
+              "flags": "--arg=2 --argstr=2 --expr= --file= -f= --include= -I= --impure --no-write-lock-file --no-update-lock-file --inputs-from= --override-input=2 --override-flake=2",
+              "min": 0,
+              "max": 1
+            }
+          }
+        },
+        "profile": {
+          "commands": {
+            "list": {
+              "flags": "--profile= --json",
+              "min": 0,
+              "max": 0
+            },
+            "history": {
+              "flags": "--profile= --json",
+              "min": 0,
+              "max": 0
+            },
+            "diff-closures": {
+              "flags": "--profile= --json",
+              "min": 0,
+              "max": 0
+            }
+          }
+        },
+        "store": {
+          "commands": {
+            "info": {
+              "flags": "--json",
+              "min": 0,
+              "max": 0
+            },
+            "ls": {
+              "flags": "--recursive -R --long -l --directory -d",
+              "min": 1,
+              "max": 1
+            },
+            "cat": {
+              "flags": "",
+              "min": 1,
+              "max": 1
+            },
+            "diff-closures": {
+              "flags": "",
+              "min": 2,
+              "max": 2
+            }
+          }
+        }
+      },
+      "known_aliases": [
+        "show-config",
+        "show-derivation",
+        "ls-store",
+        "ls-nar",
+        "cat-store",
+        "cat-nar",
+        "add-to-store",
+        "add-file",
+        "optimise-store",
+        "ping-store"
+      ]
+    }
+  },
+  "iwctl": {
+    "kind": "iwctl",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--username= --password= --passphrase= --dont-ask --help",
+      "commands": {
+        "adapter": {
+          "commands": {
+            "list": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            },
+            "show": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            }
+          }
+        },
+        "device": {
+          "commands": {
+            "list": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            },
+            "show": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            }
+          }
+        },
+        "known-networks": {
+          "commands": {
+            "list": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            },
+            "show": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            }
+          }
+        },
+        "station": {
+          "commands": {
+            "list": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            },
+            "show": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            },
+            "connect": {
+              "flags": "",
+              "min": 1,
+              "max": 2
+            },
+            "connect-hidden": {
+              "flags": "",
+              "min": 1,
+              "max": 1
+            },
+            "disconnect": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            },
+            "scan": {
+              "flags": "",
+              "min": 0,
+              "max": 0
+            },
+            "get-networks": {
+              "flags": "",
+              "min": 0,
+              "max": 1
+            },
+            "get-hidden-access-points": {
+              "flags": "",
+              "min": 0,
+              "max": 1
+            },
+            "get-bsses": {
+              "flags": "",
+              "min": 0,
+              "max": 2
+            }
+          }
+        }
+      }
+    }
+  },
+  "zellij": {
+    "kind": "zellij",
+    "root": {
+      "flags": "--session= -s= --config= -c= --config-dir= --debug -d --help -h --version -V",
+      "commands": {
+        "list-sessions": {
+          "flags": "--short -s --no-formatting -n --reverse -r --help -h",
+          "min": 0,
+          "max": 0,
+          "aliases": [
+            "ls"
+          ],
+          "help": [
+            "list-sessions",
+            "--help"
+          ]
+        },
+        "list-aliases": {
+          "flags": "--help -h",
+          "min": 0,
+          "max": 0,
+          "aliases": [
+            "la"
+          ],
+          "help": [
+            "list-aliases",
+            "--help"
+          ]
+        },
+        "attach": {
+          "flags": "--create -c --create-background -b --index= --help -h",
+          "min": 0,
+          "max": 1,
+          "payload": "after-separator",
+          "aliases": [
+            "a"
+          ],
+          "help": [
+            "attach",
+            "--help"
+          ]
+        },
+        "run": {
+          "flags": "--direction= -d= --cwd= --floating -f --in-place -i --name= -n= --close-on-exit -c --start-suspended -s --no-focus --help -h",
+          "min": 0,
+          "max": 0,
+          "payload": "require-separator",
+          "aliases": [
+            "r"
+          ],
+          "help": [
+            "run",
+            "--help"
+          ]
+        },
+        "setup": {
+          "flags": "--dump-config --clean --check --dump-layout= --dump-swap-layout= --help -h",
+          "min": 0,
+          "max": 0,
+          "help": [
+            "setup",
+            "--help"
+          ]
+        },
+        "action": {
+          "aliases": [
+            "ac"
+          ],
+          "commands": {
+            "list-panes": {
+              "flags": "--json --help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "list-panes",
+                "--help"
+              ]
+            },
+            "list-tabs": {
+              "flags": "--json --help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "list-tabs",
+                "--help"
+              ]
+            },
+            "list-clients": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "list-clients",
+                "--help"
+              ]
+            },
+            "current-tab-info": {
+              "flags": "--json --help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "current-tab-info",
+                "--help"
+              ]
+            },
+            "query-tab-names": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "query-tab-names",
+                "--help"
+              ]
+            },
+            "dump-layout": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "dump-layout",
+                "--help"
+              ]
+            },
+            "focus-next-pane": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "focus-next-pane",
+                "--help"
+              ]
+            },
+            "focus-previous-pane": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "focus-previous-pane",
+                "--help"
+              ]
+            },
+            "focus-last-pane": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "focus-last-pane",
+                "--help"
+              ]
+            },
+            "go-to-next-tab": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "go-to-next-tab",
+                "--help"
+              ]
+            },
+            "go-to-previous-tab": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "go-to-previous-tab",
+                "--help"
+              ]
+            },
+            "detach": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "detach",
+                "--help"
+              ]
+            },
+            "toggle-fullscreen": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "toggle-fullscreen",
+                "--help"
+              ]
+            },
+            "scroll-up": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "scroll-up",
+                "--help"
+              ]
+            },
+            "scroll-down": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "scroll-down",
+                "--help"
+              ]
+            },
+            "scroll-to-top": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "scroll-to-top",
+                "--help"
+              ]
+            },
+            "scroll-to-bottom": {
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "scroll-to-bottom",
+                "--help"
+              ]
+            },
+            "move-focus": {
+              "flags": "--help -h",
+              "min": 1,
+              "max": 1,
+              "help": [
+                "action",
+                "move-focus",
+                "--help"
+              ]
+            },
+            "move-focus-or-tab": {
+              "flags": "--help -h",
+              "min": 1,
+              "max": 1,
+              "help": [
+                "action",
+                "move-focus-or-tab",
+                "--help"
+              ]
+            },
+            "go-to-tab": {
+              "flags": "--help -h",
+              "min": 1,
+              "max": 1,
+              "help": [
+                "action",
+                "go-to-tab",
+                "--help"
+              ]
+            },
+            "go-to-tab-name": {
+              "flags": "--help -h",
+              "min": 1,
+              "max": 1,
+              "help": [
+                "action",
+                "go-to-tab-name",
+                "--help"
+              ]
+            },
+            "rename-tab": {
+              "flags": "--help -h",
+              "min": 1,
+              "max": 1,
+              "help": [
+                "action",
+                "rename-tab",
+                "--help"
+              ]
+            },
+            "rename-pane": {
+              "flags": "--help -h",
+              "min": 1,
+              "max": 1,
+              "help": [
+                "action",
+                "rename-pane",
+                "--help"
+              ]
+            },
+            "rename-session": {
+              "flags": "--help -h",
+              "min": 1,
+              "max": 1,
+              "help": [
+                "action",
+                "rename-session",
+                "--help"
+              ]
+            },
+            "new-pane": {
+              "flags": "--direction= -d= --cwd= --floating -f --in-place -i --name= -n= --close-on-exit -c --start-suspended -s --help -h",
+              "min": 0,
+              "max": 0,
+              "payload": "after-separator",
+              "help": [
+                "action",
+                "new-pane",
+                "--help"
+              ]
+            },
+            "new-tab": {
+              "flags": "--name= -n= --cwd= --help -h",
+              "min": 0,
+              "max": 0,
+              "help": [
+                "action",
+                "new-tab",
+                "--help"
+              ]
+            }
+          },
+          "help": [
+            "action",
+            "--help"
+          ],
+          "flags": "--help -h"
+        }
+      },
+      "help": [
+        "--help"
+      ]
+    }
+  },
+  "strace": {
+    "kind": "strace",
+    "root": {
+      "flags": "--help -h --version -V --follow-forks -f --output-separately --trace= -e= --signal= --status= --trace-fds= --trace-path= -P= --successful-only -z --failed-only -Z --columns= -a= --abbrev= --verbose= --raw= --read= --write= --quiet= -q --instruction-pointer -i --stack-trace? -k --stack-trace-frame-limit= --syscall-number -n --arg-names -N --output= -o= --output-append-mode -A --relative-timestamps? -r --string-limit= -s= --absolute-timestamps? -t --syscall-times? -T --no-abbrev -v --strings-in-hex? -x --const-print-style= -X= --decode-fds? -y --decode-pids= -Y --always-show-pid --summary-only -c --summary -C --summary-syscall-overhead= -O= --summary-sort-by= -S= --summary-columns= -U= --summary-wall-clock -w --syscall-limit= --debug -d --seccomp-bpf --attach= -p=",
+      "min": 0,
+      "max": 0,
+      "payload": "first-operand",
+      "help": [
+        "--help"
+      ]
+    }
+  }
+}

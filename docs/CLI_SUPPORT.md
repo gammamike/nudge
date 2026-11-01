@@ -19,7 +19,9 @@ Git, Docker/Compose, systemctl, and journalctl adapters and their test results.
 The [Linux profile batch](LINUX_PROFILES.md) adds 110 individually listed,
 tested, scoped adapters. Its per-executable matrix overrides the broad planned
 rows below: those rows still contain unimplemented tools and are not complete.
-All tools absent from the two implementation reports remain planned.
+The [nested CLI batch](NESTED_CLI_BATCH.md) adds Nix, iwctl, Zellij, and strace,
+bringing the active registry to 120 executable names.
+All tools absent from these implementation reports remain planned.
 
 ## Coverage inventory
 

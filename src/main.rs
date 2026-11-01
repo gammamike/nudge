@@ -8,6 +8,7 @@ mod catalog;
 mod claude;
 mod cli_adapters;
 mod cli_metadata;
+mod cli_nested;
 mod cli_profiles;
 mod codex;
 mod config;
@@ -46,7 +47,7 @@ fn execute(runner: &Runner) -> Result<()> {
         ] {
             println!("{root}");
         }
-        for root in cli_profiles::roots() {
+        for root in cli_profiles::roots().chain(cli_nested::roots()) {
             println!("{root}");
         }
         return Ok(());

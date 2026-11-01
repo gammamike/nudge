@@ -107,13 +107,15 @@ endpoints, model overrides, privacy boundaries, and environment settings.
 
 ## Command coverage
 
-The registry currently contains **116 executable adapters**, with deliberately
+The registry currently contains **120 executable adapters**, with deliberately
 scoped support. It includes Herdr, Omarchy, Git, Docker/Compose, systemd, common
-file/text tools, desktop utilities, Cargo, and Pacman/Yay query operations.
+file/text tools, desktop utilities, Cargo, Pacman/Yay query operations, Nix,
+iwctl, Zellij, and strace.
 A listed executable does not imply support for every option or subcommand.
 
 - [Git, Docker/Compose, and systemd support](docs/FIRST_CLI_BATCH.md)
 - [Additional Linux profiles, exact scopes, and timings](docs/LINUX_PROFILES.md)
+- [Nix, iwctl, Zellij, and strace scopes and tests](docs/NESTED_CLI_BATCH.md)
 - [Launch coverage checklist](docs/CLI_SUPPORT.md)
 - [Additional requested tools](docs/CLI_ADDITIONS.md)
 

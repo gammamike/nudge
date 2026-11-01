@@ -4,7 +4,8 @@ Entries here are a roadmap, not support claims merely because they are listed.
 The first implemented batch is Git, Docker/Compose, systemctl, and journalctl;
 its scoped support and completed tests are recorded in [the batch report](FIRST_CLI_BATCH.md).
 The [Linux profile batch](LINUX_PROFILES.md) now records 110 implemented,
-tested adapters, including 14 of the 21 top-priority executable names below.
+tested adapters. The [nested CLI batch](NESTED_CLI_BATCH.md) adds Nix, iwctl,
+Zellij, and strace, bringing top-priority coverage to 18 of the 21 names below.
 Coverage is deliberately scoped per tool; boot/key operations are mostly
 inspection-only. Names absent from the implementation reports remain planned.
 

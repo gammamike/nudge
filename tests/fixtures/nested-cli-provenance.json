@@ -1,0 +1,31 @@
+{
+  "captured_on": "2026-11-01",
+  "platform": "Linux x86_64",
+  "method": "Repository packages extracted without installation; SHA256 checked against the local pacman sync database. Only fixed help/metadata queries executed.",
+  "packages": [
+    {
+      "package": "nix",
+      "version": "2.35.3-1",
+      "url": "https://stable-mirror.omarchy.org/extra/os/x86_64/nix-2.35.3-1-x86_64.pkg.tar.zst",
+      "sha256": "558023e09683faa29c5511518cf30ce212d525389f8894d63d317b7bdad2cc90"
+    },
+    {
+      "package": "iwd",
+      "version": "3.12-2",
+      "url": "https://stable-mirror.omarchy.org/extra/os/x86_64/iwd-3.12-2-x86_64.pkg.tar.zst",
+      "sha256": "934f8f861bad145def3429a25f913882f6054d6f50c63484204cd2bba2f4f8be"
+    },
+    {
+      "package": "zellij",
+      "version": "0.45.1-1",
+      "url": "https://stable-mirror.omarchy.org/extra/os/x86_64/zellij-0.45.1-1-x86_64.pkg.tar.zst",
+      "sha256": "579e82c2e4c68b0a1f4901265f89b5aeea7c676e039a9f50a37a05d4902a2b9b"
+    },
+    {
+      "package": "strace",
+      "version": "7.2-1",
+      "url": "https://stable-mirror.omarchy.org/extra/os/x86_64/strace-7.2-1-x86_64.pkg.tar.zst",
+      "sha256": "4e51a26cf0f69d959d96bb629b848892ab248f5c522981e391dfa302ac44312e"
+    }
+  ]
+}

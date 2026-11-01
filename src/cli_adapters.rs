@@ -15,6 +15,7 @@ use crate::{claude, codex, local, shell_words, terminal};
 pub(crate) fn supports(root: &str) -> bool {
     matches!(root, "git" | "docker" | "systemctl" | "journalctl")
         || crate::cli_profiles::supports(root)
+        || crate::cli_nested::supports(root)
 }
 
 fn eligible(root: &str, parent: &str) -> &'static [&'static str] {
@@ -414,6 +415,9 @@ fn analyze(
     runner: &Runner,
 ) -> Result<Analysis> {
     let root = words[0].as_str();
+    if crate::cli_nested::supports(root) {
+        return crate::cli_nested::analyze(words, executable, options, runner);
+    }
     if crate::cli_profiles::supports(root) {
         return crate::cli_profiles::analyze(words, executable, options, runner);
     }
