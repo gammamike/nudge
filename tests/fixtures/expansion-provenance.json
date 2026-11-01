@@ -1,0 +1,2889 @@
+{
+  "captured": "2026-11-01",
+  "platform": "Linux x86_64",
+  "notes": "Only fixed help/version queries were run. Packages were extracted into temporary directories; SHA256s matched the local pacman sync databases. No packages were installed and no proposed commands were executed. Package archives include dependencies, not additional support claims.",
+  "tools": {
+    "age": {
+      "version": "1.3.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "aria2c": {
+      "version": "1.37.0-3",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "atuin": {
+      "version": "18.24.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "awk": {
+      "version": "gawk 5.4.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "awww": {
+      "version": "0.12.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "black": {
+      "version": "26.10.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "blkid": {
+      "version": "util-linux 2.42.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "btm": {
+      "version": "0.14.9-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "buildah": {
+      "version": "1:1.45.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "bunzip2": {
+      "version": "bzip2 1.0.8-6",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "busctl": {
+      "version": "systemd 262.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "bzip2": {
+      "version": "bzip2 1.0.8-6",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "chezmoi": {
+      "version": "2.73.3-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "cmake": {
+      "version": "4.4.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "cryptsetup": {
+      "version": "cryptsetup 2.8.8-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ctr": {
+      "version": "containerd 2.4.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "delta": {
+      "version": "0.20.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "deno": {
+      "version": "deno 2.9.8-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "dmidecode": {
+      "version": "3.7-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "docker": {
+      "version": "github.com/docker/buildx 0.38.1 0dbe87f36ed472fe36b6796c3f70b4210a731fc5",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "docker-compose": {
+      "version": "docker-compose 5.6.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "dracut": {
+      "version": "111-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "duf": {
+      "version": "0.9.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "dust": {
+      "version": "1.2.6-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "efibootmgr": {
+      "version": "efibootmgr 18-4",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "env": {
+      "version": "coreutils 9.12-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ethtool": {
+      "version": "1:7.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "fdisk": {
+      "version": "util-linux 2.42.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "fuser": {
+      "version": "psmisc 23.7-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "gdb": {
+      "version": "18.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "getent": {
+      "version": "glibc 2.44+r50+g1848099f063e-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "gh": {
+      "version": "gh version 2.103.3 (2026-10-26)",
+      "source": "Linux executable --version"
+    },
+    "glow": {
+      "version": "3.0.0-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "gsettings": {
+      "version": "glib2 2.90.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "gunzip": {
+      "version": "gzip 1.15-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "gzip": {
+      "version": "gzip 1.15-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "helm": {
+      "version": "4.3.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "hostname": {
+      "version": "inetutils 2.8-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "htop": {
+      "version": "3.5.3-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "http": {
+      "version": "3.2.4-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "hyperfine": {
+      "version": "2.0.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "hypridle": {
+      "version": "0.1.8-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "hyprlock": {
+      "version": "0.9.6-3",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "hyprpaper": {
+      "version": "0.8.4-9",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "inotifywait": {
+      "version": "inotify-tools 4.26.270-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "iostat": {
+      "version": "12.8.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "jq": {
+      "version": "jq 1.8.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "just": {
+      "version": "1.59.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "kubectl": {
+      "version": "1.37.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "kustomize": {
+      "version": "5.8.3-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "lazydocker": {
+      "version": "lazydocker 0.25.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ldd": {
+      "version": "glibc 2.44+r50+g1848099f063e-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "less": {
+      "version": "less 1:710-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ln": {
+      "version": "coreutils 9.12-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "locate": {
+      "version": "plocate 1.1.25-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "lsd": {
+      "version": "1.2.0-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "lshw": {
+      "version": "B.02.20-3",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "lsmod": {
+      "version": "kmod 34.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "lsusb": {
+      "version": "usbutils 019-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ltrace": {
+      "version": "0.8.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "luarocks": {
+      "version": "luarocks 3.13.0-5",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "makepkg": {
+      "version": "pacman 7.1.0.r9.g54d9411-3",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "mako": {
+      "version": "1.11.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "makoctl": {
+      "version": "1.11.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "meson": {
+      "version": "1.12.1-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "micro": {
+      "version": "2.0.15-3",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "mktemp": {
+      "version": "coreutils 9.12-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "modprobe": {
+      "version": "kmod 34.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "more": {
+      "version": "util-linux 2.42.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "mount": {
+      "version": "util-linux 2.42.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "mtr": {
+      "version": "0.96-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "mypy": {
+      "version": "2.4.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "nano": {
+      "version": "9.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "nerdctl": {
+      "version": "2.4.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "nice": {
+      "version": "coreutils 9.12-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ninja": {
+      "version": "1.13.2-3",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "nmap": {
+      "version": "7.992-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "node": {
+      "version": "v26.12.0",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "npm": {
+      "version": "11.20.0",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "nvidia-smi": {
+      "version": "nvidia-utils 615.78.08-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "nvim": {
+      "version": "neovim 0.12.6-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "paccache": {
+      "version": "pacman-contrib 1.13.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "pandoc": {
+      "version": "pandoc 3.11",
+      "source": "Linux executable --version"
+    },
+    "parted": {
+      "version": "parted 3.8-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "patch": {
+      "version": "patch 2.8-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "pg_dump": {
+      "version": "postgresql-libs 18.6-4",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "pg_restore": {
+      "version": "postgresql-libs 18.6-4",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "pgrep": {
+      "version": "procps-ng 4.0.7-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "pip": {
+      "version": "pip 26.2.2 from /home/example/.local/share/mise/installs/python/3.15.2/lib/python3.15/site-packages/pip (python 3.15)",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "pip3": {
+      "version": "pip 26.2.2 from /home/example/.local/share/mise/installs/python/3.15.2/lib/python3.15/site-packages/pip (python 3.15)",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "playerctl": {
+      "version": "2.4.1-5",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "podman": {
+      "version": "6.1.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "pre-commit": {
+      "version": "4.7.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "procs": {
+      "version": "0.14.12-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ps": {
+      "version": "procps-ng 4.0.7-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "psql": {
+      "version": "postgresql-libs 18.6-4",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "pytest": {
+      "version": "1:9.1.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "python": {
+      "version": "Python 3.15.2",
+      "source": "Linux executable --version"
+    },
+    "python3": {
+      "version": "Python 3.15.2",
+      "source": "Linux executable --version"
+    },
+    "rename": {
+      "version": "util-linux 2.42.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "resolvectl": {
+      "version": "systemd 262.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ruby": {
+      "version": "ruby 4.0.9 (2026-10-23 revision 3e93b23afc) +PRISM [x86_64-linux]",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ruff": {
+      "version": "0.17.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "rustup": {
+      "version": "rustup 1.29.2 (d8c92c676 2026-10-21)",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "screen": {
+      "version": "5.0.2-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "sd": {
+      "version": "1.1.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "sed": {
+      "version": "sed 4.10-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "sensors": {
+      "version": "lm_sensors 1:3.6.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "skopeo": {
+      "version": "1.24.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "smartctl": {
+      "version": "7.5-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "snapper": {
+      "version": "snapper 0.13.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "sops": {
+      "version": "3.13.3-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "sqlite3": {
+      "version": "sqlite 3.54.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "starship": {
+      "version": "starship 1.27.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "stow": {
+      "version": "2.4.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "sync": {
+      "version": "coreutils 9.12-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "sysctl": {
+      "version": "procps-ng 4.0.7-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "tailscale": {
+      "version": "tailscale 1.104.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "tar": {
+      "version": "tar 1.35-5",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "tcpdump": {
+      "version": "4.99.7-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "timeout": {
+      "version": "coreutils 9.12-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "tokei": {
+      "version": "15.0.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "top": {
+      "version": "procps-ng 4.0.7-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "tr": {
+      "version": "coreutils 9.12-2",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "tree": {
+      "version": "2.3.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "udevadm": {
+      "version": "systemd 262.1-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "ufw": {
+      "version": "ufw 0.36.2-7",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "unxz": {
+      "version": "xz 5.8.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "upower": {
+      "version": "upower 1.91.5-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "uv": {
+      "version": "uv 0.13.6 (x86_64-unknown-linux-gnu)",
+      "source": "Linux executable --version"
+    },
+    "vim": {
+      "version": "vim 9.2.1178-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "visudo": {
+      "version": "sudo 1.9.17.p2-6",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "vmstat": {
+      "version": "procps-ng 4.0.7-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "walker": {
+      "version": "2.17.2-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "waybar": {
+      "version": "0.15.0-3",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "wg": {
+      "version": "wireguard-tools 1.0.20260223-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "wget": {
+      "version": "1.25.0-6",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "which": {
+      "version": "which 2.25-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "whois": {
+      "version": "whois 5.6.6-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "xz": {
+      "version": "xz 5.8.4-1",
+      "source": "Linux installed or extracted repository package metadata"
+    },
+    "zoxide": {
+      "version": "zoxide 0.10.0-1",
+      "source": "Linux installed or extracted repository package metadata"
+    }
+  },
+  "archives": [
+    {
+      "package": "aardvark-dns",
+      "version": "2.1.0-3",
+      "filename": "aardvark-dns-2.1.0-3-x86_64.pkg.tar.zst",
+      "sha256": "40c769132c7bc100b73146fd40eee704e3be1bd8fa8a067d0deeca1ed250e4c6"
+    },
+    {
+      "package": "accountsservice",
+      "version": "26.27.3-1",
+      "filename": "accountsservice-26.27.3-1-x86_64.pkg.tar.zst",
+      "sha256": "d3af0478419f59cf771f516cd6265e1e9f7a4e8d3e9cede1d0e6f7173835dab1"
+    },
+    {
+      "package": "age",
+      "version": "1.3.2-1",
+      "filename": "age-1.3.2-1-x86_64.pkg.tar.zst",
+      "sha256": "c82edb230b872f8bd2d30f240722806038ae3613ccac43fa99df5e7e8a2d4196"
+    },
+    {
+      "package": "appstream",
+      "version": "1.2.1-1",
+      "filename": "appstream-1.2.1-1-x86_64.pkg.tar.zst",
+      "sha256": "5dda9c483791977122971180d127d6e426e9de065f331e16ed3019181dd9e3ac"
+    },
+    {
+      "package": "aria2",
+      "version": "1.37.0-3",
+      "filename": "aria2-1.37.0-3-x86_64.pkg.tar.zst",
+      "sha256": "fd887fd41933137da7260522d62198ab9f9a5f1cf7fbceeb9127f29c1e98aad3"
+    },
+    {
+      "package": "atkmm",
+      "version": "2.28.5-2",
+      "filename": "atkmm-2.28.5-2-x86_64.pkg.tar.zst",
+      "sha256": "3af618e166363059850fa78253aea834b9979b5c60f68c219b73a52256092977"
+    },
+    {
+      "package": "atuin",
+      "version": "18.24.1-1",
+      "filename": "atuin-18.24.1-1-x86_64.pkg.tar.zst",
+      "sha256": "b2ad83d9b608b9c0bd38ca8a4abd11d6e82c5cad196d1af9d6e4aa5c15a72560"
+    },
+    {
+      "package": "awww",
+      "version": "0.12.1-1",
+      "filename": "awww-0.12.1-1-x86_64.pkg.tar.zst",
+      "sha256": "eb0b7c39e86e91636b174bac877bda9ff6415a84a643d85b2bef9619030cb8a5"
+    },
+    {
+      "package": "bottom",
+      "version": "0.14.9-1",
+      "filename": "bottom-0.14.9-1-x86_64.pkg.tar.zst",
+      "sha256": "d8c3ca105a42944565be1f5328edf5c8d29d7ceec5f11df15614ede09f6eca99"
+    },
+    {
+      "package": "buildah",
+      "version": "1:1.45.2-1",
+      "filename": "buildah-1:1.45.2-1-x86_64.pkg.tar.zst",
+      "sha256": "4eb8705622ab8af05cbb69aabc3762ce0dab2a65572c51f9388e5ea0dc7936b2"
+    },
+    {
+      "package": "cairomm",
+      "version": "1.14.6-1",
+      "filename": "cairomm-1.14.6-1-x86_64.pkg.tar.zst",
+      "sha256": "5ddb0880e0e912aa736729ac3b7246c3b11532786b007ba1a7f736d23076c623"
+    },
+    {
+      "package": "catatonit",
+      "version": "0.2.1-2",
+      "filename": "catatonit-0.2.1-2-x86_64.pkg.tar.zst",
+      "sha256": "882948ffa97bdab28bf8e89b5335073149d42b68de91847b54cbcd8e64fd62b1"
+    },
+    {
+      "package": "chezmoi",
+      "version": "2.73.3-1",
+      "filename": "chezmoi-2.73.3-1-x86_64.pkg.tar.zst",
+      "sha256": "c2d99be3931ec3a2bb7075e4a70330813b6de5ac1ed736b5cd6477ce426f67f6"
+    },
+    {
+      "package": "cmake",
+      "version": "4.4.4-1",
+      "filename": "cmake-4.4.4-1-x86_64.pkg.tar.zst",
+      "sha256": "d9deb07a41610c2ffc8ab543bdbf033d647015088638e846c0a843ede3631b31"
+    },
+    {
+      "package": "composefs",
+      "version": "1.0.8-1",
+      "filename": "composefs-1.0.8-1-x86_64.pkg.tar.zst",
+      "sha256": "f04ba335b4b466dd232e2675bcc711e1794106e6d5bcef46ad19518437d6f616"
+    },
+    {
+      "package": "conmon",
+      "version": "1:2.2.1-1",
+      "filename": "conmon-1:2.2.1-1-x86_64.pkg.tar.zst",
+      "sha256": "3cc9679725446c229735055f36d417cc0a00d38fd5c619cb7367faa54276caae"
+    },
+    {
+      "package": "containers-common",
+      "version": "1:0.69.2-1",
+      "filename": "containers-common-1:0.69.2-1-any.pkg.tar.zst",
+      "sha256": "74bdbfe0fcde6e42a52d678b4db121ed6ed923662d3d4c9c8a9182cf034fdee0"
+    },
+    {
+      "package": "cppdap",
+      "version": "1.58.0-3",
+      "filename": "cppdap-1.58.0-3-x86_64.pkg.tar.zst",
+      "sha256": "5c8bd9b3881ba9b2bea98eefa95df21d92b026f0c7537105d943857b22388be3"
+    },
+    {
+      "package": "cpupower",
+      "version": "7.2.11-1",
+      "filename": "cpupower-7.2.11-1-x86_64.pkg.tar.zst",
+      "sha256": "3c035b60a09785941a79a59b4d6f31001b8ccd26cabd72ef531e3cd6d50e6390"
+    },
+    {
+      "package": "cronie",
+      "version": "1.7.2-2",
+      "filename": "cronie-1.7.2-2-x86_64.pkg.tar.zst",
+      "sha256": "6c01a250006d1561df81bca017ef427cf7353c89f913ace20e090b938ed0c096"
+    },
+    {
+      "package": "debuginfod",
+      "version": "0.197-1",
+      "filename": "debuginfod-0.197-1-x86_64.pkg.tar.zst",
+      "sha256": "9a9fca34b3c9470181dcb2e35e38d82b45220897ffc60c032030d76578edd9c7"
+    },
+    {
+      "package": "direnv",
+      "version": "2.38.2-1",
+      "filename": "direnv-2.38.2-1-x86_64.pkg.tar.zst",
+      "sha256": "7bccf10692e0c678c02a5be8500e3872ec215c44eefed1537dc7118681834426"
+    },
+    {
+      "package": "distrobox",
+      "version": "1.8.2.5-1",
+      "filename": "distrobox-1.8.2.5-1-any.pkg.tar.zst",
+      "sha256": "94b37aa0340e16c9a9e9ac2bbb830f1bec1d1495a1a18b92330c4dd5806affa2"
+    },
+    {
+      "package": "dmidecode",
+      "version": "3.7-1",
+      "filename": "dmidecode-3.7-1-x86_64.pkg.tar.zst",
+      "sha256": "9e147ceab57443751dc53a1010f8fb9091af00587fcb6929536c8da9ac7a94f5"
+    },
+    {
+      "package": "dracut",
+      "version": "111-1",
+      "filename": "dracut-111-1-x86_64.pkg.tar.zst",
+      "sha256": "3470cd86785c2267f56196bad61410869d0ed8da402fa1ad7fe2848c1c24b900"
+    },
+    {
+      "package": "duf",
+      "version": "0.9.1-1",
+      "filename": "duf-0.9.1-1-x86_64.pkg.tar.zst",
+      "sha256": "f2173ba2e2d2516f1e3e97b6f4866ccb1d5700b9b529a700eb53bcd54baf92ba"
+    },
+    {
+      "package": "dust",
+      "version": "1.2.6-1",
+      "filename": "dust-1.2.6-1-x86_64.pkg.tar.zst",
+      "sha256": "945e436b814e21646b591bbca4ffc0fd7b38aed8cda616a49bec99527f409603"
+    },
+    {
+      "package": "ethtool",
+      "version": "1:7.2-1",
+      "filename": "ethtool-1:7.2-1-x86_64.pkg.tar.zst",
+      "sha256": "2feacfc79d4d1af7010647a493c860d369db78dad151eb1d14b704bfbd7808a8"
+    },
+    {
+      "package": "fastfetch",
+      "version": "2.70.0-1",
+      "filename": "fastfetch-2.70.0-1-x86_64.pkg.tar.zst",
+      "sha256": "c9ccc974ca37000615fdb1deb9f451c854d1bce27396888129eae129ba274446"
+    },
+    {
+      "package": "fish",
+      "version": "4.9.3-1",
+      "filename": "fish-4.9.3-1-x86_64.pkg.tar.zst",
+      "sha256": "57f5e1d91f0c86498c5666d5f3cbae6181394299fadc20d43ef01b3cfcaca15b"
+    },
+    {
+      "package": "flatpak",
+      "version": "1:1.18.4-2",
+      "filename": "flatpak-1:1.18.4-2-x86_64.pkg.tar.zst",
+      "sha256": "dc14c79146f4cd6b6f6ec16813ee99d9efbfe7538f75b5e3d4d214a09f3286ad"
+    },
+    {
+      "package": "fwupd",
+      "version": "2.1.8-1",
+      "filename": "fwupd-2.1.8-1-x86_64.pkg.tar.zst",
+      "sha256": "3d2d6b806e2a0aff58f0a50dd960a0f19c7b1464007be42e630ab172bd35b52e"
+    },
+    {
+      "package": "fwupd-efi",
+      "version": "1.8-2",
+      "filename": "fwupd-efi-1.8-2-any.pkg.tar.zst",
+      "sha256": "d3f47978c2b390381ee1ce6d5ee4019acd1a74945cb1c306c5df240accdd2401"
+    },
+    {
+      "package": "gdb",
+      "version": "18.1-1",
+      "filename": "gdb-18.1-1-x86_64.pkg.tar.zst",
+      "sha256": "df58d8324b737daa8d300c0669af45a9cbcff5b4a0f6bffe4bfbbfa10aac5ff8"
+    },
+    {
+      "package": "ghc-libs",
+      "version": "9.6.7-3",
+      "filename": "ghc-libs-9.6.7-3-x86_64.pkg.tar.zst",
+      "sha256": "5bb33688f41165f8ef3a4ee68301c3c97e312591fc70ce0cdfe2854cf5480ba4"
+    },
+    {
+      "package": "git-delta",
+      "version": "0.20.1-1",
+      "filename": "git-delta-0.20.1-1-x86_64.pkg.tar.zst",
+      "sha256": "f89ad0048592abad2946ff35e6bb1f0d751df8f10065b1091693cbc28ca63af8"
+    },
+    {
+      "package": "git-lfs",
+      "version": "3.8.0-1",
+      "filename": "git-lfs-3.8.0-1-x86_64.pkg.tar.zst",
+      "sha256": "f06b3bdd76671ae6f148b1aecb3b43e75758554d8f8417b8ab8f169441452814"
+    },
+    {
+      "package": "glibmm",
+      "version": "2.66.10-1",
+      "filename": "glibmm-2.66.10-1-x86_64.pkg.tar.zst",
+      "sha256": "104f41a0c05c88b91da8677bfd3b327682506beaf676b551ded317b009a23a4b"
+    },
+    {
+      "package": "glow",
+      "version": "3.0.0-2",
+      "filename": "glow-3.0.0-2-x86_64.pkg.tar.zst",
+      "sha256": "085cfb105d37017ada4423613649eccbf6d45161d820a13222897a17003b8769"
+    },
+    {
+      "package": "gpsd",
+      "version": "3.27.5-1",
+      "filename": "gpsd-3.27.5-1-x86_64.pkg.tar.zst",
+      "sha256": "09eb891f8e0718b726dbb4c9a7e772fbb6b16ee727542105df136bf107dec628"
+    },
+    {
+      "package": "gtk-layer-shell",
+      "version": "0.10.1-1",
+      "filename": "gtk-layer-shell-0.10.1-1-x86_64.pkg.tar.zst",
+      "sha256": "1dde94dcb3f6eed8181f08045df26f3fe9bf361fb9f3d7348af3cf192c3c7989"
+    },
+    {
+      "package": "gtkmm3",
+      "version": "3.24.11-1",
+      "filename": "gtkmm3-3.24.11-1-x86_64.pkg.tar.zst",
+      "sha256": "dd93f16f8c7a7f01d28e48decd5662941b863c08161b1239f4a24d7faa3017b5"
+    },
+    {
+      "package": "haskell-aeson",
+      "version": "2.2.4.0-8",
+      "filename": "haskell-aeson-2.2.4.0-8-x86_64.pkg.tar.zst",
+      "sha256": "4b95ce1fa2797cb5d2faf28ae8445f5498f99e587a29ba8d4a8cc40a18d3664d"
+    },
+    {
+      "package": "haskell-aeson-pretty",
+      "version": "0.8.11-45",
+      "filename": "haskell-aeson-pretty-0.8.11-45-x86_64.pkg.tar.zst",
+      "sha256": "861c1db5308dc08a28bb0654e2541209938a51fe21fd773415d1efc8fe18754a"
+    },
+    {
+      "package": "haskell-ansi-terminal",
+      "version": "1.1.2-18",
+      "filename": "haskell-ansi-terminal-1.1.2-18-x86_64.pkg.tar.zst",
+      "sha256": "b2fd3ec02c4f886e61d9c6b588dfcac81d6c7abb721d5da1f14c27483c326ef9"
+    },
+    {
+      "package": "haskell-ansi-terminal-types",
+      "version": "1.1-134",
+      "filename": "haskell-ansi-terminal-types-1.1-134-x86_64.pkg.tar.zst",
+      "sha256": "dc29974a7d1a5e1897b624f8248fb6aaf9a1f970e56272319c1d3d660c44b0c6"
+    },
+    {
+      "package": "haskell-appar",
+      "version": "0.1.8-18",
+      "filename": "haskell-appar-0.1.8-18-x86_64.pkg.tar.zst",
+      "sha256": "29d172b7b7eceee938c8c8c7438e4d0ddbaf448a0b137817c3338228d74a5b70"
+    },
+    {
+      "package": "haskell-asciidoc",
+      "version": "0.1.1.1-17",
+      "filename": "haskell-asciidoc-0.1.1.1-17-x86_64.pkg.tar.zst",
+      "sha256": "fd10f4d0851ad49d363773b9b1eaf65fe23beaacfd589391d524c58ba54fab5a"
+    },
+    {
+      "package": "haskell-asn1-encoding",
+      "version": "0.9.6-398",
+      "filename": "haskell-asn1-encoding-0.9.6-398-x86_64.pkg.tar.zst",
+      "sha256": "b6c8e67192f089a2a94775fd99b37136d9d21915747c792a599e4b61d3003a64"
+    },
+    {
+      "package": "haskell-asn1-parse",
+      "version": "0.9.5-398",
+      "filename": "haskell-asn1-parse-0.9.5-398-x86_64.pkg.tar.zst",
+      "sha256": "d451a446cbcdd2b050ad745276f6d9a88b821ed657e47fab9aeb52cf98512af6"
+    },
+    {
+      "package": "haskell-asn1-types",
+      "version": "0.3.4-376",
+      "filename": "haskell-asn1-types-0.3.4-376-x86_64.pkg.tar.zst",
+      "sha256": "14d86c6d9092674b38ff2c1d16459ad16cdd43d4a4ba1a9ec92900a3b3e8732c"
+    },
+    {
+      "package": "haskell-assoc",
+      "version": "1.1.1-44",
+      "filename": "haskell-assoc-1.1.1-44-x86_64.pkg.tar.zst",
+      "sha256": "e0430aa45090d7828343e0d73af7d7f0857d593a35e9972fa14ea249afd54ff6"
+    },
+    {
+      "package": "haskell-async",
+      "version": "2.2.6-147",
+      "filename": "haskell-async-2.2.6-147-x86_64.pkg.tar.zst",
+      "sha256": "c65bb69d3ce5debcea06d049fb0fcb83cdff4e9009f5e0b703d4591354fba112"
+    },
+    {
+      "package": "haskell-attoparsec",
+      "version": "0.14.4-241",
+      "filename": "haskell-attoparsec-0.14.4-241-x86_64.pkg.tar.zst",
+      "sha256": "107b5c2a68d4887de8869fc5e645e4be68be516facceb6f9abe16f4b0caff4dd"
+    },
+    {
+      "package": "haskell-attoparsec-aeson",
+      "version": "2.2.2.0-35",
+      "filename": "haskell-attoparsec-aeson-2.2.2.0-35-x86_64.pkg.tar.zst",
+      "sha256": "fd98d21f4530512a0675aa87208de33a4e1db0a7035a64a24dbe94002f7e9335"
+    },
+    {
+      "package": "haskell-auto-update",
+      "version": "0.2.2-2",
+      "filename": "haskell-auto-update-0.2.2-2-x86_64.pkg.tar.zst",
+      "sha256": "591aae93564b6b59b5eaff8c27092f831405b7b77984b2b6a4f57aad6d197679"
+    },
+    {
+      "package": "haskell-base-compat",
+      "version": "0.14.1-4",
+      "filename": "haskell-base-compat-0.14.1-4-x86_64.pkg.tar.zst",
+      "sha256": "548783680d162d7a60c88d912356fb3687843c67153a87d459cc542621ba409a"
+    },
+    {
+      "package": "haskell-base-orphans",
+      "version": "0.9.4-74",
+      "filename": "haskell-base-orphans-0.9.4-74-x86_64.pkg.tar.zst",
+      "sha256": "f6d439bbd7b1e1632e5731e938d2c6d76314067884a26ad28a9aa754b650a4a2"
+    },
+    {
+      "package": "haskell-base-unicode-symbols",
+      "version": "0.2.4.2-17",
+      "filename": "haskell-base-unicode-symbols-0.2.4.2-17-x86_64.pkg.tar.zst",
+      "sha256": "5d535c93649851529bc4e72bf3f835ad2ffcbc2523949b2be3e5b9e81a996c6d"
+    },
+    {
+      "package": "haskell-base16-bytestring",
+      "version": "1.0.2.0-247",
+      "filename": "haskell-base16-bytestring-1.0.2.0-247-x86_64.pkg.tar.zst",
+      "sha256": "0153756c783d294743f1f19cc776d1ffd9cec374f84b377f907a378c182350f3"
+    },
+    {
+      "package": "haskell-base64-bytestring",
+      "version": "1.2.1.0-404",
+      "filename": "haskell-base64-bytestring-1.2.1.0-404-x86_64.pkg.tar.zst",
+      "sha256": "e173d03155ac404a54125ec3005b63259afff57b2ce140e35771b0c8c9ba7417"
+    },
+    {
+      "package": "haskell-basement",
+      "version": "0.0.16-5",
+      "filename": "haskell-basement-0.0.16-5-x86_64.pkg.tar.zst",
+      "sha256": "37d4290cb57a57928aa2bf0e601994c88ad029a9cc0533194ce9d3cc4c1c7657"
+    },
+    {
+      "package": "haskell-bifunctors",
+      "version": "5.6.3-63",
+      "filename": "haskell-bifunctors-5.6.3-63-x86_64.pkg.tar.zst",
+      "sha256": "f61779a516f928b2a242caef122080529943e2775f69d8e65be2b8d986b2ee5d"
+    },
+    {
+      "package": "haskell-bitvec",
+      "version": "1.1.6.0-41",
+      "filename": "haskell-bitvec-1.1.6.0-41-x86_64.pkg.tar.zst",
+      "sha256": "ce3115f0d3b1fcaddd5fd669a0f51bfc2ea67b0daeebbcf3c92afda90e14ab52"
+    },
+    {
+      "package": "haskell-blaze-builder",
+      "version": "0.4.4.1-93",
+      "filename": "haskell-blaze-builder-0.4.4.1-93-x86_64.pkg.tar.zst",
+      "sha256": "c2e7cc9d1bb9b9f2d78158ec97ced1ce28abd32bcb31c1e3f2c9057ff5f9dea4"
+    },
+    {
+      "package": "haskell-blaze-html",
+      "version": "0.9.2.0-168",
+      "filename": "haskell-blaze-html-0.9.2.0-168-x86_64.pkg.tar.zst",
+      "sha256": "c101252eb96307a5c1f7faface9d08c59181d27d5cbd1f8d07a518d491114ee8"
+    },
+    {
+      "package": "haskell-blaze-markup",
+      "version": "0.8.3.0-178",
+      "filename": "haskell-blaze-markup-0.8.3.0-178-x86_64.pkg.tar.zst",
+      "sha256": "501957323687745236d403b142099f9dd9883781cc981805bb22b7d6928b5322"
+    },
+    {
+      "package": "haskell-boring",
+      "version": "0.2.2.1-1",
+      "filename": "haskell-boring-0.2.2.1-1-x86_64.pkg.tar.zst",
+      "sha256": "00cbb204e2c9eb08b4fbf09dda641d5c1db27553db60aee4b38e668621a942f2"
+    },
+    {
+      "package": "haskell-bsb-http-chunked",
+      "version": "0.0.0.4-563",
+      "filename": "haskell-bsb-http-chunked-0.0.0.4-563-x86_64.pkg.tar.zst",
+      "sha256": "7fa38fbacfd1ee6a3c371fbac354ef6547369396603a7baa33c3b48428849d25"
+    },
+    {
+      "package": "haskell-byteorder",
+      "version": "1.0.4-28",
+      "filename": "haskell-byteorder-1.0.4-28-x86_64.pkg.tar.zst",
+      "sha256": "361cc0b6fe8b1dfef304ea6e4b47f784b502461eff209e508d827418232ee1a0"
+    },
+    {
+      "package": "haskell-call-stack",
+      "version": "0.4.0-515",
+      "filename": "haskell-call-stack-0.4.0-515-x86_64.pkg.tar.zst",
+      "sha256": "8f320cd5ce39f31b8493fdf539418f5bbdc69377c33082c97306cf3d89f1d204"
+    },
+    {
+      "package": "haskell-case-insensitive",
+      "version": "1.2.1.0-513",
+      "filename": "haskell-case-insensitive-1.2.1.0-513-x86_64.pkg.tar.zst",
+      "sha256": "b8e918f020036a0405ff2ec945ab09358ca798660e7e2af872e98cbfb73ee9a5"
+    },
+    {
+      "package": "haskell-cassava",
+      "version": "0.5.4.1-103",
+      "filename": "haskell-cassava-0.5.4.1-103-x86_64.pkg.tar.zst",
+      "sha256": "60a3258ee6aab57e21d4960ffac7f7e0878df32f019f2829192923f772aae2f5"
+    },
+    {
+      "package": "haskell-cborg",
+      "version": "0.2.10.0-168",
+      "filename": "haskell-cborg-0.2.10.0-168-x86_64.pkg.tar.zst",
+      "sha256": "a1f16ad52a5e2d095ccd4cbc67cbce7ce5a685bf4e86a81c571576c9f771e3ae"
+    },
+    {
+      "package": "haskell-cereal",
+      "version": "0.5.8.3-6",
+      "filename": "haskell-cereal-0.5.8.3-6-x86_64.pkg.tar.zst",
+      "sha256": "83ba635bbbf4943c7e5ab674e8b79a4b2add5abc5d6d94f3ac8395e349fded5f"
+    },
+    {
+      "package": "haskell-character-ps",
+      "version": "0.1-2",
+      "filename": "haskell-character-ps-0.1-2-x86_64.pkg.tar.zst",
+      "sha256": "9f1f2419937a405856d87f0e9ca46ab9733663f8c0200540d6a3645acad920f7"
+    },
+    {
+      "package": "haskell-citeproc",
+      "version": "0.14.1-12",
+      "filename": "haskell-citeproc-0.14.1-12-x86_64.pkg.tar.zst",
+      "sha256": "c85e36cdf44e345f043606b377c7076ded0c929fdadc3c6fb9d31d18adabcb37"
+    },
+    {
+      "package": "haskell-cmdargs",
+      "version": "0.10.22-6",
+      "filename": "haskell-cmdargs-0.10.22-6-x86_64.pkg.tar.zst",
+      "sha256": "f2699f2e5176a1a348569b98ca53e4994be46b800e754f6324cfb1f675596c41"
+    },
+    {
+      "package": "haskell-colour",
+      "version": "2.3.7-99",
+      "filename": "haskell-colour-2.3.7-99-x86_64.pkg.tar.zst",
+      "sha256": "23a56ec830afd45be0b175ac1f878ead928ff8d703bffbf74374820d3d037dd1"
+    },
+    {
+      "package": "haskell-commonmark",
+      "version": "0.3.1-17",
+      "filename": "haskell-commonmark-0.3.1-17-x86_64.pkg.tar.zst",
+      "sha256": "f647ce239a3a5ce8b5868eb8e7f729526e732ba2ec12788c38640a3194060e6b"
+    },
+    {
+      "package": "haskell-commonmark-extensions",
+      "version": "0.2.7.3-17",
+      "filename": "haskell-commonmark-extensions-0.2.7.3-17-x86_64.pkg.tar.zst",
+      "sha256": "ef925ad87f7e39379f6d14636b66b24f848d9d15ee4052ede384a8d00f844112"
+    },
+    {
+      "package": "haskell-commonmark-pandoc",
+      "version": "0.3.0.2-17",
+      "filename": "haskell-commonmark-pandoc-0.3.0.2-17-x86_64.pkg.tar.zst",
+      "sha256": "034587ebd1d9123c6d2046ee981caf834b3ca21ea8e9e35ad8aae4ab195af105"
+    },
+    {
+      "package": "haskell-comonad",
+      "version": "5.0.10-52",
+      "filename": "haskell-comonad-5.0.10-52-x86_64.pkg.tar.zst",
+      "sha256": "ec45d59dcf3e2ad494e6291424933eb4c5b3fcf7e49eaa301829a4ecb356d104"
+    },
+    {
+      "package": "haskell-conduit",
+      "version": "1.3.6.1-217",
+      "filename": "haskell-conduit-1.3.6.1-217-x86_64.pkg.tar.zst",
+      "sha256": "171f2d6035c2523fc4e1b398feb26674a9d55531dcc4dae472743314bf96c2e1"
+    },
+    {
+      "package": "haskell-conduit-extra",
+      "version": "1.3.8-163",
+      "filename": "haskell-conduit-extra-1.3.8-163-x86_64.pkg.tar.zst",
+      "sha256": "3dd711c10eb2b4529a83a43e887ff4f6f2005818562b9510b2ad796a9d7f15d1"
+    },
+    {
+      "package": "haskell-constraints",
+      "version": "0.14.4-63",
+      "filename": "haskell-constraints-0.14.4-63-x86_64.pkg.tar.zst",
+      "sha256": "874928f3a36bd7df4fe7143bf592c962c42d231edbe7f8e1bd472f2c507a7eec"
+    },
+    {
+      "package": "haskell-contravariant",
+      "version": "1.5.6-3",
+      "filename": "haskell-contravariant-1.5.6-3-x86_64.pkg.tar.zst",
+      "sha256": "e0a44d4d19328d14426f1b63890b0aa01001873f7c327f8bafedc3106c19bb30"
+    },
+    {
+      "package": "haskell-cookie",
+      "version": "0.5.1-15",
+      "filename": "haskell-cookie-0.5.1-15-x86_64.pkg.tar.zst",
+      "sha256": "712dee4f05b2f6b70fa66bcfdbac6e30f44ebd4d2e36d485abcd117b34a91337"
+    },
+    {
+      "package": "haskell-cryptohash-md5",
+      "version": "0.11.101.0-267",
+      "filename": "haskell-cryptohash-md5-0.11.101.0-267-x86_64.pkg.tar.zst",
+      "sha256": "87091829520d05801d9d29d508a7b7a23515d0c2c6885dacfe01cae4a02255d2"
+    },
+    {
+      "package": "haskell-crypton",
+      "version": "1.0.6-14",
+      "filename": "haskell-crypton-1.0.6-14-x86_64.pkg.tar.zst",
+      "sha256": "967786e15dc4da79d3825edb9c0ad2ebb8bc7a037e66535b3badf74baf763170"
+    },
+    {
+      "package": "haskell-crypton-connection",
+      "version": "0.4.5-112",
+      "filename": "haskell-crypton-connection-0.4.5-112-x86_64.pkg.tar.zst",
+      "sha256": "34136fba0a80e85c47a4129548e6010681cbc5b6fef819b87172afad5d0befdb"
+    },
+    {
+      "package": "haskell-crypton-socks",
+      "version": "0.6.2-83",
+      "filename": "haskell-crypton-socks-0.6.2-83-x86_64.pkg.tar.zst",
+      "sha256": "807c73847ea5be0e2fc4c5aef3d001b521f87d27b59840f5c2329e07ed97866d"
+    },
+    {
+      "package": "haskell-crypton-x509",
+      "version": "1.7.7-137",
+      "filename": "haskell-crypton-x509-1.7.7-137-x86_64.pkg.tar.zst",
+      "sha256": "7372b32d7f8d44c161afa9dfd5a6dfdeeb15dafd1dc88d8b5dc8e6569d339009"
+    },
+    {
+      "package": "haskell-crypton-x509-store",
+      "version": "1.6.14-25",
+      "filename": "haskell-crypton-x509-store-1.6.14-25-x86_64.pkg.tar.zst",
+      "sha256": "ea96ecd2d732451ecfc44bd2d6c3a3331cc8ee795294db435956897bb51e4f65"
+    },
+    {
+      "package": "haskell-crypton-x509-system",
+      "version": "1.6.8-43",
+      "filename": "haskell-crypton-x509-system-1.6.8-43-x86_64.pkg.tar.zst",
+      "sha256": "1081c697e5077ac209b222bc3ccfb25db1e0e6ded186547e175a908b12121b06"
+    },
+    {
+      "package": "haskell-crypton-x509-validation",
+      "version": "1.6.14-124",
+      "filename": "haskell-crypton-x509-validation-1.6.14-124-x86_64.pkg.tar.zst",
+      "sha256": "65b31cdc1c06e5f2471dcb3b78b1b7fcba9c25c9acb4a5929bc16a7e3ee4567d"
+    },
+    {
+      "package": "haskell-data-default",
+      "version": "0.7.1.3-134",
+      "filename": "haskell-data-default-0.7.1.3-134-x86_64.pkg.tar.zst",
+      "sha256": "5db1790fba3c618f524e547dad4f8f6691a6f7e5cd181a92208db180e80887fd"
+    },
+    {
+      "package": "haskell-data-default-class",
+      "version": "0.1.2.2-4",
+      "filename": "haskell-data-default-class-0.1.2.2-4-x86_64.pkg.tar.zst",
+      "sha256": "d6af4e2098d19de9ea97ff8b29bfaa142fff2b884956505465c97f6e6a3ae59d"
+    },
+    {
+      "package": "haskell-data-default-instances-containers",
+      "version": "0.1.0.3-7",
+      "filename": "haskell-data-default-instances-containers-0.1.0.3-7-x86_64.pkg.tar.zst",
+      "sha256": "30f5b93932ec16aba148913a7744b71b7f8a1eab64c00e4e1257247a7e9aeaf6"
+    },
+    {
+      "package": "haskell-data-default-instances-dlist",
+      "version": "0.0.1.2-238",
+      "filename": "haskell-data-default-instances-dlist-0.0.1.2-238-x86_64.pkg.tar.zst",
+      "sha256": "81db3dd40d45448c135e1fd407c363d9bfa972d38072a96c0041a90eadf7b218"
+    },
+    {
+      "package": "haskell-data-default-instances-old-locale",
+      "version": "0.0.1.2-4",
+      "filename": "haskell-data-default-instances-old-locale-0.0.1.2-4-x86_64.pkg.tar.zst",
+      "sha256": "cc0a07d28cc866b0d2f9e9186b9aac07faafac8a879a928f33accb11e955bfc9"
+    },
+    {
+      "package": "haskell-data-fix",
+      "version": "0.3.4-282",
+      "filename": "haskell-data-fix-0.3.4-282-x86_64.pkg.tar.zst",
+      "sha256": "b78fbff4f3b24a3d783f5b2e507f31efdedf32c0bc461acf922eadc64edfca5d"
+    },
+    {
+      "package": "haskell-dec",
+      "version": "0.0.6-5",
+      "filename": "haskell-dec-0.0.6-5-x86_64.pkg.tar.zst",
+      "sha256": "d9eb2d01ce47742a2eea64cff8548e401e17e81659b85c276d7c695d651a12aa"
+    },
+    {
+      "package": "haskell-digest",
+      "version": "0.0.2.1-3",
+      "filename": "haskell-digest-0.0.2.1-3-x86_64.pkg.tar.zst",
+      "sha256": "13bd7fc55d89626ac3aab81e699ccfc6a412a7ea995719964b092acc454ccbf6"
+    },
+    {
+      "package": "haskell-distributive",
+      "version": "0.6.3-83",
+      "filename": "haskell-distributive-0.6.3-83-x86_64.pkg.tar.zst",
+      "sha256": "42d3630f6bc39614ee198a47cf2721a47e0ec76427228ed06b2db6e374617d22"
+    },
+    {
+      "package": "haskell-djot",
+      "version": "0.1.4.3-16",
+      "filename": "haskell-djot-0.1.4.3-16-x86_64.pkg.tar.zst",
+      "sha256": "ffa109729c6ec4a05f04bda7264278b2f720d3b2dfbdc02f989ef221b0d1aa61"
+    },
+    {
+      "package": "haskell-dlist",
+      "version": "1.0-493",
+      "filename": "haskell-dlist-1.0-493-x86_64.pkg.tar.zst",
+      "sha256": "1e1878ca95d52bb5fe5d64eec72e8faeccccf33d13885e9ded8abb6a68155a38"
+    },
+    {
+      "package": "haskell-doclayout",
+      "version": "0.5.0.3-22",
+      "filename": "haskell-doclayout-0.5.0.3-22-x86_64.pkg.tar.zst",
+      "sha256": "334803c6d8a14f5f845d1411f7dd004b8e6770c7d36208a329e904dbd2473e82"
+    },
+    {
+      "package": "haskell-doctemplates",
+      "version": "0.11.1-22",
+      "filename": "haskell-doctemplates-0.11.1-22-x86_64.pkg.tar.zst",
+      "sha256": "16b5a007a8cce30655fb00f31cc09412ff666e252bc54e68fa691772b6b36104"
+    },
+    {
+      "package": "haskell-easy-file",
+      "version": "0.2.5-188",
+      "filename": "haskell-easy-file-0.2.5-188-x86_64.pkg.tar.zst",
+      "sha256": "a4cd5e2e221e1e95f4683051d78f3a6c3527b22b0cb11e67eae636c66f7678e2"
+    },
+    {
+      "package": "haskell-emojis",
+      "version": "0.1.5-40",
+      "filename": "haskell-emojis-0.1.5-40-x86_64.pkg.tar.zst",
+      "sha256": "acbed5a108bad983d0b69b7ab5d3dd9d01e26d57fbecf894533dea2fb7cda136"
+    },
+    {
+      "package": "haskell-erf",
+      "version": "2.0.0.0-29",
+      "filename": "haskell-erf-2.0.0.0-29-x86_64.pkg.tar.zst",
+      "sha256": "ff372109917acbd3c05f5b0af6e83ebe38488cdc9ddcb8f1d6883f2bc860f244"
+    },
+    {
+      "package": "haskell-fast-logger",
+      "version": "3.2.4-107",
+      "filename": "haskell-fast-logger-3.2.4-107-x86_64.pkg.tar.zst",
+      "sha256": "2b055a072ee03610ee7c239b43fa95f999c832c357615f8aa68fee508a5bda5b"
+    },
+    {
+      "package": "haskell-file-embed",
+      "version": "0.0.16.0-3",
+      "filename": "haskell-file-embed-0.0.16.0-3-x86_64.pkg.tar.zst",
+      "sha256": "5b5f802b1932b7dd7532da6b69a5942aa58b78b54f266971ad809d759aa7b3d5"
+    },
+    {
+      "package": "haskell-generically",
+      "version": "0.1.1-155",
+      "filename": "haskell-generically-0.1.1-155-x86_64.pkg.tar.zst",
+      "sha256": "216582f304f45d5fc21c053df32da9a84ee818973932d6b3b90634472ca336d3"
+    },
+    {
+      "package": "haskell-generics-sop",
+      "version": "0.5.1.4-4",
+      "filename": "haskell-generics-sop-0.5.1.4-4-x86_64.pkg.tar.zst",
+      "sha256": "6c92feaa11fd81cb2f0d2bc29a3c98be62d9776a3e6979bb5e5917166b2a2bc2"
+    },
+    {
+      "package": "haskell-glob",
+      "version": "0.10.2-330",
+      "filename": "haskell-glob-0.10.2-330-x86_64.pkg.tar.zst",
+      "sha256": "3e2bd8053d720bb232d2daf57a206dd88fec363fefd5cfbed3034fa0f24c22c4"
+    },
+    {
+      "package": "haskell-gridtables",
+      "version": "0.1.1.0-88",
+      "filename": "haskell-gridtables-0.1.1.0-88-x86_64.pkg.tar.zst",
+      "sha256": "198516fd574e8c05fb7597ea8a77d315971e6d92628ff0ce4d14d3ed63b432c2"
+    },
+    {
+      "package": "haskell-haddock-library",
+      "version": "1.11.0-276",
+      "filename": "haskell-haddock-library-1.11.0-276-x86_64.pkg.tar.zst",
+      "sha256": "3dcdda4db14b31731f3fb94fdb8aba8cd5ddcc9f057e8aee5c80f027fc9bc9d2"
+    },
+    {
+      "package": "haskell-half",
+      "version": "0.3.3-133",
+      "filename": "haskell-half-0.3.3-133-x86_64.pkg.tar.zst",
+      "sha256": "27dde84d02503388579c63908e3bb986e92a25680b49c1f237a5a75b4e93fbae"
+    },
+    {
+      "package": "haskell-hashable",
+      "version": "1.4.7.0-160",
+      "filename": "haskell-hashable-1.4.7.0-160-x86_64.pkg.tar.zst",
+      "sha256": "91d1bffa9572b2479249bcaa503808195d3aeba11623bb147109ed1be67a2e9c"
+    },
+    {
+      "package": "haskell-hourglass",
+      "version": "0.2.12-413",
+      "filename": "haskell-hourglass-0.2.12-413-x86_64.pkg.tar.zst",
+      "sha256": "8512890fc437bf33722c1ec1835e1547ba70a5e016face6fd9de26468fccb79f"
+    },
+    {
+      "package": "haskell-hslua",
+      "version": "2.5.0-30",
+      "filename": "haskell-hslua-2.5.0-30-x86_64.pkg.tar.zst",
+      "sha256": "9a028289b98125254fbd20d1c3bd5b2d3c77d674fc796bcf950f2ae3c5900720"
+    },
+    {
+      "package": "haskell-hslua-aeson",
+      "version": "2.3.2-38",
+      "filename": "haskell-hslua-aeson-2.3.2-38-x86_64.pkg.tar.zst",
+      "sha256": "fc67e9c1631b059b23fcdf5691ac88e6de4a11f99c9eb5e01188a1e418ce9fec"
+    },
+    {
+      "package": "haskell-hslua-classes",
+      "version": "2.3.2-27",
+      "filename": "haskell-hslua-classes-2.3.2-27-x86_64.pkg.tar.zst",
+      "sha256": "cf3ac1ea24ca56e58b9432a5efa4794a6a15378a17d2dadd5db39015f35b1975"
+    },
+    {
+      "package": "haskell-hslua-core",
+      "version": "2.3.2.1-24",
+      "filename": "haskell-hslua-core-2.3.2.1-24-x86_64.pkg.tar.zst",
+      "sha256": "b8b782d6262480ecc9dcaf9f8b8d2ca8c09c7234d7191c477b662fd02d9ed66c"
+    },
+    {
+      "package": "haskell-hslua-list",
+      "version": "1.1.4-97",
+      "filename": "haskell-hslua-list-1.1.4-97-x86_64.pkg.tar.zst",
+      "sha256": "5d8ae021d753f11b99efc6937d584291737c1931ff2e323bf67b3c8d6cace1a9"
+    },
+    {
+      "package": "haskell-hslua-marshalling",
+      "version": "2.3.2-33",
+      "filename": "haskell-hslua-marshalling-2.3.2-33-x86_64.pkg.tar.zst",
+      "sha256": "708294e84b5abbbbed152babe72452553b9346f7042e0bb0067227a3bc514f98"
+    },
+    {
+      "package": "haskell-hslua-module-doclayout",
+      "version": "1.2.1.1-31",
+      "filename": "haskell-hslua-module-doclayout-1.2.1.1-31-x86_64.pkg.tar.zst",
+      "sha256": "c5b9983e69f2d377d59c476c1fe2e06b4d5eb1af64f0f8972279570aa1d97abb"
+    },
+    {
+      "package": "haskell-hslua-module-path",
+      "version": "1.2.0-22",
+      "filename": "haskell-hslua-module-path-1.2.0-22-x86_64.pkg.tar.zst",
+      "sha256": "bb7ee2ed5df49c70ea501a4b3e0726c9c2014b1569b741284fc2a9ebf6a36c06"
+    },
+    {
+      "package": "haskell-hslua-module-system",
+      "version": "1.3.0-22",
+      "filename": "haskell-hslua-module-system-1.3.0-22-x86_64.pkg.tar.zst",
+      "sha256": "183933a7186d2e95aac28c777b0b970b9f528af251e5004a043479c8bceeec3c"
+    },
+    {
+      "package": "haskell-hslua-module-text",
+      "version": "1.2.0-22",
+      "filename": "haskell-hslua-module-text-1.2.0-22-x86_64.pkg.tar.zst",
+      "sha256": "a07df43332ad8b01a688b7f982bd1120143ff4b28bb7dde3c0ca60a730896a53"
+    },
+    {
+      "package": "haskell-hslua-module-version",
+      "version": "1.2.0.1-22",
+      "filename": "haskell-hslua-module-version-1.2.0.1-22-x86_64.pkg.tar.zst",
+      "sha256": "f4d7989035e5b5d01d0e8321c0595042103f5a034c8e62d2a679eaef31cc671a"
+    },
+    {
+      "package": "haskell-hslua-module-zip",
+      "version": "1.2.1-23",
+      "filename": "haskell-hslua-module-zip-1.2.1-23-x86_64.pkg.tar.zst",
+      "sha256": "aa80c107ca5c7e2b4e769a477a87786006318aba522f0e123b291a1671c9b3da"
+    },
+    {
+      "package": "haskell-hslua-objectorientation",
+      "version": "2.5.0-23",
+      "filename": "haskell-hslua-objectorientation-2.5.0-23-x86_64.pkg.tar.zst",
+      "sha256": "9511964ee07110b469309f95053638ab64290a5a8983b0d31d7aebbd00fd8bc7"
+    },
+    {
+      "package": "haskell-hslua-packaging",
+      "version": "2.4.1-23",
+      "filename": "haskell-hslua-packaging-2.4.1-23-x86_64.pkg.tar.zst",
+      "sha256": "2f109dd76c29333d73f62ccc6f7750a3e224b05754b8918afcdeab380b8784e8"
+    },
+    {
+      "package": "haskell-hslua-repl",
+      "version": "0.1.2-210",
+      "filename": "haskell-hslua-repl-0.1.2-210-x86_64.pkg.tar.zst",
+      "sha256": "fe6e23158e686d767069cf0def5eb2285c816b09e4244cd6dcad74a929fd6bf2"
+    },
+    {
+      "package": "haskell-hslua-typing",
+      "version": "0.2.0-23",
+      "filename": "haskell-hslua-typing-0.2.0-23-x86_64.pkg.tar.zst",
+      "sha256": "2750339a59b1c3e50c7854f02d5c72471e7afee30d1ec848f3d6bc886be22b53"
+    },
+    {
+      "package": "haskell-http-api-data",
+      "version": "0.6.3-4",
+      "filename": "haskell-http-api-data-0.6.3-4-x86_64.pkg.tar.zst",
+      "sha256": "18a5b093c5218fa2c17181f04aed6be0e9cdd474a72d53cc1b2b020be8f09667"
+    },
+    {
+      "package": "haskell-http-client",
+      "version": "0.7.19-128",
+      "filename": "haskell-http-client-0.7.19-128-x86_64.pkg.tar.zst",
+      "sha256": "cbf309c9f5cf6dcb9c9ad48d707921fd54a30be153b356d03146c9b12621de94"
+    },
+    {
+      "package": "haskell-http-client-tls",
+      "version": "0.3.6.4-228",
+      "filename": "haskell-http-client-tls-0.3.6.4-228-x86_64.pkg.tar.zst",
+      "sha256": "fcaeff9274e832793bd3496401890b10aca5dda8c83ff3c257ee9cacd681b2ea"
+    },
+    {
+      "package": "haskell-http-date",
+      "version": "0.0.11-305",
+      "filename": "haskell-http-date-0.0.11-305-x86_64.pkg.tar.zst",
+      "sha256": "76c914ac3aa9a1dba370a7007a2ed628c273a803c6cf7d1e8efee89ba770698f"
+    },
+    {
+      "package": "haskell-http-media",
+      "version": "0.8.1.1-180",
+      "filename": "haskell-http-media-0.8.1.1-180-x86_64.pkg.tar.zst",
+      "sha256": "42427e67615442b573402f564d4f31254479553d3ca7699f732c119eb2dc3023"
+    },
+    {
+      "package": "haskell-http-semantics",
+      "version": "0.1.0-11",
+      "filename": "haskell-http-semantics-0.1.0-11-x86_64.pkg.tar.zst",
+      "sha256": "1b9f48274ac826a8220c60f3b46983d3afb155336f22886e233b9ad760ef8691"
+    },
+    {
+      "package": "haskell-http-types",
+      "version": "0.12.4-201",
+      "filename": "haskell-http-types-0.12.4-201-x86_64.pkg.tar.zst",
+      "sha256": "b3cacfec631eb5dfac18af9a948082e417517036edea9246b3ff3eb718fe9438"
+    },
+    {
+      "package": "haskell-http2",
+      "version": "5.2.3-15",
+      "filename": "haskell-http2-5.2.3-15-x86_64.pkg.tar.zst",
+      "sha256": "6a661905bbe2ee044166b5120eeb503b3dd3e3dd002c2a8e864208587011f6fc"
+    },
+    {
+      "package": "haskell-hunit",
+      "version": "1.6.2.0-557",
+      "filename": "haskell-hunit-1.6.2.0-557-x86_64.pkg.tar.zst",
+      "sha256": "dd7978f198e71511d9f7fd97d9a86d3975e07e519c7786c61a22791180242e47"
+    },
+    {
+      "package": "haskell-indexed-traversable",
+      "version": "0.1.5-2",
+      "filename": "haskell-indexed-traversable-0.1.5-2-x86_64.pkg.tar.zst",
+      "sha256": "9c30adab76d8f4755b57001436436667da9a21fdd71c181796751f599c764935"
+    },
+    {
+      "package": "haskell-indexed-traversable-instances",
+      "version": "0.1.2.1-56",
+      "filename": "haskell-indexed-traversable-instances-0.1.2.1-56-x86_64.pkg.tar.zst",
+      "sha256": "f22c2559ab613f1f2a3241ba9be044337d563607075d90996839aa333fce992a"
+    },
+    {
+      "package": "haskell-integer-conversion",
+      "version": "0.1.1-121",
+      "filename": "haskell-integer-conversion-0.1.1-121-x86_64.pkg.tar.zst",
+      "sha256": "812770a1bd0130f4504996c716eb4c7236560cf87df1aed661013bd8e3e6a5a7"
+    },
+    {
+      "package": "haskell-integer-logarithms",
+      "version": "1.0.4-276",
+      "filename": "haskell-integer-logarithms-1.0.4-276-x86_64.pkg.tar.zst",
+      "sha256": "30f691558c854cdcd7883e202726e46695b58dcda078c4c5b9e7a318f72c1324"
+    },
+    {
+      "package": "haskell-iproute",
+      "version": "1.7.15-153",
+      "filename": "haskell-iproute-1.7.15-153-x86_64.pkg.tar.zst",
+      "sha256": "e90d0c8798eb98ed46b2d49024abd5c70f0643f0d7a8488b7c3d126fc9739d7a"
+    },
+    {
+      "package": "haskell-ipynb",
+      "version": "0.2-365",
+      "filename": "haskell-ipynb-0.2-365-x86_64.pkg.tar.zst",
+      "sha256": "caf05f4d3abd5a40a4f6ac461c5635b3c83dc47f19de94d958e539fc35d5a073"
+    },
+    {
+      "package": "haskell-isocline",
+      "version": "1.0.9-5",
+      "filename": "haskell-isocline-1.0.9-5-x86_64.pkg.tar.zst",
+      "sha256": "1f6621731010f540b9d86e38162218513a01bad36777b91dba81755af35a95d6"
+    },
+    {
+      "package": "haskell-jira-wiki-markup",
+      "version": "1.5.1-188",
+      "filename": "haskell-jira-wiki-markup-1.5.1-188-x86_64.pkg.tar.zst",
+      "sha256": "85816994fb0ef2e636fe098557ab17a94b85403e5dad1024d2202c4d1a040a72"
+    },
+    {
+      "package": "haskell-juicypixels",
+      "version": "3.3.9-158",
+      "filename": "haskell-juicypixels-3.3.9-158-x86_64.pkg.tar.zst",
+      "sha256": "d9719c9aa2c13236a41bcbd4d567346f46481b2e62f850cfabf96315a11f5766"
+    },
+    {
+      "package": "haskell-lexer",
+      "version": "1.2.1-3",
+      "filename": "haskell-lexer-1.2.1-3-x86_64.pkg.tar.zst",
+      "sha256": "fd99319ea052b217e1e70febd99ad59798b6f4eccc12cd9443541e3743411f4a"
+    },
+    {
+      "package": "haskell-libyaml",
+      "version": "0.1.4-243",
+      "filename": "haskell-libyaml-0.1.4-243-x86_64.pkg.tar.zst",
+      "sha256": "fa954ebc3b4133d5468bd99f1720ab8199f4f25c3be2593a9099b08f65fa8d56"
+    },
+    {
+      "package": "haskell-lpeg",
+      "version": "1.1.0.1-31",
+      "filename": "haskell-lpeg-1.1.0.1-31-x86_64.pkg.tar.zst",
+      "sha256": "f66c12288b809f0bab0f35be5ed8f4d099d7606cc87b4330407a665c5e1f2e6f"
+    },
+    {
+      "package": "haskell-lua",
+      "version": "2.3.4-69",
+      "filename": "haskell-lua-2.3.4-69-x86_64.pkg.tar.zst",
+      "sha256": "06dd73e901abbebddd3c45dab24b17fd92167df86863bb3efd3dd5868af58e63"
+    },
+    {
+      "package": "haskell-lua-arbitrary",
+      "version": "1.0.1.2-62",
+      "filename": "haskell-lua-arbitrary-1.0.1.2-62-x86_64.pkg.tar.zst",
+      "sha256": "7ab1ecfe4d7eef35c3dc065ee2485e29bb19980763f32c95a2cafc455e495b56"
+    },
+    {
+      "package": "haskell-memory",
+      "version": "0.18.0-174",
+      "filename": "haskell-memory-0.18.0-174-x86_64.pkg.tar.zst",
+      "sha256": "203fc4bf0adfbad0f3887beb86342839f5f9f2ad3ad4cc6e653f325679b10a1a"
+    },
+    {
+      "package": "haskell-mime-types",
+      "version": "0.1.2.2-1",
+      "filename": "haskell-mime-types-0.1.2.2-1-x86_64.pkg.tar.zst",
+      "sha256": "2b3b310d7d7df914bc2157cc92257abe743b0d153698bbe854feb90f6fd52111"
+    },
+    {
+      "package": "haskell-mmorph",
+      "version": "1.2.2-2",
+      "filename": "haskell-mmorph-1.2.2-2-x86_64.pkg.tar.zst",
+      "sha256": "c3784b914eed77f877274bb2bacaf5bda06a79f19cc36aab59287712df350a73"
+    },
+    {
+      "package": "haskell-monad-control",
+      "version": "1.0.3.1-399",
+      "filename": "haskell-monad-control-1.0.3.1-399-x86_64.pkg.tar.zst",
+      "sha256": "e7ee929b9adedae2c8c826f8cead1691c1659c3e9e4f8e2d228642abe8204553"
+    },
+    {
+      "package": "haskell-mono-traversable",
+      "version": "1.0.21.0-220",
+      "filename": "haskell-mono-traversable-1.0.21.0-220-x86_64.pkg.tar.zst",
+      "sha256": "625b0ea217b82c6d5b57794321781ee33a729ab43b9b0cefd48135206680e400"
+    },
+    {
+      "package": "haskell-network",
+      "version": "3.2.0.0-6",
+      "filename": "haskell-network-3.2.0.0-6-x86_64.pkg.tar.zst",
+      "sha256": "55872d8e484aaccd69b6cb43c399d05436bfff755963bf58ae30cf6621c0c999"
+    },
+    {
+      "package": "haskell-network-bsd",
+      "version": "2.8.1.0-378",
+      "filename": "haskell-network-bsd-2.8.1.0-378-x86_64.pkg.tar.zst",
+      "sha256": "9a0304d586ec5eb15d2b4f43935dffed621279fa59c0e4da2ea533b94cd995bb"
+    },
+    {
+      "package": "haskell-network-byte-order",
+      "version": "0.1.8-2",
+      "filename": "haskell-network-byte-order-0.1.8-2-x86_64.pkg.tar.zst",
+      "sha256": "ee6d8fb38afa2d534280d77a7a0c403f111febec36cf60e6dbd37d07871cc355"
+    },
+    {
+      "package": "haskell-network-control",
+      "version": "0.1.7-7",
+      "filename": "haskell-network-control-0.1.7-7-x86_64.pkg.tar.zst",
+      "sha256": "7bacd699ea797f463763450c98b1737e8164fc86691df11cb9c62ad0d74e1237"
+    },
+    {
+      "package": "haskell-network-uri",
+      "version": "2.6.4.2-201",
+      "filename": "haskell-network-uri-2.6.4.2-201-x86_64.pkg.tar.zst",
+      "sha256": "0449a0b54a9d996e3ae49f25854bcc4e5e0ecb11f1042c84c88464b7a0f54240"
+    },
+    {
+      "package": "haskell-old-locale",
+      "version": "1.0.0.7-35",
+      "filename": "haskell-old-locale-1.0.0.7-35-x86_64.pkg.tar.zst",
+      "sha256": "e9693d316eeeb6da8b25b800ecf89714d18497003c003186c6fd6ff784d4374c"
+    },
+    {
+      "package": "haskell-old-time",
+      "version": "1.1.1.0-56",
+      "filename": "haskell-old-time-1.1.1.0-56-x86_64.pkg.tar.zst",
+      "sha256": "39bade695c86ba3e3b0898fbb873234bd7e69ee75c3256a591fd8c97d2ff7374"
+    },
+    {
+      "package": "haskell-onetuple",
+      "version": "0.4.3-54",
+      "filename": "haskell-onetuple-0.4.3-54-x86_64.pkg.tar.zst",
+      "sha256": "368afe36b90e6626a9eb61b884958624ad79d6882d7a8450ec9f7d380475f282"
+    },
+    {
+      "package": "haskell-only",
+      "version": "0.1-26",
+      "filename": "haskell-only-0.1-26-x86_64.pkg.tar.zst",
+      "sha256": "1f4f7651638f625c8b5504e0c6d8636337c063a490fe9d6c1757359c9a084526"
+    },
+    {
+      "package": "haskell-optparse-applicative",
+      "version": "0.18.1.0-508",
+      "filename": "haskell-optparse-applicative-0.18.1.0-508-x86_64.pkg.tar.zst",
+      "sha256": "04b6030df3f23792548fc248c8ea81edd3745d3f0e0002bd0120b38c97a041c3"
+    },
+    {
+      "package": "haskell-ordered-containers",
+      "version": "0.2.4-166",
+      "filename": "haskell-ordered-containers-0.2.4-166-x86_64.pkg.tar.zst",
+      "sha256": "41750d2829d8b0b094c6a51cc41d79841d9aec82cb3f7255d4ea0978de7dff09"
+    },
+    {
+      "package": "haskell-os-string",
+      "version": "2.0.11-81",
+      "filename": "haskell-os-string-2.0.11-81-x86_64.pkg.tar.zst",
+      "sha256": "6f1da4d1cd55c0b8cdc0afca6b67bc0dda5cc6a863345e2c8afd9921c7402952"
+    },
+    {
+      "package": "haskell-pandoc",
+      "version": "3.11-33",
+      "filename": "haskell-pandoc-3.11-33-x86_64.pkg.tar.zst",
+      "sha256": "58f7253b44c77c5b9ceec310eade0c2ff6d3019e4b8553cb807e3cd1b1f6c64b"
+    },
+    {
+      "package": "haskell-pandoc-lua-engine",
+      "version": "0.5.4.1-30",
+      "filename": "haskell-pandoc-lua-engine-0.5.4.1-30-x86_64.pkg.tar.zst",
+      "sha256": "5f807f30825a3591a744c0fc8d7798ab9d35adb428a74933b9a059255c4e6b3b"
+    },
+    {
+      "package": "haskell-pandoc-lua-marshal",
+      "version": "0.3.2.1-30",
+      "filename": "haskell-pandoc-lua-marshal-0.3.2.1-30-x86_64.pkg.tar.zst",
+      "sha256": "3226fabe5907e56152083c6ed14191fbb46c98723a797182058f59fc55945786"
+    },
+    {
+      "package": "haskell-pandoc-server",
+      "version": "0.1.4.1-42",
+      "filename": "haskell-pandoc-server-0.1.4.1-42-x86_64.pkg.tar.zst",
+      "sha256": "b412ffd0bf52f7bc878dda774c7b98b5d12e4fe1e5ca6f128bcbecabb7d263e0"
+    },
+    {
+      "package": "haskell-pandoc-types",
+      "version": "1.23.1.2-32",
+      "filename": "haskell-pandoc-types-1.23.1.2-32-x86_64.pkg.tar.zst",
+      "sha256": "9698b7267cf56d07d2da7196cf67bd8d95410d3b26db66044045d2ec579f5ce2"
+    },
+    {
+      "package": "haskell-pem",
+      "version": "0.2.4-453",
+      "filename": "haskell-pem-0.2.4-453-x86_64.pkg.tar.zst",
+      "sha256": "a2555e4b57e8e8e33af752e41d6c0ef629f1f1cae95dabe2c7d4fce283b752dd"
+    },
+    {
+      "package": "haskell-pretty-show",
+      "version": "1.10-23",
+      "filename": "haskell-pretty-show-1.10-23-x86_64.pkg.tar.zst",
+      "sha256": "5e76e6d5cc9ec88c76598f0df5ffc63389bad463312eeba57da1c5f94414d093"
+    },
+    {
+      "package": "haskell-prettyprinter",
+      "version": "1.7.2-56",
+      "filename": "haskell-prettyprinter-1.7.2-56-x86_64.pkg.tar.zst",
+      "sha256": "5af3d1b7c4d8b1e78d31e3641371491c402b21a287a4506635c7ba207ff1b418"
+    },
+    {
+      "package": "haskell-prettyprinter-ansi-terminal",
+      "version": "1.1.4-162",
+      "filename": "haskell-prettyprinter-ansi-terminal-1.1.4-162-x86_64.pkg.tar.zst",
+      "sha256": "e7cf8855d63ddf8354b0a8ad5e9141dbd0b3b916f82649a3c7c451f61b2d83bd"
+    },
+    {
+      "package": "haskell-primitive",
+      "version": "0.9.1.0-245",
+      "filename": "haskell-primitive-0.9.1.0-245-x86_64.pkg.tar.zst",
+      "sha256": "86a2f479f3b628aa0d548f46bae2f3a8cddc2a0e38227e3b0d12ee8e667aa778"
+    },
+    {
+      "package": "haskell-psqueues",
+      "version": "0.2.8.3-65",
+      "filename": "haskell-psqueues-0.2.8.3-65-x86_64.pkg.tar.zst",
+      "sha256": "11be01f2b65334c134a4889578e4c6f09cd28a2a766ec7ec3227a2162ca248cd"
+    },
+    {
+      "package": "haskell-quickcheck",
+      "version": "2.15.0.1-276",
+      "filename": "haskell-quickcheck-2.15.0.1-276-x86_64.pkg.tar.zst",
+      "sha256": "f4f29141179be71d2a1ec8dc50f408b200575634b101abf6bcb32492f6d024ab"
+    },
+    {
+      "package": "haskell-random",
+      "version": "1.2.1.3-363",
+      "filename": "haskell-random-1.2.1.3-363-x86_64.pkg.tar.zst",
+      "sha256": "814ce2a35517761b2e5ea232be1d7309542ad5b319664b55f49944b5521f1239"
+    },
+    {
+      "package": "haskell-recv",
+      "version": "0.1.1-138",
+      "filename": "haskell-recv-0.1.1-138-x86_64.pkg.tar.zst",
+      "sha256": "da473aabaf8a08b79e65f7b60faadc0cc1c2798ad095fa1f5ed83c438a999ae4"
+    },
+    {
+      "package": "haskell-regex-base",
+      "version": "0.94.0.3-5",
+      "filename": "haskell-regex-base-0.94.0.3-5-x86_64.pkg.tar.zst",
+      "sha256": "e69d40681e32cece7ab805e8290566e156da5d22dac953a737bce8e7773eacc3"
+    },
+    {
+      "package": "haskell-regex-tdfa",
+      "version": "1.3.2.6-45",
+      "filename": "haskell-regex-tdfa-1.3.2.6-45-x86_64.pkg.tar.zst",
+      "sha256": "c2f06928e4e4fdee0960fe3090c19e9bf5f373a5b9cfac877f989b9c311525c7"
+    },
+    {
+      "package": "haskell-resourcet",
+      "version": "1.3.0-76",
+      "filename": "haskell-resourcet-1.3.0-76-x86_64.pkg.tar.zst",
+      "sha256": "a91a45ae80119d42e04bc515d4eee6f938010a7055b6d832e8b630e7fa75a42a"
+    },
+    {
+      "package": "haskell-safe",
+      "version": "0.3.21-172",
+      "filename": "haskell-safe-0.3.21-172-x86_64.pkg.tar.zst",
+      "sha256": "ee55b1e13e01b87ee230aabc836c48f9dbef3b4bf7d12c3ffdc800ff8650422b"
+    },
+    {
+      "package": "haskell-safe-exceptions",
+      "version": "0.1.7.4-322",
+      "filename": "haskell-safe-exceptions-0.1.7.4-322-x86_64.pkg.tar.zst",
+      "sha256": "80ac83a6ff60dc32bbc141dde0882c0976083e0a5ca18e7d1fcb2182e20376ec"
+    },
+    {
+      "package": "haskell-scientific",
+      "version": "0.3.9.0-49",
+      "filename": "haskell-scientific-0.3.9.0-49-x86_64.pkg.tar.zst",
+      "sha256": "915f9c71aa815041ca6434d5273341ebc09421bb2113f763d7adb40c69ca8def"
+    },
+    {
+      "package": "haskell-semialign",
+      "version": "1.3.1.1-51",
+      "filename": "haskell-semialign-1.3.1.1-51-x86_64.pkg.tar.zst",
+      "sha256": "abad9da86603b6d5f75e42610008f48f871faf9d0448f33eba5d3cade0e6054d"
+    },
+    {
+      "package": "haskell-semigroupoids",
+      "version": "6.0.2-72",
+      "filename": "haskell-semigroupoids-6.0.2-72-x86_64.pkg.tar.zst",
+      "sha256": "84d830d704985dda9b45c14884714108e7968ba7e31fd4bdf15076b1184e3dd3"
+    },
+    {
+      "package": "haskell-serialise",
+      "version": "0.2.6.1-256",
+      "filename": "haskell-serialise-0.2.6.1-256-x86_64.pkg.tar.zst",
+      "sha256": "14711487a5e128da6d6b116af43fc6189a7c6864536ed1a4968d46ae5d175440"
+    },
+    {
+      "package": "haskell-servant",
+      "version": "0.20.3.0-138",
+      "filename": "haskell-servant-0.20.3.0-138-x86_64.pkg.tar.zst",
+      "sha256": "d7ab4580621aed36ccc446fc79384e0d69eabb10275c666c3145877b35bafb00"
+    },
+    {
+      "package": "haskell-servant-server",
+      "version": "0.20.3.0-187",
+      "filename": "haskell-servant-server-0.20.3.0-187-x86_64.pkg.tar.zst",
+      "sha256": "91b42b713cab44ac5b2b5955de73c22fe43b1bca132fb5c8d2ca6516b90c4dbe"
+    },
+    {
+      "package": "haskell-simple-sendfile",
+      "version": "0.2.32-282",
+      "filename": "haskell-simple-sendfile-0.2.32-282-x86_64.pkg.tar.zst",
+      "sha256": "a2af12835e482ee6dc38bd8a0150ae0254a76d0e12abc31aaa5edf8fdacae2f4"
+    },
+    {
+      "package": "haskell-singleton-bool",
+      "version": "0.1.8-111",
+      "filename": "haskell-singleton-bool-0.1.8-111-x86_64.pkg.tar.zst",
+      "sha256": "935061370006b7aeceb4263e1079d111ef7ba623d017206481cb1ce47c13328f"
+    },
+    {
+      "package": "haskell-skylighting",
+      "version": "0.15-22",
+      "filename": "haskell-skylighting-0.15-22-x86_64.pkg.tar.zst",
+      "sha256": "eb160d55bb8cb5603dcaf5f4133f17bd393290f08b63bb59ca4b2304714b3d0a"
+    },
+    {
+      "package": "haskell-skylighting-core",
+      "version": "0.15-22",
+      "filename": "haskell-skylighting-core-0.15-22-x86_64.pkg.tar.zst",
+      "sha256": "26c3245c910f15329ca345af4464224184e2b74c3b380ac02ba929ba1d27ef50"
+    },
+    {
+      "package": "haskell-skylighting-format-ansi",
+      "version": "0.1-381",
+      "filename": "haskell-skylighting-format-ansi-0.1-381-x86_64.pkg.tar.zst",
+      "sha256": "450665d76063ab2a384abab27682bc378f08cb7acef01566292faf6e36445869"
+    },
+    {
+      "package": "haskell-skylighting-format-blaze-html",
+      "version": "0.1.2.2-22",
+      "filename": "haskell-skylighting-format-blaze-html-0.1.2.2-22-x86_64.pkg.tar.zst",
+      "sha256": "ac29fcce4c0e129f54c05159f2b5f96b11b456b5dbeb072f7e60862e4dd716a5"
+    },
+    {
+      "package": "haskell-skylighting-format-context",
+      "version": "0.1.0.2-345",
+      "filename": "haskell-skylighting-format-context-0.1.0.2-345-x86_64.pkg.tar.zst",
+      "sha256": "1634c58e65be37931d0e2210bc92f33af1bae7740a7a86a49e40079b9cdab371"
+    },
+    {
+      "package": "haskell-skylighting-format-latex",
+      "version": "0.1-380",
+      "filename": "haskell-skylighting-format-latex-0.1-380-x86_64.pkg.tar.zst",
+      "sha256": "ca4357b16b3d1fbf3486c8c17e15246d941a6ad62df64e7087f47d54326f169f"
+    },
+    {
+      "package": "haskell-skylighting-format-typst",
+      "version": "0.1-34",
+      "filename": "haskell-skylighting-format-typst-0.1-34-x86_64.pkg.tar.zst",
+      "sha256": "70adc19b2d73b9c6286e9870857ebeb0a29ee9db295c2261d250f3c39b0b7166"
+    },
+    {
+      "package": "haskell-some",
+      "version": "1.0.6-138",
+      "filename": "haskell-some-1.0.6-138-x86_64.pkg.tar.zst",
+      "sha256": "9a4f8eecff09737bad31ebe916acdc8acc1601c8b694889b7acb0025cd369e25"
+    },
+    {
+      "package": "haskell-sop-core",
+      "version": "0.5.0.2-5",
+      "filename": "haskell-sop-core-0.5.0.2-5-x86_64.pkg.tar.zst",
+      "sha256": "80eb8d6b44e843cc1806f7e209e60d4f68b85a02c15396840d00ce8824bc73e7"
+    },
+    {
+      "package": "haskell-split",
+      "version": "0.2.5.1-37",
+      "filename": "haskell-split-0.2.5.1-37-x86_64.pkg.tar.zst",
+      "sha256": "4c76e918198801a78fa860b5fda251dd5a42047e6b3a27ab3473212d224b572d"
+    },
+    {
+      "package": "haskell-splitmix",
+      "version": "0.1.3.2-16",
+      "filename": "haskell-splitmix-0.1.3.2-16-x86_64.pkg.tar.zst",
+      "sha256": "0dacf40117bad3b2b9eeee7755157c2993343eac682c2e6bed36c7cc81e13c2c"
+    },
+    {
+      "package": "haskell-statevar",
+      "version": "1.2.2-7",
+      "filename": "haskell-statevar-1.2.2-7-x86_64.pkg.tar.zst",
+      "sha256": "2a9d1503c1a053b21bdef71044995e8d8cfc7353abd82b256fe7f2cca4ee9431"
+    },
+    {
+      "package": "haskell-streaming-commons",
+      "version": "0.2.3.1-73",
+      "filename": "haskell-streaming-commons-0.2.3.1-73-x86_64.pkg.tar.zst",
+      "sha256": "b79cf96bd15ab0e0b63e31ac3f84337204bb06364db5643922d26a897d2b0af6"
+    },
+    {
+      "package": "haskell-strict",
+      "version": "0.5.1-175",
+      "filename": "haskell-strict-0.5.1-175-x86_64.pkg.tar.zst",
+      "sha256": "fffec0d34aa5998642daf7353086134d69676c29a76d2dfe150111cf676ba676"
+    },
+    {
+      "package": "haskell-syb",
+      "version": "0.7.4-42",
+      "filename": "haskell-syb-0.7.4-42-x86_64.pkg.tar.zst",
+      "sha256": "a8735f10a20b6039778e6a8afce14ae2db7c0fbd8ac2b2bb4d4b14eb4d5387ad"
+    },
+    {
+      "package": "haskell-tagged",
+      "version": "0.8.10-3",
+      "filename": "haskell-tagged-0.8.10-3-x86_64.pkg.tar.zst",
+      "sha256": "d8afcc54a5a83c4c0c524dd32060bdd1d9ffe72e8ef9aa75b20c049b082cb30d"
+    },
+    {
+      "package": "haskell-tagsoup",
+      "version": "0.14.8-391",
+      "filename": "haskell-tagsoup-0.14.8-391-x86_64.pkg.tar.zst",
+      "sha256": "2181ff789f1caeff46527e7aa09aac6fa0242d4d379842d6c3bbb6c6feeef960"
+    },
+    {
+      "package": "haskell-tasty",
+      "version": "1.5.4-97",
+      "filename": "haskell-tasty-1.5.4-97-x86_64.pkg.tar.zst",
+      "sha256": "a289f39d384e884154eb10edece3e1c0d47757b9faee5f0b2a5308d4f6ba39a6"
+    },
+    {
+      "package": "haskell-tasty-hunit",
+      "version": "0.10.2-386",
+      "filename": "haskell-tasty-hunit-0.10.2-386-x86_64.pkg.tar.zst",
+      "sha256": "8178ce14a82315ae86363b464b3179ce988d423d12c3df1e8558ed579dbd9fe5"
+    },
+    {
+      "package": "haskell-tasty-lua",
+      "version": "1.1.2-25",
+      "filename": "haskell-tasty-lua-1.1.2-25-x86_64.pkg.tar.zst",
+      "sha256": "458bc0f268028cf190fa14fd296b2258fe4aefc09da6a220df70231a2177f110"
+    },
+    {
+      "package": "haskell-temporary",
+      "version": "1.3-1100",
+      "filename": "haskell-temporary-1.3-1100-x86_64.pkg.tar.zst",
+      "sha256": "c3d75a91361a7f9b846acc969667da8c52a5744ca067ef197d62952ec4152b2b"
+    },
+    {
+      "package": "haskell-texmath",
+      "version": "0.13.3.1-9",
+      "filename": "haskell-texmath-0.13.3.1-9-x86_64.pkg.tar.zst",
+      "sha256": "22a48aed80fd62440db7e2307dcfb943afb1f0ad727fbc095de7b8398883c32a"
+    },
+    {
+      "package": "haskell-text-conversions",
+      "version": "0.3.1.1-229",
+      "filename": "haskell-text-conversions-0.3.1.1-229-x86_64.pkg.tar.zst",
+      "sha256": "b792630e89be73d6ade5e637e4f71fe26da21006033195f4779f3478da2b83e0"
+    },
+    {
+      "package": "haskell-text-icu",
+      "version": "0.8.0.5-171",
+      "filename": "haskell-text-icu-0.8.0.5-171-x86_64.pkg.tar.zst",
+      "sha256": "25b19ae9e24a9cb7a9a26f721054591c4e1e7d8eb2b9bbb98593afad87651bbf"
+    },
+    {
+      "package": "haskell-text-iso8601",
+      "version": "0.1.1.2-22",
+      "filename": "haskell-text-iso8601-0.1.1.2-22-x86_64.pkg.tar.zst",
+      "sha256": "946558b429a4c9e74cfcde13254835c10f55582309cc318423bd3e853cb2705c"
+    },
+    {
+      "package": "haskell-text-short",
+      "version": "0.1.6.1-126",
+      "filename": "haskell-text-short-0.1.6.1-126-x86_64.pkg.tar.zst",
+      "sha256": "ec1c6e6a33ad465da7347c990509d60ca4ef66ba26bac9ba19b16285b8330572"
+    },
+    {
+      "package": "haskell-th-abstraction",
+      "version": "0.7.1.0-1",
+      "filename": "haskell-th-abstraction-0.7.1.0-1-x86_64.pkg.tar.zst",
+      "sha256": "77125b6eb245bf71ee280465e2ae6ad2a128dbbbf678f020433c1469e20a169e"
+    },
+    {
+      "package": "haskell-th-compat",
+      "version": "0.1.7-64",
+      "filename": "haskell-th-compat-0.1.7-64-x86_64.pkg.tar.zst",
+      "sha256": "a21c552ba094cd2045ac0b0e96cdf0d0e0dbc59cd163669e761d33a1bd2219c9"
+    },
+    {
+      "package": "haskell-th-lift",
+      "version": "0.8.7-4",
+      "filename": "haskell-th-lift-0.8.7-4-x86_64.pkg.tar.zst",
+      "sha256": "98faaf6a6b30aaa380408bb7d815f3464429d8783f7c089f6424dbd3dde3f518"
+    },
+    {
+      "package": "haskell-th-lift-instances",
+      "version": "0.1.20-219",
+      "filename": "haskell-th-lift-instances-0.1.20-219-x86_64.pkg.tar.zst",
+      "sha256": "805733dc353e4d5c157909ada6f617553f4a94d6b87a2056550dea44cc0c5f2b"
+    },
+    {
+      "package": "haskell-these",
+      "version": "1.2.1-385",
+      "filename": "haskell-these-1.2.1-385-x86_64.pkg.tar.zst",
+      "sha256": "31c38b67f8e3f3fac469fc11ce822a784cdb23a4710550d30875a1ee97ca8da2"
+    },
+    {
+      "package": "haskell-time-compat",
+      "version": "1.9.9-160",
+      "filename": "haskell-time-compat-1.9.9-160-x86_64.pkg.tar.zst",
+      "sha256": "4e3e0b1827fabe0724f5ce2ceb0d66f885094eb7b08537087cd2a143fa382e14"
+    },
+    {
+      "package": "haskell-time-manager",
+      "version": "0.1.1-2",
+      "filename": "haskell-time-manager-0.1.1-2-x86_64.pkg.tar.zst",
+      "sha256": "9d262d328f434bd7d44b363e53a38090866690dffbf29f5635c659c244a3d3a3"
+    },
+    {
+      "package": "haskell-tls",
+      "version": "2.0.6-156",
+      "filename": "haskell-tls-2.0.6-156-x86_64.pkg.tar.zst",
+      "sha256": "fe5bddc37ddc19d3ed63d58bae982d87d1c28edf9fa9ef943884dc54396ffeec"
+    },
+    {
+      "package": "haskell-toml-parser",
+      "version": "2.0.2.0-52",
+      "filename": "haskell-toml-parser-2.0.2.0-52-x86_64.pkg.tar.zst",
+      "sha256": "1ff1101e89f981c14a957894fc6ad8fff8ba108d57718826076338f0de7750aa"
+    },
+    {
+      "package": "haskell-transformers-base",
+      "version": "0.4.6.1-130",
+      "filename": "haskell-transformers-base-0.4.6.1-130-x86_64.pkg.tar.zst",
+      "sha256": "90962507fd31566d565de9322fc15318fde0999b312a43014c2b8ff97da378e9"
+    },
+    {
+      "package": "haskell-transformers-compat",
+      "version": "0.7.2-5",
+      "filename": "haskell-transformers-compat-0.7.2-5-x86_64.pkg.tar.zst",
+      "sha256": "19352dc3466fc6579a258c6c06c6de1b187c8e8891eeff51734ac884a0a9ab30"
+    },
+    {
+      "package": "haskell-typed-process",
+      "version": "0.2.13.0-327",
+      "filename": "haskell-typed-process-0.2.13.0-327-x86_64.pkg.tar.zst",
+      "sha256": "127ed3d4f3df1ab344e1190b1858cc7a598a46832b673b7cc41fc72bcf9cce55"
+    },
+    {
+      "package": "haskell-typst",
+      "version": "0.12-22",
+      "filename": "haskell-typst-0.12-22-x86_64.pkg.tar.zst",
+      "sha256": "62f3abe07106ad4088cfa19b5c97bdf147e2ccf4046164410fab6e6e0c2ddbc1"
+    },
+    {
+      "package": "haskell-typst-symbols",
+      "version": "0.3-2",
+      "filename": "haskell-typst-symbols-0.3-2-x86_64.pkg.tar.zst",
+      "sha256": "9a211bfa1bd3a1fc454559affe7902b0bfe7bc1d0f450360a7ebf5bcf9d831d4"
+    },
+    {
+      "package": "haskell-unicode-collation",
+      "version": "0.1.3.7-43",
+      "filename": "haskell-unicode-collation-0.1.3.7-43-x86_64.pkg.tar.zst",
+      "sha256": "ff5e4695bfb265b336cbe3ae7e024ed38cda782010719400bf987b6345912110"
+    },
+    {
+      "package": "haskell-unicode-data",
+      "version": "0.8.0-13",
+      "filename": "haskell-unicode-data-0.8.0-13-x86_64.pkg.tar.zst",
+      "sha256": "5089f756c372dc00e4e807474c0811c31d3ecd0bcee442c14d09e6df052063b2"
+    },
+    {
+      "package": "haskell-unicode-transforms",
+      "version": "0.4.0.1-247",
+      "filename": "haskell-unicode-transforms-0.4.0.1-247-x86_64.pkg.tar.zst",
+      "sha256": "499146a2a76e5faca21cfcf4386f7c1cfa95ea0b399ffeff0934e15e5c65e941"
+    },
+    {
+      "package": "haskell-uniplate",
+      "version": "1.6.13-401",
+      "filename": "haskell-uniplate-1.6.13-401-x86_64.pkg.tar.zst",
+      "sha256": "c7b08a0bc09f9b5bfc19b7810c46554b26bbc83e83b2dfe056dc942c55461fc2"
+    },
+    {
+      "package": "haskell-unix-compat",
+      "version": "0.7.4.1-114",
+      "filename": "haskell-unix-compat-0.7.4.1-114-x86_64.pkg.tar.zst",
+      "sha256": "3660bd73171f548e162b640335971d501f949e82fd7bfcfafe54cc280afa8edd"
+    },
+    {
+      "package": "haskell-unix-time",
+      "version": "0.4.17-138",
+      "filename": "haskell-unix-time-0.4.17-138-x86_64.pkg.tar.zst",
+      "sha256": "aa3f1c8a294d9fa88d181e0184e97f672a9c669764d485ff5a601a3749151c0a"
+    },
+    {
+      "package": "haskell-unliftio",
+      "version": "0.2.25.1-158",
+      "filename": "haskell-unliftio-0.2.25.1-158-x86_64.pkg.tar.zst",
+      "sha256": "8001fb92c79c8102306996efcbf40cc8bd64299dcce2292ef0bf804d0fae9679"
+    },
+    {
+      "package": "haskell-unliftio-core",
+      "version": "0.2.1.0-6",
+      "filename": "haskell-unliftio-core-0.2.1.0-6-x86_64.pkg.tar.zst",
+      "sha256": "23a8c583fc0164079a84ace4e48feb146057d22330af9f98d34d269f881fb5ca"
+    },
+    {
+      "package": "haskell-unordered-containers",
+      "version": "0.2.21-72",
+      "filename": "haskell-unordered-containers-0.2.21-72-x86_64.pkg.tar.zst",
+      "sha256": "41d41541e9fd644faa978d0625b996bd1ebbfd5e369bc1480472b22936f1ce9b"
+    },
+    {
+      "package": "haskell-utf8-string",
+      "version": "1.0.2-381",
+      "filename": "haskell-utf8-string-1.0.2-381-x86_64.pkg.tar.zst",
+      "sha256": "94888cc75d829732a25aaa2492d8e315a4d0ace75aa1dc0640b40a2fa0a8715d"
+    },
+    {
+      "package": "haskell-uuid-types",
+      "version": "1.0.6.1-139",
+      "filename": "haskell-uuid-types-1.0.6.1-139-x86_64.pkg.tar.zst",
+      "sha256": "f4152f71ebf6eefca5679af07ff18bffbb16dac0c2cf5c1653f704accafe47ba"
+    },
+    {
+      "package": "haskell-vault",
+      "version": "0.3.2.0-26",
+      "filename": "haskell-vault-0.3.2.0-26-x86_64.pkg.tar.zst",
+      "sha256": "b302cbb32d2507b5caf5936938e1c43925c24358aecc6a6c5863d59c69cffc38"
+    },
+    {
+      "package": "haskell-vector",
+      "version": "0.13.2.0-620",
+      "filename": "haskell-vector-0.13.2.0-620-x86_64.pkg.tar.zst",
+      "sha256": "868b579339a66c936816db8ce1367421be99b81d2bc1969063ebb8067647e947"
+    },
+    {
+      "package": "haskell-vector-algorithms",
+      "version": "0.9.1.0-208",
+      "filename": "haskell-vector-algorithms-0.9.1.0-208-x86_64.pkg.tar.zst",
+      "sha256": "7e0829b9fe796adab65c6933b37219295ac80fb8577ba4db68441f4685d184da"
+    },
+    {
+      "package": "haskell-vector-stream",
+      "version": "0.1.0.1-6",
+      "filename": "haskell-vector-stream-0.1.0.1-6-x86_64.pkg.tar.zst",
+      "sha256": "adbab5d6805210090de3b66a003bec31c64a9f2870404785ee4baa360cafbe3c"
+    },
+    {
+      "package": "haskell-wai",
+      "version": "3.2.5-25",
+      "filename": "haskell-wai-3.2.5-25-x86_64.pkg.tar.zst",
+      "sha256": "6aaf3ad7a16f44131a0cab8b77105e72cad8c4f3721077e314276f92cbc3014f"
+    },
+    {
+      "package": "haskell-wai-app-static",
+      "version": "3.2.1-8",
+      "filename": "haskell-wai-app-static-3.2.1-8-x86_64.pkg.tar.zst",
+      "sha256": "092a07053a3b753a88336acde42b526944d4ea596831370b9590a0f686559668"
+    },
+    {
+      "package": "haskell-wai-cors",
+      "version": "0.2.7-552",
+      "filename": "haskell-wai-cors-0.2.7-552-x86_64.pkg.tar.zst",
+      "sha256": "187322781eaecc5ebd492d3cc6312e5b83e47f3a675af665bfe50224a3bc8d6d"
+    },
+    {
+      "package": "haskell-wai-extra",
+      "version": "3.1.18-155",
+      "filename": "haskell-wai-extra-3.1.18-155-x86_64.pkg.tar.zst",
+      "sha256": "1009e7e8aec98aafeda6e71de98d723f7776b6396f8f068a4261a2ff8c0e1991"
+    },
+    {
+      "package": "haskell-wai-logger",
+      "version": "2.5.0-211",
+      "filename": "haskell-wai-logger-2.5.0-211-x86_64.pkg.tar.zst",
+      "sha256": "f1a11a19b9796e7c667f94f71a8309fa0922dcb6ee8ed9d861eb7f56e29df4e8"
+    },
+    {
+      "package": "haskell-warp",
+      "version": "3.4.3-11",
+      "filename": "haskell-warp-3.4.3-11-x86_64.pkg.tar.zst",
+      "sha256": "ef7e2fd2bff429f78f4b06bf45b246850d2690fc84c91562fee5fd51a03e73a1"
+    },
+    {
+      "package": "haskell-witherable",
+      "version": "0.5-26",
+      "filename": "haskell-witherable-0.5-26-x86_64.pkg.tar.zst",
+      "sha256": "46594c2907f7408dbb9e890682f40550fa46bf278e72ccf959f91d4cb19e058c"
+    },
+    {
+      "package": "haskell-word8",
+      "version": "0.1.3-26",
+      "filename": "haskell-word8-0.1.3-26-x86_64.pkg.tar.zst",
+      "sha256": "f7963b365e56ff164d6adcca3d0cc3a3892c35d3e88db3deb37c570cff8888bc"
+    },
+    {
+      "package": "haskell-xml",
+      "version": "1.3.14-34",
+      "filename": "haskell-xml-1.3.14-34-x86_64.pkg.tar.zst",
+      "sha256": "e8447126e51e1fa9756f1fed0ba36c6c7d9b7ee616eb8486d5379867219e308a"
+    },
+    {
+      "package": "haskell-xml-conduit",
+      "version": "1.9.1.4-235",
+      "filename": "haskell-xml-conduit-1.9.1.4-235-x86_64.pkg.tar.zst",
+      "sha256": "f8d2291b9b0bf90dabf470b43ef68b9a29e780c80a30be1175ebb839e3735224"
+    },
+    {
+      "package": "haskell-xml-types",
+      "version": "0.3.8-12",
+      "filename": "haskell-xml-types-0.3.8-12-x86_64.pkg.tar.zst",
+      "sha256": "f3404f4b449f5af5caebc6814140d7133b2d2fcbd01cce3c2bd7aebfd5417363"
+    },
+    {
+      "package": "haskell-yaml",
+      "version": "0.11.11.2-287",
+      "filename": "haskell-yaml-0.11.11.2-287-x86_64.pkg.tar.zst",
+      "sha256": "c27b6b9d990d4835b87be1ea16bd2ad4420ee60463d52e3a334a97bfee999519"
+    },
+    {
+      "package": "haskell-zip-archive",
+      "version": "0.4.3.2-172",
+      "filename": "haskell-zip-archive-0.4.3.2-172-x86_64.pkg.tar.zst",
+      "sha256": "d3fc6265de95996afceac7845a56127f6d3c69d93002d9fefed822137a2e40f8"
+    },
+    {
+      "package": "haskell-zlib",
+      "version": "0.7.1.1-21",
+      "filename": "haskell-zlib-0.7.1.1-21-x86_64.pkg.tar.zst",
+      "sha256": "5378f0a5a38f01f755e6ad8211644939f9b9e7da56a7445a14c4451577579c9e"
+    },
+    {
+      "package": "helix",
+      "version": "25.07.1-2",
+      "filename": "helix-25.07.1-2-x86_64.pkg.tar.zst",
+      "sha256": "7ed41ecd878198f77def6c34a17b24f0df3fb6c80714d3646ffbb3a6afb9351d"
+    },
+    {
+      "package": "helm",
+      "version": "4.3.0-1",
+      "filename": "helm-4.3.0-1-x86_64.pkg.tar.zst",
+      "sha256": "9e95d27761ee1414262cf1121047402173b7210db521c11b8c23e4e073195307"
+    },
+    {
+      "package": "hslua-cli",
+      "version": "1.4.4-34",
+      "filename": "hslua-cli-1.4.4-34-x86_64.pkg.tar.zst",
+      "sha256": "1b4441993482fdf39e948c0901f09e1a248d3359a09eb371bc4acf65549dac9b"
+    },
+    {
+      "package": "htop",
+      "version": "3.5.3-1",
+      "filename": "htop-3.5.3-1-x86_64.pkg.tar.zst",
+      "sha256": "f21661bc0229ef8ef9b1898b61b37bcd84fcc334c01f724d184e220aba89fda6"
+    },
+    {
+      "package": "httpie",
+      "version": "3.2.4-2",
+      "filename": "httpie-3.2.4-2-any.pkg.tar.zst",
+      "sha256": "67ef72cb14a978498839f80a67350f5bbc49b6cf77f90f94686a2f018c8c530d"
+    },
+    {
+      "package": "hyperfine",
+      "version": "2.0.0-1",
+      "filename": "hyperfine-2.0.0-1-x86_64.pkg.tar.zst",
+      "sha256": "30a664b7e8e0ef693b3a4d53205bf65dcb4399a03c33397f5d4b8a4aad3a8e20"
+    },
+    {
+      "package": "hypridle",
+      "version": "0.1.8-2",
+      "filename": "hypridle-0.1.8-2-x86_64.pkg.tar.zst",
+      "sha256": "bf492603336e83e36551dc16edbd3351c04b4a2e9cd571a9164b5393029b2e7a"
+    },
+    {
+      "package": "hyprlock",
+      "version": "0.9.6-3",
+      "filename": "hyprlock-0.9.6-3-x86_64.pkg.tar.zst",
+      "sha256": "e1408ddf42d77c9babed0fac2e4022e9f45df44e9d3cd708ed8073242aaf1964"
+    },
+    {
+      "package": "hyprpaper",
+      "version": "0.8.4-9",
+      "filename": "hyprpaper-0.8.4-9-x86_64.pkg.tar.zst",
+      "sha256": "8be950d50b261769b0a11d49eff8b25e7135d95bbc41350688478a54f4fdb9ea"
+    },
+    {
+      "package": "i2c-tools",
+      "version": "4.4-4",
+      "filename": "i2c-tools-4.4-4-x86_64.pkg.tar.zst",
+      "sha256": "0bf5b396a1fe87b7b10c82887f2dde427b8f4bf33f04b4f3d10d81c803540d7f"
+    },
+    {
+      "package": "iotop",
+      "version": "0.6-13",
+      "filename": "iotop-0.6-13-any.pkg.tar.zst",
+      "sha256": "5bbea7a82cb1a74805370edb5eb53b2db68dcf728f954e7052356a540d7d9bd8"
+    },
+    {
+      "package": "jsoncpp",
+      "version": "1.9.8-1",
+      "filename": "jsoncpp-1.9.8-1-x86_64.pkg.tar.zst",
+      "sha256": "2b13a7ebfe92e2a7b98475acca628d0a0281fa08360cff2f27ec7337b0d909c6"
+    },
+    {
+      "package": "jujutsu",
+      "version": "0.46.0-1",
+      "filename": "jujutsu-0.46.0-1-x86_64.pkg.tar.zst",
+      "sha256": "a3efaec26f4bd1d5f9dbf574ef398475e875a6f07bf52565d724babc0a4d32a3"
+    },
+    {
+      "package": "just",
+      "version": "1.59.0-1",
+      "filename": "just-1.59.0-1-x86_64.pkg.tar.zst",
+      "sha256": "94fcdd849357efa26cb3564f12ce2721f2e13047d8f1fb265ed872966588a98a"
+    },
+    {
+      "package": "k9s",
+      "version": "0.51.0-1",
+      "filename": "k9s-0.51.0-1-x86_64.pkg.tar.zst",
+      "sha256": "2ded8bd4ddd7e596ccc8be23ac80a92e7d86e33d8562ddc2a615f1402ab6ee04"
+    },
+    {
+      "package": "kubectl",
+      "version": "1.37.1-1",
+      "filename": "kubectl-1.37.1-1-x86_64.pkg.tar.zst",
+      "sha256": "9b60707295bed6830ba74f3c2a1bec09ed43f55a9c71ca68da42184f1c62b788"
+    },
+    {
+      "package": "kubectx",
+      "version": "0.11.0-1",
+      "filename": "kubectx-0.11.0-1-x86_64.pkg.tar.zst",
+      "sha256": "67734342b40f6160554f632ac7f8e254edad9c48a62a6ac9b39d0a2a4f8278d8"
+    },
+    {
+      "package": "kustomize",
+      "version": "5.8.3-1",
+      "filename": "kustomize-5.8.3-1-x86_64.pkg.tar.zst",
+      "sha256": "8c1429e835e4667892291800e13c8809d22ba0387aafd586d93d1095edb55e53"
+    },
+    {
+      "package": "libao",
+      "version": "1.2.2-7",
+      "filename": "libao-1.2.2-7-x86_64.pkg.tar.zst",
+      "sha256": "6b362bd8446a9eb330d26cc1c7c86048402848d9c0c466f3204562895eb655ad"
+    },
+    {
+      "package": "libblake3",
+      "version": "1.8.7-1",
+      "filename": "libblake3-1.8.7-1-x86_64.pkg.tar.zst",
+      "sha256": "1092d411d22cdd2f2c6b611f73086e29732cb441abbe1a0235ebff422ab37a3b"
+    },
+    {
+      "package": "libfyaml",
+      "version": "0.9.6-3",
+      "filename": "libfyaml-0.9.6-3-x86_64.pkg.tar.zst",
+      "sha256": "0638641908b9474cd343045e36569efe52ac668331f973c8c07b76ef3a934be9"
+    },
+    {
+      "package": "libid3tag",
+      "version": "0.16.4-1",
+      "filename": "libid3tag-0.16.4-1-x86_64.pkg.tar.zst",
+      "sha256": "ef4e95b6a9765664401e5bae3f5ee8c14a3bb5f9e36126b8c7fb94385f62c1cc"
+    },
+    {
+      "package": "libmad",
+      "version": "0.15.1b-10",
+      "filename": "libmad-0.15.1b-10-x86_64.pkg.tar.zst",
+      "sha256": "7f2032a2cdc308e48eb59c1af337fae83e93925b423063211bc44c5656ce49e7"
+    },
+    {
+      "package": "libmalcontent",
+      "version": "0.14.0-4",
+      "filename": "libmalcontent-0.14.0-4-x86_64.pkg.tar.zst",
+      "sha256": "9c35fcdcade68ff32a0af35f5e80b3c72eb69926069ae0450a2006241109f23c"
+    },
+    {
+      "package": "libmbim",
+      "version": "1.34.0-2",
+      "filename": "libmbim-1.34.0-2-x86_64.pkg.tar.zst",
+      "sha256": "3a5f102da9350760424cb179d07c03e4b48883ff4297c9dc883f3a8910fea7e0"
+    },
+    {
+      "package": "libmicrohttpd",
+      "version": "1.0.10-1",
+      "filename": "libmicrohttpd-1.0.10-1-x86_64.pkg.tar.zst",
+      "sha256": "b33010533ab88747a4b4ed637d6ee2108b9cfc8f7a3e95bd13dab106a1867ecc"
+    },
+    {
+      "package": "libmpdclient",
+      "version": "2.27-1",
+      "filename": "libmpdclient-2.27-1-x86_64.pkg.tar.zst",
+      "sha256": "ea65d96eb7efb1a2016d62e2dafc789d1fee6c11aec501aa449e141fb46bb401"
+    },
+    {
+      "package": "libqmi",
+      "version": "1.38.0-2",
+      "filename": "libqmi-1.38.0-2-x86_64.pkg.tar.zst",
+      "sha256": "2049b218b75da32e8be0ce4a8792fadef1abfab8149ace778bc09e9936100404"
+    },
+    {
+      "package": "libqrtr-glib",
+      "version": "1.4.0-2",
+      "filename": "libqrtr-glib-1.4.0-2-x86_64.pkg.tar.zst",
+      "sha256": "9a447513a5d23e8ebd8729b663cb47d989c54567fee57f12e25295d4c15e2b6c"
+    },
+    {
+      "package": "libsigc++",
+      "version": "2.12.2-1",
+      "filename": "libsigc++-2.12.2-1-x86_64.pkg.tar.zst",
+      "sha256": "7933a268bb2010db2c1f56a594e0cf8fcb9718f02c27cf45ddf5a22f4c4528a4"
+    },
+    {
+      "package": "libxmlb",
+      "version": "0.3.29-1",
+      "filename": "libxmlb-0.3.29-1-x86_64.pkg.tar.zst",
+      "sha256": "f1e20abcdd8c72c67c3dc731c108395542b8744300b466008b266f0a90b1be2c"
+    },
+    {
+      "package": "lsd",
+      "version": "1.2.0-2",
+      "filename": "lsd-1.2.0-2-x86_64.pkg.tar.zst",
+      "sha256": "06432a078c1fb5142c8a1f524a556a32926f72d2d5d209da9da6ca94c3289a9d"
+    },
+    {
+      "package": "lshw",
+      "version": "B.02.20-3",
+      "filename": "lshw-B.02.20-3-x86_64.pkg.tar.zst",
+      "sha256": "e90333947ee13b3421e5cef1e4ef095441f58f2b9629803588a98e32153ca67b"
+    },
+    {
+      "package": "ltrace",
+      "version": "0.8.1-1",
+      "filename": "ltrace-0.8.1-1-x86_64.pkg.tar.zst",
+      "sha256": "d5abf62ae23f202dc16cf8dfa6be2ceb477b4f3dd72e755abe020c26fd9f2dd2"
+    },
+    {
+      "package": "lua54-lpeg",
+      "version": "1.1.0-5",
+      "filename": "lua54-lpeg-1.1.0-5-x86_64.pkg.tar.zst",
+      "sha256": "957d25c3ee9b18a444f8a45227bffe7fa857cdbdaa00f9bdd8182afdf6749d51"
+    },
+    {
+      "package": "mako",
+      "version": "1.11.0-1",
+      "filename": "mako-1.11.0-1-x86_64.pkg.tar.zst",
+      "sha256": "6d05647c340729a93d787a7c9adbd1ae20d944dc8f1b464f1c7075767b3ae727"
+    },
+    {
+      "package": "meson",
+      "version": "1.12.1-2",
+      "filename": "meson-1.12.1-2-any.pkg.tar.zst",
+      "sha256": "d7dd6a03661d12e52b739381f5290579bcc79189316513c1000a7c6cb3f2f900"
+    },
+    {
+      "package": "micro",
+      "version": "2.0.15-3",
+      "filename": "micro-2.0.15-3-x86_64.pkg.tar.zst",
+      "sha256": "d5b1de6f39bf9dfda356fe381c99af805deb314cb38372a1e942576af03940c7"
+    },
+    {
+      "package": "mtr",
+      "version": "0.96-1",
+      "filename": "mtr-0.96-1-x86_64.pkg.tar.zst",
+      "sha256": "a09e28746e69869d49e55c90f7493b755011fe71358584ec351c09b0887503c5"
+    },
+    {
+      "package": "mypy",
+      "version": "2.4.0-1",
+      "filename": "mypy-2.4.0-1-any.pkg.tar.zst",
+      "sha256": "6f84af83f3a45a2b1c07b8021fc9e10e16150f8acf76ef96eb571e933790000f"
+    },
+    {
+      "package": "nano",
+      "version": "9.2-1",
+      "filename": "nano-9.2-1-x86_64.pkg.tar.zst",
+      "sha256": "c63e2efc4c8d1458dbc04152db73a570a609bed245b490c161f0fc4df6baad53"
+    },
+    {
+      "package": "nerdctl",
+      "version": "2.4.1-1",
+      "filename": "nerdctl-2.4.1-1-x86_64.pkg.tar.zst",
+      "sha256": "ffa5130e692a2ac9e3d57ff19c8a6cc9508d521fc1b943e42b3f9662006820c9"
+    },
+    {
+      "package": "netavark",
+      "version": "2.1.0-3",
+      "filename": "netavark-2.1.0-3-x86_64.pkg.tar.zst",
+      "sha256": "5da92f0f1a3aa627febe36ccdbb851f45acf4dd6ea2530f3de7587d61c329860"
+    },
+    {
+      "package": "ninja",
+      "version": "1.13.2-3",
+      "filename": "ninja-1.13.2-3-x86_64.pkg.tar.zst",
+      "sha256": "19e12c1a169d27e427c3fa678ed3573825ac2a1043c6d47dd96e76ec3d34236c"
+    },
+    {
+      "package": "nmap",
+      "version": "7.992-1",
+      "filename": "nmap-7.992-1-x86_64.pkg.tar.zst",
+      "sha256": "3ce17c63739c0ef59b3e1df997949cd46a71d5fe0a8869aff53246d56ce37d9b"
+    },
+    {
+      "package": "opusfile",
+      "version": "0.12-4",
+      "filename": "opusfile-0.12-4-x86_64.pkg.tar.zst",
+      "sha256": "875f694de98aed902f4c564931863dbd2fba93422ca715e3edd21e1499ba3274"
+    },
+    {
+      "package": "ostree",
+      "version": "2026.4-1",
+      "filename": "ostree-2026.4-1-x86_64.pkg.tar.zst",
+      "sha256": "27c234d446851690f5608de768fbf7bbe775e4b1111856acb4ffacf30f1d266a"
+    },
+    {
+      "package": "pandoc-cli",
+      "version": "3.11-47",
+      "filename": "pandoc-cli-3.11-47-x86_64.pkg.tar.zst",
+      "sha256": "791ae4e66156e7feafb562f8fc5362b12326fe8b1ef3a870c52fabf3444b371f"
+    },
+    {
+      "package": "pangomm",
+      "version": "2.46.5-1",
+      "filename": "pangomm-2.46.5-1-x86_64.pkg.tar.zst",
+      "sha256": "62a68538d75e67806902fef20136fd07c63307935d02260e6d5c4f1ec907e9ce"
+    },
+    {
+      "package": "pass",
+      "version": "1.7.4-7",
+      "filename": "pass-1.7.4-7-any.pkg.tar.zst",
+      "sha256": "24120fa093583d2854e17c72421acf7406398b4e9070885659d9b48ff5ab8931"
+    },
+    {
+      "package": "passim",
+      "version": "0.1.12-1",
+      "filename": "passim-0.1.12-1-x86_64.pkg.tar.zst",
+      "sha256": "21d94c5c614e5360dacfd7529c8d928a527e8e1317cbd98e7204c837b4c041ee"
+    },
+    {
+      "package": "passt",
+      "version": "2026_10_02.cba3570-1",
+      "filename": "passt-2026_10_02.cba3570-1-x86_64.pkg.tar.zst",
+      "sha256": "66cb32c7bceeb4f24fa46444ef61f61183ffef9d08a27b0ade572bb645b7dc31"
+    },
+    {
+      "package": "perl-image-exiftool",
+      "version": "13.55-1",
+      "filename": "perl-image-exiftool-13.55-1-any.pkg.tar.zst",
+      "sha256": "11f2f296cdcd8c17879b478201e3e9722a8cc63dfe2bb22df86b728009ecfb6f"
+    },
+    {
+      "package": "playerctl",
+      "version": "2.4.1-5",
+      "filename": "playerctl-2.4.1-5-x86_64.pkg.tar.zst",
+      "sha256": "fa6f327318ef543d8ed33818c62f8aaa011f4b352a4f8e90892cfd3c1c004b80"
+    },
+    {
+      "package": "podman",
+      "version": "6.1.4-1",
+      "filename": "podman-6.1.4-1-x86_64.pkg.tar.zst",
+      "sha256": "3a9f7ec293e7ac34d2a9eab9c5f72cd01f58aacc539c79da0a4c107eb375a6e2"
+    },
+    {
+      "package": "pps-tools",
+      "version": "1.0.3-2",
+      "filename": "pps-tools-1.0.3-2-x86_64.pkg.tar.zst",
+      "sha256": "bd35c02d5f356f984d90bc386fa45fdd89ce0e812dd96721a2a2f1510f540139"
+    },
+    {
+      "package": "pre-commit",
+      "version": "4.7.0-1",
+      "filename": "pre-commit-4.7.0-1-any.pkg.tar.zst",
+      "sha256": "9abb94d140257a177bf7ab347ce36687b467f47113a575177904c9ff617461a5"
+    },
+    {
+      "package": "procs",
+      "version": "0.14.12-1",
+      "filename": "procs-0.14.12-1-x86_64.pkg.tar.zst",
+      "sha256": "514e3c32773cb95984a5ac29105392148adaf3dd6988e6b57432da7a70a3fb2e"
+    },
+    {
+      "package": "python-ast-serialize",
+      "version": "0.12.1-1",
+      "filename": "python-ast-serialize-0.12.1-1-x86_64.pkg.tar.zst",
+      "sha256": "c98ac80075c97de754d93004f68cb2331fa46d17e91f18924818acc5435d7abd"
+    },
+    {
+      "package": "python-black",
+      "version": "26.10.1-1",
+      "filename": "python-black-26.10.1-1-any.pkg.tar.zst",
+      "sha256": "7fbde661f434daf4df3a47fe6d92828147c1012db126ad9228f31cf43af46f6c"
+    },
+    {
+      "package": "python-cfgv",
+      "version": "3.5.0-1",
+      "filename": "python-cfgv-3.5.0-1-any.pkg.tar.zst",
+      "sha256": "a266ac784825c4cd10c3800a2e199296ed98039b0205af67737da9a4030b1e47"
+    },
+    {
+      "package": "python-click",
+      "version": "8.5.0-1",
+      "filename": "python-click-8.5.0-1-any.pkg.tar.zst",
+      "sha256": "bb536c3c07a9e88e2651678c65a3ae1428f08c1945762e7040efd51a1c76d027"
+    },
+    {
+      "package": "python-defusedxml",
+      "version": "0.7.1-8",
+      "filename": "python-defusedxml-0.7.1-8-any.pkg.tar.zst",
+      "sha256": "85d438e1905526c822746bb1b4b616b1fb8f6a965a6cccb34cb35fad348ffe1a"
+    },
+    {
+      "package": "python-distlib",
+      "version": "0.4.4-1",
+      "filename": "python-distlib-0.4.4-1-any.pkg.tar.zst",
+      "sha256": "5f426dd128bc79e2c1a5203462179ef6365593b3295dbfc889861feed79e42c4"
+    },
+    {
+      "package": "python-filelock",
+      "version": "4.0.10-1",
+      "filename": "python-filelock-4.0.10-1-any.pkg.tar.zst",
+      "sha256": "e2e74f6b5fc12d5adc3a71cad28e7ad7a1f371fe268b8edf277d4e42c8fb28fa"
+    },
+    {
+      "package": "python-identify",
+      "version": "2.6.20-1",
+      "filename": "python-identify-2.6.20-1-any.pkg.tar.zst",
+      "sha256": "8e430d06e82fa401b10853c5cad946eddca6faee889f6e20d7637bb5d78ffbfe"
+    },
+    {
+      "package": "python-iniconfig",
+      "version": "2.3.0-1",
+      "filename": "python-iniconfig-2.3.0-1-any.pkg.tar.zst",
+      "sha256": "923a04a567ae8ed730bab1e14ec605fc175e46c0d595fff8663e1fe51415390f"
+    },
+    {
+      "package": "python-librt",
+      "version": "0.16.0-1",
+      "filename": "python-librt-0.16.0-1-x86_64.pkg.tar.zst",
+      "sha256": "8540acc29fb6a301e514fee269b1c638355435df46f7dc3a6e790c389f5ca31d"
+    },
+    {
+      "package": "python-markdown-it-py",
+      "version": "4.2.0-1",
+      "filename": "python-markdown-it-py-4.2.0-1-any.pkg.tar.zst",
+      "sha256": "11d315b1f5285d1f9a8ec0a6a12f54a5a5d56770e3643d5707590a11075a22a5"
+    },
+    {
+      "package": "python-mdurl",
+      "version": "0.1.2-9",
+      "filename": "python-mdurl-0.1.2-9-any.pkg.tar.zst",
+      "sha256": "23efaff333fbe2d0f41ebf68a2c0f953a5f8e6d9d4bacd3ae35104344af2fe07"
+    },
+    {
+      "package": "python-mypy_extensions",
+      "version": "1.1.0-2",
+      "filename": "python-mypy_extensions-1.1.0-2-any.pkg.tar.zst",
+      "sha256": "16b83831e1815f0133dd908015ff914d5577e70b8cbb4b01ae40ac58833f7451"
+    },
+    {
+      "package": "python-nodeenv",
+      "version": "1.11.0-1",
+      "filename": "python-nodeenv-1.11.0-1-any.pkg.tar.zst",
+      "sha256": "c3eb7019176a8dbbb5b91bc8329810d4beef16f6e01e5fe19f45b254b533280d"
+    },
+    {
+      "package": "python-orjson",
+      "version": "3.13.0-1",
+      "filename": "python-orjson-3.13.0-1-x86_64.pkg.tar.zst",
+      "sha256": "1ad405539d8ef3d6a327404180ab119bf8df257652914f6ed0d55fad81c1bf97"
+    },
+    {
+      "package": "python-pathspec",
+      "version": "1.1.1-1",
+      "filename": "python-pathspec-1.1.1-1-any.pkg.tar.zst",
+      "sha256": "294c57c93df7eb12e9a20e7ae669f630f88cc39e3a8a83b83113ee8d7c51ca2a"
+    },
+    {
+      "package": "python-pip",
+      "version": "26.2.2-1",
+      "filename": "python-pip-26.2.2-1-any.pkg.tar.zst",
+      "sha256": "079a462a2fad76f087d1d07159b543fb49393a323cac502203e967bd91e372c4"
+    },
+    {
+      "package": "python-pluggy",
+      "version": "1.7.0-1",
+      "filename": "python-pluggy-1.7.0-1-any.pkg.tar.zst",
+      "sha256": "0ac0cbe11658341955a9997e9078bc0c57b41cb45b8c5effb3e325b94ee1bedf"
+    },
+    {
+      "package": "python-pysocks",
+      "version": "1.7.1-12",
+      "filename": "python-pysocks-1.7.1-12-any.pkg.tar.zst",
+      "sha256": "85bd7f9917da1e7b24fe6a1815124d3deb4caeaff52d986bc6c1892b267d734d"
+    },
+    {
+      "package": "python-pytest",
+      "version": "1:9.1.1-1",
+      "filename": "python-pytest-1:9.1.1-1-any.pkg.tar.zst",
+      "sha256": "6e912ca93ac1506e86dcebc6f71f6ba864089a3ebe43f7edabce362c805690b8"
+    },
+    {
+      "package": "python-python-discovery",
+      "version": "1.6.4-1",
+      "filename": "python-python-discovery-1.6.4-1-any.pkg.tar.zst",
+      "sha256": "94e71033ce0319eba0eb63fb2b6c4490ff6b30f5b92820d5a9249ed4ed316da0"
+    },
+    {
+      "package": "python-pytokens",
+      "version": "0.4.1-1",
+      "filename": "python-pytokens-0.4.1-1-any.pkg.tar.zst",
+      "sha256": "d4d17e23f3b3a5d5c1697fc21fb4f90a729e2e193073aa0c67cdc667ad6c625e"
+    },
+    {
+      "package": "python-requests-toolbelt",
+      "version": "1.0.0-6",
+      "filename": "python-requests-toolbelt-1.0.0-6-any.pkg.tar.zst",
+      "sha256": "fd2277d36dfd1716ab48884691fab1e2cb16b353e9c37e947e9e4c95ea91510e"
+    },
+    {
+      "package": "python-rich",
+      "version": "15.0.0-1",
+      "filename": "python-rich-15.0.0-1-any.pkg.tar.zst",
+      "sha256": "4056304cf0bb897e946dfb252d02a9b271083ddf63f5748ae7b0053a55d44ae6"
+    },
+    {
+      "package": "python-toml",
+      "version": "0.10.2-13",
+      "filename": "python-toml-0.10.2-13-any.pkg.tar.zst",
+      "sha256": "1a9b83ec7250a9bd2f2c31c6a1092e6fdfe4a81b9b9ec58e65020631acf6e71d"
+    },
+    {
+      "package": "python-tqdm",
+      "version": "4.70.1-1",
+      "filename": "python-tqdm-4.70.1-1-any.pkg.tar.zst",
+      "sha256": "92c4b146a00e268855373e9c93e974d162ae5b580d37a3a138f36ca8d8ae581b"
+    },
+    {
+      "package": "python-virtualenv",
+      "version": "21.14.7-1",
+      "filename": "python-virtualenv-21.14.7-1-any.pkg.tar.zst",
+      "sha256": "f0b3d9693ceed62cfa3c6167198a5016fb7aca17750d4554bfe91cf00ad53185"
+    },
+    {
+      "package": "qpdf",
+      "version": "12.4.2-1",
+      "filename": "qpdf-12.4.2-1-x86_64.pkg.tar.zst",
+      "sha256": "682e8bacfc69ab340bc5ea3c8f3b9e6f5f974868235374bbd0f11b2650ed343f"
+    },
+    {
+      "package": "rhash",
+      "version": "1.4.6-1",
+      "filename": "rhash-1.4.6-1-x86_64.pkg.tar.zst",
+      "sha256": "6f791b676347898dc72d20cd94be0da2228a26339e6bc511b17f1278d8110706"
+    },
+    {
+      "package": "ripgrep-all",
+      "version": "0.10.10-3",
+      "filename": "ripgrep-all-0.10.10-3-x86_64.pkg.tar.zst",
+      "sha256": "935288f1b839e2ead1717a3229289eb5c7bf7e20ca5826f79e1b73b209798620"
+    },
+    {
+      "package": "ruff",
+      "version": "0.17.1-1",
+      "filename": "ruff-0.17.1-1-x86_64.pkg.tar.zst",
+      "sha256": "45fbb7f9695e2e0ab117af8efacf75c03673265edde01705198cf87a5e6c59f4"
+    },
+    {
+      "package": "run-parts",
+      "version": "5.24-1",
+      "filename": "run-parts-5.24-1-x86_64.pkg.tar.zst",
+      "sha256": "a16d62bddedb68db490f34b1659ecc5cb2c969dc30091c5d4bffa0905da4753c"
+    },
+    {
+      "package": "screen",
+      "version": "5.0.2-2",
+      "filename": "screen-5.0.2-2-x86_64.pkg.tar.zst",
+      "sha256": "29549ef3b8e3ad472a526f6ebd112ea1c4e7289642902cd182c3bdcb83c278c1"
+    },
+    {
+      "package": "sd",
+      "version": "1.1.0-1",
+      "filename": "sd-1.1.0-1-x86_64.pkg.tar.zst",
+      "sha256": "7b06d9088d23bd12c48803b437ed1a0a4fb3ab9e403843492fd00f1b622d2b05"
+    },
+    {
+      "package": "skopeo",
+      "version": "1.24.1-1",
+      "filename": "skopeo-1.24.1-1-x86_64.pkg.tar.zst",
+      "sha256": "780457c6ae110cb87af78231122006f5bd442d342bddaf829dadfbb18ce21d3a"
+    },
+    {
+      "package": "smartmontools",
+      "version": "7.5-2",
+      "filename": "smartmontools-7.5-2-x86_64.pkg.tar.zst",
+      "sha256": "9aa4f3961955f4806a2fb9d2a6a6bac719c628f2457b05288ee1b650ca84d7fa"
+    },
+    {
+      "package": "sops",
+      "version": "3.13.3-1",
+      "filename": "sops-3.13.3-1-x86_64.pkg.tar.zst",
+      "sha256": "9960516fdedc026ba7ef5d5cebefde23caa7089cccce9b7cc41a1967c97e790b"
+    },
+    {
+      "package": "sox",
+      "version": "14.8.0.1-1",
+      "filename": "sox-14.8.0.1-1-x86_64.pkg.tar.zst",
+      "sha256": "e19ec87e62195f72efc0256e1175c3ea10bc41ed0385cf69168b1e63c11880f8"
+    },
+    {
+      "package": "stow",
+      "version": "2.4.1-1",
+      "filename": "stow-2.4.1-1-any.pkg.tar.zst",
+      "sha256": "54b5444f4c38a02d5099e6f7eeae1f1f3fd04aa823f3c3570d5f6389a88169ec"
+    },
+    {
+      "package": "sysstat",
+      "version": "12.8.0-1",
+      "filename": "sysstat-12.8.0-1-x86_64.pkg.tar.zst",
+      "sha256": "8802d8db4c0ad2ebcdef0bd078e9cbc9d1616d62446c63350a7e7f73722b7f58"
+    },
+    {
+      "package": "tcpdump",
+      "version": "4.99.7-1",
+      "filename": "tcpdump-4.99.7-1-x86_64.pkg.tar.zst",
+      "sha256": "9d8a9ec0257df4d4532d1010390e0e7567d7d9f463825d31f31c598fdf95cda1"
+    },
+    {
+      "package": "tig",
+      "version": "2.6.1-1",
+      "filename": "tig-2.6.1-1-x86_64.pkg.tar.zst",
+      "sha256": "a8015dce3c6276dd387039a8d90907c3104282b377ea0012110efbbbdb456aa7"
+    },
+    {
+      "package": "tokei",
+      "version": "15.0.0-1",
+      "filename": "tokei-15.0.0-1-x86_64.pkg.tar.zst",
+      "sha256": "12643308f75b3eeb0873cdfead7ea86c5c6e6b4f92419d7f0f252a2cf326bfdd"
+    },
+    {
+      "package": "toolbox",
+      "version": "0.3-2",
+      "filename": "toolbox-0.3-2-x86_64.pkg.tar.zst",
+      "sha256": "c81cffcff319ea2df936fa41323e83a0c697fce14c0d883ce88387bb235254f4"
+    },
+    {
+      "package": "tree",
+      "version": "2.3.2-1",
+      "filename": "tree-2.3.2-1-x86_64.pkg.tar.zst",
+      "sha256": "8a6230468cc31a2c984a41c092035dd16bf97e737ec3241490724a5419903739"
+    },
+    {
+      "package": "twolame",
+      "version": "0.4.0-4",
+      "filename": "twolame-0.4.0-4-x86_64.pkg.tar.zst",
+      "sha256": "16cd8a6134a928ab9453b11518258aca74559bf6782d93a5c484f693ad8384e0"
+    },
+    {
+      "package": "valgrind",
+      "version": "3.25.1-9",
+      "filename": "valgrind-3.25.1-9-x86_64.pkg.tar.zst",
+      "sha256": "0bda5c8bd597016272ad6947b7ef150f25530ee2c090bf429bba734f73b19748"
+    },
+    {
+      "package": "walker",
+      "version": "2.17.2-1",
+      "filename": "walker-2.17.2-1-x86_64.pkg.tar.zst",
+      "sha256": "26b110c02678dbead8aa618dfe4d3f1f14e457063c6b6d5409a69d8d32b1ead5"
+    },
+    {
+      "package": "wavpack",
+      "version": "5.9.0-1",
+      "filename": "wavpack-5.9.0-1-x86_64.pkg.tar.zst",
+      "sha256": "d5aed609ce3bf3d21d6939f1022ff89baac1784f905a5abb9967bd5a047d0f41"
+    },
+    {
+      "package": "waybar",
+      "version": "0.15.0-3",
+      "filename": "waybar-0.15.0-3-x86_64.pkg.tar.zst",
+      "sha256": "b8b7c025cac3b2d94ab2046b921c1082b21144c61d4982f2c2506927e2a66620"
+    },
+    {
+      "package": "wget",
+      "version": "1.25.0-6",
+      "filename": "wget-1.25.0-6-x86_64.pkg.tar.zst",
+      "sha256": "b13fda4c67cf71c8a913e0109dc6bd42cca0ac5562e165db2a63885e42c42217"
+    },
+    {
+      "package": "wlr-randr",
+      "version": "0.5.0-1",
+      "filename": "wlr-randr-0.5.0-1-x86_64.pkg.tar.zst",
+      "sha256": "cbefba7fd65a384eb44b12df6fbd36d871782827f21a4c793bff171a298887c9"
+    },
+    {
+      "package": "yazi",
+      "version": "26.9.1-2",
+      "filename": "yazi-26.9.1-2-x86_64.pkg.tar.zst",
+      "sha256": "76271a8eaf0bdc309ff01db42e97a35863eda51be7e4af70ef48735ffed90141"
+    },
+    {
+      "package": "zsh",
+      "version": "5.9.2-1",
+      "filename": "zsh-5.9.2-1-x86_64.pkg.tar.zst",
+      "sha256": "92982239da698cd541ed2f8c366b6d152c06d0aad22c78f7313f364edab15433"
+    }
+  ]
+}

@@ -17,6 +17,7 @@ use crate::engine::{self, Options};
 use crate::process::Runner;
 
 #[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct CommandSpec {
     #[serde(default)]
     min: usize,
@@ -29,6 +30,7 @@ struct CommandSpec {
 }
 
 #[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Profile {
     help: Vec<String>,
     #[serde(default)]
@@ -152,18 +154,20 @@ struct Scanner<'a> {
 }
 
 impl Scanner<'_> {
-    fn scan(&self, mut index: usize, leading: bool) -> (usize, usize, Option<Analysis>) {
+    fn scan(&self, mut index: usize, leading: bool) -> (usize, usize, Option<Analysis>, bool) {
         let mut operands = 0;
+        let mut required_mode = self.profile.require_any.is_empty();
         while index < self.words.len() {
             let word = &self.words[index];
             if word == "--" {
                 return if leading {
-                    (index, 0, Some(Analysis::Refuse))
+                    (index, 0, Some(Analysis::Refuse), required_mode)
                 } else {
                     (
                         self.words.len(),
                         operands + self.words.len() - index - 1,
                         None,
+                        required_mode,
                     )
                 };
             }
@@ -172,7 +176,12 @@ impl Scanner<'_> {
                     break;
                 }
                 if self.profile.stop_at_operand {
-                    return (self.words.len(), operands + self.words.len() - index, None);
+                    return (
+                        self.words.len(),
+                        operands + self.words.len() - index,
+                        None,
+                        required_mode,
+                    );
                 }
                 operands += 1;
                 index += 1;
@@ -187,6 +196,11 @@ impl Scanner<'_> {
                 metadata::consume(self.words, index, self.flags, false)
             };
             if let Some(next) = next {
+                required_mode |= self
+                    .profile
+                    .require_any
+                    .iter()
+                    .any(|flag| word.split('=').next() == Some(flag.as_str()));
                 index = next;
                 continue;
             }
@@ -194,7 +208,7 @@ impl Scanner<'_> {
             if self.flags.contains_key(name)
                 || !(word.starts_with("--") || (self.profile.single_dash && word.len() > 3))
             {
-                return (index, operands, Some(Analysis::Refuse));
+                return (index, operands, Some(Analysis::Refuse), required_mode);
             }
             let choices = self
                 .flags
@@ -216,9 +230,10 @@ impl Scanner<'_> {
                     true,
                     self.profile.abbreviate,
                 )),
+                required_mode,
             );
         }
-        (index, operands, None)
+        (index, operands, None, required_mode)
     }
 }
 
@@ -256,23 +271,14 @@ pub(crate) fn analyze(
         syntax: &syntax,
     };
     if profile.commands.is_empty() {
-        let (_, count, issue) = scanner.scan(1, false);
+        let (_, count, issue, required_mode) = scanner.scan(1, false);
         return Ok(issue.unwrap_or_else(|| {
             let informational = words
                 .get(1)
                 .is_some_and(|word| matches!(word.as_str(), "--help" | "--version"));
             if (!informational && count < profile.min_operands)
                 || count > profile.max_operands
-                || (!profile.require_any.is_empty()
-                    && !words[1..]
-                        .iter()
-                        .take_while(|word| word.as_str() != "--")
-                        .any(|word| {
-                            profile
-                                .require_any
-                                .iter()
-                                .any(|flag| word.split('=').next() == Some(flag.as_str()))
-                        }))
+                || !required_mode
             {
                 Analysis::Refuse
             } else {
@@ -280,7 +286,7 @@ pub(crate) fn analyze(
             }
         }));
     }
-    let (index, _, issue) = scanner.scan(1, true);
+    let (index, _, issue, _) = scanner.scan(1, true);
     if let Some(issue) = issue {
         return Ok(issue);
     }
@@ -326,7 +332,7 @@ pub(crate) fn analyze(
         known: &known,
         syntax: &syntax,
     };
-    let (_, count, issue) = scanner.scan(index + 1, false);
+    let (_, count, issue, _) = scanner.scan(index + 1, false);
     Ok(issue.unwrap_or({
         if count < spec.min || count > spec.max {
             Analysis::Refuse
@@ -344,7 +350,15 @@ mod tests {
     fn registry_has_only_unique_linux_executables_and_explicit_help_queries() {
         assert!(registry().len() > 50);
         for (root, profile) in registry() {
-            assert!(engine::command_word(root), "{root}");
+            assert!(
+                root.as_bytes()
+                    .first()
+                    .is_some_and(u8::is_ascii_alphanumeric)
+                    && root
+                        .bytes()
+                        .all(|c| c.is_ascii_alphanumeric() || b"._+-".contains(&c)),
+                "invalid executable name: {root}"
+            );
             assert!(
                 !["brew", "winget", "scoop", "choco", "powershell", "pwsh"]
                     .contains(&root.as_str())

@@ -102,7 +102,7 @@ endpoints, model overrides, privacy boundaries, and environment settings.
 
 ## Command coverage
 
-The registry currently contains **120 executable adapters**, with deliberately
+The registry currently contains **260 executable adapters**, with deliberately
 scoped support. It includes Git, Docker/Compose, systemd, common file/text tools,
 desktop utilities, Cargo, Pacman/Yay query operations, Nix, iwctl, Zellij, and strace.
 A listed executable does not imply support for every option or subcommand.
@@ -110,6 +110,8 @@ A listed executable does not imply support for every option or subcommand.
 - [Git, Docker/Compose, and systemd support](docs/FIRST_CLI_BATCH.md)
 - [Additional Linux profiles, exact scopes, and timings](docs/LINUX_PROFILES.md)
 - [Nix, iwctl, Zellij, and strace scopes and tests](docs/NESTED_CLI_BATCH.md)
+- [Latest 140 adapters, Buildx scopes, and tests](docs/CLI_EXPANSION.md)
+- [Supported and pending requested commands](docs/CLI_STATUS.md)
 - [Launch coverage checklist](docs/CLI_SUPPORT.md)
 - [Additional requested tools](docs/CLI_ADDITIONS.md)
 
@@ -157,7 +159,7 @@ using captured metadata, mock executables, and loopback servers. No model login
 or live model requests are needed.
 
 See [contribution guidelines](CONTRIBUTING.md), [development notes](docs/DEVELOPMENT.md),
-[packaging instructions](docs/PACKAGING.md), the [distribution test report](docs/DISTRIBUTION_TESTS.md),
+[packaging instructions](docs/PACKAGING.md), [distribution options](docs/DISTRIBUTION_OPTIONS.md), the [distribution test report](docs/DISTRIBUTION_TESTS.md),
 and the [changelog](CHANGELOG.md). For setup problems, see
 [troubleshooting](docs/TROUBLESHOOTING.md).
 

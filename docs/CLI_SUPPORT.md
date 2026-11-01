@@ -20,8 +20,12 @@ The [Linux profile batch](LINUX_PROFILES.md) adds 110 individually listed,
 tested, scoped adapters. The inventory below identifies registered tools; detailed
 per-command matrices define the actual supported forms and exclusions.
 The [nested CLI batch](NESTED_CLI_BATCH.md) adds Nix, iwctl, Zellij, and strace,
-bringing the active registry to 120 executable names.
+bringing the registry at that point to 120 executable names.
 All tools absent from these implementation reports remain planned.
+
+Current registry: **260 executable names**. See the [latest expansion](CLI_EXPANSION.md)
+and [complete requested-status ledger](CLI_STATUS.md) before assuming a listed
+tool or nested command is supported.
 
 ## Coverage inventory
 
@@ -33,23 +37,23 @@ does not establish compatibility with every version or implementation.
 
 | Area | Launch inventory | Current status |
 |---|---|---|
-| Existing integrations | `omarchy`, `herdr` | Scoped adapters: `omarchy`, `herdr`. |
-| Files and directories | `ls`, `cp`, `mv`, `rm`, `mkdir`, `rmdir`, `touch`, `ln`, `stat`, `file`, `readlink`, `realpath`, `basename`, `dirname`, `du`, `df`, `install`, `mktemp` | Scoped adapters: `ls`, `cp`, `mv`, `mkdir`, `rmdir`, `touch`, `stat`, `file`, `readlink`, `realpath`, `basename`, `dirname`, `du`, `df`. Remaining names planned. |
-| Text and search | `cat`, `head`, `tail`, `less`, `more`, `grep`, `rg`, `find`, `fd`, `locate`, `sed`, `awk`, `sort`, `uniq`, `cut`, `paste`, `tr`, `wc`, `tee`, `xargs`, `diff`, `patch`, `strings` | Scoped adapters: `cat`, `head`, `tail`, `grep`, `rg`, `fd`, `sort`, `uniq`, `cut`, `paste`, `wc`, `tee`, `diff`, `strings`. Remaining names planned. |
-| Archives and checksums | `tar`, `gzip`, `gunzip`, `bzip2`, `bunzip2`, `xz`, `unxz`, `zip`, `unzip`, `7z`, `sha256sum`, `sha512sum`, `md5sum` | Scoped adapters: `sha256sum`, `sha512sum`, `md5sum`. Remaining names planned. |
-| Processes and jobs | `ps`, `pgrep`, `pkill`, `kill`, `killall`, `top`, `htop`, `btop`, `nice`, `renice`, `nohup`, `timeout`, `watch`, `time` | Scoped adapters: `btop`, `watch`. Remaining names planned. |
-| Services and system information | `systemctl`, `journalctl`, `loginctl`, `hostnamectl`, `timedatectl`, `localectl`, `dmesg`, `uname`, `hostname`, `uptime`, `date`, `free`, `lscpu`, `lspci`, `lsusb`, `env`, `printenv`, `which`, `whereis` | Scoped adapters: `systemctl`, `journalctl`, `loginctl`, `hostnamectl`, `timedatectl`, `localectl`, `dmesg`, `uname`, `uptime`, `date`, `free`, `lscpu`, `printenv`. Remaining names planned. |
-| Networking and transfers | `ip`, `ss`, `ping`, `traceroute`, `tracepath`, `dig`, `host`, `nslookup`, `resolvectl`, `nmcli`, `curl`, `wget`, `ssh`, `scp`, `sftp`, `rsync`, `nc`, `nmap`, `tcpdump`, `ufw`, `firewall-cmd` | Scoped adapters: `ss`, `curl`, `rsync`. Remaining names planned. |
-| Ownership, users, and storage | `chmod`, `chown`, `chgrp`, `id`, `whoami`, `who`, `groups`, `getent`, `passwd`, `useradd`, `usermod`, `userdel`, `groupadd`, `groupdel`, `lsblk`, `blkid`, `findmnt`, `mount`, `umount` | Scoped adapters: `id`, `who`, `lsblk`, `findmnt`. Remaining names planned. |
+| Existing integrations | `omarchy`, `herdr` | Scoped adapters: `omarchy`, `herdr`. See batch reports for exact forms. |
+| Files and directories | `ls`, `cp`, `mv`, `rm`, `mkdir`, `rmdir`, `touch`, `ln`, `stat`, `file`, `readlink`, `realpath`, `basename`, `dirname`, `du`, `df`, `install`, `mktemp` | Scoped adapters: `ls`, `cp`, `mv`, `mkdir`, `rmdir`, `touch`, `ln`, `stat`, `file`, `readlink`, `realpath`, `basename`, `dirname`, `du`, `df`, `mktemp`. Remaining names planned. |
+| Text and search | `cat`, `head`, `tail`, `less`, `more`, `grep`, `rg`, `find`, `fd`, `locate`, `sed`, `awk`, `sort`, `uniq`, `cut`, `paste`, `tr`, `wc`, `tee`, `xargs`, `diff`, `patch`, `strings` | Scoped adapters: `cat`, `head`, `tail`, `less`, `more`, `grep`, `rg`, `fd`, `locate`, `sed`, `awk`, `sort`, `uniq`, `cut`, `paste`, `tr`, `wc`, `tee`, `diff`, `patch`, `strings`. Remaining names planned. |
+| Archives and checksums | `tar`, `gzip`, `gunzip`, `bzip2`, `bunzip2`, `xz`, `unxz`, `zip`, `unzip`, `7z`, `sha256sum`, `sha512sum`, `md5sum` | Scoped adapters: `tar`, `gzip`, `gunzip`, `bzip2`, `bunzip2`, `xz`, `unxz`, `sha256sum`, `sha512sum`, `md5sum`. Remaining names planned. |
+| Processes and jobs | `ps`, `pgrep`, `pkill`, `kill`, `killall`, `top`, `htop`, `btop`, `nice`, `renice`, `nohup`, `timeout`, `watch`, `time` | Scoped adapters: `ps`, `pgrep`, `top`, `htop`, `btop`, `nice`, `timeout`, `watch`. Remaining names planned. |
+| Services and system information | `systemctl`, `journalctl`, `loginctl`, `hostnamectl`, `timedatectl`, `localectl`, `dmesg`, `uname`, `hostname`, `uptime`, `date`, `free`, `lscpu`, `lspci`, `lsusb`, `env`, `printenv`, `which`, `whereis` | Scoped adapters: `systemctl`, `journalctl`, `loginctl`, `hostnamectl`, `timedatectl`, `localectl`, `dmesg`, `uname`, `hostname`, `uptime`, `date`, `free`, `lscpu`, `lsusb`, `env`, `printenv`, `which`. Remaining names planned. |
+| Networking and transfers | `ip`, `ss`, `ping`, `traceroute`, `tracepath`, `dig`, `host`, `nslookup`, `resolvectl`, `nmcli`, `curl`, `wget`, `ssh`, `scp`, `sftp`, `rsync`, `nc`, `nmap`, `tcpdump`, `ufw`, `firewall-cmd` | Scoped adapters: `ss`, `resolvectl`, `curl`, `wget`, `rsync`, `nmap`, `tcpdump`, `ufw`. Remaining names planned. |
+| Ownership, users, and storage | `chmod`, `chown`, `chgrp`, `id`, `whoami`, `who`, `groups`, `getent`, `passwd`, `useradd`, `usermod`, `userdel`, `groupadd`, `groupdel`, `lsblk`, `blkid`, `findmnt`, `mount`, `umount` | Scoped adapters: `id`, `who`, `getent`, `lsblk`, `blkid`, `findmnt`, `mount`. Remaining names planned. |
 | Package management | `pacman`, `yay`, `paru`, `flatpak`, `apt`, `apt-get`, `apt-cache`, `dpkg`, `dnf`, `rpm`, `zypper`, `apk`, `snap` | Scoped adapters: `pacman`, `yay`. Remaining names planned. |
-| Version control and hosting | `git`, `gh`, `glab` | Scoped adapters: `git`. Remaining names planned. |
-| Containers and orchestration | `docker`, `docker compose`, `docker-compose`, `podman`, `podman compose`, `nerdctl`, `ctr`, `kubectl`, `helm`, `minikube`, `kind` | Scoped adapters: `docker`, `docker compose`. Remaining names planned. |
-| Languages, builds, and environments | `cargo`, `rustup`, `rustc`, `python`, `python3`, `pip`, `pip3`, `uv`, `poetry`, `pipx`, `node`, `npm`, `npx`, `pnpm`, `yarn`, `bun`, `deno`, `go`, `make`, `cmake`, `ninja`, `gcc`, `g++`, `clang`, `java`, `javac`, `mvn`, `gradle`, `dotnet`, `gem`, `bundle`, `composer`, `mise` | Scoped adapters: `cargo`, `rustc`, `make`. Remaining names planned. |
-| Data and databases | `jq`, `yq`, `sqlite3`, `psql`, `mysql`, `mariadb`, `redis-cli` | Planned. |
-| Cloud and infrastructure | `aws`, `gcloud`, `az`, `terraform`, `tofu`, `ansible`, `ansible-playbook` | Planned. |
-| Interactive tools and editors | `tmux`, `screen`, `fzf`, `zoxide`, `bat`, `eza`, `vim`, `nvim`, `nano`, `code` | Scoped adapters: `fzf`, `bat`, `eza`. Remaining names planned. |
-| AI command-line tools | `codex`, `claude`, `ollama` | Planned as correction targets; using them as model backends is separate |
-| Shell builtins and wrappers | `cd`, `pwd`, `export`, `unset`, `source`, `type`, `command`, `history`, `jobs`, `fg`, `bg`, `alias`, `unalias`, `sudo`, `doas` | Planned. |
+| Version control and hosting | `git`, `gh`, `glab` | Scoped adapters: `git`, `gh`. Remaining names planned. |
+| Containers and orchestration | `docker`, `docker compose`, `docker-compose`, `podman`, `podman compose`, `nerdctl`, `ctr`, `kubectl`, `helm`, `minikube`, `kind` | Scoped adapters: `docker`, `docker compose`, `docker-compose`, `podman`, `nerdctl`, `ctr`, `kubectl`, `helm`. Remaining names planned. |
+| Languages, builds, and environments | `cargo`, `rustup`, `rustc`, `python`, `python3`, `pip`, `pip3`, `uv`, `poetry`, `pipx`, `node`, `npm`, `npx`, `pnpm`, `yarn`, `bun`, `deno`, `go`, `make`, `cmake`, `ninja`, `gcc`, `g++`, `clang`, `java`, `javac`, `mvn`, `gradle`, `dotnet`, `gem`, `bundle`, `composer`, `mise` | Scoped adapters: `cargo`, `rustup`, `rustc`, `python`, `python3`, `pip`, `pip3`, `uv`, `node`, `npm`, `deno`, `make`, `cmake`, `ninja`. Remaining names planned. |
+| Data and databases | `jq`, `yq`, `sqlite3`, `psql`, `mysql`, `mariadb`, `redis-cli` | Scoped adapters: `jq`, `sqlite3`, `psql`. Remaining names planned. |
+| Cloud and infrastructure | `aws`, `gcloud`, `az`, `terraform`, `tofu`, `ansible`, `ansible-playbook` | Remaining names planned. |
+| Interactive tools and editors | `tmux`, `screen`, `fzf`, `zoxide`, `bat`, `eza`, `vim`, `nvim`, `nano`, `code` | Scoped adapters: `screen`, `fzf`, `zoxide`, `bat`, `eza`, `vim`, `nvim`, `nano`. Remaining names planned. |
+| AI command-line tools | `codex`, `claude`, `ollama` | Remaining names planned. |
+| Shell builtins and wrappers | `cd`, `pwd`, `export`, `unset`, `source`, `type`, `command`, `history`, `jobs`, `fg`, `bg`, `alias`, `unalias`, `sudo`, `doas` | Remaining names planned. |
 
 `ctr` and `nerdctl` are the containerd client targets. Treating the containerd
 daemon as an interchangeable client would be incorrect. Nested CLIs such as

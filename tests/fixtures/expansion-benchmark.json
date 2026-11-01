@@ -1,0 +1,90 @@
+[
+  {
+    "batch": "build-data-security",
+    "command": "age --decrpyt -i \"key file\" example.age",
+    "samples": 25,
+    "cold_engine_ms": 2.599919,
+    "warm_engine_median_ms": 0.382859,
+    "warm_wall_median_ms": 1.3868730020476505
+  },
+  {
+    "batch": "project-tooling",
+    "command": "atuin history lsit --cmd-only",
+    "samples": 25,
+    "cold_engine_ms": 9.161865,
+    "warm_engine_median_ms": 0.5464559999999999,
+    "warm_wall_median_ms": 1.3764710020041093
+  },
+  {
+    "batch": "files-archives-wrappers",
+    "command": "awk --field-separtaor : -f program.awk input.txt",
+    "samples": 25,
+    "cold_engine_ms": 2.810575,
+    "warm_engine_median_ms": 0.38075499999999995,
+    "warm_wall_median_ms": 1.133062003646046
+  },
+  {
+    "batch": "desktop-modern-utilities",
+    "command": "awww qurey",
+    "samples": 25,
+    "cold_engine_ms": 2.5257880000000004,
+    "warm_engine_median_ms": 0.308448,
+    "warm_wall_median_ms": 1.00613699760288
+  },
+  {
+    "batch": "system-inspection-networking",
+    "command": "blkid --list-filesystmes",
+    "samples": 25,
+    "cold_engine_ms": 2.6133699999999997,
+    "warm_engine_median_ms": 0.35857100000000003,
+    "warm_wall_median_ms": 0.9777550003491342
+  },
+  {
+    "batch": "containers-orchestration",
+    "command": "buildah contianers",
+    "samples": 25,
+    "cold_engine_ms": 44.058875,
+    "warm_engine_median_ms": 0.542502,
+    "warm_wall_median_ms": 1.4150429924484342
+  },
+  {
+    "batch": "administration-inspection",
+    "command": "cryptsetup stauts example",
+    "samples": 25,
+    "cold_engine_ms": 5.593843000000001,
+    "warm_engine_median_ms": 0.704621,
+    "warm_wall_median_ms": 1.6869309911271557
+  },
+  {
+    "batch": "developer-nested",
+    "command": "deno chekc example.ts",
+    "samples": 25,
+    "cold_engine_ms": 11.848664,
+    "warm_engine_median_ms": 0.617411,
+    "warm_wall_median_ms": 1.401465997332707
+  },
+  {
+    "batch": "network-diagnostics-editors",
+    "command": "dmidecode --list-stirngs",
+    "samples": 25,
+    "cold_engine_ms": 2.4824970000000004,
+    "warm_engine_median_ms": 0.308028,
+    "warm_wall_median_ms": 1.043010997818783
+  },
+  {
+    "batch": "utilities-editors",
+    "command": "inotifywait --recusrive \"example dir\"",
+    "samples": 25,
+    "cold_engine_ms": 2.6560759999999997,
+    "warm_engine_median_ms": 0.416552,
+    "warm_wall_median_ms": 1.1830619914690033
+  },
+  {
+    "batch": "developer-data",
+    "command": "jq --raw-outptu . data.json",
+    "samples": 25,
+    "cold_engine_ms": 2.9068929999999997,
+    "warm_engine_median_ms": 0.39174400000000004,
+    "warm_wall_median_ms": 1.0175990028074011
+  }
+]

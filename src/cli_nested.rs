@@ -16,6 +16,7 @@ use crate::process::Runner;
 #[derive(Clone, Copy, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 enum Kind {
+    Generic,
     Nix,
     Iwctl,
     Zellij,
@@ -37,6 +38,8 @@ enum Payload {
 struct Node {
     #[serde(default)]
     help: Vec<String>,
+    #[serde(default)]
+    extra_help: Vec<Vec<String>>,
     #[serde(default)]
     flags: String,
     #[serde(default)]
@@ -136,13 +139,23 @@ fn flag_names(text: &str) -> BTreeSet<String> {
 fn command_names(text: &str) -> BTreeSet<String> {
     static COMMANDS: OnceLock<Regex> = OnceLock::new();
     static ALIASES: OnceLock<Regex> = OnceLock::new();
+    static COBRA_ALIASES: OnceLock<Regex> = OnceLock::new();
     let mut names: BTreeSet<_> = COMMANDS
-        .get_or_init(|| Regex::new(r"(?m)^  ([a-z][a-z0-9-]*) {2,}").expect("literal regex"))
+        .get_or_init(|| {
+            Regex::new(r"(?m)^[ \t]{2,}([a-z][a-z0-9-]*(?:, [a-z][a-z0-9-]*)*):?[ \t]{2,}")
+                .expect("literal regex")
+        })
         .captures_iter(text)
-        .map(|c| c[1].to_owned())
+        .flat_map(|c| c[1].split(", ").map(str::to_owned).collect::<Vec<_>>())
         .collect();
     for c in ALIASES
         .get_or_init(|| Regex::new(r"\[alias(?:es)?: ([^\]]+)\]").expect("literal regex"))
+        .captures_iter(text)
+    {
+        names.extend(c[1].split(',').map(|s| s.trim().to_owned()));
+    }
+    for c in COBRA_ALIASES
+        .get_or_init(|| Regex::new(r"(?m)^Aliases:\n[ \t]+([^\n]+)").expect("literal regex"))
         .captures_iter(text)
     {
         names.extend(c[1].split(',').map(|s| s.trim().to_owned()));
@@ -238,7 +251,17 @@ impl Context<'_> {
                 commands,
             });
         }
-        let text = metadata::help(self.executable, &node.help, self.options.cache, self.runner)?;
+        let mut text =
+            metadata::help(self.executable, &node.help, self.options.cache, self.runner)?;
+        for query in &node.extra_help {
+            text.push('\n');
+            text.push_str(&metadata::help(
+                self.executable,
+                query,
+                self.options.cache,
+                self.runner,
+            )?);
+        }
         let text = plain_help(&text);
         let known_flags = flag_names(&text);
         let flags = declared
@@ -261,8 +284,10 @@ impl Context<'_> {
         inherited_known: &BTreeSet<String>,
     ) -> Result<Analysis> {
         let mut evidence = self.evidence(node, route)?;
-        if self.kind == Kind::Nix {
-            evidence.flags.extend(inherited.clone());
+        if self.kind == Kind::Nix || self.words[0] == "kubectl" {
+            for (name, arity) in inherited {
+                evidence.flags.entry(name.clone()).or_insert(*arity);
+            }
             evidence.known_flags.extend(inherited_known.iter().cloned());
         }
         let syntax: Vec<_> = std::iter::once(self.words[0].clone())
@@ -297,6 +322,25 @@ impl Context<'_> {
         let Some(word) = self.words.get(index) else {
             return Ok(Analysis::Refuse);
         };
+        // Kubectl plugins are real commands even when root help omits them.
+        // Check only executable existence; never run a user-supplied route.
+        if self.words[0] == "kubectl"
+            && route.is_empty()
+            && engine::command_word(word)
+            && metadata::executable(&format!("kubectl-{word}")).is_some()
+        {
+            return Ok(Analysis::Refuse);
+        }
+        // Some CLIs advertise aliases only in the leaf's help. Probe only a
+        // reviewed literal query, and require the parent to advertise its name.
+        for (name, child) in &node.commands {
+            if child.aliases.contains(word) && evidence.commands.contains(name) {
+                let aliases = self.evidence(child, route)?.commands;
+                if aliases.contains(word) && aliases.contains(name) {
+                    evidence.commands.insert(word.clone());
+                }
+            }
+        }
         let child = node.commands.iter().find(|(name, child)| {
             (word == *name && evidence.commands.contains(*name))
                 || (child.aliases.contains(word)
@@ -304,12 +348,24 @@ impl Context<'_> {
                     && evidence.commands.contains(*name))
         });
         let Some((name, child)) = child else {
-            let choices = node
+            let choices: Vec<_> = node
                 .commands
                 .keys()
                 .filter(|name| evidence.commands.contains(*name))
                 .cloned()
                 .collect();
+            // Generic nested grammars intentionally handle local typos only.
+            // Unknown extension names or absent destructive commands must not
+            // become model requests for unrelated inspection commands.
+            if self.kind == Kind::Generic
+                && choices
+                    .iter()
+                    .filter(|name| engine::typo(word, name) == 1)
+                    .count()
+                    != 1
+            {
+                return Ok(Analysis::Refuse);
+            }
             return Ok(problem(
                 self.words,
                 index,
@@ -733,14 +789,14 @@ mod tests {
 
     #[test]
     fn registry_queries_and_arities_are_explicit() {
-        assert_eq!(registry().len(), 4);
+        assert!(registry().len() >= 4);
         fn check(node: &Node, kind: Kind) {
             assert_eq!(
                 declarations(&node.flags).len(),
                 node.flags.split_whitespace().count()
             );
             assert!(node.max.is_none_or(|max| max >= node.min));
-            if kind == Kind::Zellij {
+            if matches!(kind, Kind::Zellij | Kind::Generic) {
                 assert_eq!(node.help.last().map(String::as_str), Some("--help"));
             }
             for child in node.commands.values() {
@@ -753,6 +809,20 @@ mod tests {
         assert_eq!(
             declarations("--arg=2 --command* --stack-trace?")["--arg"],
             Arity::Count(2)
+        );
+    }
+
+    #[test]
+    fn command_columns_include_advertised_aliases() {
+        let names = command_names(
+            "Commands:\n   images, image, i   Manage images\n  inspect  Inspect a resource\n  repo:  Repository commands\nAliases:\n  list, ls\n",
+        );
+        assert_eq!(
+            names,
+            ["i", "image", "images", "inspect", "list", "ls", "repo"]
+                .into_iter()
+                .map(str::to_owned)
+                .collect()
         );
     }
 }

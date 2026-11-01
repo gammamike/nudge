@@ -50,7 +50,7 @@ class InstallTests(unittest.TestCase):
         shutil.rmtree(bundle)
         self.assertEqual((self.root/'current/licenses/dependency.txt').read_text(),'dependency notice')
         self.assertEqual((self.root/'current/THIRD_PARTY_NOTICES.md').read_text(),'notice index')
-        self.assertEqual(len(self.run_nudge('supported',executable=self.binary).stdout.splitlines()),120)
+        self.assertEqual(self.run_nudge('supported',executable=self.binary).stdout, self.run_nudge('supported').stdout)
 
     def test_edited_hook_blocks_updates_and_unknown_files_block_removal(self):
         self.run_nudge('install')

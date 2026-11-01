@@ -1,9 +1,45 @@
 {
+  "age": {
+    "input": "age --decrpyt -i \"key file\" example.age",
+    "argv": [
+      "age",
+      "--decrypt",
+      "-i",
+      "key file",
+      "example.age"
+    ]
+  },
   "apropos": {
     "input": "apropos --exatc",
     "argv": [
       "apropos",
       "--exact"
+    ]
+  },
+  "aria2c": {
+    "input": "aria2c --show-fiels example.torrent",
+    "argv": [
+      "aria2c",
+      "--show-files",
+      "example.torrent"
+    ]
+  },
+  "awk": {
+    "argv": [
+      "awk",
+      "--field-separator",
+      ":",
+      "-f",
+      "program.awk",
+      "input.txt"
+    ],
+    "input": "awk --field-separtaor : -f program.awk input.txt"
+  },
+  "awww": {
+    "input": "awww qurey",
+    "argv": [
+      "awww",
+      "query"
     ]
   },
   "base64": {
@@ -28,6 +64,23 @@
       "--number"
     ]
   },
+  "black": {
+    "input": "black --check --line-lenght 88 example.py",
+    "argv": [
+      "black",
+      "--check",
+      "--line-length",
+      "88",
+      "example.py"
+    ]
+  },
+  "blkid": {
+    "input": "blkid --list-filesystmes",
+    "argv": [
+      "blkid",
+      "--list-filesystems"
+    ]
+  },
   "bluetoothctl": {
     "input": "bluetoothctl deviecs",
     "argv": [
@@ -49,12 +102,44 @@
       "--list"
     ]
   },
+  "btm": {
+    "input": "btm --read_onyl",
+    "argv": [
+      "btm",
+      "--read_only"
+    ]
+  },
   "btop": {
     "input": "btop --debgu",
     "argv": [
       "btop",
       "--debug"
     ]
+  },
+  "bunzip2": {
+    "argv": [
+      "bunzip2",
+      "--test",
+      "archive.bin"
+    ],
+    "input": "bunzip2 --tset archive.bin"
+  },
+  "busctl": {
+    "input": "busctl introspectt example.service /example",
+    "argv": [
+      "busctl",
+      "introspect",
+      "example.service",
+      "/example"
+    ]
+  },
+  "bzip2": {
+    "argv": [
+      "bzip2",
+      "--test",
+      "archive.bin"
+    ],
+    "input": "bzip2 --tset archive.bin"
   },
   "cargo": {
     "input": "cargo buidl",
@@ -68,6 +153,13 @@
     "argv": [
       "cat",
       "--number"
+    ]
+  },
+  "cmake": {
+    "input": "cmake --list-prsets=build",
+    "argv": [
+      "cmake",
+      "--list-presets=build"
     ]
   },
   "column": {
@@ -102,6 +194,14 @@
       "private operand"
     ]
   },
+  "cryptsetup": {
+    "input": "cryptsetup stauts example",
+    "argv": [
+      "cryptsetup",
+      "status",
+      "example"
+    ]
+  },
   "curl": {
     "input": "curl --verboes",
     "argv": [
@@ -123,6 +223,15 @@
       "date",
       "--date",
       "private value"
+    ]
+  },
+  "delta": {
+    "input": "delta --side-by-sdie a.txt b.txt",
+    "argv": [
+      "delta",
+      "--side-by-side",
+      "a.txt",
+      "b.txt"
     ]
   },
   "df": {
@@ -156,6 +265,20 @@
       "--human"
     ]
   },
+  "dmidecode": {
+    "input": "dmidecode --list-stirngs",
+    "argv": [
+      "dmidecode",
+      "--list-strings"
+    ]
+  },
+  "dracut": {
+    "input": "dracut --list-moduels",
+    "argv": [
+      "dracut",
+      "--list-modules"
+    ]
+  },
   "du": {
     "input": "du --human-readabel",
     "argv": [
@@ -163,11 +286,50 @@
       "--human-readable"
     ]
   },
+  "duf": {
+    "input": "duf -indoes",
+    "argv": [
+      "duf",
+      "-inodes"
+    ]
+  },
+  "dust": {
+    "input": "dust --apparent-szie .",
+    "argv": [
+      "dust",
+      "--apparent-size",
+      "."
+    ]
+  },
+  "efibootmgr": {
+    "input": "efibootmgr --verbsoe",
+    "argv": [
+      "efibootmgr",
+      "--verbose"
+    ]
+  },
+  "env": {
+    "argv": [
+      "env",
+      "--ignore-environment",
+      "printf",
+      "--literal"
+    ],
+    "input": "env --ignore-environmetn printf --literal"
+  },
   "envsubst": {
     "input": "envsubst --variablse",
     "argv": [
       "envsubst",
       "--variables"
+    ]
+  },
+  "ethtool": {
+    "input": "ethtool --statistcis eth0",
+    "argv": [
+      "ethtool",
+      "--statistics",
+      "eth0"
     ]
   },
   "eza": {
@@ -203,6 +365,14 @@
     "argv": [
       "fd",
       "--hidden"
+    ]
+  },
+  "fdisk": {
+    "input": "fdisk --list-detials /dev/example",
+    "argv": [
+      "fdisk",
+      "--list-details",
+      "/dev/example"
     ]
   },
   "ffmpeg": {
@@ -254,6 +424,14 @@
       "--bytes"
     ]
   },
+  "fuser": {
+    "input": "fuser --verbsoe /tmp/example",
+    "argv": [
+      "fuser",
+      "--verbose",
+      "/tmp/example"
+    ]
+  },
   "fzf": {
     "input": "fzf --mulit",
     "argv": [
@@ -261,11 +439,37 @@
       "--multi"
     ]
   },
+  "gdb": {
+    "input": "gdb --batch --symobls example",
+    "argv": [
+      "gdb",
+      "--batch",
+      "--symbols",
+      "example"
+    ]
+  },
+  "getent": {
+    "input": "getent --no-adrrconfig hosts example.invalid",
+    "argv": [
+      "getent",
+      "--no-addrconfig",
+      "hosts",
+      "example.invalid"
+    ]
+  },
   "getfacl": {
     "input": "getfacl --accses",
     "argv": [
       "getfacl",
       "--access"
+    ]
+  },
+  "glow": {
+    "input": "glow --line-numebrs README.md",
+    "argv": [
+      "glow",
+      "--line-numbers",
+      "README.md"
     ]
   },
   "gpg": {
@@ -282,6 +486,29 @@
       "--ignore-case"
     ]
   },
+  "gsettings": {
+    "input": "gsettings list-schemsa",
+    "argv": [
+      "gsettings",
+      "list-schemas"
+    ]
+  },
+  "gunzip": {
+    "argv": [
+      "gunzip",
+      "--test",
+      "archive.bin"
+    ],
+    "input": "gunzip --tset archive.bin"
+  },
+  "gzip": {
+    "argv": [
+      "gzip",
+      "--test",
+      "archive.bin"
+    ],
+    "input": "gzip --tset archive.bin"
+  },
   "head": {
     "input": "head --linse 'private value'",
     "argv": [
@@ -297,6 +524,13 @@
       "--canonical"
     ]
   },
+  "hostname": {
+    "argv": [
+      "hostname",
+      "--ip-addresses"
+    ],
+    "input": "hostname --ip-addreses"
+  },
   "hostnamectl": {
     "input": "hostnamectl statsu",
     "argv": [
@@ -304,11 +538,61 @@
       "status"
     ]
   },
+  "htop": {
+    "input": "htop --readonyl --pid 123",
+    "argv": [
+      "htop",
+      "--readonly",
+      "--pid",
+      "123"
+    ]
+  },
+  "http": {
+    "input": "http --offline --prety=none GET example.invalid",
+    "argv": [
+      "http",
+      "--offline",
+      "--pretty=none",
+      "GET",
+      "example.invalid"
+    ]
+  },
+  "hyperfine": {
+    "input": "hyperfine --warmpu 1 \"printf hello\"",
+    "argv": [
+      "hyperfine",
+      "--warmup",
+      "1",
+      "printf hello"
+    ]
+  },
   "hyprctl": {
     "input": "hyprctl activewindwo",
     "argv": [
       "hyprctl",
       "activewindow"
+    ]
+  },
+  "hypridle": {
+    "input": "hypridle --verboes",
+    "argv": [
+      "hypridle",
+      "--verbose"
+    ]
+  },
+  "hyprlock": {
+    "input": "hyprlock --no-faed-in",
+    "argv": [
+      "hyprlock",
+      "--no-fade-in"
+    ]
+  },
+  "hyprpaper": {
+    "input": "hyprpaper --conifg \"wallpaper.conf\"",
+    "argv": [
+      "hyprpaper",
+      "--config",
+      "wallpaper.conf"
     ]
   },
   "iconv": {
@@ -333,6 +617,24 @@
       "private value"
     ]
   },
+  "inotifywait": {
+    "input": "inotifywait --recusrive \"example dir\"",
+    "argv": [
+      "inotifywait",
+      "--recursive",
+      "example dir"
+    ]
+  },
+  "iostat": {
+    "input": "iostat --compcat -x 1 2",
+    "argv": [
+      "iostat",
+      "--compact",
+      "-x",
+      "1",
+      "2"
+    ]
+  },
   "join": {
     "input": "join --ignore-caes 'private operand' 'private operand'",
     "argv": [
@@ -340,6 +642,31 @@
       "--ignore-case",
       "private operand",
       "private operand"
+    ]
+  },
+  "jq": {
+    "input": "jq --raw-outptu . data.json",
+    "argv": [
+      "jq",
+      "--raw-output",
+      ".",
+      "data.json"
+    ]
+  },
+  "just": {
+    "input": "just --lsit --unsorted",
+    "argv": [
+      "just",
+      "--list",
+      "--unsorted"
+    ]
+  },
+  "lazydocker": {
+    "input": "lazydocker --proejct example",
+    "argv": [
+      "lazydocker",
+      "--project",
+      "example"
     ]
   },
   "lazygit": {
@@ -350,6 +677,22 @@
       "private value"
     ]
   },
+  "ldd": {
+    "input": "ldd --unuesd ./example",
+    "argv": [
+      "ldd",
+      "--unused",
+      "./example"
+    ]
+  },
+  "less": {
+    "argv": [
+      "less",
+      "--chop-long-lines",
+      "file"
+    ],
+    "input": "less --chop-long-liens file"
+  },
   "limine": {
     "input": "limine hepl",
     "argv": [
@@ -357,11 +700,28 @@
       "help"
     ]
   },
+  "ln": {
+    "argv": [
+      "ln",
+      "--symbolic",
+      "source",
+      "link"
+    ],
+    "input": "ln --symoblic source link"
+  },
   "localectl": {
     "input": "localectl statsu",
     "argv": [
       "localectl",
       "status"
+    ]
+  },
+  "locate": {
+    "input": "locate --ignore-csae example",
+    "argv": [
+      "locate",
+      "--ignore-case",
+      "example"
     ]
   },
   "loginctl": {
@@ -392,12 +752,83 @@
       "--online"
     ]
   },
+  "lsd": {
+    "input": "lsd --group-directoires-first .",
+    "argv": [
+      "lsd",
+      "--group-directories-first",
+      "."
+    ]
+  },
+  "lshw": {
+    "input": "lshw -santiize -json",
+    "argv": [
+      "lshw",
+      "-sanitize",
+      "-json"
+    ]
+  },
+  "lsmod": {
+    "input": "lsmod --verbsoe",
+    "argv": [
+      "lsmod",
+      "--verbose"
+    ]
+  },
+  "lsusb": {
+    "input": "lsusb --verbsoe",
+    "argv": [
+      "lsusb",
+      "--verbose"
+    ]
+  },
+  "ltrace": {
+    "input": "ltrace --demanlge example --opaque-option",
+    "argv": [
+      "ltrace",
+      "--demangle",
+      "example",
+      "--opaque-option"
+    ]
+  },
+  "luarocks": {
+    "input": "luarocks searhc example",
+    "argv": [
+      "luarocks",
+      "search",
+      "example"
+    ]
+  },
   "make": {
     "input": "make --directoyr 'private value'",
     "argv": [
       "make",
       "--directory",
       "private value"
+    ]
+  },
+  "makepkg": {
+    "input": "makepkg --packagelist --nocolro",
+    "argv": [
+      "makepkg",
+      "--packagelist",
+      "--nocolor"
+    ]
+  },
+  "mako": {
+    "input": "mako --default-tiemout 3000",
+    "argv": [
+      "mako",
+      "--default-timeout",
+      "3000"
+    ]
+  },
+  "makoctl": {
+    "input": "makoctl hisotry -j",
+    "argv": [
+      "makoctl",
+      "history",
+      "-j"
     ]
   },
   "man": {
@@ -412,6 +843,15 @@
     "argv": [
       "md5sum",
       "--check"
+    ]
+  },
+  "micro": {
+    "input": "micro -config-dri example file.txt",
+    "argv": [
+      "micro",
+      "-config-dir",
+      "example",
+      "file.txt"
     ]
   },
   "mkdir": {
@@ -429,11 +869,51 @@
       "--listhooks"
     ]
   },
+  "mktemp": {
+    "argv": [
+      "mktemp",
+      "--directory"
+    ],
+    "input": "mktemp --direcotry"
+  },
+  "modprobe": {
+    "input": "modprobe --show-depedns example_module",
+    "argv": [
+      "modprobe",
+      "--show-depends",
+      "example_module"
+    ]
+  },
+  "more": {
+    "argv": [
+      "more",
+      "--exit-on-eof",
+      "file"
+    ],
+    "input": "more --exit-on-efo file"
+  },
+  "mount": {
+    "input": "mount --show-lables",
+    "argv": [
+      "mount",
+      "--show-labels"
+    ]
+  },
   "mpv": {
     "input": "mpv --fullscrene",
     "argv": [
       "mpv",
       "--fullscreen"
+    ]
+  },
+  "mtr": {
+    "input": "mtr --report --report-cylces 5 example.invalid",
+    "argv": [
+      "mtr",
+      "--report",
+      "--report-cycles",
+      "5",
+      "example.invalid"
     ]
   },
   "mv": {
@@ -445,11 +925,46 @@
       "private operand"
     ]
   },
+  "mypy": {
+    "input": "mypy --strcit example.py",
+    "argv": [
+      "mypy",
+      "--strict",
+      "example.py"
+    ]
+  },
+  "nano": {
+    "input": "nano --linenubmers example.txt",
+    "argv": [
+      "nano",
+      "--linenumbers",
+      "example.txt"
+    ]
+  },
   "networkctl": {
     "input": "networkctl lits",
     "argv": [
       "networkctl",
       "list"
+    ]
+  },
+  "nice": {
+    "argv": [
+      "nice",
+      "--adjustment",
+      "5",
+      "printf",
+      "--literal"
+    ],
+    "input": "nice --adjustmetn 5 printf --literal"
+  },
+  "ninja": {
+    "input": "ninja  -n --verbsoe example",
+    "argv": [
+      "ninja",
+      "-n",
+      "--verbose",
+      "example"
     ]
   },
   "nl": {
@@ -467,12 +982,54 @@
       "--demangle"
     ]
   },
+  "nmap": {
+    "input": "nmap --reasno --top-ports 5 example.invalid",
+    "argv": [
+      "nmap",
+      "--reason",
+      "--top-ports",
+      "5",
+      "example.invalid"
+    ]
+  },
+  "node": {
+    "input": "node --trace-warnigns script.js --literal",
+    "argv": [
+      "node",
+      "--trace-warnings",
+      "script.js",
+      "--literal"
+    ]
+  },
   "notify-send": {
     "input": "notify-send --urgenyc 'private value'",
     "argv": [
       "notify-send",
       "--urgency",
       "private value"
+    ]
+  },
+  "npm": {
+    "input": "npm outdaetd",
+    "argv": [
+      "npm",
+      "outdated"
+    ]
+  },
+  "nvidia-smi": {
+    "input": "nvidia-smi --query-gup=name --format=csv",
+    "argv": [
+      "nvidia-smi",
+      "--query-gpu=name",
+      "--format=csv"
+    ]
+  },
+  "nvim": {
+    "input": "nvim --claen \"example file\"",
+    "argv": [
+      "nvim",
+      "--clean",
+      "example file"
     ]
   },
   "objdump": {
@@ -497,6 +1054,14 @@
       "version"
     ]
   },
+  "paccache": {
+    "input": "paccache --dryrun --uninstaled",
+    "argv": [
+      "paccache",
+      "--dryrun",
+      "--uninstalled"
+    ]
+  },
   "pacman": {
     "input": "pacman --queyr",
     "argv": [
@@ -511,12 +1076,82 @@
       "--get-volume"
     ]
   },
+  "pandoc": {
+    "input": "pandoc --standlaone --from markdown --to html example.md",
+    "argv": [
+      "pandoc",
+      "--standalone",
+      "--from",
+      "markdown",
+      "--to",
+      "html",
+      "example.md"
+    ]
+  },
+  "parted": {
+    "input": "parted --list --machien",
+    "argv": [
+      "parted",
+      "--list",
+      "--machine"
+    ]
+  },
   "paste": {
     "input": "paste --delimitesr 'private value'",
     "argv": [
       "paste",
       "--delimiters",
       "private value"
+    ]
+  },
+  "patch": {
+    "input": "patch --dry-run --verbsoe -i \"example patch\"",
+    "argv": [
+      "patch",
+      "--dry-run",
+      "--verbose",
+      "-i",
+      "example patch"
+    ]
+  },
+  "pg_dump": {
+    "input": "pg_dump --schema-onyl example",
+    "argv": [
+      "pg_dump",
+      "--schema-only",
+      "example"
+    ]
+  },
+  "pg_restore": {
+    "input": "pg_restore --lsit archive.dump",
+    "argv": [
+      "pg_restore",
+      "--list",
+      "archive.dump"
+    ]
+  },
+  "pgrep": {
+    "input": "pgrep --list-fll bash",
+    "argv": [
+      "pgrep",
+      "--list-full",
+      "bash"
+    ]
+  },
+  "pip": {
+    "input": "pip list --outdaetd",
+    "argv": [
+      "pip",
+      "list",
+      "--outdated"
+    ]
+  },
+  "pip3": {
+    "input": "pip3 list --outdaetd",
+    "argv": [
+      "pip3",
+      "list",
+      "--outdated"
     ]
   },
   "pkg-config": {
@@ -526,11 +1161,72 @@
       "--modversion"
     ]
   },
+  "playerctl": {
+    "input": "playerctl play-pasue",
+    "argv": [
+      "playerctl",
+      "play-pause"
+    ]
+  },
   "printenv": {
     "input": "printenv --nlul",
     "argv": [
       "printenv",
       "--null"
+    ]
+  },
+  "procs": {
+    "input": "procs --thraed",
+    "argv": [
+      "procs",
+      "--thread"
+    ]
+  },
+  "ps": {
+    "input": "ps --forst -ef",
+    "argv": [
+      "ps",
+      "--forest",
+      "-ef"
+    ]
+  },
+  "psql": {
+    "input": "psql --tuples-onyl --dbname example --command \"select 1\"",
+    "argv": [
+      "psql",
+      "--tuples-only",
+      "--dbname",
+      "example",
+      "--command",
+      "select 1"
+    ]
+  },
+  "pytest": {
+    "input": "pytest --collect-onyl example.py",
+    "argv": [
+      "pytest",
+      "--collect-only",
+      "example.py"
+    ]
+  },
+  "python": {
+    "input": "python --check-hash-based-pyc=always -B example.py --private-argument",
+    "argv": [
+      "python",
+      "--check-hash-based-pycs=always",
+      "-B",
+      "example.py",
+      "--private-argument"
+    ]
+  },
+  "python3": {
+    "input": "python3 --check-hash-based-pyc=always -B example.py --private-argument",
+    "argv": [
+      "python3",
+      "--check-hash-based-pycs=always",
+      "-B",
+      "example.py",
+      "--private-argument"
     ]
   },
   "qpdf": {
@@ -554,6 +1250,24 @@
       "realpath",
       "--canonicalize",
       "private operand"
+    ]
+  },
+  "rename": {
+    "input": "rename --no-act --verbsoe old new example",
+    "argv": [
+      "rename",
+      "--no-act",
+      "--verbose",
+      "old",
+      "new",
+      "example"
+    ]
+  },
+  "resolvectl": {
+    "input": "resolvectl statistcis",
+    "argv": [
+      "resolvectl",
+      "statistics"
     ]
   },
   "rev": {
@@ -585,6 +1299,16 @@
       "--archive"
     ]
   },
+  "ruby": {
+    "input": "ruby --backtrace-limt 10 app.rb --literal",
+    "argv": [
+      "ruby",
+      "--backtrace-limit",
+      "10",
+      "app.rb",
+      "--literal"
+    ]
+  },
   "rustc": {
     "input": "rustc --explani 'private value'",
     "argv": [
@@ -598,6 +1322,47 @@
     "argv": [
       "rustfmt",
       "--check"
+    ]
+  },
+  "rustup": {
+    "input": "rustup shwo",
+    "argv": [
+      "rustup",
+      "show"
+    ]
+  },
+  "screen": {
+    "input": "screen -lsit",
+    "argv": [
+      "screen",
+      "-list"
+    ]
+  },
+  "sd": {
+    "input": "sd --preveiw \"old text\" \"new text\" file",
+    "argv": [
+      "sd",
+      "--preview",
+      "old text",
+      "new text",
+      "file"
+    ]
+  },
+  "sed": {
+    "argv": [
+      "sed",
+      "--regexp-extended",
+      "-e",
+      "s/a/b/",
+      "input.txt"
+    ],
+    "input": "sed --regexp-exteneded -e s/a/b/ input.txt"
+  },
+  "sensors": {
+    "input": "sensors --fahrenhiet",
+    "argv": [
+      "sensors",
+      "--fahrenheit"
     ]
   },
   "seq": {
@@ -628,6 +1393,35 @@
       "--echo"
     ]
   },
+  "smartctl": {
+    "input": "smartctl --attribtues /dev/example",
+    "argv": [
+      "smartctl",
+      "--attributes",
+      "/dev/example"
+    ]
+  },
+  "snapper": {
+    "input": "snapper --config root lsit --columns number",
+    "argv": [
+      "snapper",
+      "--config",
+      "root",
+      "list",
+      "--columns",
+      "number"
+    ]
+  },
+  "sops": {
+    "input": "sops --decrypt --output-tyep json example.yaml",
+    "argv": [
+      "sops",
+      "--decrypt",
+      "--output-type",
+      "json",
+      "example.yaml"
+    ]
+  },
   "sort": {
     "input": "sort --reveres",
     "argv": [
@@ -641,6 +1435,15 @@
       "split",
       "--bytes",
       "private value"
+    ]
+  },
+  "sqlite3": {
+    "input": "sqlite3 -readonyl -json database.db",
+    "argv": [
+      "sqlite3",
+      "-readonly",
+      "-json",
+      "database.db"
     ]
   },
   "ss": {
@@ -658,11 +1461,36 @@
       "private operand"
     ]
   },
+  "stow": {
+    "input": "stow --simulate --dotfiels example",
+    "argv": [
+      "stow",
+      "--simulate",
+      "--dotfiles",
+      "example"
+    ]
+  },
   "strings": {
     "input": "strings --print-file-naem",
     "argv": [
       "strings",
       "--print-file-name"
+    ]
+  },
+  "sync": {
+    "input": "sync --file-sysetm example",
+    "argv": [
+      "sync",
+      "--file-system",
+      "example"
+    ]
+  },
+  "sysctl": {
+    "input": "sysctl --vaues --all",
+    "argv": [
+      "sysctl",
+      "--values",
+      "--all"
     ]
   },
   "systemd-analyze": {
@@ -687,6 +1515,34 @@
       "private value"
     ]
   },
+  "tailscale": {
+    "input": "tailscale statsu --json",
+    "argv": [
+      "tailscale",
+      "status",
+      "--json"
+    ]
+  },
+  "tar": {
+    "argv": [
+      "tar",
+      "--list",
+      "--file",
+      "archive.tar"
+    ],
+    "input": "tar --lsit --file archive.tar"
+  },
+  "tcpdump": {
+    "input": "tcpdump --immediate-mdoe -c 5 -i eth0",
+    "argv": [
+      "tcpdump",
+      "--immediate-mode",
+      "-c",
+      "5",
+      "-i",
+      "eth0"
+    ]
+  },
   "tee": {
     "input": "tee --appedn",
     "argv": [
@@ -701,11 +1557,37 @@
       "status"
     ]
   },
+  "timeout": {
+    "argv": [
+      "timeout",
+      "--preserve-status",
+      "5",
+      "printf",
+      "--literal"
+    ],
+    "input": "timeout --preserve-sttaus 5 printf --literal"
+  },
   "tldr": {
     "input": "tldr --lits",
     "argv": [
       "tldr",
       "--list"
+    ]
+  },
+  "tokei": {
+    "input": "tokei --langauges",
+    "argv": [
+      "tokei",
+      "--languages"
+    ]
+  },
+  "top": {
+    "input": "top --batch-mdoe --iterations 1",
+    "argv": [
+      "top",
+      "--batch-mode",
+      "--iterations",
+      "1"
     ]
   },
   "touch": {
@@ -714,6 +1596,41 @@
       "touch",
       "--no-create",
       "private operand"
+    ]
+  },
+  "tr": {
+    "argv": [
+      "tr",
+      "--squeeze-repeats",
+      "x"
+    ],
+    "input": "tr --squeeze-repeast x"
+  },
+  "tree": {
+    "input": "tree --dirsfrist -L 2 .",
+    "argv": [
+      "tree",
+      "--dirsfirst",
+      "-L",
+      "2",
+      "."
+    ]
+  },
+  "udevadm": {
+    "input": "udevadm info --attribute-wlak /dev/example",
+    "argv": [
+      "udevadm",
+      "info",
+      "--attribute-walk",
+      "/dev/example"
+    ]
+  },
+  "ufw": {
+    "input": "ufw stauts verbose",
+    "argv": [
+      "ufw",
+      "status",
+      "verbose"
     ]
   },
   "uname": {
@@ -730,11 +1647,61 @@
       "--count"
     ]
   },
+  "unxz": {
+    "argv": [
+      "unxz",
+      "--test",
+      "archive.bin"
+    ],
+    "input": "unxz --tset archive.bin"
+  },
+  "upower": {
+    "input": "upower --enumreate",
+    "argv": [
+      "upower",
+      "--enumerate"
+    ]
+  },
   "uptime": {
     "input": "uptime --pretyt",
     "argv": [
       "uptime",
       "--pretty"
+    ]
+  },
+  "vim": {
+    "input": "vim --claen \"example file\"",
+    "argv": [
+      "vim",
+      "--clean",
+      "example file"
+    ]
+  },
+  "visudo": {
+    "input": "visudo --check --strcit --file example",
+    "argv": [
+      "visudo",
+      "--check",
+      "--strict",
+      "--file",
+      "example"
+    ]
+  },
+  "vmstat": {
+    "input": "vmstat --timeestamp 1 2",
+    "argv": [
+      "vmstat",
+      "--timestamp",
+      "1",
+      "2"
+    ]
+  },
+  "walker": {
+    "input": "walker --placehodler \"Search apps\"",
+    "argv": [
+      "walker",
+      "--placeholder",
+      "Search apps"
     ]
   },
   "watch": {
@@ -745,6 +1712,14 @@
       "private value"
     ]
   },
+  "waybar": {
+    "input": "waybar --log-levle debug",
+    "argv": [
+      "waybar",
+      "--log-level",
+      "debug"
+    ]
+  },
   "wc": {
     "input": "wc --bytse",
     "argv": [
@@ -752,11 +1727,44 @@
       "--bytes"
     ]
   },
+  "wg": {
+    "input": "wg shwo example",
+    "argv": [
+      "wg",
+      "show",
+      "example"
+    ]
+  },
+  "wget": {
+    "input": "wget --spider --server-resposne https://example.invalid",
+    "argv": [
+      "wget",
+      "--spider",
+      "--server-response",
+      "https://example.invalid"
+    ]
+  },
+  "which": {
+    "argv": [
+      "which",
+      "--skip-tilde",
+      "bash"
+    ],
+    "input": "which --skip-tidle bash"
+  },
   "who": {
     "input": "who --coutn",
     "argv": [
       "who",
       "--count"
+    ]
+  },
+  "whois": {
+    "input": "whois --no-recusrion example.invalid",
+    "argv": [
+      "whois",
+      "--no-recursion",
+      "example.invalid"
     ]
   },
   "wl-copy": {
@@ -786,6 +1794,14 @@
       "xdg-open",
       "--manual"
     ]
+  },
+  "xz": {
+    "argv": [
+      "xz",
+      "--test",
+      "archive.bin"
+    ],
+    "input": "xz --tset archive.bin"
   },
   "yay": {
     "input": "yay --queyr",

@@ -9,7 +9,7 @@ source tree and do not imply a published package or stable release.
 
 - Rust correction engine and interactive Bash 5+ integration for Linux.
 - Enter-to-run confirmation, single-key cancellation, and literal argument passing.
-- 120 scoped executable adapters, with installed command metadata and explicit
+- 260 scoped executable adapters, with installed command metadata and explicit
   eligibility rules. See the [coverage documentation](README.md#command-coverage).
 - Nix, iwctl, Zellij, and strace adapters with nested-command, selector, option,
   and command-payload handling.
@@ -24,8 +24,13 @@ source tree and do not imply a published package or stable release.
 - Static x86_64 Linux bundle, matching source archive, checksums, and dependency
   notices; package CI matrix for Ubuntu, Debian, Fedora, and Alpine.
 
+- 140 additional executable adapters across 11 tested batches, plus Docker Buildx
+  inspection commands, with captured metadata and regression cases.
+
 ### Changed
 
+- Nested aliases and Kubectl global options are validated against installed help.
+- Required inspection/dry-run flags cannot be satisfied by argument values.
 - Configuration and cache follow XDG paths; installed copies no longer depend
   on the source checkout.
 - Literal `#` inside an argument is accepted for forms such as Nix flake references.
@@ -37,5 +42,5 @@ source tree and do not imply a published package or stable release.
 Source and binary-bundle installation are implemented. Local lifecycle tests
 passed in isolated Ubuntu, Debian, Fedora, and Alpine userspaces. Public release
 artifacts, native distribution packages, other architectures, and broader CLI
-coverage remain pending. Hosted CI results must be reviewed after the workflows
-are first pushed.
+coverage remain pending. The previous main commit passed both hosted workflows; the new command
+expansion still needs hosted CI after it is pushed.

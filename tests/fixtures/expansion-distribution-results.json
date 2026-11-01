@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-01",
+  "method": "Bubblewrap, read-only rootfs and bundle, disposable temporary filesystem, network disabled; shared host kernel",
+  "toolchain": "Rust 1.88.0",
+  "target": "x86_64-unknown-linux-musl",
+  "executable_count": 260,
+  "build_kind": "development bundle from the tested working tree before its local commit",
+  "archive": "nudge-0.1.0-linux-x86_64.tar.gz",
+  "sha256": "37f7b0b416228d987fe2bed1587a702f5857640217419b22c586cf325d6d03b1",
+  "checks": [
+    "install",
+    "idempotent reinstall",
+    "supported-list preservation",
+    "update",
+    "rollback",
+    "Bash hook loading",
+    "mock-only local correction",
+    "uninstall preserving user settings/cache"
+  ],
+  "results": [
+    {
+      "userspace": "ubuntu-24.04",
+      "result": "PASS: Ubuntu 24.04.5 LTS; Bash 5.2.21(1)-release; x86_64"
+    },
+    {
+      "userspace": "debian-12-slim",
+      "result": "PASS: Debian GNU/Linux 12 (bookworm); Bash 5.2.15(1)-release; x86_64"
+    },
+    {
+      "userspace": "fedora-43",
+      "result": "PASS: Fedora Linux 43 (Container Image); Bash 5.3.0(1)-release; x86_64"
+    },
+    {
+      "userspace": "alpine-3.22",
+      "result": "PASS: Alpine Linux v3.22; Bash 5.2.37(1)-release; x86_64"
+    }
+  ]
+}

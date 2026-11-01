@@ -151,7 +151,7 @@ class ProfileTests(unittest.TestCase):
         result = subprocess.run([str(BINARY), 'supported'], capture_output=True, text=True, env=self.env, check=True)
         names = result.stdout.splitlines()
         self.assertEqual(len(names), len(set(names)))
-        self.assertEqual(set(names), set(PROFILES) | {'git', 'docker', 'systemctl', 'journalctl', 'herdr', 'omarchy', 'nix', 'iwctl', 'zellij', 'strace'})
+        self.assertEqual(set(names), set(PROFILES) | set(json.loads((ROOT / 'data/nested-profiles.json').read_text())) | {'git', 'docker', 'systemctl', 'journalctl', 'herdr', 'omarchy'})
         self.assertFalse(set(names) & {'brew','winget','scoop','choco','pwsh','powershell'})
 
     def test_bash_new_profiles_cancel_and_accept_exact_argv(self):

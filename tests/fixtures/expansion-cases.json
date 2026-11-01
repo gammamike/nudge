@@ -1,0 +1,2861 @@
+{
+  "age": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "age --decrpyt -i \"key file\" example.age",
+        "argv": [
+          "age",
+          "--decrypt",
+          "-i",
+          "key file",
+          "example.age"
+        ]
+      }
+    ],
+    "negative": [
+      "age --decrypt --output file example.age",
+      "age --identity --decrypt --armro file",
+      "age --decrypt --identity"
+    ]
+  },
+  "aria2c": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "aria2c --show-fiels example.torrent",
+        "argv": [
+          "aria2c",
+          "--show-files",
+          "example.torrent"
+        ]
+      }
+    ],
+    "negative": [
+      "aria2c --show-fiels --allow-overwrite=true example.torrent",
+      "aria2c --dir out https://example.invalid",
+      "aria2c --show-fiels"
+    ]
+  },
+  "atuin": {
+    "batch": "project-tooling",
+    "positive": [
+      {
+        "input": "atuin history lsit --cmd-only",
+        "argv": [
+          "atuin",
+          "history",
+          "list",
+          "--cmd-only"
+        ]
+      },
+      {
+        "input": "atuin searhc --cmd-only \"private search\"",
+        "argv": [
+          "atuin",
+          "search",
+          "--cmd-only",
+          "private search"
+        ]
+      }
+    ],
+    "negative": [
+      "atuin search --delete test",
+      "atuin history delete 1",
+      "atuin sync --force",
+      "atuin key"
+    ]
+  },
+  "awk": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "awk --field-separtaor",
+      "awk --field-separtaor : --profile file",
+      "awk --file program.awk --unknown"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "awk",
+          "--field-separator",
+          ":",
+          "-f",
+          "program.awk",
+          "input.txt"
+        ],
+        "input": "awk --field-separtaor : -f program.awk input.txt"
+      }
+    ]
+  },
+  "awww": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "awww qurey",
+        "argv": [
+          "awww",
+          "query"
+        ]
+      }
+    ],
+    "negative": [
+      "awww kil",
+      "awww clear-cahe",
+      "awww qurey extra"
+    ]
+  },
+  "black": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "black --check --line-lenght 88 example.py",
+        "argv": [
+          "black",
+          "--check",
+          "--line-length",
+          "88",
+          "example.py"
+        ]
+      }
+    ],
+    "negative": [
+      "black --line-lenght 88 example.py",
+      "black --exclude --check --line-lenght 88 example.py",
+      "black --check --line-length"
+    ]
+  },
+  "blkid": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "blkid --list-filesystmes",
+        "argv": [
+          "blkid",
+          "--list-filesystems"
+        ]
+      }
+    ],
+    "negative": [
+      "blkid --garbage-colletc",
+      "blkid --ouptut",
+      "blkid --probe /dev/nonexistent"
+    ]
+  },
+  "btm": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "btm --read_onyl",
+        "argv": [
+          "btm",
+          "--read_only"
+        ]
+      }
+    ],
+    "negative": [
+      "btm --read_onyl extra",
+      "btm --read_onyl --unknown",
+      "btm --theme"
+    ]
+  },
+  "buildah": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "buildah contianers",
+        "argv": [
+          "buildah",
+          "containers"
+        ]
+      },
+      {
+        "input": "buildah inspcet example",
+        "argv": [
+          "buildah",
+          "inspect",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "buildah rmi example",
+      "buildah pruen",
+      "buildah inspcet",
+      "buildah build --privileged ."
+    ]
+  },
+  "bunzip2": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "bunzip2 --verboes archive.bin",
+      "bunzip2 --tset --force archive.bin",
+      "bunzip2 --stdout --froce archive.bin"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "bunzip2",
+          "--test",
+          "archive.bin"
+        ],
+        "input": "bunzip2 --tset archive.bin"
+      }
+    ]
+  },
+  "busctl": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "busctl introspectt example.service /example",
+        "argv": [
+          "busctl",
+          "introspect",
+          "example.service",
+          "/example"
+        ]
+      }
+    ],
+    "negative": [
+      "busctl set-properyt service obj iface name s value",
+      "busctl introspectt example.service",
+      "busctl list --unknown"
+    ]
+  },
+  "bzip2": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "bzip2 --verboes archive.bin",
+      "bzip2 --tset --force archive.bin",
+      "bzip2 --stdout --froce archive.bin"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "bzip2",
+          "--test",
+          "archive.bin"
+        ],
+        "input": "bzip2 --tset archive.bin"
+      }
+    ]
+  },
+  "chezmoi": {
+    "batch": "project-tooling",
+    "positive": [
+      {
+        "input": "chezmoi stauts \"example file\"",
+        "argv": [
+          "chezmoi",
+          "status",
+          "example file"
+        ]
+      },
+      {
+        "input": "chezmoi manaegd --tree",
+        "argv": [
+          "chezmoi",
+          "managed",
+          "--tree"
+        ]
+      }
+    ],
+    "negative": [
+      "chezmoi apply --force",
+      "chezmoi purge",
+      "chezmoi diff --command sh",
+      "chezmoi update --force"
+    ]
+  },
+  "cmake": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "cmake --list-prsets=build",
+        "argv": [
+          "cmake",
+          "--list-presets=build"
+        ]
+      }
+    ],
+    "negative": [
+      "cmake --list-prsets=build -P script.cmake",
+      "cmake --install build",
+      "cmake --build build --clean-first"
+    ]
+  },
+  "cryptsetup": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "cryptsetup stauts example",
+        "argv": [
+          "cryptsetup",
+          "status",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "cryptsetup ersae /dev/example",
+      "cryptsetup luksDump --dump-volume-key /dev/example",
+      "cryptsetup status --batch-mode example",
+      "cryptsetup status"
+    ]
+  },
+  "ctr": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "ctr images lsit",
+        "argv": [
+          "ctr",
+          "images",
+          "list"
+        ]
+      },
+      {
+        "input": "ctr containers inof example",
+        "argv": [
+          "ctr",
+          "containers",
+          "info",
+          "example"
+        ]
+      },
+      {
+        "input": "ctr -n default image lsit",
+        "argv": [
+          "ctr",
+          "-n",
+          "default",
+          "image",
+          "list"
+        ]
+      }
+    ],
+    "negative": [
+      "ctr images remvoe example",
+      "ctr tasks kil example",
+      "ctr containers inof",
+      "ctr run image name"
+    ]
+  },
+  "delta": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "delta --side-by-sdie a.txt b.txt",
+        "argv": [
+          "delta",
+          "--side-by-side",
+          "a.txt",
+          "b.txt"
+        ]
+      }
+    ],
+    "negative": [
+      "delta --side-by-sdie --pager shell",
+      "delta --syntax-thmee",
+      "delta --side-by-side missing"
+    ]
+  },
+  "deno": {
+    "batch": "developer-nested",
+    "positive": [
+      {
+        "input": "deno chekc example.ts",
+        "argv": [
+          "deno",
+          "check",
+          "example.ts"
+        ]
+      },
+      {
+        "input": "deno lint --jsno example.ts",
+        "argv": [
+          "deno",
+          "lint",
+          "--json",
+          "example.ts"
+        ]
+      }
+    ],
+    "negative": [
+      "deno lint --fix example.ts",
+      "deno eval \"text\"",
+      "deno uninstal example",
+      "deno check --no-check example.ts"
+    ]
+  },
+  "dmidecode": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "dmidecode --list-stirngs",
+        "argv": [
+          "dmidecode",
+          "--list-strings"
+        ]
+      }
+    ],
+    "negative": [
+      "dmidecode --dump-bin file",
+      "dmidecode --list-stirngs --dump-bin file",
+      "dmidecode --type"
+    ]
+  },
+  "docker": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "docker buildx inspcet example",
+        "argv": [
+          "docker",
+          "buildx",
+          "inspect",
+          "example"
+        ]
+      },
+      {
+        "input": "docker buildx ls --formta=json",
+        "argv": [
+          "docker",
+          "buildx",
+          "ls",
+          "--format=json"
+        ]
+      }
+    ],
+    "negative": [
+      "docker buildx pruen",
+      "docker buildx inspcet --bootstrap example",
+      "docker buildx create",
+      "docker buildx biuld ."
+    ]
+  },
+  "docker-compose": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "docker-compose -f \"compose file.yml\" logs --tial 5 example",
+        "argv": [
+          "docker-compose",
+          "-f",
+          "compose file.yml",
+          "logs",
+          "--tail",
+          "5",
+          "example"
+        ]
+      },
+      {
+        "input": "docker-compose conifg --services",
+        "argv": [
+          "docker-compose",
+          "config",
+          "--services"
+        ]
+      }
+    ],
+    "negative": [
+      "docker-compose donw --volumes",
+      "docker-compose logs --tial",
+      "docker-compose config --output file",
+      "docker-compose up --force-recreate"
+    ]
+  },
+  "dracut": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "dracut --list-moduels",
+        "argv": [
+          "dracut",
+          "--list-modules"
+        ]
+      }
+    ],
+    "negative": [
+      "dracut --list-moduels --force",
+      "dracut --list-moduels image.img",
+      "dracut --regenerate-all"
+    ]
+  },
+  "duf": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "duf -indoes",
+        "argv": [
+          "duf",
+          "-inodes"
+        ]
+      }
+    ],
+    "negative": [
+      "duf -srot",
+      "duf -indoes -badflag",
+      "duf -inodes"
+    ]
+  },
+  "dust": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "dust --apparent-szie .",
+        "argv": [
+          "dust",
+          "--apparent-size",
+          "."
+        ]
+      }
+    ],
+    "negative": [
+      "dust --depth",
+      "dust --apparent-szie --unknown .",
+      "dust --apparent-size missing"
+    ]
+  },
+  "efibootmgr": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "efibootmgr --verbsoe",
+        "argv": [
+          "efibootmgr",
+          "--verbose"
+        ]
+      }
+    ],
+    "negative": [
+      "efibootmgr --verbsoe --delete-bootnum",
+      "efibootmgr --create --verbsoe",
+      "efibootmgr --bootorder 0000"
+    ]
+  },
+  "env": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "env --split-strnig sh",
+      "env printf --ignore-environmetn",
+      "env --unset"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "env",
+          "--ignore-environment",
+          "printf",
+          "--literal"
+        ],
+        "input": "env --ignore-environmetn printf --literal"
+      }
+    ]
+  },
+  "ethtool": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "ethtool --statistcis eth0",
+        "argv": [
+          "ethtool",
+          "--statistics",
+          "eth0"
+        ]
+      }
+    ],
+    "negative": [
+      "ethtool --features eth0 rx off",
+      "ethtool --set-ring eth0 rx 256",
+      "ethtool --statistcis"
+    ]
+  },
+  "fdisk": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "fdisk --list-detials /dev/example",
+        "argv": [
+          "fdisk",
+          "--list-details",
+          "/dev/example"
+        ]
+      }
+    ],
+    "negative": [
+      "fdisk --bytse /dev/example",
+      "fdisk --list-detials --wipe always /dev/example",
+      "fdisk --list /dev/example"
+    ]
+  },
+  "fuser": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "fuser --verbsoe /tmp/example",
+        "argv": [
+          "fuser",
+          "--verbose",
+          "/tmp/example"
+        ]
+      }
+    ],
+    "negative": [
+      "fuser --verbsoe --kill /tmp/example",
+      "fuser --kll /tmp/example",
+      "fuser --namespace"
+    ]
+  },
+  "gdb": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "gdb --batch --symobls example",
+        "argv": [
+          "gdb",
+          "--batch",
+          "--symbols",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "gdb --write --symobls example",
+      "gdb --eval-command run",
+      "gdb --command file",
+      "gdb --symobls"
+    ]
+  },
+  "getent": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "getent --no-adrrconfig hosts example.invalid",
+        "argv": [
+          "getent",
+          "--no-addrconfig",
+          "hosts",
+          "example.invalid"
+        ]
+      }
+    ],
+    "negative": [
+      "getent --service",
+      "getent --no-adrrconfig"
+    ]
+  },
+  "gh": {
+    "batch": "developer-nested",
+    "positive": [
+      {
+        "input": "gh pr lsit --limit 5",
+        "argv": [
+          "gh",
+          "pr",
+          "list",
+          "--limit",
+          "5"
+        ]
+      },
+      {
+        "input": "gh run veiw 123 --log-failed",
+        "argv": [
+          "gh",
+          "run",
+          "view",
+          "123",
+          "--log-failed"
+        ]
+      },
+      {
+        "input": "gh auth stauts",
+        "argv": [
+          "gh",
+          "auth",
+          "status"
+        ]
+      }
+    ],
+    "negative": [
+      "gh pr megre 1",
+      "gh issue delte 2",
+      "gh auth status --show-token",
+      "gh release create v1",
+      "gh co 1",
+      "gh copilot suggest \"private text\""
+    ]
+  },
+  "glow": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "glow --line-numebrs README.md",
+        "argv": [
+          "glow",
+          "--line-numbers",
+          "README.md"
+        ]
+      }
+    ],
+    "negative": [
+      "glow --width",
+      "glow --line-numebrs --config config",
+      "glow --line-numebrs one two"
+    ]
+  },
+  "gsettings": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "gsettings list-schemsa",
+        "argv": [
+          "gsettings",
+          "list-schemas"
+        ]
+      }
+    ],
+    "negative": [
+      "gsettings reseet schema key",
+      "gsettings list-schemsa extra",
+      "gsettings gett schema"
+    ]
+  },
+  "gunzip": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "gunzip --verboes archive.bin",
+      "gunzip --tset --force archive.bin",
+      "gunzip --stdout --froce archive.bin"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "gunzip",
+          "--test",
+          "archive.bin"
+        ],
+        "input": "gunzip --tset archive.bin"
+      }
+    ]
+  },
+  "gzip": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "gzip --verboes archive.bin",
+      "gzip --tset --force archive.bin",
+      "gzip --stdout --froce archive.bin"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "gzip",
+          "--test",
+          "archive.bin"
+        ],
+        "input": "gzip --tset archive.bin"
+      }
+    ]
+  },
+  "helm": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "helm hisotry example",
+        "argv": [
+          "helm",
+          "history",
+          "example"
+        ]
+      },
+      {
+        "input": "helm repo lsit",
+        "argv": [
+          "helm",
+          "repo",
+          "list"
+        ]
+      },
+      {
+        "input": "helm show vaues example",
+        "argv": [
+          "helm",
+          "show",
+          "values",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "helm uninstal example",
+      "helm repo remvoe example",
+      "helm statuss",
+      "helm list --force",
+      "helm upgrade example chart"
+    ]
+  },
+  "hostname": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "hostname --ip-addreses new-host",
+      "hostname --fiel new-name",
+      "hostname --ip-addresses"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "hostname",
+          "--ip-addresses"
+        ],
+        "input": "hostname --ip-addreses"
+      }
+    ]
+  },
+  "htop": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "htop --readonyl --pid 123",
+        "argv": [
+          "htop",
+          "--readonly",
+          "--pid",
+          "123"
+        ]
+      }
+    ],
+    "negative": [
+      "htop --drop-capabilties=off",
+      "htop --sort-key",
+      "htop --readonyl extra"
+    ]
+  },
+  "http": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "http --offline --prety=none GET example.invalid",
+        "argv": [
+          "http",
+          "--offline",
+          "--pretty=none",
+          "GET",
+          "example.invalid"
+        ]
+      }
+    ],
+    "negative": [
+      "http --offline --download example.invalid",
+      "http --style --offline --prety none example.invalid",
+      "http --verify=no example.invalid"
+    ]
+  },
+  "hyperfine": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "hyperfine --warmpu 1 \"printf hello\"",
+        "argv": [
+          "hyperfine",
+          "--warmup",
+          "1",
+          "printf hello"
+        ]
+      }
+    ],
+    "negative": [
+      "hyperfine --warmpu 1",
+      "hyperfine --warmpu 1 --cleanup \"rm file\" \"printf hello\"",
+      "hyperfine --parameter-scan x 1 3 --warmpu 1 command"
+    ]
+  },
+  "hypridle": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "hypridle --verboes",
+        "argv": [
+          "hypridle",
+          "--verbose"
+        ]
+      }
+    ],
+    "negative": [
+      "hypridle --conifg",
+      "hypridle --verboes extra",
+      "hypridle --verbose"
+    ]
+  },
+  "hyprlock": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "hyprlock --no-faed-in",
+        "argv": [
+          "hyprlock",
+          "--no-fade-in"
+        ]
+      }
+    ],
+    "negative": [
+      "hyprlock --no-faed-in --grace 100",
+      "hyprlock --conifg",
+      "hyprlock --no-faed-in extra"
+    ]
+  },
+  "hyprpaper": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "hyprpaper --conifg \"wallpaper.conf\"",
+        "argv": [
+          "hyprpaper",
+          "--config",
+          "wallpaper.conf"
+        ]
+      }
+    ],
+    "negative": [
+      "hyprpaper --conifg",
+      "hyprpaper --verboes extra",
+      "hyprpaper --verbose"
+    ]
+  },
+  "inotifywait": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "inotifywait --recusrive \"example dir\"",
+        "argv": [
+          "inotifywait",
+          "--recursive",
+          "example dir"
+        ]
+      }
+    ],
+    "negative": [
+      "inotifywait --daemon example",
+      "inotifywait --recusrive --outfile result example",
+      "inotifywait --event"
+    ]
+  },
+  "iostat": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "iostat --compcat -x 1 2",
+        "argv": [
+          "iostat",
+          "--compact",
+          "-x",
+          "1",
+          "2"
+        ]
+      }
+    ],
+    "negative": [
+      "iostat --dec",
+      "iostat --unknown",
+      "iostat --compcat 1 2 3"
+    ]
+  },
+  "jq": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "jq --raw-outptu . data.json",
+        "argv": [
+          "jq",
+          "--raw-output",
+          ".",
+          "data.json"
+        ]
+      }
+    ],
+    "negative": [
+      "jq --raw-outptu --arg name value .",
+      "jq --indent",
+      "jq --raw-output . missing"
+    ]
+  },
+  "just": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "just --lsit --unsorted",
+        "argv": [
+          "just",
+          "--list",
+          "--unsorted"
+        ]
+      }
+    ],
+    "negative": [
+      "just --yes recipe",
+      "just --list --shell-command command",
+      "just --justfile --list --unsroted"
+    ]
+  },
+  "kubectl": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "kubectl gte pods -n example",
+        "argv": [
+          "kubectl",
+          "get",
+          "pods",
+          "-n",
+          "example"
+        ]
+      },
+      {
+        "input": "kubectl config get-contexst",
+        "argv": [
+          "kubectl",
+          "config",
+          "get-contexts"
+        ]
+      },
+      {
+        "input": "kubectl logs --tial 5 example",
+        "argv": [
+          "kubectl",
+          "logs",
+          "--tail",
+          "5",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "kubectl deleet pods example",
+      "kubectl apply -f file",
+      "kubectl get pods --force",
+      "kubectl config use-contex example",
+      "kubectl logs --tial",
+      "kubectl exec example -- sh"
+    ]
+  },
+  "kustomize": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "kustomize biuld ./example",
+        "argv": [
+          "kustomize",
+          "build",
+          "./example"
+        ]
+      }
+    ],
+    "negative": [
+      "kustomize edit ste image value",
+      "kustomize biuld --enable-exec .",
+      "kustomize biuld --enable-alpha-plugins .",
+      "kustomize localize ."
+    ]
+  },
+  "lazydocker": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "lazydocker --proejct example",
+        "argv": [
+          "lazydocker",
+          "--project",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "lazydocker --proejct",
+      "lazydocker --debugg"
+    ]
+  },
+  "ldd": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "ldd --unuesd ./example",
+        "argv": [
+          "ldd",
+          "--unused",
+          "./example"
+        ]
+      }
+    ],
+    "negative": [
+      "ldd --unuesd",
+      "ldd --unuesd --unknown file",
+      "ldd --unused nonexistent"
+    ]
+  },
+  "less": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "less --log-fiel output file",
+      "less --chop-long-liens --force file",
+      "less --chop-long-lines missing"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "less",
+          "--chop-long-lines",
+          "file"
+        ],
+        "input": "less --chop-long-liens file"
+      }
+    ]
+  },
+  "ln": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "ln --froce source link",
+      "ln --symoblic --force source link",
+      "ln --symoblic"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "ln",
+          "--symbolic",
+          "source",
+          "link"
+        ],
+        "input": "ln --symoblic source link"
+      }
+    ]
+  },
+  "locate": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "locate --ignore-csae example",
+        "argv": [
+          "locate",
+          "--ignore-case",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "locate --limti",
+      "locate --database"
+    ]
+  },
+  "lsd": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "lsd --group-directoires-first .",
+        "argv": [
+          "lsd",
+          "--group-directories-first",
+          "."
+        ]
+      }
+    ],
+    "negative": [
+      "lsd --depht",
+      "lsd --group-directoires-first --unknown",
+      "lsd --tree missing"
+    ]
+  },
+  "lshw": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "lshw -santiize -json",
+        "argv": [
+          "lshw",
+          "-sanitize",
+          "-json"
+        ]
+      }
+    ],
+    "negative": [
+      "lshw -enable example",
+      "lshw -santiize extra",
+      "lshw -class"
+    ]
+  },
+  "lsmod": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "lsmod --verbsoe",
+        "argv": [
+          "lsmod",
+          "--verbose"
+        ]
+      }
+    ],
+    "negative": [
+      "lsmod --syslogg",
+      "lsmod module"
+    ]
+  },
+  "lsusb": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "lsusb --verbsoe",
+        "argv": [
+          "lsusb",
+          "--verbose"
+        ]
+      }
+    ],
+    "negative": [
+      "lsusb --verbsoe extra",
+      "lsusb --verbose",
+      "lsusb --unknown"
+    ]
+  },
+  "ltrace": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "ltrace --demanlge example --opaque-option",
+        "argv": [
+          "ltrace",
+          "--demangle",
+          "example",
+          "--opaque-option"
+        ]
+      }
+    ],
+    "negative": [
+      "ltrace --demanlge --config config example",
+      "ltrace example --demanlge",
+      "ltrace --library"
+    ]
+  },
+  "luarocks": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "luarocks searhc example",
+        "argv": [
+          "luarocks",
+          "search",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "luarocks purge --froce",
+      "luarocks remvoe example",
+      "luarocks showw"
+    ]
+  },
+  "makepkg": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "makepkg --packagelist --nocolro",
+        "argv": [
+          "makepkg",
+          "--packagelist",
+          "--nocolor"
+        ]
+      }
+    ],
+    "negative": [
+      "makepkg --packagelist --force",
+      "makepkg --skipinteg",
+      "makepkg --cleanbiuld",
+      "makepkg --dir --packagelist --nocolro"
+    ]
+  },
+  "mako": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "mako --default-tiemout 3000",
+        "argv": [
+          "mako",
+          "--default-timeout",
+          "3000"
+        ]
+      }
+    ],
+    "negative": [
+      "mako --default-tiemout",
+      "mako --default-tiemout 3000 --actions 1",
+      "mako --default-timeout 3000"
+    ]
+  },
+  "makoctl": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "makoctl hisotry -j",
+        "argv": [
+          "makoctl",
+          "history",
+          "-j"
+        ]
+      }
+    ],
+    "negative": [
+      "makoctl invkoe",
+      "makoctl menu program",
+      "makoctl mode -s quiet",
+      "makoctl hisotry extra"
+    ]
+  },
+  "meson": {
+    "batch": "project-tooling",
+    "positive": [
+      {
+        "input": "meson introspect --targtes build",
+        "argv": [
+          "meson",
+          "introspect",
+          "--targets",
+          "build"
+        ]
+      },
+      {
+        "input": "meson conifgure build",
+        "argv": [
+          "meson",
+          "configure",
+          "build"
+        ]
+      }
+    ],
+    "negative": [
+      "meson configure -Doption=value build",
+      "meson introspect --targtes one two",
+      "meson install --destdir out",
+      "meson setup --wipe build"
+    ]
+  },
+  "micro": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "micro -config-dri example file.txt",
+        "argv": [
+          "micro",
+          "-config-dir",
+          "example",
+          "file.txt"
+        ]
+      }
+    ],
+    "negative": [
+      "micro -clean",
+      "micro -clena",
+      "micro -plugin remove all",
+      "micro -config-dir"
+    ]
+  },
+  "mktemp": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "mktemp --dry-rnu",
+      "mktemp --direcotry --dry-run",
+      "mktemp --suffix"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "mktemp",
+          "--directory"
+        ],
+        "input": "mktemp --direcotry"
+      }
+    ]
+  },
+  "modprobe": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "modprobe --show-depedns example_module",
+        "argv": [
+          "modprobe",
+          "--show-depends",
+          "example_module"
+        ]
+      }
+    ],
+    "negative": [
+      "modprobe --verboes example_module",
+      "modprobe --show-depedns --force example_module",
+      "modprobe --remvoe example_module"
+    ]
+  },
+  "more": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "more --liens",
+      "more --exit-on-efo --unknown file",
+      "more --exit-on-eof missing"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "more",
+          "--exit-on-eof",
+          "file"
+        ],
+        "input": "more --exit-on-efo file"
+      }
+    ]
+  },
+  "mount": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "mount --show-lables",
+        "argv": [
+          "mount",
+          "--show-labels"
+        ]
+      }
+    ],
+    "negative": [
+      "mount --show-lables /dev/example /mnt/example",
+      "mount --all --show-lables",
+      "mount --bind one two"
+    ]
+  },
+  "mtr": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "mtr --report --report-cylces 5 example.invalid",
+        "argv": [
+          "mtr",
+          "--report",
+          "--report-cycles",
+          "5",
+          "example.invalid"
+        ]
+      }
+    ],
+    "negative": [
+      "mtr --report-cylces",
+      "mtr --interface",
+      "mtr --report --unknown example.invalid"
+    ]
+  },
+  "mypy": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "mypy --strcit example.py",
+        "argv": [
+          "mypy",
+          "--strict",
+          "example.py"
+        ]
+      }
+    ],
+    "negative": [
+      "mypy --python-version",
+      "mypy --strcit --config-file config example.py"
+    ]
+  },
+  "nano": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "nano --linenubmers example.txt",
+        "argv": [
+          "nano",
+          "--linenumbers",
+          "example.txt"
+        ]
+      }
+    ],
+    "negative": [
+      "nano --rcfile config --linenubmers example",
+      "nano --tabsize"
+    ]
+  },
+  "nerdctl": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "nerdctl contianer ls",
+        "argv": [
+          "nerdctl",
+          "container",
+          "ls"
+        ]
+      },
+      {
+        "input": "nerdctl image inspcet example",
+        "argv": [
+          "nerdctl",
+          "image",
+          "inspect",
+          "example"
+        ]
+      },
+      {
+        "input": "nerdctl logs --tial 5 example",
+        "argv": [
+          "nerdctl",
+          "logs",
+          "--tail",
+          "5",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "nerdctl image remvoe example",
+      "nerdctl container ls --force",
+      "nerdctl logs --tial",
+      "nerdctl pruen",
+      "nerdctl compose up"
+    ]
+  },
+  "nice": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "nice --adjustmetn",
+      "nice --adjustmetn 5",
+      "nice printf --adjustmetn"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "nice",
+          "--adjustment",
+          "5",
+          "printf",
+          "--literal"
+        ],
+        "input": "nice --adjustmetn 5 printf --literal"
+      }
+    ]
+  },
+  "ninja": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "ninja  -n --verbsoe example",
+        "argv": [
+          "ninja",
+          "-n",
+          "--verbose",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "ninja --verbsoe example",
+      "ninja -n -t clean",
+      "ninja -f -n --verbsoe example"
+    ]
+  },
+  "nmap": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "nmap --reasno --top-ports 5 example.invalid",
+        "argv": [
+          "nmap",
+          "--reason",
+          "--top-ports",
+          "5",
+          "example.invalid"
+        ]
+      }
+    ],
+    "negative": [
+      "nmap --script example example.invalid",
+      "nmap --top-ports",
+      "nmap --reasno --script=example example.invalid"
+    ]
+  },
+  "node": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "node --trace-warnigns script.js --literal",
+        "argv": [
+          "node",
+          "--trace-warnings",
+          "script.js",
+          "--literal"
+        ]
+      }
+    ],
+    "negative": [
+      "node script.js --trace-warnigns",
+      "node --trace-warnigns --eval code",
+      "node --require module --chekc file"
+    ]
+  },
+  "npm": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "npm outdaetd",
+        "argv": [
+          "npm",
+          "outdated"
+        ]
+      }
+    ],
+    "negative": [
+      "npm i example",
+      "npm instal example",
+      "npm isntall example",
+      "npm udpate",
+      "npm publsih",
+      "npm run script --outdaetd"
+    ]
+  },
+  "nvidia-smi": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "nvidia-smi --query-gup=name --format=csv",
+        "argv": [
+          "nvidia-smi",
+          "--query-gpu=name",
+          "--format=csv"
+        ]
+      }
+    ],
+    "negative": [
+      "nvidia-smi --query-gup=name --power-limit 1",
+      "nvidia-smi --gpu-rest",
+      "nvidia-smi --query-gup"
+    ]
+  },
+  "nvim": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "nvim --claen \"example file\"",
+        "argv": [
+          "nvim",
+          "--clean",
+          "example file"
+        ]
+      }
+    ],
+    "negative": [
+      "nvim --claen -c \"write!\" example",
+      "nvim --claen --cmd \"echo test\"",
+      "nvim --remote-sned keys"
+    ]
+  },
+  "paccache": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "paccache --dryrun --uninstaled",
+        "argv": [
+          "paccache",
+          "--dryrun",
+          "--uninstalled"
+        ]
+      }
+    ],
+    "negative": [
+      "paccache --remvoe",
+      "paccache --dryrun --force",
+      "paccache --keep",
+      "paccache --cachedir --dryrun --verbsoe"
+    ]
+  },
+  "pandoc": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "pandoc --standlaone --from markdown --to html example.md",
+        "argv": [
+          "pandoc",
+          "--standalone",
+          "--from",
+          "markdown",
+          "--to",
+          "html",
+          "example.md"
+        ]
+      }
+    ],
+    "negative": [
+      "pandoc --standlaone --filter executable example.md",
+      "pandoc --lua-filter script.lua example.md",
+      "pandoc --standlaone --output file example.md"
+    ]
+  },
+  "parted": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "parted --list --machien",
+        "argv": [
+          "parted",
+          "--list",
+          "--machine"
+        ]
+      }
+    ],
+    "negative": [
+      "parted --list --fix",
+      "parted --list /dev/example mklabel gpt",
+      "parted --script --list"
+    ]
+  },
+  "patch": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "patch --dry-run --verbsoe -i \"example patch\"",
+        "argv": [
+          "patch",
+          "--dry-run",
+          "--verbose",
+          "-i",
+          "example patch"
+        ]
+      }
+    ],
+    "negative": [
+      "patch --forc file",
+      "patch --dry-run --force file",
+      "patch --dry-run --output out file",
+      "patch --dry-run --input",
+      "patch --input --dry-run --verbsoe"
+    ]
+  },
+  "pg_dump": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "pg_dump --schema-onyl example",
+        "argv": [
+          "pg_dump",
+          "--schema-only",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "pg_dump --schema-onyl --clean example",
+      "pg_dump --schema-onyl --file",
+      "pg_dump --schema-only missing"
+    ]
+  },
+  "pg_restore": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "pg_restore --lsit archive.dump",
+        "argv": [
+          "pg_restore",
+          "--list",
+          "archive.dump"
+        ]
+      }
+    ],
+    "negative": [
+      "pg_restore --lsit --clean archive.dump",
+      "pg_restore --lsit --dbname target archive.dump",
+      "pg_restore --verboes archive.dump"
+    ]
+  },
+  "pgrep": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "pgrep --list-fll bash",
+        "argv": [
+          "pgrep",
+          "--list-full",
+          "bash"
+        ]
+      }
+    ],
+    "negative": [
+      "pgrep --list-fll",
+      "pgrep --list-fll --signal 9 bash",
+      "pgrep --list-full bash"
+    ]
+  },
+  "pip": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "pip list --outdaetd",
+        "argv": [
+          "pip",
+          "list",
+          "--outdated"
+        ]
+      },
+      {
+        "input": "pip instal --dry-run example",
+        "argv": [
+          "pip",
+          "install",
+          "--dry-run",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "pip uninstal example",
+      "pip install --break-system-pakcages example",
+      "pip showw",
+      "pip install --requiremetn"
+    ]
+  },
+  "pip3": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "pip3 list --outdaetd",
+        "argv": [
+          "pip3",
+          "list",
+          "--outdated"
+        ]
+      },
+      {
+        "input": "pip3 instal --dry-run example",
+        "argv": [
+          "pip3",
+          "install",
+          "--dry-run",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "pip3 uninstal example",
+      "pip3 install --break-system-pakcages example",
+      "pip3 showw",
+      "pip3 install --requiremetn"
+    ]
+  },
+  "playerctl": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "playerctl play-pasue",
+        "argv": [
+          "playerctl",
+          "play-pause"
+        ]
+      },
+      {
+        "input": "playerctl vloume",
+        "argv": [
+          "playerctl",
+          "volume"
+        ]
+      }
+    ],
+    "negative": [
+      "playerctl play-pasue extra",
+      "playerctl opne",
+      "playerctl positoin 1 2"
+    ]
+  },
+  "podman": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "podman contianer ls",
+        "argv": [
+          "podman",
+          "container",
+          "ls"
+        ]
+      },
+      {
+        "input": "podman image inspcet example",
+        "argv": [
+          "podman",
+          "image",
+          "inspect",
+          "example"
+        ]
+      },
+      {
+        "input": "podman logs --tial 5 example",
+        "argv": [
+          "podman",
+          "logs",
+          "--tail",
+          "5",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "podman image remvoe example",
+      "podman container ls --force",
+      "podman logs --tial",
+      "podman pruen",
+      "podman compose up"
+    ]
+  },
+  "pre-commit": {
+    "batch": "project-tooling",
+    "positive": [
+      {
+        "input": "pre-commit validate-conifg example.yaml",
+        "argv": [
+          "pre-commit",
+          "validate-config",
+          "example.yaml"
+        ]
+      }
+    ],
+    "negative": [
+      "pre-commit uninstal",
+      "pre-commit clean",
+      "pre-commit install --overwrite",
+      "pre-commit validate-config --unknown file"
+    ]
+  },
+  "procs": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "procs --thraed",
+        "argv": [
+          "procs",
+          "--thread"
+        ]
+      }
+    ],
+    "negative": [
+      "procs --thraed --gen-config",
+      "procs --sotra",
+      "procs --thread"
+    ]
+  },
+  "ps": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "ps --forst -ef",
+        "argv": [
+          "ps",
+          "--forest",
+          "-ef"
+        ]
+      }
+    ],
+    "negative": [
+      "ps --sort",
+      "ps --forst --unknown",
+      "ps --forest -ef"
+    ]
+  },
+  "psql": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "psql --tuples-onyl --dbname example --command \"select 1\"",
+        "argv": [
+          "psql",
+          "--tuples-only",
+          "--dbname",
+          "example",
+          "--command",
+          "select 1"
+        ]
+      }
+    ],
+    "negative": [
+      "psql --tuples-onyl --output \"|shell\"",
+      "psql --dbname",
+      "psql --tuples-only --dbname missing"
+    ]
+  },
+  "pytest": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "pytest --collect-onyl example.py",
+        "argv": [
+          "pytest",
+          "--collect-only",
+          "example.py"
+        ]
+      }
+    ],
+    "negative": [
+      "pytest --maxfail",
+      "pytest --collect-onyl -p plugin",
+      "pytest --log-file file --collect-onyl example.py"
+    ]
+  },
+  "python": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "python --check-hash-based-pyc=always -B example.py --private-argument",
+        "argv": [
+          "python",
+          "--check-hash-based-pycs=always",
+          "-B",
+          "example.py",
+          "--private-argument"
+        ]
+      }
+    ],
+    "negative": [
+      "python example.py --check-hash-based-pyc=always",
+      "python -c \"print(1)\"",
+      "python -m module --help-alll"
+    ]
+  },
+  "python3": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "python3 --check-hash-based-pyc=always -B example.py --private-argument",
+        "argv": [
+          "python3",
+          "--check-hash-based-pycs=always",
+          "-B",
+          "example.py",
+          "--private-argument"
+        ]
+      }
+    ],
+    "negative": [
+      "python3 example.py --check-hash-based-pyc=always",
+      "python3 -c \"print(1)\"",
+      "python3 -m module --help-alll"
+    ]
+  },
+  "rename": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "rename --no-act --verbsoe old new example",
+        "argv": [
+          "rename",
+          "--no-act",
+          "--verbose",
+          "old",
+          "new",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "rename --verbsoe old new example",
+      "rename --no-act --symlink old new example",
+      "rename --no-act old new"
+    ]
+  },
+  "resolvectl": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "resolvectl statistcis",
+        "argv": [
+          "resolvectl",
+          "statistics"
+        ]
+      }
+    ],
+    "negative": [
+      "resolvectl revert example",
+      "resolvectl qurey",
+      "resolvectl statistcis extra"
+    ]
+  },
+  "ruby": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "ruby --backtrace-limt 10 app.rb --literal",
+        "argv": [
+          "ruby",
+          "--backtrace-limit",
+          "10",
+          "app.rb",
+          "--literal"
+        ]
+      }
+    ],
+    "negative": [
+      "ruby app.rb --backtrace-limt",
+      "ruby --backtrace-limt",
+      "ruby --debg -i file"
+    ]
+  },
+  "ruff": {
+    "batch": "project-tooling",
+    "positive": [
+      {
+        "input": "ruff chekc --no-fix example.py",
+        "argv": [
+          "ruff",
+          "check",
+          "--no-fix",
+          "example.py"
+        ]
+      },
+      {
+        "input": "ruff rule --output-fromat json ALL",
+        "argv": [
+          "ruff",
+          "rule",
+          "--output-format",
+          "json",
+          "ALL"
+        ]
+      }
+    ],
+    "negative": [
+      "ruff check --fix example.py",
+      "ruff format example.py",
+      "ruff check --unsafe-fixes example.py",
+      "ruff claen"
+    ]
+  },
+  "rustup": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "rustup shwo",
+        "argv": [
+          "rustup",
+          "show"
+        ]
+      }
+    ],
+    "negative": [
+      "rustup uninstal stable",
+      "rustup defautl stable",
+      "rustup shwo extra"
+    ]
+  },
+  "screen": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "screen -lsit",
+        "argv": [
+          "screen",
+          "-list"
+        ]
+      }
+    ],
+    "negative": [
+      "screen -lsit -X quit",
+      "screen -wipe",
+      "screen -lsit -- one two"
+    ]
+  },
+  "sd": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "sd --preveiw \"old text\" \"new text\" file",
+        "argv": [
+          "sd",
+          "--preview",
+          "old text",
+          "new text",
+          "file"
+        ]
+      }
+    ],
+    "negative": [
+      "sd --fixed-stirngs old new file",
+      "sd --preveiw old",
+      "sd --preveiw old new --unknown"
+    ]
+  },
+  "sed": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "sed --in-plcae -e s/a/b/ file",
+      "sed --quie -e x",
+      "sed --regexp-exteneded --in-place file"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "sed",
+          "--regexp-extended",
+          "-e",
+          "s/a/b/",
+          "input.txt"
+        ],
+        "input": "sed --regexp-exteneded -e s/a/b/ input.txt"
+      }
+    ]
+  },
+  "sensors": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "sensors --fahrenhiet",
+        "argv": [
+          "sensors",
+          "--fahrenheit"
+        ]
+      }
+    ],
+    "negative": [
+      "sensors --set --fahrenhiet",
+      "sensors --config-file",
+      "sensors --sett"
+    ]
+  },
+  "skopeo": {
+    "batch": "containers-orchestration",
+    "positive": [
+      {
+        "input": "skopeo inspcet docker://example.invalid/image",
+        "argv": [
+          "skopeo",
+          "inspect",
+          "docker://example.invalid/image"
+        ]
+      }
+    ],
+    "negative": [
+      "skopeo deleet docker://example.invalid/image",
+      "skopeo inspcet --tls-verify=false docker://example.invalid/image",
+      "skopeo inspcet",
+      "skopeo copy source dest"
+    ]
+  },
+  "smartctl": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "smartctl --attribtues /dev/example",
+        "argv": [
+          "smartctl",
+          "--attributes",
+          "/dev/example"
+        ]
+      }
+    ],
+    "negative": [
+      "smartctl --test long /dev/example",
+      "smartctl --attribtues --smart=off /dev/example",
+      "smartctl --device"
+    ]
+  },
+  "snapper": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "snapper --config root lsit --columns number",
+        "argv": [
+          "snapper",
+          "--config",
+          "root",
+          "list",
+          "--columns",
+          "number"
+        ]
+      }
+    ],
+    "negative": [
+      "snapper rolback 1",
+      "snapper delte 1",
+      "snapper diff --diff-cmd sh 1..2",
+      "snapper status"
+    ]
+  },
+  "sops": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "sops --decrypt --output-tyep json example.yaml",
+        "argv": [
+          "sops",
+          "--decrypt",
+          "--output-type",
+          "json",
+          "example.yaml"
+        ]
+      }
+    ],
+    "negative": [
+      "sops --decrypt --in-place example.yaml",
+      "sops --rotate example.yaml",
+      "sops --input-type --decrypt --output-tyep json example.yaml"
+    ]
+  },
+  "sqlite3": {
+    "batch": "developer-data",
+    "positive": [
+      {
+        "input": "sqlite3 -readonyl -json database.db",
+        "argv": [
+          "sqlite3",
+          "-readonly",
+          "-json",
+          "database.db"
+        ]
+      }
+    ],
+    "negative": [
+      "sqlite3 -json -unsaef-testing database.db",
+      "sqlite3 -readonyl -cmd .shell database.db",
+      "sqlite3 -readonly missing.db"
+    ]
+  },
+  "starship": {
+    "batch": "developer-nested",
+    "positive": [
+      {
+        "input": "starship print-conifg --default",
+        "argv": [
+          "starship",
+          "print-config",
+          "--default"
+        ]
+      },
+      {
+        "input": "starship prset --list",
+        "argv": [
+          "starship",
+          "preset",
+          "--list"
+        ]
+      }
+    ],
+    "negative": [
+      "starship preset --output file",
+      "starship toggel module",
+      "starship config module value"
+    ]
+  },
+  "stow": {
+    "batch": "build-data-security",
+    "positive": [
+      {
+        "input": "stow --simulate --dotfiels example",
+        "argv": [
+          "stow",
+          "--simulate",
+          "--dotfiles",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "stow --adopt example",
+      "stow --simulate --delete example",
+      "stow --dir --simulate --dotfiels example"
+    ]
+  },
+  "sync": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "sync --file-sysetm example",
+        "argv": [
+          "sync",
+          "--file-system",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "sync --unknown example"
+    ]
+  },
+  "sysctl": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "sysctl --vaues --all",
+        "argv": [
+          "sysctl",
+          "--values",
+          "--all"
+        ]
+      }
+    ],
+    "negative": [
+      "sysctl --vaues kernel.hostname=newname",
+      "sysctl --systme",
+      "sysctl --vaues --write kernel.hostname=newname"
+    ]
+  },
+  "tailscale": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "tailscale statsu --json",
+        "argv": [
+          "tailscale",
+          "status",
+          "--json"
+        ]
+      }
+    ],
+    "negative": [
+      "tailscale statsu --web",
+      "tailscale pign",
+      "tailscale funnel 8080",
+      "tailscale serv 8080"
+    ]
+  },
+  "tar": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "tar --lsit --delete --file archive.tar",
+      "tar --verboes --file archive.tar",
+      "tar --lsit --to-command sh",
+      "tar --file --list --verbsoe"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "tar",
+          "--list",
+          "--file",
+          "archive.tar"
+        ],
+        "input": "tar --lsit --file archive.tar"
+      }
+    ]
+  },
+  "tcpdump": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "tcpdump --immediate-mdoe -c 5 -i eth0",
+        "argv": [
+          "tcpdump",
+          "--immediate-mode",
+          "-c",
+          "5",
+          "-i",
+          "eth0"
+        ]
+      }
+    ],
+    "negative": [
+      "tcpdump --immediate-mdoe -w file",
+      "tcpdump --immediate-mdoe -z command",
+      "tcpdump --time-stamp-precision"
+    ]
+  },
+  "timeout": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "timeout --preserve-sttaus 5",
+      "timeout 5 printf --preserve-sttaus",
+      "timeout --kill-after"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "timeout",
+          "--preserve-status",
+          "5",
+          "printf",
+          "--literal"
+        ],
+        "input": "timeout --preserve-sttaus 5 printf --literal"
+      }
+    ]
+  },
+  "tokei": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "tokei --langauges",
+        "argv": [
+          "tokei",
+          "--languages"
+        ]
+      }
+    ],
+    "negative": [
+      "tokei --langauges --unknown",
+      "tokei --tyeps",
+      "tokei --languages"
+    ]
+  },
+  "top": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "top --batch-mdoe --iterations 1",
+        "argv": [
+          "top",
+          "--batch-mode",
+          "--iterations",
+          "1"
+        ]
+      }
+    ],
+    "negative": [
+      "top --iterations",
+      "top --batch-mdoe operand"
+    ]
+  },
+  "tr": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "tr --squeeze-repeast",
+      "tr --squeeze-repeats x",
+      "tr --badflag x"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "tr",
+          "--squeeze-repeats",
+          "x"
+        ],
+        "input": "tr --squeeze-repeast x"
+      }
+    ]
+  },
+  "tree": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "tree --dirsfrist -L 2 .",
+        "argv": [
+          "tree",
+          "--dirsfirst",
+          "-L",
+          "2",
+          "."
+        ]
+      }
+    ],
+    "negative": [
+      "tree --dirsfrist -o output .",
+      "tree --filelimit",
+      "tree --dirsfirst missing"
+    ]
+  },
+  "udevadm": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "udevadm info --attribute-wlak /dev/example",
+        "argv": [
+          "udevadm",
+          "info",
+          "--attribute-walk",
+          "/dev/example"
+        ]
+      }
+    ],
+    "negative": [
+      "udevadm trigegr",
+      "udevadm info --attribute-wlak --cleanup-db",
+      "udevadm info --qurey"
+    ]
+  },
+  "ufw": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "ufw stauts verbose",
+        "argv": [
+          "ufw",
+          "status",
+          "verbose"
+        ]
+      }
+    ],
+    "negative": [
+      "ufw enabel",
+      "ufw resett",
+      "ufw delete allow 22",
+      "ufw show"
+    ]
+  },
+  "unxz": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "unxz --verboes archive.bin",
+      "unxz --tset --force archive.bin",
+      "unxz --stdout --froce archive.bin"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "unxz",
+          "--test",
+          "archive.bin"
+        ],
+        "input": "unxz --tset archive.bin"
+      }
+    ]
+  },
+  "upower": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "upower --enumreate",
+        "argv": [
+          "upower",
+          "--enumerate"
+        ]
+      }
+    ],
+    "negative": [
+      "upower --show-ifno",
+      "upower --enumreate --unknown",
+      "upower --enumerate"
+    ]
+  },
+  "uv": {
+    "batch": "developer-nested",
+    "positive": [
+      {
+        "input": "uv pip lsit --format=json",
+        "argv": [
+          "uv",
+          "pip",
+          "list",
+          "--format=json"
+        ]
+      },
+      {
+        "input": "uv python lsit --only-installed",
+        "argv": [
+          "uv",
+          "python",
+          "list",
+          "--only-installed"
+        ]
+      },
+      {
+        "input": "uv tool lsit",
+        "argv": [
+          "uv",
+          "tool",
+          "list"
+        ]
+      }
+    ],
+    "negative": [
+      "uv pip uninstal example",
+      "uv cache claen",
+      "uv pip list --allow-insecure-host example",
+      "uv run script.py"
+    ]
+  },
+  "vim": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "vim --claen \"example file\"",
+        "argv": [
+          "vim",
+          "--clean",
+          "example file"
+        ]
+      }
+    ],
+    "negative": [
+      "vim --claen -c \"write!\" example",
+      "vim --claen --cmd \"echo test\"",
+      "vim --remote-sned keys"
+    ]
+  },
+  "visudo": {
+    "batch": "administration-inspection",
+    "positive": [
+      {
+        "input": "visudo --check --strcit --file example",
+        "argv": [
+          "visudo",
+          "--check",
+          "--strict",
+          "--file",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "visudo --strcit --file example",
+      "visudo --file --check --strcit",
+      "visudo --check --file"
+    ]
+  },
+  "vmstat": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "vmstat --timeestamp 1 2",
+        "argv": [
+          "vmstat",
+          "--timestamp",
+          "1",
+          "2"
+        ]
+      }
+    ],
+    "negative": [
+      "vmstat --timeestamp 1 2 3",
+      "vmstat --partition",
+      "vmstat --stats"
+    ]
+  },
+  "walker": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "walker --placehodler \"Search apps\"",
+        "argv": [
+          "walker",
+          "--placeholder",
+          "Search apps"
+        ]
+      }
+    ],
+    "negative": [
+      "walker --placehodler",
+      "walker --placehodler text --selectsingle",
+      "walker --placehodler text extra"
+    ]
+  },
+  "waybar": {
+    "batch": "desktop-modern-utilities",
+    "positive": [
+      {
+        "input": "waybar --log-levle debug",
+        "argv": [
+          "waybar",
+          "--log-level",
+          "debug"
+        ]
+      }
+    ],
+    "negative": [
+      "waybar --log-levle",
+      "waybar --stlye",
+      "waybar --log-levle debug extra"
+    ]
+  },
+  "wg": {
+    "batch": "system-inspection-networking",
+    "positive": [
+      {
+        "input": "wg shwo example",
+        "argv": [
+          "wg",
+          "show",
+          "example"
+        ]
+      }
+    ],
+    "negative": [
+      "wg seet example private-key file",
+      "wg shwo example extra extra",
+      "wg show example"
+    ]
+  },
+  "wget": {
+    "batch": "network-diagnostics-editors",
+    "positive": [
+      {
+        "input": "wget --spider --server-resposne https://example.invalid",
+        "argv": [
+          "wget",
+          "--spider",
+          "--server-response",
+          "https://example.invalid"
+        ]
+      }
+    ],
+    "negative": [
+      "wget --spider --no-check-certificate https://example.invalid",
+      "wget --output-document file https://example.invalid",
+      "wget --timeout --spider --server-resposne https://example.invalid"
+    ]
+  },
+  "which": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "which --skip-tidle",
+      "which --read-alis bash"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "which",
+          "--skip-tilde",
+          "bash"
+        ],
+        "input": "which --skip-tidle bash"
+      }
+    ]
+  },
+  "whois": {
+    "batch": "utilities-editors",
+    "positive": [
+      {
+        "input": "whois --no-recusrion example.invalid",
+        "argv": [
+          "whois",
+          "--no-recursion",
+          "example.invalid"
+        ]
+      }
+    ],
+    "negative": [
+      "whois --host",
+      "whois --port"
+    ]
+  },
+  "xz": {
+    "batch": "files-archives-wrappers",
+    "negative": [
+      "xz --verboes archive.bin",
+      "xz --tset --force archive.bin",
+      "xz --stdout --froce archive.bin"
+    ],
+    "positive": [
+      {
+        "argv": [
+          "xz",
+          "--test",
+          "archive.bin"
+        ],
+        "input": "xz --tset archive.bin"
+      }
+    ]
+  },
+  "zoxide": {
+    "batch": "developer-nested",
+    "positive": [
+      {
+        "input": "zoxide qeury --list \"example dir\"",
+        "argv": [
+          "zoxide",
+          "query",
+          "--list",
+          "example dir"
+        ]
+      }
+    ],
+    "negative": [
+      "zoxide remvoe example",
+      "zoxide query --exclude",
+      "zoxide init bash"
+    ]
+  }
+}

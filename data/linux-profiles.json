@@ -1,9 +1,62 @@
 {
+  "age": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --encrypt -e --decrypt -d --armor -a --recipient= -r= --recipients-file= -R= --identity= -i=",
+    "max_operands": 1,
+    "require_any": [
+      "--encrypt",
+      "-e",
+      "--decrypt",
+      "-d"
+    ]
+  },
   "apropos": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --exact -e --wildcard -w --regex -r --long -l --and -a --sections= -s= --locale= -L= --manpath= -M="
+  },
+  "aria2c": {
+    "help": [
+      "--help=#all"
+    ],
+    "flags": "--help? -h? --version -v --show-files -S --no-conf",
+    "min_operands": 1,
+    "max_operands": 1,
+    "require_any": [
+      "--show-files",
+      "-S"
+    ]
+  },
+  "awk": {
+    "abbreviate": true,
+    "flags": "--help --version --field-separator= -F= --assign= -v= --file= -f= --source= -e= --posix -P --traditional -c --sandbox -S --characters-as-bytes -b --lint? -L?",
+    "help": [
+      "--help"
+    ],
+    "stop_at_operand": true
+  },
+  "awww": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V",
+    "commands": {
+      "query": {
+        "max": 0
+      },
+      "restore": {
+        "max": 0
+      },
+      "pause": {
+        "max": 0
+      },
+      "unpause": {
+        "max": 0
+      }
+    }
   },
   "base64": {
     "help": [
@@ -25,6 +78,22 @@
       "--help"
     ],
     "flags": "--help --version --number -n --plain -p --language= -l= --style= --theme= --paging= --color= --wrap= --tabs= --list-languages -L --list-themes --line-range= -r= --highlight-line= -H="
+  },
+  "black": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --check --diff --color --no-color --line-length= -l= --target-version= -t= --quiet -q --verbose -v --include= --exclude= --extend-exclude=",
+    "require_any": [
+      "--check",
+      "--diff"
+    ]
+  },
+  "blkid": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --output= -o= --list-filesystems -k --match-tag= -s= --match-token= -t= --label= -L= --uuid= -U= --probe -p --info -i --no-part-details -D"
   },
   "bluetoothctl": {
     "help": [
@@ -105,11 +174,81 @@
     "flags": "--help --version --list -l --quiet -q --machine-readable -m --device= -d= --class= -c= --exponent? -e?",
     "stop_at_operand": true
   },
+  "btm": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --basic -b --expanded -e --rate= -r= --read_only --tree -T --battery --disable_gpu --theme= --celsius -c --fahrenheit -f --kelvin -k --hide_avg_cpu -a",
+    "max_operands": 0
+  },
   "btop": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --utf-force --debug --low-color --tty_on --tty_off --preset= -p= --update= -u="
+  },
+  "bunzip2": {
+    "abbreviate": true,
+    "flags": "--help --version --test -t --stdout -c --quiet -q --verbose -v --keep -k",
+    "help": [
+      "--help"
+    ],
+    "require_any": [
+      "--test",
+      "-t",
+      "--stdout",
+      "-c",
+      "--list",
+      "-l"
+    ]
+  },
+  "busctl": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --no-pager --no-legend --system --user --full -l --json= --address=",
+    "commands": {
+      "list": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "tree": {
+        "min": 0,
+        "max": 16,
+        "flags": ""
+      },
+      "status": {
+        "min": 0,
+        "max": 1,
+        "flags": ""
+      },
+      "introspect": {
+        "min": 2,
+        "max": 3,
+        "flags": ""
+      },
+      "get-property": {
+        "min": 4,
+        "max": 16,
+        "flags": ""
+      }
+    }
+  },
+  "bzip2": {
+    "abbreviate": true,
+    "flags": "--help --version --test -t --stdout -c --quiet -q --verbose -v --keep -k --decompress -d",
+    "help": [
+      "--help"
+    ],
+    "require_any": [
+      "--test",
+      "-t",
+      "--stdout",
+      "-c",
+      "--list",
+      "-l"
+    ]
   },
   "cargo": {
     "help": [
@@ -225,6 +364,16 @@
     "flags": "--help --version --number -n --number-nonblank -b --show-all -A --show-ends -E --show-tabs -T --squeeze-blank -s",
     "abbreviate": true
   },
+  "cmake": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --list-presets? -S= --presets-file=",
+    "max_operands": 0,
+    "require_any": [
+      "--list-presets"
+    ]
+  },
   "column": {
     "help": [
       "--help"
@@ -263,6 +412,31 @@
     "abbreviate": true,
     "min_operands": 2
   },
+  "cryptsetup": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version -V --verbose -v",
+    "commands": {
+      "status": {
+        "min": 1,
+        "max": 1
+      },
+      "luksDump": {
+        "min": 1,
+        "max": 1,
+        "flags": "--dump-json-metadata"
+      },
+      "luksUUID": {
+        "min": 1,
+        "max": 1
+      },
+      "isLuks": {
+        "min": 1,
+        "max": 1
+      }
+    }
+  },
   "curl": {
     "help": [
       "--help",
@@ -283,6 +457,13 @@
     ],
     "flags": "--help --version --date= -d= --utc -u --universal --iso-8601? -I? --rfc-3339= --reference= -r=",
     "abbreviate": true
+  },
+  "delta": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --dark --light --line-numbers -n --side-by-side -s --syntax-theme= --paging= --width= --wrap-max-lines= --no-gitconfig --color-only --navigate --list-languages --list-syntax-themes",
+    "max_operands": 2
   },
   "df": {
     "help": [
@@ -313,6 +494,25 @@
     ],
     "flags": "--help --version --human -H --color? -L? --ctime -T --reltime -e --kernel -k --userspace -u --level= -l= --facility= -f= --follow -w --follow-new -W --decode -x --raw -r --nopager -P --since= --until="
   },
+  "dmidecode": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --quiet -q --string= -s= --list-strings --type= -t= --list-types --handle= -H= --dump -u --from-dump= --no-sysfs",
+    "max_operands": 0
+  },
+  "dracut": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version --list-modules --printconfig --print-cmdline --quiet -q",
+    "max_operands": 0,
+    "require_any": [
+      "--list-modules",
+      "--printconfig",
+      "--print-cmdline"
+    ]
+  },
   "du": {
     "help": [
       "--help"
@@ -320,12 +520,48 @@
     "flags": "--help --version --human-readable -h --summarize -s --all -a --total -c --max-depth= -d= --apparent-size --bytes -b --block-size= -B= --exclude= --one-file-system -x --null -0",
     "abbreviate": true
   },
+  "duf": {
+    "help": [
+      "--help"
+    ],
+    "flags": "-all -inodes -json -hide= -hide-fs= -hide-mp= -only= -only-fs= -only-mp= -output= -sort= -style= -theme= -version -warnings -width=",
+    "single_dash": true
+  },
+  "dust": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --depth= -d= --number-of-lines= -n= --full-paths -p --ignore-directory= -X= --limit-filesystem -x --apparent-size -s --reverse -r --no-colors -c --no-percent-bars -b --min-size= -z= --filecount -f --ignore-hidden -i --filter= -e= --file-types -t --no-progress -P --only-dir -D --only-file -F --output-format= -o= --output-json -j"
+  },
+  "efibootmgr": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --verbose -v --quiet -q",
+    "max_operands": 0
+  },
+  "env": {
+    "abbreviate": true,
+    "flags": "--help --version --ignore-environment -i --null -0 --unset= -u= --chdir= -C= --debug -v",
+    "help": [
+      "--help"
+    ],
+    "stop_at_operand": true
+  },
   "envsubst": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --variables -v",
     "abbreviate": true
+  },
+  "ethtool": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version --statistics -S --driver -i --show-features -k --show-offload",
+    "min_operands": 1,
+    "max_operands": 1
   },
   "eza": {
     "help": [
@@ -356,6 +592,18 @@
       "--help"
     ],
     "flags": "--help --version --hidden -H --no-ignore -I --type= -t= --extension= -e= --exclude= -E= --max-depth= -d= --absolute-path -a --full-path -p --case-sensitive -s --ignore-case -i --glob -g --color= --list-details -l"
+  },
+  "fdisk": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --list -l --list-details -x --output= -o= --bytes --units? -u?",
+    "require_any": [
+      "--list",
+      "-l",
+      "--list-details",
+      "-x"
+    ]
   },
   "ffmpeg": {
     "help": [
@@ -405,17 +653,48 @@
     ],
     "flags": "--help --version --bytes -b --kilo -k --mega -m --giga -g --human -h --wide -w --total -t --seconds= -s= --count= -c= --si"
   },
+  "fuser": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--all -a --inode -I --mount -m --ismountpoint -M --namespace= -n= --silent -s --user -u --verbose -v --ipv4 -4 --ipv6 -6 --version -V --list-signals -l",
+    "statuses": [
+      1
+    ],
+    "min_operands": 1
+  },
   "fzf": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --multi -m --exact -e --query= -q= --filter= -f= --height= --layout= --border? --reverse --cycle --no-sort --select-1 -1 --exit-0 -0 --prompt= --header= --delimiter= -d= --nth= -n="
   },
+  "gdb": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --quiet -q --silent --nx --nh --batch --batch-silent --core= --exec= --se= --symbols= --directory= --readnow --readnever --nw --tui",
+    "max_operands": 2
+  },
+  "getent": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --usage --version -V --no-addrconfig -A --no-idn -i --service= -s= --verbose -v",
+    "min_operands": 1
+  },
   "getfacl": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --access -a --default -d --omit-header -c --all-effective -e --skip-base -s --recursive -R --absolute-names -p --numeric -n --physical -P --logical -L"
+  },
+  "glow": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --all -a --line-numbers -l --preserve-new-lines -n --style= -s= --width= -w=",
+    "max_operands": 1
   },
   "gpg": {
     "help": [
@@ -442,6 +721,94 @@
     "flags": "--help --version --ignore-case -i --line-number -n --recursive -r --dereference-recursive -R --extended-regexp -E --fixed-strings -F --word-regexp -w --invert-match -v --count -c --files-with-matches -l --files-without-match -L --regexp= -e= --file= -f= --include= --exclude= --exclude-dir= --color? --context= -C= --after-context= -A= --before-context= -B= --max-count= -m= --quiet -q --only-matching -o",
     "abbreviate": true
   },
+  "gsettings": {
+    "help": [
+      "help"
+    ],
+    "flags": "--version --schemadir=",
+    "commands": {
+      "list-schemas": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "list-relocatable-schemas": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "list-keys": {
+        "min": 1,
+        "max": 1,
+        "flags": ""
+      },
+      "list-children": {
+        "min": 1,
+        "max": 1,
+        "flags": ""
+      },
+      "list-recursively": {
+        "min": 0,
+        "max": 1,
+        "flags": ""
+      },
+      "range": {
+        "min": 2,
+        "max": 2,
+        "flags": ""
+      },
+      "describe": {
+        "min": 2,
+        "max": 2,
+        "flags": ""
+      },
+      "get": {
+        "min": 2,
+        "max": 2,
+        "flags": ""
+      },
+      "writable": {
+        "min": 2,
+        "max": 2,
+        "flags": ""
+      },
+      "monitor": {
+        "min": 2,
+        "max": 2,
+        "flags": ""
+      }
+    }
+  },
+  "gunzip": {
+    "abbreviate": true,
+    "flags": "--help --version --test -t --stdout -c --quiet -q --verbose -v --keep -k --list -l",
+    "help": [
+      "--help"
+    ],
+    "require_any": [
+      "--test",
+      "-t",
+      "--stdout",
+      "-c",
+      "--list",
+      "-l"
+    ]
+  },
+  "gzip": {
+    "abbreviate": true,
+    "flags": "--help --version --test -t --stdout -c --quiet -q --verbose -v --keep -k --list -l --decompress -d",
+    "help": [
+      "--help"
+    ],
+    "require_any": [
+      "--test",
+      "-t",
+      "--stdout",
+      "-c",
+      "--list",
+      "-l"
+    ]
+  },
   "head": {
     "help": [
       "--help"
@@ -454,6 +821,14 @@
       "--help"
     ],
     "flags": "--help --version --canonical -C --one-byte-octal -b --one-byte-char -c --two-bytes-decimal -d --two-bytes-octal -o --two-bytes-hex -x --format= -e= --format-file= -f= --length= -n= --skip= -s= --no-squeezing -v"
+  },
+  "hostname": {
+    "abbreviate": true,
+    "flags": "--help --version --aliases -a --domain -d --fqdn --long -f --ip-addresses -i --short -s",
+    "help": [
+      "--help"
+    ],
+    "max_operands": 0
   },
   "hostnamectl": {
     "help": [
@@ -470,6 +845,30 @@
         "max": 0
       }
     }
+  },
+  "htop": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --no-color -C --delay= -d= --filter= -F= --no-function-bar --highlight-changes? -H? --no-mouse -M --no-meters --max-iterations= -n= --pid= -p= --readonly --sort-key= -s= --tree? -t? --user? -u? --no-unicode -U",
+    "max_operands": 0
+  },
+  "http": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --offline --json -j --form -f --pretty= --style= -s= --print= -p= --headers -h --body -b --verbose -v --ignore-stdin -I --ignore-netrc",
+    "min_operands": 1,
+    "require_any": [
+      "--offline"
+    ]
+  },
+  "hyperfine": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --warmup= -w= --min-runs= -m= --max-runs= -M= --runs= -r= --style= --export-csv= --export-json= --export-markdown= --show-output --command-name= -n=",
+    "min_operands": 1
   },
   "hyprctl": {
     "help": [
@@ -571,6 +970,27 @@
       1
     ]
   },
+  "hypridle": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --verbose -v --quiet -q --config= -c=",
+    "max_operands": 0
+  },
+  "hyprlock": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --verbose -v --quiet -q --config= -c= --immediate-render --no-fade-in --display=",
+    "max_operands": 0
+  },
+  "hyprpaper": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --verbose --config= -c=",
+    "max_operands": 0
+  },
   "iconv": {
     "help": [
       "--help"
@@ -590,6 +1010,28 @@
     ],
     "flags": "--help --version --apropos= -k= --directory= -d= --file= -f= --node= -n= --where -w --index-search= --subnodes"
   },
+  "inotifywait": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --monitor -m --recursive -r --quiet -q --no-dereference -P --exclude= --excludei= --include= --includei= --format= --timefmt= --csv -c --timeout= -t= --event= -e= --no-newline",
+    "statuses": [
+      0,
+      1
+    ],
+    "min_operands": 1
+  },
+  "iostat": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--compact --dec= --human --pretty -c -d -h -k -m -G -N -s -t -U -V -x -y -z -o=",
+    "statuses": [
+      0,
+      1
+    ],
+    "max_operands": 2
+  },
   "join": {
     "help": [
       "--help"
@@ -598,12 +1040,52 @@
     "abbreviate": true,
     "min_operands": 2
   },
+  "jq": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --null-input -n --raw-input -R --slurp -s --compact-output -c --raw-output -r --raw-output0 --join-output -j --ascii-output -a --sort-keys -S --color-output -C --monochrome-output -M --tab --indent= --unbuffered --stream --stream-errors --seq --from-file= -f= --library-path= -L= --exit-status -e"
+  },
+  "just": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --list -l --summary --dump --show= -s= --justfile= -f= --working-directory= -d= --color= --list-heading= --list-prefix= --unsorted -u --no-aliases",
+    "require_any": [
+      "--list",
+      "-l",
+      "--summary",
+      "--dump",
+      "--show",
+      "-s"
+    ]
+  },
+  "lazydocker": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version --config -c --file= -f= --project= -p=",
+    "max_operands": 0
+  },
   "lazygit": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --path= -p= --filter= -f= --debug -d --logs -l --config -c --print-config-dir --use-config-dir= --work-tree= -w= --git-dir= -g= --use-config-file= --screen-mode=",
     "stop_at_operand": true
+  },
+  "ldd": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --unused -u --verbose -v --data-relocs -d --function-relocs -r",
+    "min_operands": 1
+  },
+  "less": {
+    "flags": "--help --version --ignore-case -i --IGNORE-CASE -I --LINE-NUMBERS -N --line-numbers -n --chop-long-lines -S --quit-if-one-screen -F --no-lessopen -L --squeeze-blank-lines -s --no-init -X --RAW-CONTROL-CHARS -R",
+    "help": [
+      "--help"
+    ]
   },
   "limine": {
     "help": [
@@ -620,6 +1102,14 @@
         "max": 0
       }
     }
+  },
+  "ln": {
+    "abbreviate": true,
+    "flags": "--help --version --symbolic -s --relative -r --verbose -v --no-dereference -n --physical -P --logical -L",
+    "help": [
+      "--help"
+    ],
+    "min_operands": 1
   },
   "localectl": {
     "help": [
@@ -656,6 +1146,13 @@
         "max": 0
       }
     }
+  },
+  "locate": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --basename -b --count -c --database= -d= --ignore-case -i --limit= -l= --null -0 --literal -N --regexp -r --regex --wholename -w",
+    "min_operands": 1
   },
   "loginctl": {
     "help": [
@@ -720,12 +1217,123 @@
     ],
     "flags": "--help --version --all -a --online -b --offline -c --json -J --extended? -e? --parse? -p? --output-all --bytes -B --sysroot= -s="
   },
+  "lsd": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version -V --all -a --almost-all -A --color= --icon= --long -l --oneline -1 --recursive -R --tree --depth= --directory-only -d --permission= --size= --total-size --date= --sort= --reverse -r --group-dirs= --group-directories-first --no-symlink --ignore-glob= -I= --inode -i --header"
+  },
+  "lshw": {
+    "help": [
+      "--help"
+    ],
+    "flags": "-version -html -xml -json -short -businfo -class= -C= -c= -quiet -sanitize -numeric -notime",
+    "single_dash": true,
+    "max_operands": 0
+  },
+  "lsmod": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --verbose -v",
+    "max_operands": 0
+  },
+  "lsusb": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --verbose -v --tree -t -s= -d= -D=",
+    "max_operands": 0
+  },
+  "ltrace": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --align= -a= --no-signals -b --demangle -C --library= -l= --indent= -n= --where= -w= -e= -f -i -L -p= -r -s= -S -t -T",
+    "stop_at_operand": true
+  },
+  "luarocks": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version --server= --only-server= --namespace= --lua-dir= --lua-version= --tree= --local --no-project --verbose --timeout=",
+    "commands": {
+      "list": {
+        "min": 0,
+        "max": 1,
+        "flags": ""
+      },
+      "search": {
+        "min": 1,
+        "max": 1,
+        "flags": ""
+      },
+      "show": {
+        "min": 1,
+        "max": 1,
+        "flags": ""
+      },
+      "lint": {
+        "min": 1,
+        "max": 1,
+        "flags": ""
+      },
+      "which": {
+        "min": 1,
+        "max": 1,
+        "flags": ""
+      }
+    }
+  },
   "make": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --directory= -C= --file= -f= --jobs? -j? --keep-going -k --dry-run -n --just-print --silent -s --always-make -B --print-directory -w --no-print-directory --trace",
     "abbreviate": true
+  },
+  "makepkg": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --packagelist --printsrcinfo --dir= -D= --nocolor -m",
+    "require_any": [
+      "--packagelist",
+      "--printsrcinfo"
+    ],
+    "max_operands": 0
+  },
+  "mako": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --config= -c= --font= --background-color= --text-color= --width= --height= --margin= --padding= --border-size= --border-color= --default-timeout= --output= --anchor=",
+    "max_operands": 0
+  },
+  "makoctl": {
+    "help": [
+      "--help"
+    ],
+    "flags": "",
+    "commands": {
+      "list": {
+        "max": 0,
+        "flags": "-j"
+      },
+      "history": {
+        "max": 0,
+        "flags": "-j"
+      },
+      "reload": {
+        "max": 0
+      },
+      "restore": {
+        "max": 0
+      },
+      "mode": {
+        "max": 0
+      }
+    }
   },
   "man": {
     "help": [
@@ -739,6 +1347,13 @@
     ],
     "flags": "--help --version --check -c --binary -b --text -t --tag --zero -z --ignore-missing --quiet --status --strict --warn -w",
     "abbreviate": true
+  },
+  "micro": {
+    "help": [
+      "--help"
+    ],
+    "flags": "-version -config-dir=",
+    "single_dash": true
   },
   "mkdir": {
     "help": [
@@ -767,12 +1382,59 @@
     ],
     "max_operands": 0
   },
+  "mktemp": {
+    "abbreviate": true,
+    "flags": "--help --version --directory -d --quiet -q --suffix= --tmpdir? -p=",
+    "help": [
+      "--help"
+    ],
+    "max_operands": 1
+  },
+  "modprobe": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --resolve-alias -R --show-depends -D --showconfig --show-config -c --show-modversions --dump-modversions --show-exports --verbose -v",
+    "require_any": [
+      "--resolve-alias",
+      "-R",
+      "--show-depends",
+      "-D",
+      "--showconfig",
+      "--show-config",
+      "-c",
+      "--show-modversions",
+      "--dump-modversions",
+      "--show-exports"
+    ]
+  },
+  "more": {
+    "flags": "--help --version --silent -d --logical -f --no-pause -l --print-over -c --clean-print -p --exit-on-eof -e --squeeze -s --plain -u --lines= -n=",
+    "help": [
+      "--help"
+    ]
+  },
+  "mount": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --show-labels -l --types= -t=",
+    "max_operands": 0
+  },
   "mpv": {
     "help": [
       "--list-options"
     ],
     "flags": "--help --version --fullscreen --fs --no-video --no-audio --volume= --speed= --start= --end= --length= --playlist= --shuffle --loop-file? --loop-playlist? --sub-file= --audio-file= --hwdec= --vo= --ao= --keep-open? --pause",
     "stop_at_operand": true
+  },
+  "mtr": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --report -r --report-wide -w --report-cycles= -c= --json -j --no-dns -n --tcp -T --udp -u --interface= -I= --address= -a= --interval= -i= --max-ttl= -m= -4 -6",
+    "min_operands": 1,
+    "max_operands": 1
   },
   "mv": {
     "help": [
@@ -781,6 +1443,19 @@
     "flags": "--help --version --verbose -v --interactive -i --no-clobber -n --no-target-directory -T --target-directory= -t=",
     "abbreviate": true,
     "min_operands": 2
+  },
+  "mypy": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --verbose -v --strict --check-untyped-defs --warn-unused-ignores --show-error-codes --show-column-numbers --no-error-summary --pretty --no-incremental --python-version= --ignore-missing-imports",
+    "min_operands": 1
+  },
+  "nano": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --ignorercfiles -I --restricted -R --view -v --linenumbers -l --softwrap -S --tabsize= -T= --tabstospaces -E --mouse -m --constantshow -c --noconvert -N --nonewlines -L --backup -B"
   },
   "networkctl": {
     "help": [
@@ -802,6 +1477,28 @@
       }
     }
   },
+  "nice": {
+    "abbreviate": true,
+    "flags": "--help --version --adjustment= -n=",
+    "help": [
+      "--help"
+    ],
+    "min_operands": 1,
+    "stop_at_operand": true
+  },
+  "ninja": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--version --verbose -v --quiet -C= -f= -j= -k= -l= -n",
+    "statuses": [
+      0,
+      1
+    ],
+    "require_any": [
+      "-n"
+    ]
+  },
   "nl": {
     "help": [
       "--help"
@@ -815,12 +1512,117 @@
     ],
     "flags": "--help --version --demangle? -C? --dynamic -D --extern-only -g --numeric-sort -n --print-size -S --size-sort --undefined-only -u --defined-only --format= -f= --radix= -t="
   },
+  "nmap": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --reason --open --top-ports= --exclude= --exclude-ports= -n -p= -F -v",
+    "min_operands": 1
+  },
+  "node": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version -v --check -c --trace-warnings --no-warnings --enable-source-maps --unhandled-rejections=",
+    "stop_at_operand": true
+  },
   "notify-send": {
     "help": [
       "--help"
     ],
     "flags": "--help -? --version -v --urgency= -u= --expire-time= -t= --app-name= -a= --icon= -i= --category= -c= --hint= -h= --wait -w --print-id -p --replace-id= -r=",
     "max_operands": 2
+  },
+  "npm": {
+    "help": [
+      "-l"
+    ],
+    "flags": "",
+    "commands": {
+      "outdated": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "ci": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "test": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "prefix": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "root": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "whoami": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "doctor": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "install": {
+        "min": 0,
+        "max": 32,
+        "flags": ""
+      },
+      "search": {
+        "min": 1,
+        "max": 32,
+        "flags": ""
+      },
+      "view": {
+        "min": 1,
+        "max": 32,
+        "flags": ""
+      },
+      "ls": {
+        "min": 0,
+        "max": 32,
+        "flags": ""
+      },
+      "explain": {
+        "min": 1,
+        "max": 32,
+        "flags": ""
+      },
+      "run": {
+        "min": 1,
+        "max": 64,
+        "flags": ""
+      }
+    },
+    "statuses": [
+      0,
+      1
+    ]
+  },
+  "nvidia-smi": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version --query -q --list-gpus -L --id= -i= --query-gpu= --format= --loop= -l= --loop-ms= -lms= --xml-format -x",
+    "single_dash": true,
+    "max_operands": 0
+  },
+  "nvim": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --clean -R -n -d --api-info"
   },
   "objdump": {
     "help": [
@@ -916,6 +1718,16 @@
     },
     "single_dash": true
   },
+  "paccache": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --dryrun -d --arch= -a= --cachedir= -c= --ignore= -i= --keep= -k= --min-atime= --min-mtime= --nocolor --null -z --quiet -q --uninstalled -u --verbose -v",
+    "require_any": [
+      "--dryrun",
+      "-d"
+    ]
+  },
   "pacman": {
     "help": [
       "--query",
@@ -936,6 +1748,23 @@
     "flags": "--help --version --get-volume --get-volume-human --get-mute --list-sinks --list-sources --sink= --source= --set-volume= --increase= --decrease= --mute --unmute --toggle-mute --default-source",
     "max_operands": 0
   },
+  "pandoc": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --from= -f= --read= -r= --to= -t= --write= -w= --standalone? -s? --wrap= --ascii? --toc? --table-of-contents? --toc-depth= --number-sections? -N? --strip-comments? --markdown-headings= --quiet"
+  },
+  "parted": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --list -l --machine -m --json -j",
+    "max_operands": 0,
+    "require_any": [
+      "--list",
+      "-l"
+    ]
+  },
   "paste": {
     "help": [
       "--help"
@@ -943,11 +1772,221 @@
     "flags": "--help --version --delimiters= -d= --serial -s --zero-terminated -z",
     "abbreviate": true
   },
+  "patch": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version -v --dry-run --strip= -p= --fuzz= -F= --ignore-whitespace -l --context -c --normal -n --unified -u --forward -N --reverse -R --input= -i= --quiet -s --silent --verbose --posix --directory= -d= --binary",
+    "require_any": [
+      "--dry-run"
+    ],
+    "max_operands": 2
+  },
+  "pg_dump": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version -V --dbname= -d= --host= -h= --port= -p= --username= -U= --no-password -w --password -W --schema-only -s --data-only -a --schema= -n= --table= -t= --format= -F= --file= -f= --verbose -v --no-owner -O --no-privileges -x",
+    "max_operands": 1
+  },
+  "pg_restore": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version -V --list -l --format= -F= --verbose -v",
+    "max_operands": 1,
+    "require_any": [
+      "--list",
+      "-l"
+    ]
+  },
+  "pgrep": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --delimiter= -d= --list-name -l --list-full -a --count -c --full -f --ignore-case -i --newest -n --oldest -o --parent= -P= --euid= -u= --uid= -U= --exact -x --pidfile= -F= --ignore-ancestors -A",
+    "min_operands": 1,
+    "max_operands": 1
+  },
+  "pip": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --quiet -q --verbose -v --isolated --require-virtualenv --timeout= --retries= --no-cache-dir --disable-pip-version-check --no-color",
+    "commands": {
+      "list": {
+        "min": 0,
+        "max": 0,
+        "flags": "--outdated -o --uptodate -u --editable -e --local -l --user --path= --format= --not-required --exclude-editable --include-editable --exclude=",
+        "help": [
+          "list",
+          "--help"
+        ]
+      },
+      "show": {
+        "min": 1,
+        "max": 32,
+        "flags": "--files -f",
+        "help": [
+          "show",
+          "--help"
+        ]
+      },
+      "freeze": {
+        "min": 0,
+        "max": 0,
+        "flags": "--requirement= -r= --local -l --user --path= --all --exclude-editable --exclude=",
+        "help": [
+          "freeze",
+          "--help"
+        ]
+      },
+      "check": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "inspect": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "install": {
+        "min": 0,
+        "max": 32,
+        "flags": "--requirement= -r= --constraint= -c= --editable= -e= --dry-run --no-deps --require-hashes --no-index --find-links= -f= --index-url= -i= --target= -t= --user",
+        "help": [
+          "install",
+          "--help"
+        ]
+      },
+      "download": {
+        "min": 1,
+        "max": 32,
+        "flags": "--dest= -d= --no-deps --require-hashes --no-index --find-links= -f= --index-url= -i=",
+        "help": [
+          "download",
+          "--help"
+        ]
+      }
+    }
+  },
+  "pip3": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --quiet -q --verbose -v --isolated --require-virtualenv --timeout= --retries= --no-cache-dir --disable-pip-version-check --no-color",
+    "commands": {
+      "list": {
+        "min": 0,
+        "max": 0,
+        "flags": "--outdated -o --uptodate -u --editable -e --local -l --user --path= --format= --not-required --exclude-editable --include-editable --exclude=",
+        "help": [
+          "list",
+          "--help"
+        ]
+      },
+      "show": {
+        "min": 1,
+        "max": 32,
+        "flags": "--files -f",
+        "help": [
+          "show",
+          "--help"
+        ]
+      },
+      "freeze": {
+        "min": 0,
+        "max": 0,
+        "flags": "--requirement= -r= --local -l --user --path= --all --exclude-editable --exclude=",
+        "help": [
+          "freeze",
+          "--help"
+        ]
+      },
+      "check": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "inspect": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "install": {
+        "min": 0,
+        "max": 32,
+        "flags": "--requirement= -r= --constraint= -c= --editable= -e= --dry-run --no-deps --require-hashes --no-index --find-links= -f= --index-url= -i= --target= -t= --user",
+        "help": [
+          "install",
+          "--help"
+        ]
+      },
+      "download": {
+        "min": 1,
+        "max": 32,
+        "flags": "--dest= -d= --no-deps --require-hashes --no-index --find-links= -f= --index-url= -i=",
+        "help": [
+          "download",
+          "--help"
+        ]
+      }
+    }
+  },
   "pkg-config": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --modversion --cflags --libs --exists --static --print-errors --short-errors --silence-errors --list-all --variable= --atleast-version= --exact-version= --max-version="
+  },
+  "playerctl": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --player= -p= --ignore-player= -i= --format= -f= --follow -F --no-messages -s",
+    "commands": {
+      "play": {
+        "max": 0
+      },
+      "pause": {
+        "max": 0
+      },
+      "play-pause": {
+        "max": 0
+      },
+      "stop": {
+        "max": 0
+      },
+      "next": {
+        "max": 0
+      },
+      "previous": {
+        "max": 0
+      },
+      "status": {
+        "max": 0
+      },
+      "metadata": {
+        "max": 8
+      },
+      "position": {
+        "max": 1
+      },
+      "volume": {
+        "max": 1
+      },
+      "loop": {
+        "max": 1
+      },
+      "shuffle": {
+        "max": 1
+      },
+      "open": {
+        "min": 1,
+        "max": 1
+      }
+    }
   },
   "printenv": {
     "help": [
@@ -955,6 +1994,47 @@
     ],
     "flags": "--help --version --null -0",
     "abbreviate": true
+  },
+  "procs": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --text --regex --smart --and -a --or -o --list -l --thread --tree -t --watch -w --watch-interval= -W= --only= --sorta= --sortd= --color= -c= --theme= --json --no-header"
+  },
+  "ps": {
+    "help": [
+      "--help",
+      "all"
+    ],
+    "flags": "--help? --version -V --forest --sort= --pid= -p= --ppid= --user= -u= --User= -U= --format= -o= --no-headers --headers --width= --rows= -A -e -a -f -l -w -L -T",
+    "max_operands": 0
+  },
+  "psql": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help? --version -V --dbname= -d= --host= -h= --port= -p= --username= -U= --no-password -w --password -W --no-psqlrc -X --list -l --command= -c= --file= -f= --quiet -q --echo-errors -b --no-align -A --csv --field-separator= -F= --tuples-only -t --expanded -x",
+    "max_operands": 2
+  },
+  "pytest": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --collect-only --co --quiet -q --verbose -v --exitfirst -x --maxfail= --strict-config --strict-markers --strict --capture= -s -k= -m= --no-header --no-summary --disable-warnings"
+  },
+  "python": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V -b -B -d -E -i -I -O -P -q -s -S -u -v -W= -X= --check-hash-based-pycs=",
+    "stop_at_operand": true
+  },
+  "python3": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V -b -B -d -E -i -I -O -P -q -s -S -u -v -W= -X= --check-hash-based-pycs=",
+    "stop_at_operand": true
   },
   "qpdf": {
     "help": [
@@ -978,6 +2058,55 @@
     "flags": "--help --version --canonicalize -f --canonicalize-existing -e --canonicalize-missing -m --zero -z --quiet -q",
     "abbreviate": true,
     "min_operands": 1
+  },
+  "rename": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --verbose -v --no-act -n --all -a --last -l --no-overwrite -o --interactive -i",
+    "min_operands": 3,
+    "require_any": [
+      "--no-act",
+      "-n"
+    ]
+  },
+  "resolvectl": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --no-pager --json= --interface= -i= --type= -t= -4 -6",
+    "commands": {
+      "status": {
+        "min": 0,
+        "max": 16,
+        "flags": ""
+      },
+      "statistics": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "query": {
+        "min": 1,
+        "max": 16,
+        "flags": ""
+      },
+      "monitor": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "show-cache": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "show-server-state": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      }
+    }
   },
   "rev": {
     "help": [
@@ -1005,6 +2134,13 @@
     ],
     "flags": "--help --version --archive -a --verbose -v --recursive -r --human-readable -h --progress --partial --dry-run -n --itemize-changes -i --stats --checksum -c --compress -z --exclude= --include= --exclude-from= --include-from= --files-from= --bwlimit= --relative -R --update -u --ignore-existing"
   },
+  "ruby": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --debug -d --encoding= -E= --external-encoding= --internal-encoding= --backtrace-limit= --verbose -v -w -c",
+    "stop_at_operand": true
+  },
   "rustc": {
     "help": [
       "--help"
@@ -1016,6 +2152,65 @@
       "--help"
     ],
     "flags": "--help --version --check --edition= --style-edition= --config= --config-path= --emit= --verbose -v --quiet -q"
+  },
+  "rustup": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --verbose -v --quiet -q",
+    "commands": {
+      "show": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "check": {
+        "min": 0,
+        "max": 0,
+        "flags": ""
+      },
+      "which": {
+        "min": 1,
+        "max": 1,
+        "flags": ""
+      }
+    }
+  },
+  "screen": {
+    "help": [
+      "--help"
+    ],
+    "flags": "-list -ls -q -v -h= -S= -t=",
+    "single_dash": true,
+    "max_operands": 1,
+    "require_any": [
+      "-list",
+      "-ls"
+    ]
+  },
+  "sd": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --preview -p --fixed-strings -F --max-replacements= -n= --flags= -f= --across -A",
+    "min_operands": 2,
+    "require_any": [
+      "--preview",
+      "-p"
+    ]
+  },
+  "sed": {
+    "abbreviate": true,
+    "flags": "--help --version --quiet --silent -n --expression= -e= --file= -f= --regexp-extended -E -r --sandbox --unbuffered -u --null-data -z --separate -s",
+    "help": [
+      "--help"
+    ]
+  },
+  "sensors": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --config-file= -c= --fahrenheit -f --no-adapter -A --bus-list -u -j --allow-no-sensors -n"
   },
   "seq": {
     "help": [
@@ -1045,6 +2240,58 @@
     "flags": "--help --version --echo -e --input-range= -i= --head-count= -n= --output= -o= --random-source= --repeat -r --zero-terminated -z",
     "abbreviate": true
   },
+  "smartctl": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --all -a --info -i --health -H --attributes -A --log= -l= --device= -d= --json? -j?",
+    "min_operands": 1,
+    "max_operands": 1
+  },
+  "snapper": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --quiet -q --verbose -v --utc --iso --jsonout --csvout --no-headers --config= -c=",
+    "commands": {
+      "list": {
+        "max": 0,
+        "flags": "--type= -t= --columns= --disable-used-space --all-configs -a"
+      },
+      "list-configs": {
+        "max": 0,
+        "flags": "--columns="
+      },
+      "get-config": {
+        "max": 0,
+        "flags": "--columns="
+      },
+      "status": {
+        "min": 1,
+        "max": 1
+      },
+      "diff": {
+        "min": 1
+      },
+      "xadiff": {
+        "min": 1
+      }
+    }
+  },
+  "sops": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --decrypt -d --encrypt -e --input-type= --output-type= --extract= --indent=",
+    "min_operands": 1,
+    "max_operands": 1,
+    "require_any": [
+      "--decrypt",
+      "-d",
+      "--encrypt",
+      "-e"
+    ]
+  },
   "sort": {
     "help": [
       "--help"
@@ -1058,6 +2305,17 @@
     ],
     "flags": "--help --version --bytes= -b= --lines= -l= --line-bytes= -C= --number= -n= --suffix-length= -a= --numeric-suffixes? -d --additional-suffix= --verbose --elide-empty-files -e",
     "abbreviate": true
+  },
+  "sqlite3": {
+    "help": [
+      "--help"
+    ],
+    "flags": "-help -version -readonly -safe -noinit -batch -bail -box -column -csv -echo -html -json -line -list -markdown -quote -separator= -nullvalue= -table -tabs",
+    "single_dash": true,
+    "stop_at_operand": true,
+    "require_any": [
+      "-readonly"
+    ]
   },
   "ss": {
     "help": [
@@ -1073,11 +2331,36 @@
     "abbreviate": true,
     "min_operands": 1
   },
+  "stow": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --dir= -d= --target= -t= --ignore= --dotfiles --no -n --simulate --verbose? -v?",
+    "require_any": [
+      "--no",
+      "-n",
+      "--simulate"
+    ],
+    "min_operands": 1
+  },
   "strings": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --all -a --print-file-name -f --bytes= -n= --encoding= -e= --radix= -t= --output-separator= --target= -T="
+  },
+  "sync": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --data -d --file-system -f"
+  },
+  "sysctl": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --all -a --names -N --values -n --pattern= -r= --binary -b",
+    "max_operands": 0
   },
   "systemd-analyze": {
     "help": [
@@ -1137,6 +2420,85 @@
     "flags": "--help --version --lines= -n= --bytes= -c= --follow? -f --retry --pid= --sleep-interval= -s= --quiet -q --verbose -v --zero-terminated -z",
     "abbreviate": true
   },
+  "tailscale": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--socket=",
+    "commands": {
+      "status": {
+        "min": 0,
+        "max": 0,
+        "flags": "--json? --active? --peers? --self? --header?",
+        "help": [
+          "status",
+          "--help"
+        ]
+      },
+      "ip": {
+        "min": 0,
+        "max": 1,
+        "flags": "-4 -6 --4? --6?",
+        "help": [
+          "ip",
+          "--help"
+        ]
+      },
+      "netcheck": {
+        "min": 0,
+        "max": 0,
+        "flags": "--verbose? --format=",
+        "help": [
+          "netcheck",
+          "--help"
+        ]
+      },
+      "ping": {
+        "min": 1,
+        "max": 1,
+        "flags": "--c= --timeout= --size= --verbose?",
+        "help": [
+          "ping",
+          "--help"
+        ]
+      },
+      "version": {
+        "min": 0,
+        "max": 0,
+        "flags": "--json? --daemon?",
+        "help": [
+          "version",
+          "--help"
+        ]
+      },
+      "whois": {
+        "min": 1,
+        "max": 1,
+        "flags": "--json? --proto=",
+        "help": [
+          "whois",
+          "--help"
+        ]
+      }
+    }
+  },
+  "tar": {
+    "abbreviate": true,
+    "flags": "--help --version --list -t --file= -f= --verbose -v --gzip -z --bzip2 -j --xz -J --numeric-owner --full-time --show-transformed-names",
+    "help": [
+      "--help"
+    ],
+    "require_any": [
+      "--list",
+      "-t"
+    ]
+  },
+  "tcpdump": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --immediate-mode --count --number --print --micro --nano --time-stamp-precision= -n -N -q -v -c= -i= -r= -s= -Q="
+  },
   "tee": {
     "help": [
       "--help"
@@ -1172,11 +2534,33 @@
       }
     }
   },
+  "timeout": {
+    "abbreviate": true,
+    "flags": "--help --version --preserve-status -p --foreground -f --verbose -v --signal= -s= --kill-after= -k=",
+    "help": [
+      "--help"
+    ],
+    "min_operands": 2,
+    "stop_at_operand": true
+  },
   "tldr": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --list -l --platform= -p= --language= -L= --source= -s= --search= --markdown -m --render -r --color -c --short-options --long-options"
+  },
+  "tokei": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --columns= -c= --exclude= -e= --files -f --hidden --languages -l --no-ignore --no-ignore-parent --no-ignore-dot --no-ignore-vcs --output= -o= --sort= -s= --rsort= -r= --types= -t= --compact -C --num-format= -n= --verbose -v"
+  },
+  "top": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --apply-defaults -A --batch-mode -b --delay= -d= --threads-show -H --iterations= -n= --list-fields -O --sort-override= -o= --pid= -p= --secure-mode -s --filter-any-user= -U= --filter-only-euser= -u= --width? -w?",
+    "max_operands": 0
   },
   "touch": {
     "help": [
@@ -1185,6 +2569,61 @@
     "flags": "--help --version --no-create -c --date= -d= --reference= -r= --time= -a -m -t=",
     "abbreviate": true,
     "min_operands": 1
+  },
+  "tr": {
+    "abbreviate": true,
+    "flags": "--help --version --complement -c -C --delete -d --squeeze-repeats -s --truncate-set1 -t",
+    "help": [
+      "--help"
+    ],
+    "max_operands": 2,
+    "min_operands": 1
+  },
+  "tree": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --gitignore --ignore-case --matchdirs --prune --noreport --filelimit= --du --inodes --device --dirsfirst --filesfirst --sort= --charset= --timefmt= -a -d -f -x -L= -P= -I= -q -N -Q -p -u -g -s -h -D -F -v -t -c -U -r -i -n -C -J"
+  },
+  "udevadm": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --debug -d",
+    "commands": {
+      "info": {
+        "min": 0,
+        "max": 1,
+        "flags": "--query= -q= --property= --value --path= -p= --name= -n= --attribute-walk -a --tree -t --export -x --export-db -e --no-pager --json=",
+        "help": [
+          "info",
+          "--help"
+        ]
+      },
+      "cat": {
+        "min": 0,
+        "max": 16,
+        "flags": ""
+      }
+    }
+  },
+  "ufw": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help",
+    "commands": {
+      "status": {
+        "max": 1
+      },
+      "show": {
+        "min": 1,
+        "max": 1
+      },
+      "version": {
+        "max": 0
+      }
+    }
   },
   "uname": {
     "help": [
@@ -1200,11 +2639,64 @@
     "flags": "--help --version --count -c --repeated -d --unique -u --ignore-case -i --skip-fields= -f= --skip-chars= -s= --check-chars= -w= --zero-terminated -z",
     "abbreviate": true
   },
+  "unxz": {
+    "abbreviate": true,
+    "flags": "--help --version --test -t --stdout -c --quiet -q --verbose -v --keep -k --list -l",
+    "help": [
+      "--help"
+    ],
+    "require_any": [
+      "--test",
+      "-t",
+      "--stdout",
+      "-c",
+      "--list",
+      "-l"
+    ]
+  },
+  "upower": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --battery -b --dump -d --enumerate -e --monitor -m --monitor-detail --show-info= -i=",
+    "max_operands": 0
+  },
   "uptime": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --pretty -p --since -s"
+  },
+  "vim": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version --clean -R -n -d --noplugin"
+  },
+  "visudo": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --check -c --file= -f= --quiet -q --strict -s",
+    "max_operands": 0,
+    "require_any": [
+      "--check",
+      "-c"
+    ]
+  },
+  "vmstat": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --active -a --forks -f --slabs -m --one-header -n --stats -s --disk -d --disk-sum -D --partition= -p= --unit= -S= --wide -w --timestamp -t --no-first -y",
+    "max_operands": 2
+  },
+  "walker": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version -v --nosearch -n --nohints -N --inputonly -I --index -i --provider= -m= --set= -s= --placeholder= -p= --height= --width= --theme= -t= --dmenu -d",
+    "max_operands": 0
   },
   "watch": {
     "help": [
@@ -1213,6 +2705,13 @@
     "flags": "--help --version --interval= -n= --differences? -d? --no-title -t --color -c --errexit -e --chgexit -g --precise -p --exec -x",
     "stop_at_operand": true
   },
+  "waybar": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -v --config= -c= --style= -s= --log-level= -l= --bar= -b=",
+    "max_operands": 0
+  },
   "wc": {
     "help": [
       "--help"
@@ -1220,12 +2719,49 @@
     "flags": "--help --version --bytes -c --chars -m --lines -l --words -w --max-line-length -L --files0-from=",
     "abbreviate": true
   },
+  "wg": {
+    "help": [
+      "--help"
+    ],
+    "flags": "",
+    "commands": {
+      "show": {
+        "min": 0,
+        "max": 2,
+        "flags": ""
+      }
+    }
+  },
+  "wget": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help -h --version -V --spider --quiet -q --verbose -v --server-response -S --timeout= -T= --tries= -t= --no-config --no-netrc",
+    "min_operands": 1,
+    "require_any": [
+      "--spider"
+    ]
+  },
+  "which": {
+    "flags": "--help --version --all -a --skip-dot --skip-tilde --show-dot --show-tilde --skip-alias --skip-functions",
+    "help": [
+      "--help"
+    ],
+    "min_operands": 1
+  },
   "who": {
     "help": [
       "--help"
     ],
     "flags": "--help --version --all -a --count -q --boot -b --heading -H --login -l --users -u --ips",
     "abbreviate": true
+  },
+  "whois": {
+    "help": [
+      "--help"
+    ],
+    "flags": "--help --version --host= -h= --port= -p= -I -H --verbose --no-recursion",
+    "min_operands": 1
   },
   "wl-copy": {
     "help": [
@@ -1291,6 +2827,21 @@
     ],
     "flags": "--help --version --manual",
     "max_operands": 1
+  },
+  "xz": {
+    "abbreviate": true,
+    "flags": "--help --version --test -t --stdout -c --quiet -q --verbose -v --keep -k --list -l --decompress -d",
+    "help": [
+      "--help"
+    ],
+    "require_any": [
+      "--test",
+      "-t",
+      "--stdout",
+      "-c",
+      "--list",
+      "-l"
+    ]
   },
   "yay": {
     "help": [

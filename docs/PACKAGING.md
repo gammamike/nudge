@@ -76,3 +76,9 @@ still require their own versioned metadata and tests.
 AUR, DEB/RPM packages, package repositories, ARM binaries, and automatic network
 updates are not provided by this installer. Users update explicitly from source
 or a verified bundle.
+
+## Distribution planning
+
+The [distribution research](DISTRIBUTION_OPTIONS.md) compares GitHub Releases,
+AUR packaging, and the desktop plugin marketplace, including the existing AUR
+name collision and package-managed installation work still needed.

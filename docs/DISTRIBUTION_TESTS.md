@@ -27,7 +27,18 @@ behavior, quoted paths, conflicts, backups, and preservation of shell content.
 These are userspace tests on a shared kernel, not full VM or desktop tests. They
 do not certify every CLI adapter on each distribution or any other architecture.
 The pinned Docker CI matrix runs the same smoke script as an unprivileged user;
-its first hosted result remains pending until the workflow is pushed.
+the previous main commit passed both [Linux checks](https://github.com/gammamike/nudge/actions/runs/41342149216)
+and [Linux packages](https://github.com/gammamike/nudge/actions/runs/41342149273).
+Hosted validation of the current command expansion remains pending until push.
 
 See [packaging instructions](PACKAGING.md) to reproduce the checks and
 [installation instructions](INSTALLATION.md) for supported setup options.
+
+## Command expansion recheck
+
+The 260-adapter expansion was rebuilt with Rust 1.88.0 for
+`x86_64-unknown-linux-musl`. Its development bundle passed the same lifecycle
+smoke test in all four userspaces above, with read-only bundle mounts and
+networking disabled. [Results and tested archive hash](../tests/fixtures/expansion-distribution-results.json)
+record that local run. This does not substitute for hosted CI and published-download
+checks on a final release.
