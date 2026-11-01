@@ -70,7 +70,6 @@ kubeconfig
 core
 core.*
 .bash_history
-/benchmarks/comparison-results.json
 
 # Editor state and temporary files
 .idea/

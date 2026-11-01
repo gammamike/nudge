@@ -1,4 +1,4 @@
-//! Nudge's Linux/Bash prototype, ported without invoking Python at runtime.
+//! Linux command correction and provider configuration for the Bash hook.
 
 #[cfg(not(target_os = "linux"))]
 compile_error!("Nudge currently supports Linux only");

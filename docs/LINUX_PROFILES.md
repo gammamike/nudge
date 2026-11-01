@@ -1,6 +1,6 @@
 # Linux profile batch
 
-Implemented and checked on this Omarchy machine on 2026-11-01: **110 new executable
+Implemented and checked on a Linux development machine on 2026-11-01: **110 new executable
 adapters**, bringing the registry at that point to **116 executable names**.
 The subsequent [nested CLI batch](NESTED_CLI_BATCH.md) brings the total to **120**.
 Docker Compose is a nested Docker adapter, not another executable in that count. Linux and Bash 5+
@@ -63,16 +63,16 @@ still open. The coverage batch did not publish a release or install extra CLI pa
 
 ## Validation and speed
 
-- Seven Rust unit tests; 51 Python integration tests, including a positive and
+- Seven Rust unit tests; 51 integration tests, including a positive and
   valid-failure subcase for **every one of the 110 new profiles**; 1,823 unchanged
-  Herdr/Omarchy parity cases. Formatting, Clippy with warnings denied, and Bash
+  catalog regression cases. Formatting, Clippy with warnings denied, and Bash
   syntax checks passed.
 - All 110 positive cases also ran against **real installed metadata**, followed by
   25 warm-cache measurements per tool. Tests never executed their proposed file,
   package, desktop, media, or system operations. Enter/accept tests used mock
   executables; four new terminal cases cover cp, hyprctl, wpctl, and ffprobe.
 - A fresh normal Bash session loaded one Nudge hook, all 116 names, and retained
-  the existing mise/zoxide prompt hooks. Claude/Codex/local-provider regression
+  the existing mise/zoxide prompt hooks. Codex, Claude Code, and local LLM regression
   tests used mocks; this batch made no live model requests.
 - Timing below includes launching Nudge and producing a local suggestion. It
   excludes the original command's runtime, Bash prompt rendering, user response,
@@ -104,7 +104,7 @@ other releases/implementations are not certified by these fixtures.
 Reproduce the metadata-only benchmark from the repository root:
 
 ```bash
-python tests/benchmark_profiles.py --samples 25 --output /tmp/nudge-profile-benchmark.json
+python3 tests/benchmark_profiles.py --samples 25 --output /tmp/nudge-profile-benchmark.json
 ```
 
 ## Per-executable matrix

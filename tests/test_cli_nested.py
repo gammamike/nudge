@@ -11,7 +11,7 @@ import time
 import unittest
 
 import test_cli_adapters as adapters
-from test_parity import BINARY, ROOT
+from support import BINARY, ROOT
 
 FIXTURES = Path(__file__).parent / 'fixtures/nested-cli-help.json'
 PAIRS = [

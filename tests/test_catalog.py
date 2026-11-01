@@ -1,38 +1,17 @@
-"""Cross-language parity and the original PTY contract; no live model calls."""
-import importlib.util
+"""Catalog regression and subscription-provider boundary tests for Rust."""
 import json
 import os
 from pathlib import Path
 import signal
 import subprocess
-import sys
 import tempfile
 import time
 import unittest
-from unittest.mock import patch
 
-ROOT = Path(__file__).resolve().parents[1]
-PYTHON = ROOT / "tests/reference/python"
-BINARY = ROOT / "target/release/nudge-rust"
+from support import ROOT, BINARY
 
 
-def load(name, path):
-    spec = importlib.util.spec_from_file_location(name, path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-original = load("original_tests", PYTHON / "tests/test_nudge.py")
-python = original.nudge
-original.ROOT = ROOT
-
-
-class RustShellTests(original.ShellTests):
-    """Run the identical seven Bash/TTY tests against the Rust binary."""
-
-
-class ParityTests(unittest.TestCase):
+class CatalogTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.directory = tempfile.TemporaryDirectory()
@@ -40,9 +19,8 @@ class ParityTests(unittest.TestCase):
         cls.env = {k: v for k, v in os.environ.items() if not k.startswith("NUDGE_")}
         cls.env.update(NUDGE_CACHE_DIR=str(cls.path / "cache"), NUDGE_PROVIDER="codex")
         cls.env["NUDGE_CONFIG"] = str(cls.path / "config.json")
-        # Use the captured catalog on every host; no installed Herdr or Omarchy
-        # and no files outside this checkout are needed for parity tests.
-        fixture = ROOT / "tests/fixtures/legacy-help.json"
+        # All catalog discovery uses captured help through temporary executables.
+        fixture = ROOT / "tests/fixtures/catalog-help.json"
         for name in ("herdr", "omarchy"):
             executable = cls.path / name
             executable.write_text('''#!/usr/bin/env python3
@@ -59,7 +37,7 @@ sys.exit(row['status'])
 ''')
             executable.chmod(0o755)
         cls.env["PATH"] = f"{cls.path}:{os.environ['PATH']}"
-        subprocess.run([sys.executable, str(PYTHON / "nudge.py"), "refresh"],
+        subprocess.run([str(BINARY), "refresh"],
                        env=cls.env, check=True, capture_output=True)
         cls.data = json.loads((cls.path / "cache/catalog.json").read_text())
 
@@ -75,32 +53,24 @@ sys.exit(row['status'])
         value.pop("elapsed_ms")
         return value
 
-    def test_same_discovered_catalog(self):
-        subprocess.run([str(BINARY), "refresh"], env=self.env, check=True, capture_output=True)
-        rust = json.loads((self.path / "cache/catalog.json").read_text())
-        for key in ("binaries", "entries", "version"):
-            self.assertEqual(rust[key], self.data[key], key)
+    def test_discovered_catalog_matches_reviewed_entries(self):
+        expected = json.loads((ROOT / 'tests/fixtures/catalog-entries.json').read_text())
+        self.assertEqual(self.data['entries'], expected)
+        for name in ('herdr', 'omarchy'):
+            self.assertEqual(self.data['binaries'][name][0], str(self.path / name))
 
-    def test_generated_local_cases_match_python(self):
-        cases = {"herdr stop", "herdr halt", "omarchy reload terminal", "omarchy nightlight",
-                 "herdr stop; id", "herdr $(id)", "herdr stop | cat", "herdr stop\n",
-                 "herdr\tstop", "herdr stop ", " herdr stop", "herdr  stop", "herdr --help",
-                 "sudo herdr stop", "omarchy theme set nord", "omarchy theme sett nord", ""}
-        for entry in self.data["entries"]:
-            route = entry["argv"]
-            cases.add(" ".join(route))
-            for i in range(1, len(route)):
-                cases.add(" ".join(route[:i] + route[i + 1:]))
-                if len(route[i]) >= 3:
-                    word = route[i]
-                    changed = word[:-2] + word[-1] + word[-2]
-                    cases.add(" ".join(route[:i] + [changed] + route[i + 1:]))
-        with patch.object(python, "catalog", return_value=self.data):
-            for line in sorted(cases):
-                expected = python.suggest(line, local_only=True)
-                expected.pop("elapsed_ms")
-                self.assertEqual(self.rust(line, "--local-only"), expected, line)
-        print(f"\nMatched {len(cases)} generated/local cases across both implementations.")
+    def test_catalog_correction_regressions(self):
+        cases = json.loads((ROOT / 'tests/fixtures/catalog-cases.json').read_text())
+        self.assertEqual(len(cases), 1823)
+        for expected in cases:
+            with self.subTest(command=expected['command']):
+                actual = self.rust(expected['command'], '--local-only')
+                executable = actual.pop('executable', None)
+                if expected['suggestion'] is not None:
+                    self.assertEqual(executable, str(self.path / expected['argv'][0]))
+                else:
+                    self.assertIsNone(executable)
+                self.assertEqual(actual, expected)
 
     def fake_codex(self):
         directory = tempfile.TemporaryDirectory()
@@ -122,24 +92,28 @@ else:
     Path(sys.argv[sys.argv.index('-o')+1]).write_text(json.dumps({'candidate_id':json.loads(os.environ.get('FAKE_ID','0'))}))
 ''')
         executable.chmod(0o755)
-        return dict(self.env, PATH=f"{path}:{os.environ['PATH']}", FAKE_CAPTURE=str(path / "capture"),
+        return dict(self.env, PATH=f"{path}:{self.env['PATH']}", FAKE_CAPTURE=str(path / "capture"),
                     FAKE_CHILD=str(path / "child"), OPENAI_API_KEY="sentinel", CODEX_API_KEY="sentinel")
 
-    def test_identical_codex_prompts_and_flags(self):
+    def test_subscription_selection_uses_constrained_prompt_and_isolated_flags(self):
         env = self.fake_codex()
-        for line in ("herdr halt", "omarchy reload terminal", "omarchy list themes",
-                     "omarchy darken screen", "herdr reload"):
-            subprocess.run([sys.executable, str(PYTHON / "nudge.py"), "suggest", "--command", line,
-                            "--force-codex"], env=env, check=True, capture_output=True)
-            expected = json.loads(Path(env["FAKE_CAPTURE"]).read_text())
-            self.rust(line, "--force-codex", env=env)
-            actual = json.loads(Path(env["FAKE_CAPTURE"]).read_text())
-            self.assertEqual(actual["prompt"], expected["prompt"], line)
-            self.assertFalse(actual["api_present"])
-            for data in (actual, expected):
-                for flag in ("-C", "--output-schema", "-o"):
-                    data["args"][data["args"].index(flag) + 1] = "TEMP"
-            self.assertEqual(actual["args"], expected["args"])
+        for line in ('herdr halt', 'omarchy reload terminal', 'omarchy list themes'):
+            result = self.rust(line, '--force-ai', env=env)
+            actual = json.loads(Path(env['FAKE_CAPTURE']).read_text())
+            data = json.loads(actual['prompt'].split('\n', 1)[1])
+            self.assertEqual(data['failed_command'], line)
+            self.assertEqual([c['id'] for c in data['candidates']], list(range(len(data['candidates']))))
+            self.assertIn(result['suggestion'], [c['command'] for c in data['candidates']])
+            self.assertFalse(actual['api_present'])
+            args = actual['args']
+            for flag in ('--no-daemon', '--ignore-user-config', '--ephemeral', '--skip-git-repo-check'):
+                self.assertIn(flag, args)
+            self.assertEqual(args[args.index('--sandbox') + 1], 'read-only')
+            for setting in ('approval_policy="never"', 'web_search="disabled"', 'forced_login_method="chatgpt"'):
+                self.assertIn(setting, args)
+            for feature in ('shell_tool', 'apps', 'plugins', 'hooks', 'multi_agent', 'browser_use', 'computer_use', 'image_generation'):
+                self.assertIn(['--disable', feature], [args[i:i+2] for i in range(len(args)-1)])
+            self.assertFalse(Path(args[args.index('-C') + 1]).exists())
 
     def test_api_auth_and_bad_model_output_decline(self):
         env = self.fake_codex()

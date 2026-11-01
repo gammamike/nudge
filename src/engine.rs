@@ -1,4 +1,4 @@
-//! Local corrections and Python-compatible candidate ranking.
+//! Deterministic catalog corrections and ranked candidates for model selection.
 
 use std::collections::HashSet;
 use std::path::Path;
@@ -218,7 +218,7 @@ pub(crate) fn shortlist<'a>(words: &[String], choices: &[&'a Entry]) -> Vec<&'a 
             )
         })
         .collect();
-    // Stable descending sort preserves the Python catalog's order on ties.
+    // Stable descending sort preserves catalog order when scores tie.
     ranked.sort_by(|a, b| b.1.cmp(&a.1).then_with(|| b.2.total_cmp(&a.2)));
     ranked
         .into_iter()
@@ -253,7 +253,7 @@ pub(crate) fn suggest(line: &str, options: &Options<'_>, runner: &Runner) -> Res
             .as_ref()
             .is_some_and(|v| v.iter().any(|w| EXCLUDED.contains(&w.as_str())))
     {
-        result.reason = Some("outside prototype scope or no actionable failure".to_owned());
+        result.reason = Some("unsupported syntax or no actionable failure".to_owned());
     } else if let Some(words) = words {
         let data = catalog::load(options.cache, false, runner)?;
         if known(&words, &data) && !options.force_ai {

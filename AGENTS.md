@@ -19,8 +19,8 @@ supported platforms. Keep command support claims scoped to tested behavior.
 ## Layout and validation
 
 - Runtime: `src/`, `data/`, and `nudge.bash`.
-- Python under `tests/reference/python/` is a legacy parity-test reference,
-  not a runtime dependency.
+- Integration tests in `tests/` exercise the Rust binary through mocks and PTYs;
+  there is no second runtime implementation.
 - Build with `cargo build --locked --release`.
 - Run `cargo fmt --check`, `cargo clippy --locked --all-targets -- -D warnings`,
   `cargo test --locked`, and `python3 -m unittest discover -s tests -v`.

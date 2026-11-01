@@ -25,7 +25,7 @@ backlog item; the priority list is an index, not additional implementations.
 
 | Area | Planned Linux executable/command targets |
 |---|---|
-| Desktop / Wayland / Omarchy-adjacent | `hyprctl`, `hyprpaper`, `hyprlock`, `hypridle`, `waybar`, `walker`, `mako`, `makoctl`, `notify-send`, `wl-copy`, `wl-paste`, `grim`, `slurp`, `xdg-open`, `xdg-mime`, `playerctl`, `brightnessctl`, `wpctl`, `pactl`, `pamixer`, `bluetoothctl`, `iwctl`, `swww`, `wlr-randr`, `gsettings`, `fc-list`, `fc-cache` |
+| Desktop / Wayland | `hyprctl`, `hyprpaper`, `hyprlock`, `hypridle`, `waybar`, `walker`, `mako`, `makoctl`, `notify-send`, `wl-copy`, `wl-paste`, `grim`, `slurp`, `xdg-open`, `xdg-mime`, `playerctl`, `brightnessctl`, `wpctl`, `pactl`, `pamixer`, `bluetoothctl`, `iwctl`, `swww`, `wlr-randr`, `gsettings`, `fc-list`, `fc-cache` |
 | Boot, kernel, and low-level system | `mkinitcpio`, `dracut`, `limine`, `grub-mkconfig`, `bootctl`, `efibootmgr`, `modprobe`, `lsmod`, `rmmod`, `sysctl`, `udevadm`, `systemd-analyze`, `systemd-run`, `coredumpctl`, `networkctl`, `busctl`, `reflector`, `fwupdmgr` |
 | Disks and filesystems | `fdisk`, `parted`, `gdisk`, `mkfs`, `fsck`, `dd`, `sync`, `cryptsetup`, `lvs`, `pvs`, `vgs`, `lvcreate`, `btrfs`, `snapper`, `zfs`, `zpool`, `mdadm`, `smartctl`, `swapon`, `swapoff` |
 | Debugging and performance | `lsof`, `fuser`, `strace`, `ltrace`, `gdb`, `perf`, `valgrind`, `ldd`, `objdump`, `nm`, `iotop`, `vmstat`, `iostat`, `nethogs`, `iftop`, `hyperfine` |

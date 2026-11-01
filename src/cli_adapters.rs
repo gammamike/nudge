@@ -1,4 +1,4 @@
-//! First Linux CLI adapters: correct syntax slots, never resource arguments.
+//! Linux adapter dispatch and syntax correction with literal argument preservation.
 
 use std::path::Path;
 use std::time::Instant;

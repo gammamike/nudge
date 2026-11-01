@@ -8,7 +8,7 @@ import tempfile
 import time
 import unittest
 
-from test_parity import BINARY, original
+from support import BINARY, Shell
 
 
 FAKE_CLAUDE = '''#!/usr/bin/env python3
@@ -193,7 +193,7 @@ fi
                 process.communicate()
 
     def test_bash_confirmation_executes_only_after_enter(self):
-        shell = original.Shell()
+        shell = Shell()
         self.addCleanup(shell.close)
         claude = shell.path / 'claude'
         claude.write_text(FAKE_CLAUDE)

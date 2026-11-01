@@ -10,7 +10,7 @@ import time
 import unittest
 import subprocess
 
-from test_parity import BINARY, ROOT
+from support import BINARY, ROOT
 import test_cli_adapters as adapters
 
 PROFILES = json.loads((ROOT / 'data/linux-profiles.json').read_text())

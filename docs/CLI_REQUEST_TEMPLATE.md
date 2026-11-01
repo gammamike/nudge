@@ -3,7 +3,7 @@
 Suggested issue title: `CLI support: <executable>`
 
 Search for an existing request first. Copy this template into the Nudge issue
-tracker once it is published. Replace private values with consistent placeholders;
+tracker, or use the CLI support issue form. Replace private values with consistent placeholders;
 do not attach credentials, complete shell history, or account configuration.
 
 ## Tool

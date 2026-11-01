@@ -11,7 +11,7 @@ import tempfile
 import time
 import unittest
 
-from test_parity import BINARY, ROOT
+from support import BINARY, ROOT
 
 FIXTURES = Path(__file__).parent / 'fixtures/linux-cli-help.json'
 

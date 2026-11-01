@@ -5,24 +5,24 @@ command, offers a correction, and waits for **Enter** before running it. Press a
 other key to cancel.
 
 ```text
-$ herdr stop
+$ git statsu
 …unknown subcommand…
 
-herdr server stop
+git status
 [Enter to run · any other key to cancel]
 ```
 
-Nudge is written in Rust and developed primarily on Omarchy. It supports Linux
-and Bash 5+ only. It is under active development; the command inventory and
-standalone installer are not yet complete.
+Nudge is written in Rust for **Linux and Bash 5+**. It does not require a specific
+Linux distribution or desktop environment. It is under active development;
+command coverage and a standalone installer are not yet complete.
 
 ## How it works
 
 - A Bash prompt hook checks failed commands without replacing the shell.
 - Local rules correct unambiguous syntax errors using reviewed adapters and
   installed command metadata.
-- Optional Codex, Claude Code, Ollama, or local OpenAI-compatible inference can
-  select an eligible command when local matching cannot choose one.
+- Optional model selection supports **Codex**, **Claude Code**, and **local LLMs**
+  through Ollama or a local server implementing the OpenAI-compatible API.
 - The proposed command is displayed before execution. Arguments are passed
   literally; model output is never evaluated as shell code.
 
@@ -32,8 +32,9 @@ connectivity, or missing resources are not automatically retried.
 
 ## Build and enable
 
-Requirements: Linux, Bash 5+, and Rust 1.88 or newer to build. Python is only
-needed for development tests. Local model servers additionally require `curl`.
+Requirements: Linux, Bash 5+, and Rust 1.88 or newer to build. Running Nudge
+requires the compiled binary and Bash hook. Local LLM support also requires
+`curl` and a separately running inference server.
 
 ```bash
 git clone https://github.com/gammamike/nudge.git
@@ -69,8 +70,18 @@ To disable Nudge for the current shell:
 export NUDGE_ENABLED=0
 ```
 
-To disable it permanently, remove its source block from `~/.bashrc` and start a
-new shell. User configuration is stored separately in `~/.config/nudge`.
+To remove Nudge, delete its source block from `~/.bashrc` and start a new shell,
+then remove the checkout if you no longer need it. Configuration is kept in
+`~/.config/nudge/config.json` by default, or the configured XDG/override path.
+Remove that file separately if you want to discard saved settings.
+
+To update an existing checkout:
+
+```bash
+git pull --ff-only
+cargo build --locked --release
+exec bash
+```
 
 ## Local corrections and model providers
 
@@ -84,23 +95,23 @@ Unset that variable, or set it to `0`, to allow the selected provider. Models ar
 optional; missing authentication or an unavailable provider produces no model
 suggestion. Nudge does not switch providers automatically.
 
-```bash
-# Inspect effective settings.
-./target/release/nudge-rust config
+Choose one provider; the following are alternatives, not a setup sequence:
 
-# Save a provider and model available to your account.
-./target/release/nudge-rust config --provider codex --model gpt-6-luna
-./target/release/nudge-rust config --provider claude --model haiku
+| Provider | Saved configuration example |
+|---|---|
+| Codex subscription CLI | `./target/release/nudge-rust config --provider codex --model YOUR_MODEL_ID` |
+| Claude Code subscription CLI | `./target/release/nudge-rust config --provider claude --model YOUR_MODEL_ID` |
+| Local LLM with Ollama | `./target/release/nudge-rust config --provider ollama --model YOUR_INSTALLED_MODEL_ID` |
+| Local LLM with a compatible HTTP server | `./target/release/nudge-rust config --provider local --model YOUR_MODEL_ID --endpoint http://127.0.0.1:1234/v1` |
 
-# Discover and select an installed local model.
-./target/release/nudge-rust models --provider ollama
-./target/release/nudge-rust config --provider ollama --model YOUR_INSTALLED_MODEL_ID
-```
+Replace model placeholders with an available model ID or supported alias. Run
+`./target/release/nudge-rust config` to inspect effective settings. Local models
+can be listed with `models --provider ollama` or `models --provider local`.
 
-The default provider is Codex. Hosted adapters use the provider CLI's existing
-subscription login and reject API-key authentication. Provider limits and
-account-level billing settings still apply. The selected model must be available
-to your account or server.
+Codex is the default provider; Claude Code and local LLMs are selectable
+alternatives. Codex and Claude Code use their CLI's existing subscription login
+and reject API-key authentication. Provider limits and account-level billing
+settings still apply. Local inference requires a model loaded on your server.
 
 See [provider configuration](docs/PROVIDERS.md) for authentication, local server
 endpoints, model overrides, privacy boundaries, and environment settings.
@@ -108,9 +119,8 @@ endpoints, model overrides, privacy boundaries, and environment settings.
 ## Command coverage
 
 The registry currently contains **120 executable adapters**, with deliberately
-scoped support. It includes Herdr, Omarchy, Git, Docker/Compose, systemd, common
-file/text tools, desktop utilities, Cargo, Pacman/Yay query operations, Nix,
-iwctl, Zellij, and strace.
+scoped support. It includes Git, Docker/Compose, systemd, common file/text tools,
+desktop utilities, Cargo, Pacman/Yay query operations, Nix, iwctl, Zellij, and strace.
 A listed executable does not imply support for every option or subcommand.
 
 - [Git, Docker/Compose, and systemd support](docs/FIRST_CLI_BATCH.md)
@@ -158,14 +168,14 @@ python3 -m unittest discover -s tests -v
 bash -n nudge.bash interactive.bash try-bash
 ```
 
-Tests use captured command metadata, mock executables, and loopback mock servers.
-They do not need installed Herdr/Omarchy or a model login. The legacy Python
-implementation under `tests/reference/python` exists solely for regression
-comparison; it is not used by the Rust runtime.
+Integration tests require Python 3 and `curl`. They exercise the Rust binary
+using captured metadata, mock executables, and loopback servers. No model login
+or live model requests are needed.
 
-See [development notes](docs/DEVELOPMENT.md) for fixtures and benchmarks.
+See [contribution guidelines](CONTRIBUTING.md), [development notes](docs/DEVELOPMENT.md),
+and the [changelog](CHANGELOG.md). For setup problems, see
+[troubleshooting](docs/TROUBLESHOOTING.md).
 
 ## License
 
-[GNU General Public License v3.0](LICENSE). Distributed modifications must comply
-with GPL v3's source and licensing requirements. See `LICENSE` for the full terms.
+[GNU General Public License v3.0 only](LICENSE) (`GPL-3.0-only`).

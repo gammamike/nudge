@@ -1,5 +1,8 @@
 # Provider configuration
 
+Supported providers are **Codex**, **Claude Code**, and **local LLMs** through
+Ollama or an OpenAI-compatible local HTTP server.
+
 Local matching runs first. When it cannot select a correction, a configured
 provider can choose one of the eligible command routes or decline. It cannot
 supply arbitrary executable code. Every suggestion still requires confirmation.
@@ -35,8 +38,9 @@ then defaults. An exported environment setting overrides a saved setting.
 | `NUDGE_CODEX_TIMEOUT`, `NUDGE_CLAUDE_TIMEOUT`, `NUDGE_OLLAMA_TIMEOUT`, `NUDGE_LOCAL_TIMEOUT` | Provider-specific timeouts when `NUDGE_AI_TIMEOUT` is unset |
 
 `--provider`, `--model`, and `--endpoint` override their respective settings for
-one command. Request timeouts are configured through the environment. `--force-ai` forces eligible command selection through
-the configured model for diagnostics; local-only mode takes precedence.
+one command. Request timeouts are configured through the environment.
+`--force-ai` forces eligible command selection through the configured model for
+diagnostics; local-only mode takes precedence.
 `--force-codex` remains a legacy Codex-specific diagnostic option.
 
 ## Codex
@@ -109,8 +113,8 @@ accuracy have not been certified for every server version or model.
 
 No provider receives terminal scrollback, unrelated history, or command output.
 The argument-aware adapters send command-syntax slots and eligible routes while
-omitting paths, IDs, option values, and other preserved operands. The older
-Herdr/Omarchy matcher accepts only literal command words and sends those words
+omitting paths, IDs, option values, and other preserved operands. The catalog-based
+matchers accept only literal command words and send those words
 with its shortlisted routes. Option corrections use local matching only.
 
 A missing CLI/model, refused authentication, timeout, invalid response, or

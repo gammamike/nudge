@@ -1,4 +1,4 @@
-//! Command discovery and a JSON cache compatible with the Python prototype.
+//! Read-only command discovery and a versioned JSON metadata cache.
 
 use std::collections::BTreeMap;
 use std::env;

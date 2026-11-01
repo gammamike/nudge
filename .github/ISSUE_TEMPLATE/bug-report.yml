@@ -1,0 +1,49 @@
+name: Bug report
+description: Report incorrect behavior in Nudge on Linux.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Replace private values with placeholders. Do not paste credentials, full shell history, or account configuration. See SECURITY.md for vulnerability reporting.
+  - type: input
+    id: environment
+    attributes:
+      label: Linux distribution, Bash version, and Nudge commit
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Affected executable and version
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include the mistyped command and observed suggestion. Do not run a damaging command to reproduce a bug.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Correction mode
+      options:
+        - Local corrections only
+        - Codex
+        - Claude Code
+        - Local LLM with Ollama
+        - Local LLM with compatible HTTP server
+        - Unknown
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Additional details
+      description: Include redacted errors, relevant prompt-hook configuration, or whether the problem occurs in a fresh Bash shell.

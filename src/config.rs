@@ -1,4 +1,4 @@
-//! Persist provider-specific choices without hard-coding available model IDs.
+//! Persist provider choices and resolve overrides before built-in defaults.
 
 use std::collections::BTreeMap;
 use std::env;

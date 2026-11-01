@@ -2,7 +2,7 @@
 
 Git, Docker/Compose, systemctl, and journalctl now have initial argument-aware
 adapters. This is scoped support, not a claim that every subcommand, flag, version,
-or shell construct is supported. Herdr/Omarchy retain their original adapters.
+or shell construct is supported. Catalog-based adapters retain their existing scopes.
 
 ## What works
 
@@ -98,7 +98,7 @@ Verified on Linux on November 1, 2026:
 
 - Git **2.56.0**; Docker **29.9.2**; Compose **5.6.1**; systemd **262.1**.
 - **42 integration tests** and **6 Rust unit tests** passed, including the prior
-  provider tests and 1,823 legacy local-parity inputs.
+  provider tests and 1,823 catalog regression inputs.
 - **26 suggestion-only checks** against actual installed metadata passed.
 - **Five fresh normal-Bash checks** displayed and cancelled real suggestions.
   No suggested real command was executed. Accept/execute behavior was tested

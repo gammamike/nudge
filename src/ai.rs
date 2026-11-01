@@ -1,4 +1,4 @@
-//! Provider selection and the common constrained correction request.
+//! Shared selection protocol for Codex, Claude Code, and local LLM providers.
 
 use anyhow::{Result, bail};
 use serde_json::{Value, json};
@@ -54,9 +54,8 @@ impl Provider {
     }
 }
 
-// Match Python json.dumps' ASCII escaping and spaces so benchmark prompts are
-// byte-identical, including candidate order and non-ASCII help descriptions.
-fn python_string(text: &str) -> Result<String> {
+// Keep prompt serialization stable across providers, including Unicode descriptions.
+fn ascii_json_string(text: &str) -> Result<String> {
     use std::fmt::Write;
     let mut result = String::new();
     for character in serde_json::to_string(text)?.chars() {
@@ -76,13 +75,13 @@ pub(crate) fn prompt(words: &[String], choices: &[&Entry]) -> Result<String> {
     for (id, entry) in choices.iter().enumerate() {
         candidates.push(format!(
             "{{\"id\": {id}, \"command\": {}, \"description\": {}}}",
-            python_string(&entry.argv.join(" "))?,
-            python_string(&entry.summary)?
+            ascii_json_string(&entry.argv.join(" "))?,
+            ascii_json_string(&entry.summary)?
         ));
     }
     let prompt_data = format!(
         "{{\"failed_command\": {}, \"candidates\": [{}]}}",
-        python_string(&words.join(" "))?,
+        ascii_json_string(&words.join(" "))?,
         candidates.join(", ")
     );
     Ok(format!(

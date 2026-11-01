@@ -70,8 +70,8 @@ not establish compatibility with every release or operating environment.
 
 Checks completed:
 
-- 10 Rust unit tests and 60 Python integration tests passed, including all
-  1,823 existing parity cases.
+- 10 Rust unit tests and 60 integration tests passed, including all
+  1,823 catalog regression cases.
 - 29 new positive corrections also passed against the extracted real binaries'
   metadata. Each corresponding correctly spelled command was left alone in
   fixture tests.

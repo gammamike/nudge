@@ -10,7 +10,7 @@ import threading
 import time
 import unittest
 
-from test_parity import BINARY, original
+from support import BINARY, Shell
 
 
 class LocalTests(unittest.TestCase):
@@ -224,7 +224,7 @@ class LocalTests(unittest.TestCase):
         # forkpty must run before the HTTP serving thread is active.
         self.server.shutdown()
         self.thread.join()
-        shell = original.Shell()
+        shell = Shell()
         self.addCleanup(shell.close)
         self.thread = threading.Thread(target=self.server.serve_forever, daemon=True)
         self.thread.start()
