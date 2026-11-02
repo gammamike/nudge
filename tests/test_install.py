@@ -52,6 +52,51 @@ class InstallTests(unittest.TestCase):
         self.assertEqual((self.root/'current/THIRD_PARTY_NOTICES.md').read_text(),'notice index')
         self.assertEqual(len(self.run_nudge('supported',executable=self.binary).stdout.splitlines()),120)
 
+    def test_install_reports_fallback_without_contacting_providers(self):
+        calls = self.path / 'provider-calls'
+        for name in ('codex', 'claude', 'curl', 'ollama'):
+            tool = self.path / 'metadata' / name
+            tool.write_text('#!/bin/bash\nprintf called >> "$PROVIDER_CALLS"\nexit 1\n')
+            tool.chmod(0o755)
+        self.env['PROVIDER_CALLS'] = str(calls)
+        del self.env['NUDGE_LOCAL_ONLY']
+        output = self.run_nudge('install').stdout
+        self.assertIn('Model fallback: Codex (OpenAI cloud)', output)
+        self.assertIn('automatically before Enter-to-run confirmation', output)
+        self.assertIn('export NUDGE_LOCAL_ONLY=1 to ~/.bashrc', output)
+        self.assertIn('connection not tested', output)
+
+        config = self.path / 'settings.json'
+        for provider, label in (
+            ('claude', 'Claude Code (Anthropic cloud)'),
+            ('ollama', 'Ollama (loopback server)'),
+            ('local', 'local LLM (loopback server)'),
+        ):
+            with self.subTest(provider=provider):
+                config.write_text(json.dumps({'provider': provider}))
+                output = self.run_nudge('install', NUDGE_CONFIG=str(config)).stdout
+                self.assertIn('Model fallback: ' + label, output)
+        output = self.run_nudge('install', NUDGE_CONFIG=str(config), NUDGE_PROVIDER='claude').stdout
+        self.assertIn('Model fallback: Claude Code (Anthropic cloud)', output)
+        output = self.run_nudge('install', NUDGE_CONFIG=str(config), NUDGE_LOCAL_ONLY='1').stdout
+        self.assertIn('Model fallback: disabled (NUDGE_LOCAL_ONLY=1)', output)
+        self.assertEqual(json.loads(config.read_text()), {'provider': 'local'})
+        self.assertFalse(calls.exists(), 'installation must not contact a provider')
+
+    def test_install_notice_tolerates_invalid_settings_without_exposing_them(self):
+        config = self.path / 'settings.json'
+        config.write_text('private invalid settings')
+        for updates in (
+            {'NUDGE_CONFIG': str(config)},
+            {'NUDGE_PROVIDER': 'private-invalid-provider'},
+        ):
+            with self.subTest(updates=updates):
+                output = self.run_nudge('install', NUDGE_LOCAL_ONLY='0', **updates).stdout
+                self.assertIn('settings could not be read; run nudge config to diagnose', output)
+                self.assertNotIn('private', output)
+        self.assertEqual(config.read_text(), 'private invalid settings')
+        self.assertTrue(self.binary.is_file())
+
     def test_edited_hook_blocks_updates_and_unknown_files_block_removal(self):
         self.run_nudge('install')
         current=os.readlink(self.root/'current')

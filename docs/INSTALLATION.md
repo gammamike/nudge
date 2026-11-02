@@ -3,7 +3,17 @@
 Nudge runs on Linux in interactive Bash 5+. Installation is per-user and does
 not require sudo, a system service, or a particular distribution. The engine and
 installer are Rust; Bash supplies the shell integration. Codex, Claude Code, and
-local LLM support are optional. See [provider configuration](PROVIDERS.md).
+local LLMs are supported providers. **Codex cloud fallback is enabled by default**:
+when local matching cannot choose an eligible correction, Nudge automatically
+uses your existing Codex CLI login to request a selection from OpenAI. Selecting
+Claude Code uses Anthropic; local LLM providers use a loopback server.
+
+For deterministic local corrections only, add `export NUDGE_LOCAL_ONLY=1` to
+`~/.bashrc` before starting a new shell, and run the same export in the current
+shell. This disables every model request, including local LLMs. Enter confirms
+command execution after a suggestion is available; it does not gate the preceding
+model request. See [provider configuration](PROVIDERS.md) and
+[what leaves your machine](../README.md#what-leaves-your-machine).
 
 ## Install from source
 
@@ -20,6 +30,12 @@ exec bash
 A successful install copies the executable and embedded hook into a per-user
 installation. The checkout can then be moved or removed. Keep a checkout if you
 want to update from source.
+
+Use `./install.sh --no-modify-shell` if you want to inspect the installation and
+manage shell setup yourself; then source the hook path printed by the installer.
+Installation makes no model requests. Its fallback notice reflects the current
+environment and saved settings; exports loaded by a new Bash shell can change
+the effective mode. The notice does not test authentication or server availability.
 
 If you previously added a manual `nudge.bash` source block to `~/.bashrc`, remove
 that block before using automatic setup. The installer refuses duplicate or
