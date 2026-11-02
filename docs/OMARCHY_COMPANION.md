@@ -86,8 +86,18 @@ AUR packages and public release downloads have not been published yet.
 3. Enter a model ID or alias available to your account or installed locally.
    For local servers, enter a loopback HTTP endpoint and select **Find local
    models** to populate the model picker. You can also type the ID directly.
-4. Select **Save settings**. Changes apply on Nudge's next request. **Reload**
+4. Optionally select **Test connection**. This sends one small synthetic request
+   through the selected provider and model, using provider allowance or local
+   compute. It does not save settings or send shell history. The result shows
+   **Connected** only after a usable model response, or a failure message.
+5. Select **Save settings**. Changes apply on Nudge's next request. **Reload**
    discards unsaved edits and rereads the configuration.
+
+Connection status starts at **Not tested**. Editing the provider, model, or
+endpoint, or reloading settings, clears the previous result. A successful test
+shows the tested model and time; it is not continuous monitoring. Testing is
+explicit and still sends a request when terminal correction fallback is disabled
+with `NUDGE_LOCAL_ONLY=1`. Opening the panel does not contact providers.
 
 Changing the provider picker does not save anything. Blank fields preserve
 saved values or Nudge's defaults; they do not remove existing overrides. The
@@ -123,10 +133,14 @@ are also not auto-discovered; expose that installed executable as `nudge-bash`
 on the desktop PATH. Relative XDG directory values use the home-directory
 default, matching the CLI. Select **Reload** after installation.
 
-The panel does not read provider credentials or shell history, request inference,
-download models, or execute proposed corrections. **Find local models** only
-queries the selected loopback server. Arguments are passed directly to the CLI,
-without shell evaluation. Each CLI invocation is limited to 15 seconds.
+The panel does not read provider credentials or shell history, download models,
+or execute proposed corrections. **Find local models** only queries the selected
+loopback server. **Test connection** uses the CLI's existing subscription or
+local-model boundaries and only fixed test data. Arguments are passed directly
+to the CLI without shell evaluation. Ordinary invocations are limited to 15
+seconds; connection tests allow 25 seconds including CLI authentication, with a
+15-second model request budget. The CLI can be tested separately with
+`nudge check-provider` or `nudge-bash check-provider`.
 
 ## Update and remove
 

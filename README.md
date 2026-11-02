@@ -81,9 +81,9 @@ and public release downloads have not been published. See the
 ### Optional desktop companion
 
 An optional [Omarchy companion](docs/OMARCHY_COMPANION.md) provides a settings
-panel for Codex, Claude Code, and local LLMs, including local model discovery
-and Bash setup instructions. It is developed in this repository and is not yet
-listed in the marketplace. Nudge itself works without this companion or desktop.
+panel for Codex, Claude Code, and local LLMs, including local model discovery,
+an explicit connection test, and Bash setup instructions. It is developed in
+this repository and is not yet listed in the marketplace. Nudge itself works without this companion or desktop.
 
 ## Local corrections and model providers
 

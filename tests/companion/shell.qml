@@ -52,11 +52,17 @@ ShellRoot {
             var save = control("saveSettings");
             var reload = control("reloadSettings");
             var window = control("nudgeWindow");
+            var testConnection = control("testConnection");
+            compare(panel.connectionState, "untested");
 
             // Signals exercise the actual controls' handlers and the async CLI.
             provider.changed("claude");
             model.text = "haiku";
             compare(panel.savedConfig.provider, null);
+            testConnection.clicked();
+            settled();
+            compare(panel.connectionState, "failed", "Missing Claude CLI must not appear connected");
+            compare(panel.savedConfig.provider, null, "Testing must not save choices");
             save.clicked();
             settled();
             verify(!panel.failed, panel.notice);
@@ -67,6 +73,8 @@ ShellRoot {
             compare(model.text, "haiku");
 
             provider.changed("ollama");
+            compare(panel.connectionState, "untested");
+            verify(!testConnection.enabled, "A local model is required for a test");
             verify(!save.enabled, "A local model is required");
             control("findModels").clicked();
             settled();
@@ -74,12 +82,23 @@ ShellRoot {
             compare(panel.discoveredModels.length, 1);
             control("localModelPicker").changed("qwen3:0.6b");
             compare(model.text, "qwen3:0.6b");
+            testConnection.clicked();
+            settled();
+            compare(panel.connectionState, "connected", panel.connectionMessage);
+            compare(panel.savedConfig.provider, "claude", "Testing unsaved Ollama settings must not switch the saved provider");
+            model.text = "another-model";
+            compare(panel.connectionState, "untested", "Model edits invalidate the result");
+            model.text = "qwen3:0.6b";
             verify(save.enabled);
             save.clicked();
             settled();
             compare(panel.savedConfig.provider, "ollama");
 
             endpoint.text = "https://example.com/v1";
+            compare(panel.connectionState, "untested");
+            testConnection.clicked();
+            settled();
+            compare(panel.connectionState, "failed");
             save.clicked();
             settled();
             verify(panel.failed, "Remote endpoints must fail");
@@ -87,6 +106,7 @@ ShellRoot {
             reload.clicked();
             settled();
             verify(!panel.failed, panel.notice);
+            compare(panel.connectionState, "untested", "Reload clears the test result");
 
             // Use the same singleton update path as the host's theme IPC.
             Commons.Color.loadColors('background = "#101315"\nforeground = "#cacccc"\naccent = "#7aa2f7"\nred = "#f7768e"');

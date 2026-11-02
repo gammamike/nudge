@@ -41,7 +41,11 @@ def main():
             bin_dir.joinpath(name).symlink_to(shutil.which(name))
         curl = bin_dir / "curl"
         curl.write_text('''#!/bin/bash
-printf '%s\\n' '{"models":[{"name":"qwen3:0.6b"}]}'
+case "$*" in
+  */api/show*) printf '%s\\n' '{"model_info":{}}' ;;
+  */api/chat*) printf '%s\\n' '{"done":true,"done_reason":"stop","message":{"role":"assistant","content":"{\\"candidate_id\\":0}"}}' ;;
+  *) printf '%s\\n' '{"models":[{"name":"qwen3:0.6b"}]}' ;;
+esac
 ''')
         curl.chmod(0o700)
         hyprctl = bin_dir / "hyprctl"

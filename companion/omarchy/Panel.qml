@@ -22,6 +22,8 @@ Item {
     property string configPath: ""
     property var savedConfig: ({})
     property var discoveredModels: []
+    property string connectionState: "untested"
+    property string connectionMessage: "Not tested"
     readonly property bool localProvider: Model.isLocal(provider.value)
     readonly property string helper: Model.localPath(Qt.resolvedUrl("bridge.sh").toString())
 
@@ -46,6 +48,7 @@ Item {
     }
 
     function selectProvider(value) {
+        resetConnection();
         provider.value = value;
         var fields = Model.fields(savedConfig, value);
         model.text = fields.model;
@@ -54,12 +57,22 @@ Item {
         notice = "";
     }
 
+    function resetConnection() {
+        connectionState = "untested";
+        connectionMessage = "Not tested";
+    }
+
     function run(action, args) {
         if (busy)
             return;
         busy = true;
         failed = false;
         notice = action === "save" ? "Saving…" : "Loading…";
+        if (action === "test") {
+            connectionState = "testing";
+            connectionMessage = "Testing connection…";
+            notice = "";
+        }
         operation = action;
         process.command = ["/bin/bash", helper, action].concat(args);
         process.running = true;
@@ -70,10 +83,22 @@ Item {
         if (exitCode !== 0) {
             failed = true;
             notice = exitCode === 124 || exitCode === 137 ? "Nudge took too long to respond. Check the installation or local server and retry." : (error.trim().slice(0, 1200) || "Nudge could not complete this request.");
+            if (operation === "test") {
+                connectionState = "failed";
+                connectionMessage = "Test failed: " + notice;
+                notice = "";
+            }
             return;
         }
         try {
             var result = JSON.parse(output);
+            if (operation === "test") {
+                if (typeof result.ok !== "boolean" || typeof result.message !== "string" || typeof result.model !== "string" || result.provider !== provider.value)
+                    throw new Error("Invalid connection test response");
+                connectionState = result.ok ? "connected" : "failed";
+                connectionMessage = result.ok ? "Connected — " + result.model + " · tested " + new Date().toLocaleTimeString() : "Test failed: " + result.message;
+                return;
+            }
             if (operation === "models") {
                 discoveredModels = Model.modelChoices(result.models);
                 notice = discoveredModels.length ? "Choose a discovered model or enter an ID below." : "No local models found. Load a model on your server, then refresh.";
@@ -93,6 +118,11 @@ Item {
         } catch (e) {
             failed = true;
             notice = "Could not read Nudge's response. Update Nudge and try again.";
+            if (operation === "test") {
+                connectionState = "failed";
+                connectionMessage = "Test failed: " + notice;
+                notice = "";
+            }
         }
     }
 
@@ -252,7 +282,7 @@ Item {
                             }
                         }
                         BodyText {
-                            text: root.localProvider ? "Start a local inference server and load a model. Only loopback HTTP endpoints are supported." : "Install and sign in to the selected provider's CLI in a terminal. Use a model ID or alias available to your account; this panel does not sign in or make inference requests."
+                            text: root.localProvider ? "Start a local inference server and load a model. Only loopback HTTP endpoints are supported." : "Install and sign in to the selected provider's CLI in a terminal. Use a model ID or alias available to your account."
                         }
                         Column {
                             width: parent.width
@@ -265,6 +295,7 @@ Item {
                                 id: endpoint
                                 foreground: root.foreground
                                 objectName: "endpointInput"
+                                onTextChanged: root.resetConnection()
                                 width: parent.width
                                 enabled: root.available && !root.busy
                                 placeholderText: Model.endpointHint(provider.value)
@@ -300,6 +331,7 @@ Item {
                                 id: model
                                 foreground: root.foreground
                                 objectName: "modelInput"
+                                onTextChanged: root.resetConnection()
                                 width: parent.width
                                 enabled: root.available && !root.busy
                                 placeholderText: root.localProvider ? "Choose or enter an installed model" : "Keep saved model or provider default"
@@ -307,6 +339,27 @@ Item {
                             }
                             BodyText {
                                 text: "Blank fields keep saved values or Nudge's defaults. Local inference requires a model. Exported NUDGE_* variables in your terminal override saved choices."
+                            }
+                        }
+                        Column {
+                            width: parent.width
+                            spacing: Commons.Style.space(8)
+                            BodyText {
+                                objectName: "connectionStatus"
+                                text: root.connectionMessage
+                                color: root.connectionState === "failed" ? Commons.Color.urgent : root.foreground
+                                Accessible.role: Accessible.StaticText
+                                Accessible.name: text
+                            }
+                            Action {
+                                text: root.connectionState === "testing" ? "Testing…" : "Test connection"
+                                objectName: "testConnection"
+                                enabled: root.available && !root.busy && (!root.localProvider || model.text.trim() !== "")
+                                onClicked: root.run("test", [provider.value, model.text.trim(), root.localProvider ? endpoint.text.trim() : ""])
+                            }
+                            BodyText {
+                                text: "Sends one small test request using these choices, without saving. Uses provider allowance or local compute; no shell history is sent. Results describe this test, not continuous monitoring."
+                                font.pixelSize: Commons.Style.font.caption
                             }
                         }
                         Flow {

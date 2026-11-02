@@ -1,6 +1,7 @@
 #!/bin/bash
 # Adapt the settings panel to the installed CLI; never evaluate input as code.
 set -euo pipefail
+nudge_time_limit=15s
 
 fail() {
   printf '%s\n' "$*" >&2
@@ -33,7 +34,7 @@ fi
 # or Nudge's known installation layouts, never a bare `nudge` found on PATH.
 invoke() {
   [[ -n $binary ]] || fail 'Nudge is not installed. See the Setup tab.'
-  timeout --signal=TERM --kill-after=2s 15s "$binary" "$@"
+  timeout --signal=TERM --kill-after=2s "$nudge_time_limit" "$binary" "$@"
 }
 
 status() {
@@ -58,9 +59,9 @@ case "$action" in
     (( $# == 0 )) || fail 'status takes no arguments'
     status
     ;;
-  save|models)
-    if [[ $action == save ]]; then
-      (( $# == 3 )) || fail 'save requires provider, model, and endpoint'
+  save|test|models)
+    if [[ $action == save || $action == test ]]; then
+      (( $# == 3 )) || fail 'save/test requires provider, model, and endpoint'
       provider=$1 model=$2 endpoint=$3
     else
       (( $# == 2 )) || fail 'models requires provider and endpoint'
@@ -75,7 +76,13 @@ case "$action" in
         fail 'Model discovery is available for local providers only'
       args=(models --provider "$provider")
     else
-      args=(config --provider "$provider")
+      if [[ $action == test ]]; then
+        args=(check-provider --provider "$provider")
+        nudge_time_limit=25s
+        export NUDGE_AI_TIMEOUT=15
+      else
+        args=(config --provider "$provider")
+      fi
       [[ -z $model ]] || args+=(--model "$model")
     fi
     if [[ -n $endpoint ]]; then
@@ -90,5 +97,5 @@ case "$action" in
       invoke "${args[@]}"
     fi
     ;;
-  *) fail 'Usage: bridge.sh status | save PROVIDER MODEL ENDPOINT | models PROVIDER ENDPOINT' ;;
+  *) fail 'Usage: bridge.sh status | save PROVIDER MODEL ENDPOINT | test PROVIDER MODEL ENDPOINT | models PROVIDER ENDPOINT' ;;
 esac

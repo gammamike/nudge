@@ -105,3 +105,20 @@ pub(crate) fn selected<'a>(value: &Value, choices: &[&'a Entry]) -> Option<&'a E
     let index = usize::try_from(object.get("candidate_id")?.as_u64()?).ok()?;
     choices.get(index).copied()
 }
+
+/// Distinguish an explicit abstention from a response we cannot safely use.
+pub(crate) fn selection_result<'a>(
+    value: &Value,
+    choices: &[&'a Entry],
+    provider: Provider,
+) -> (Option<&'a Entry>, Option<String>) {
+    if let Some(entry) = selected(value, choices) {
+        return (Some(entry), None);
+    }
+    let message = if value == &json!({"candidate_id": -1}) {
+        "no suitable correction found"
+    } else {
+        "invalid response; no correction suggested"
+    };
+    (None, Some(format!("{}: {message}", provider.label())))
+}

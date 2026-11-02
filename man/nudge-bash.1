@@ -31,6 +31,12 @@ Show effective settings, or save provider, model, and endpoint options.
 .TP
 .B models
 List models from the selected local model server.
+.TP
+.B check-provider
+Send a small synthetic request through the selected provider and model.
+Print JSON with an ok field and result message; a false ok value means the
+test failed. Does not save settings or execute commands. Uses provider allowance
+or local compute, even when NUDGE_LOCAL_ONLY disables correction fallback.
 .SH OPTIONS
 .TP
 .BI --command " TEXT"

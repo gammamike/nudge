@@ -118,7 +118,7 @@ pub(crate) fn pick<'a>(
             let reason = if error.to_string().contains("timed out") {
                 format!("Claude timed out after {}s", options.timeout.as_secs_f64())
             } else {
-                "Claude returned no valid selection".to_owned()
+                "Claude returned an invalid response; no correction suggested".to_owned()
             };
             return Ok((None, Some(reason)));
         }
@@ -136,13 +136,14 @@ pub(crate) fn pick<'a>(
     // free-form text, an error's payload, or model-provided command arguments.
     let parsed = serde_json::from_str::<Value>(&output.stdout).unwrap_or(Value::Null);
     if parsed["type"] != "result" || parsed["subtype"] != "success" || parsed["is_error"] != false {
-        return Ok((None, Some("Claude returned no valid selection".to_owned())));
-    }
-    match ai::selected(&parsed["structured_output"], &choices) {
-        Some(entry) => Ok((Some(entry), None)),
-        None => Ok((
+        return Ok((
             None,
-            Some("Claude declined or returned an invalid selection".to_owned()),
-        )),
+            Some("Claude returned an invalid response; no correction suggested".to_owned()),
+        ));
     }
+    Ok(ai::selection_result(
+        &parsed["structured_output"],
+        &choices,
+        options.provider,
+    ))
 }

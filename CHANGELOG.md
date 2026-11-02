@@ -7,6 +7,8 @@ source tree and do not imply a published package or stable release.
 
 ### Added
 
+- Explicit provider/model connection tests in the settings panel and CLI,
+  using synthetic data without changing saved choices.
 - Optional Omarchy settings panel with live theme integration, Codex, Claude
   Code, and local LLM provider/model selection, local model discovery, and
   installation and Bash activation instructions.
@@ -37,6 +39,8 @@ source tree and do not imply a published package or stable release.
 
 ### Changed
 
+- Fallback messages distinguish no suitable correction from invalid model
+  responses, alongside separate authentication and timeout errors.
 - Local-only adapter policies also apply when `--force-ai` is requested.
 - Nested aliases and Kubectl global options are validated against installed help.
 - Required inspection/dry-run flags cannot be satisfied by argument values.
