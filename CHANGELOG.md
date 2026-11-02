@@ -3,7 +3,7 @@
 User-visible changes are recorded here. Unreleased entries are available in the
 source tree and do not imply a published package or stable release.
 
-## Unreleased
+## 0.1.0 — 2026-11-01
 
 ### Added
 
@@ -57,8 +57,8 @@ source tree and do not imply a published package or stable release.
 
 ### Release status
 
-Source and binary-bundle installation are implemented. Local lifecycle tests
-passed in isolated Ubuntu, Debian, Fedora, and Alpine userspaces. Public release
-artifacts, native distribution packages, other architectures, and broader CLI
-coverage remain pending. The previous main commit passed both hosted workflows; the new command
-expansion still needs hosted CI after it is pushed.
+Initial release for Linux and interactive Bash 5+, with a portable x86_64 binary
+bundle and matching source archive. The optional Omarchy companion is installed
+from this repository. AUR recipes are prepared; AUR and marketplace listings are
+separate submissions. Other binary architectures and additional shells are not
+part of this release.

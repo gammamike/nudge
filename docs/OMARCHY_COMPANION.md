@@ -17,8 +17,8 @@ The companion and CLI share this repository and version. The root
 
 ## Install the companion
 
-The companion is not yet published in the marketplace. After the companion
-is merged and available on the repository's default branch:
+Install directly from the public repository; a marketplace listing is not
+required:
 
 ```bash
 omarchy plugin add https://github.com/gammamike/nudge.git --enable
@@ -77,7 +77,9 @@ Adjust the prefix for other Makefile installations. Open a new Bash terminal
 and run `declare -p _NUDGE_LOADED`; the value should be `1`. The desktop panel
 cannot inspect hooks in existing terminal processes. See
 [system installation](SYSTEM_INSTALL.md) for package setup and removal.
-AUR packages and public release downloads have not been published yet.
+Prebuilt Linux x86_64 downloads are available from
+[GitHub Releases](https://github.com/gammamike/nudge/releases/latest).
+AUR listings are not yet published.
 
 ## Choose a provider and model
 

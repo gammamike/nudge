@@ -7,7 +7,8 @@ a local build, Makefile install, or recipe-generation command.
 
 ## Prepare a version
 
-1. Finish the intended changes and update `CHANGELOG.md`.
+1. Finish the intended changes, update `CHANGELOG.md`, and write the user-facing
+   release notes in `docs/releases/vX.Y.Z.md`.
 2. Set the version in `Cargo.toml`, update `Cargo.lock`, and run the documented
    Rust, integration, package, and Arch checks.
 3. Commit a clean tree and choose the matching `vX.Y.Z` tag. Push the commit and

@@ -40,4 +40,5 @@ jobs:
             printf 'A release already exists for this tag; assets will not be replaced.\n' >&2
             exit 1
           fi
-          gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --draft --generate-notes
+          gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --draft \
+            --title "Nudge $GITHUB_REF_NAME" --notes-file "docs/releases/$GITHUB_REF_NAME.md"
