@@ -155,6 +155,12 @@ Omarchy watches user plugin files. Update the CLI separately using the method
 that installed it. No shell restart is needed for saved provider choices; a new
 Bash shell is needed after updating hook code.
 
+Omarchy 4.0.6-1 can retain cached panel code after a plugin file update. If the
+window still shows the previous interface after `omarchy-shell shell rescanPlugins`,
+run `omarchy restart shell`, then summon the panel again. This briefly reloads
+the desktop bar without closing applications. It is only needed for stale plugin
+code, not when changing provider settings.
+
 ```bash
 omarchy plugin remove gammamike.nudge
 ```
