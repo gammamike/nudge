@@ -10,12 +10,32 @@ use anyhow::{Context, Result, bail, ensure};
 use serde::{Deserialize, Serialize};
 use tempfile::{Builder, NamedTempFile};
 
-use crate::paths;
+use crate::ai::Provider;
+use crate::{config, paths};
 
 const HOOK: &str = include_str!("../nudge.bash");
 const LICENSE: &str = include_str!("../LICENSE");
 const BEGIN: &str = "# >>> nudge managed setup >>>";
 const END: &str = "# <<< nudge managed setup <<<";
+
+fn fallback_notice() -> Result<&'static str> {
+    if env::var("NUDGE_LOCAL_ONLY").is_ok_and(|value| value == "1") {
+        return Ok("Model fallback: disabled (NUDGE_LOCAL_ONLY=1).");
+    }
+    let saved = config::Config::load(&config::path()?)?;
+    let provider = env::var("NUDGE_PROVIDER")
+        .ok()
+        .or(saved.provider)
+        .unwrap_or_else(|| "codex".to_owned());
+    Ok(match Provider::parse(&provider)? {
+        Provider::Codex => "Model fallback: Codex (OpenAI cloud), using your existing CLI login.",
+        Provider::Claude => {
+            "Model fallback: Claude Code (Anthropic cloud), using your existing CLI login."
+        }
+        Provider::Ollama => "Model fallback: Ollama (loopback server).",
+        Provider::Local => "Model fallback: local LLM (loopback server).",
+    })
+}
 
 #[derive(Clone, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
@@ -481,6 +501,22 @@ pub(crate) fn execute(action: &str, arguments: Vec<String>) -> Result<()> {
                 "Installed nudge {} at {}",
                 env!("CARGO_PKG_VERSION"),
                 link.display()
+            );
+            // Invalid provider settings must not turn a completed install into a failure.
+            println!(
+                "{}",
+                fallback_notice().unwrap_or(
+                    "Model fallback: settings could not be read; run nudge config to diagnose."
+                )
+            );
+            println!(
+                "Mode reflects the current environment and saved settings; connection not tested."
+            );
+            println!(
+                "When enabled, fallback requests happen automatically before Enter-to-run confirmation."
+            );
+            println!(
+                "For no model requests, add export NUDGE_LOCAL_ONLY=1 to ~/.bashrc and run it in your current shell."
             );
             if modify_shell {
                 println!("Open a new Bash shell or run exec bash to load the installation.");

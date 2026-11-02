@@ -3,9 +3,20 @@
 Supported providers are **Codex**, **Claude Code**, and **local LLMs** through
 Ollama or an OpenAI-compatible local HTTP server.
 
-Local matching runs first. When it cannot select a correction, a configured
-provider can choose one of the eligible command routes or decline. It cannot
-supply arbitrary executable code. Every suggestion still requires confirmation.
+Local matching runs first. **Codex cloud fallback is enabled by default**, even
+without a saved provider choice. When local matching cannot select an eligible
+correction, Nudge automatically uses the selected provider and its existing CLI
+login. Codex sends requests to OpenAI; Claude Code sends requests to Anthropic.
+Local LLM providers send requests to a loopback server.
+
+The provider can choose one of the eligible command routes or decline; it cannot
+supply arbitrary executable code. Enter confirms executing a suggestion, not
+sending the model request: the request occurs before the confirmation prompt.
+
+To disable every model request, including local LLMs, run
+`export NUDGE_LOCAL_ONLY=1`. Add that line to `~/.bashrc` for future Bash shells.
+To allow requests again, remove the persistent export and unset the variable in
+your current shell (or set it to `0`). No provider is contacted during installation.
 
 ## Settings
 
@@ -115,7 +126,8 @@ No provider receives terminal scrollback, unrelated history, or command output.
 The argument-aware adapters send command-syntax slots and eligible routes while
 omitting paths, IDs, option values, and other preserved operands. The catalog-based
 matchers accept only literal command words and send those words
-with its shortlisted routes. Option corrections use local matching only.
+with their shortlisted routes and descriptions. These literal words are not
+redacted. Option corrections use local matching only.
 
 A missing CLI/model, refused authentication, timeout, invalid response, or
 out-of-range candidate produces no correction. Providers are not automatically

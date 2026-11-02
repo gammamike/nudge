@@ -26,6 +26,9 @@ source tree and do not imply a published package or stable release.
 
 ### Changed
 
+- Clarify default cloud fallback, request timing, data sent, and persistent
+  local-only setup in the quick-start, provider guide, and binary bundle.
+- Installation reports the configured fallback mode without contacting a provider.
 - Configuration and cache follow XDG paths; installed copies no longer depend
   on the source checkout.
 - Literal `#` inside an argument is accepted for forms such as Nix flake references.
