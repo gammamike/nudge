@@ -118,7 +118,11 @@ omarchy plugin add https://github.com/gammamike/nudge.git --enable
 omarchy-shell shell summon gammamike.nudge '{}'
 ```
 
-Remove it with `omarchy plugin remove gammamike.nudge`. This leaves the CLI,
+To open it from **Super+Space**, select **Setup → Add launcher shortcut** in the
+panel, then search for **Nudge Settings**. The shortcut uses your theme's terminal
+icon. Select **Remove launcher shortcut** before removing the companion.
+
+Remove the companion with `omarchy plugin remove gammamike.nudge`. This leaves the CLI,
 Bash hook, and saved settings in place. Installing the companion does not install
 the CLI, change Bash startup files, or contact a model. **Test connection** sends
 a small synthetic request only when selected. Marketplace listing is separate

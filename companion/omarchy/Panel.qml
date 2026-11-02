@@ -15,6 +15,7 @@ Item {
     property bool available: false
     property bool busy: false
     property bool setupVisible: false
+    property bool launcherInstalled: false
     property string operation: ""
     property string notice: ""
     property bool failed: false
@@ -113,6 +114,13 @@ Item {
         }
         try {
             var result = JSON.parse(output);
+            if (operation === "launcher-install" || operation === "launcher-remove") {
+                if (typeof result.installed !== "boolean")
+                    throw new Error("Invalid launcher response");
+                launcherInstalled = result.installed;
+                notice = launcherInstalled ? "Launcher added. Press Super+Space and search for Nudge Settings." : "Launcher shortcut removed.";
+                return;
+            }
             if (operation === "test") {
                 if (typeof result.ok !== "boolean" || typeof result.message !== "string" || typeof result.model !== "string" || result.provider !== provider.value)
                     throw new Error("Invalid connection test response");
@@ -126,6 +134,7 @@ Item {
                 return;
             }
             available = result.available === true;
+            launcherInstalled = !!result.launcher && result.launcher.installed === true;
             if (available) {
                 binaryPath = result.binary;
                 configPath = result.settings.path;
@@ -444,6 +453,29 @@ Item {
                         }
                         BodyText {
                             text: "Codex and Claude Code use their existing subscription CLI login. For a local LLM, start Ollama or a compatible loopback server; local model discovery also needs curl. Then open Settings, choose a provider and model, and save."
+                        }
+                        BodyText {
+                            text: "4. Add an app launcher shortcut"
+                            font.bold: true
+                        }
+                        BodyText {
+                            text: "Open this panel from Super+Space by searching for Nudge Settings. The shortcut is stored in your user applications directory. Remove it here before uninstalling the companion."
+                        }
+                        Flow {
+                            width: parent.width
+                            spacing: Commons.Style.space(10)
+                            Action {
+                                text: root.launcherInstalled ? "Launcher added" : "Add launcher shortcut"
+                                objectName: "installLauncher"
+                                enabled: !root.busy && !root.launcherInstalled
+                                onClicked: root.run("launcher-install", [])
+                            }
+                            Action {
+                                text: "Remove launcher shortcut"
+                                objectName: "removeLauncher"
+                                enabled: !root.busy && root.launcherInstalled
+                                onClicked: root.run("launcher-remove", [])
+                            }
                         }
                         Action {
                             text: "Reload installation"

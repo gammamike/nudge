@@ -2,6 +2,8 @@
 # Adapt the settings panel to the installed CLI; never evaluate input as code.
 set -euo pipefail
 nudge_time_limit=15s
+companion_dir=${BASH_SOURCE[0]%/*}
+[[ $companion_dir != "${BASH_SOURCE[0]}" ]] || companion_dir=.
 
 fail() {
   printf '%s\n' "$*" >&2
@@ -38,23 +40,29 @@ invoke() {
 }
 
 status() {
+  local launcher_status
+  launcher_status=$(/bin/bash "$companion_dir/launcher.sh" status)
   if [[ -z $binary ]]; then
-    printf '{"available":false}\n'
+    jq -cn --argjson launcher "$launcher_status" '{available: false, launcher: $launcher}'
     return
   fi
   local settings
   settings=$(invoke config)
-  jq -en --arg binary "$binary" --argjson settings "$settings" '
+  jq -en --arg binary "$binary" --argjson settings "$settings" --argjson launcher "$launcher_status" '
     if ($settings.config | type) == "object" and
        ($settings.path | type) == "string" and
        ($settings.provider | type) == "string"
-    then {available: true, binary: $binary, settings: $settings}
+    then {available: true, binary: $binary, settings: $settings, launcher: $launcher}
     else error("Unsupported Nudge configuration response; update Nudge") end'
 }
 
 action=${1:-}
 (( $# > 0 )) && shift
 case "$action" in
+  launcher-install|launcher-remove)
+    (( $# == 0 )) || fail 'Launcher actions take no arguments'
+    /bin/bash "$companion_dir/launcher.sh" "${action#launcher-}"
+    ;;
   status)
     (( $# == 0 )) || fail 'status takes no arguments'
     status
@@ -97,5 +105,5 @@ case "$action" in
       invoke "${args[@]}"
     fi
     ;;
-  *) fail 'Usage: bridge.sh status | save PROVIDER MODEL ENDPOINT | test PROVIDER MODEL ENDPOINT | models PROVIDER ENDPOINT' ;;
+  *) fail 'Usage: bridge.sh status | launcher-install | launcher-remove | save PROVIDER MODEL ENDPOINT | test PROVIDER MODEL ENDPOINT | models PROVIDER ENDPOINT' ;;
 esac

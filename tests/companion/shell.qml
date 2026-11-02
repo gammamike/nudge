@@ -89,6 +89,13 @@ ShellRoot {
             var testMessage = panel.connectionMessage;
             control("setupTab").clicked();
             verify(panel.setupVisible);
+            verify(!panel.launcherInstalled);
+            control("installLauncher").clicked();
+            settled();
+            verify(panel.launcherInstalled, panel.notice);
+            compare(panel.connectionState, "connected");
+            verify(!control("installLauncher").enabled);
+            verify(control("removeLauncher").enabled);
             control("settingsTab").clicked();
             verify(!panel.setupVisible);
             compare(panel.connectionState, "connected", "Switching tabs must preserve the result");
@@ -98,6 +105,7 @@ ShellRoot {
             compare(panel.savedConfig.provider, "ollama");
             compare(panel.connectionState, "connected", "Saving tested choices must preserve the result");
             compare(panel.connectionMessage, testMessage);
+            verify(panel.launcherInstalled, "Reload must preserve launcher status");
             reload.clicked();
             settled();
             compare(panel.connectionState, "connected", "Reloading unchanged choices must preserve the result");
@@ -174,6 +182,9 @@ ShellRoot {
 
             control("setupTab").clicked();
             verify(panel.setupVisible);
+            control("removeLauncher").clicked();
+            settled();
+            verify(!panel.launcherInstalled, panel.notice);
             capture("setup-light");
             control("settingsTab").clicked();
             verify(!panel.setupVisible);

@@ -5,6 +5,11 @@ source tree and do not imply a published package or stable release.
 
 ## Unreleased
 
+### Added
+
+- An optional Nudge Settings application shortcut for Super+Space search,
+  with explicit add/remove controls in the companion's Setup tab.
+
 ### Fixed
 
 - Keep the companion scrollbar at the right edge and hide its thumb when the

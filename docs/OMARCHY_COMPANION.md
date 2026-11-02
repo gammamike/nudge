@@ -29,6 +29,39 @@ This adds a standalone settings panel, not a replacement bar. Installing the
 companion does not build or install Nudge, authenticate a provider, or edit
 `~/.bashrc`. The Setup tab explains those separate steps.
 
+## Open from Super+Space
+
+Open the panel once with the `summon` command above. In **Setup**, select
+**Add launcher shortcut**. Press **Super+Space**, type **Nudge**, and choose
+**Nudge Settings**. This also works in application launchers that read desktop
+entries. It opens the existing panel without launching a terminal or contacting
+a model.
+
+The shortcut is saved as
+`${XDG_DATA_HOME:-$HOME/.local/share}/applications/gammamike.nudge.desktop`.
+Relative `XDG_DATA_HOME` values fall back to `~/.local/share`. Setup is explicit
+and repeatable; merely opening the companion does not create a shortcut. The
+helper preserves conflicting files, modified entries, and symlinks.
+
+Select **Remove launcher shortcut** in Setup before removing the companion.
+The same actions are available from the installed plugin directory:
+
+```bash
+bash ~/.config/omarchy/plugins/gammamike.nudge/companion/omarchy/launcher.sh install
+bash ~/.config/omarchy/plugins/gammamike.nudge/companion/omarchy/launcher.sh remove
+```
+
+These are separate actions; adjust the plugin path for a custom configuration
+directory. If the companion has already been removed, delete only its unchanged
+`gammamike.nudge.desktop` file from your user applications directory. Removing
+the shortcut preserves Nudge, the plugin, provider settings, and Bash integration.
+
+The shortcut uses the theme's terminal icon and is shown only when
+`omarchy-shell` is available. The companion must be installed and enabled to open
+it. Installing the CLI alone does not add a desktop entry.
+
+## Local development installation
+
 For local development before publication, copy the companion into a new user
 plugin directory. Run from the repository root; the destination must not exist:
 
@@ -167,6 +200,9 @@ code, not when changing provider settings.
 ```bash
 omarchy plugin remove gammamike.nudge
 ```
+
+Remove the optional launcher shortcut from Setup first. Omarchy removes the
+plugin directory but does not remove the separate user desktop entry.
 
 Removing the companion leaves Nudge, its Bash hook, and saved settings in place.
 To remove Nudge itself, follow its per-user or package uninstall instructions.
