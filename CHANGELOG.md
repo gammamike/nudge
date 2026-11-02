@@ -39,6 +39,8 @@ source tree and do not imply a published package or stable release.
 
 ### Changed
 
+- Keep connection-test results when saving or reloading unchanged choices or
+  switching settings tabs; clear them when connection choices change.
 - Fallback messages distinguish no suitable correction from invalid model
   responses, alongside separate authentication and timeout errors.
 - Local-only adapter policies also apply when `--force-ai` is requested.

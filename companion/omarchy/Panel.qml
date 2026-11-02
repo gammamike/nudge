@@ -24,6 +24,8 @@ Item {
     property var discoveredModels: []
     property string connectionState: "untested"
     property string connectionMessage: "Not tested"
+    property string testedConnectionKey: ""
+    property bool loadingFields: false
     readonly property bool localProvider: Model.isLocal(provider.value)
     readonly property string helper: Model.localPath(Qt.resolvedUrl("bridge.sh").toString())
 
@@ -48,16 +50,30 @@ Item {
     }
 
     function selectProvider(value) {
-        resetConnection();
+        // Compare the final form values, not intermediate text-change signals
+        // emitted while saved settings are being loaded.
+        loadingFields = true;
         provider.value = value;
         var fields = Model.fields(savedConfig, value);
         model.text = fields.model;
         endpoint.text = fields.endpoint;
+        loadingFields = false;
+        invalidateConnection();
         discoveredModels = [];
         notice = "";
     }
 
+    function connectionKey() {
+        return JSON.stringify([provider.value, model.text.trim(), root.localProvider ? endpoint.text.trim() : ""]);
+    }
+
+    function invalidateConnection() {
+        if (!loadingFields && testedConnectionKey !== "" && connectionKey() !== testedConnectionKey)
+            resetConnection();
+    }
+
     function resetConnection() {
+        testedConnectionKey = "";
         connectionState = "untested";
         connectionMessage = "Not tested";
     }
@@ -69,6 +85,7 @@ Item {
         failed = false;
         notice = action === "save" ? "Saving…" : "Loading…";
         if (action === "test") {
+            testedConnectionKey = connectionKey();
             connectionState = "testing";
             connectionMessage = "Testing connection…";
             notice = "";
@@ -80,6 +97,10 @@ Item {
 
     function complete(exitCode, output, error) {
         busy = false;
+        if (operation === "test" && connectionKey() !== testedConnectionKey) {
+            resetConnection();
+            return;
+        }
         if (exitCode !== 0) {
             failed = true;
             notice = exitCode === 124 || exitCode === 137 ? "Nudge took too long to respond. Check the installation or local server and retry." : (error.trim().slice(0, 1200) || "Nudge could not complete this request.");
@@ -112,6 +133,7 @@ Item {
                 selectProvider(savedConfig.provider || "codex");
                 notice = operation === "save" ? "Settings saved. Nudge reads them on its next request." : "Installed · ready to configure";
             } else {
+                resetConnection();
                 setupVisible = true;
                 notice = "Install Nudge to configure it, then select Reload.";
             }
@@ -295,7 +317,7 @@ Item {
                                 id: endpoint
                                 foreground: root.foreground
                                 objectName: "endpointInput"
-                                onTextChanged: root.resetConnection()
+                                onTextChanged: root.invalidateConnection()
                                 width: parent.width
                                 enabled: root.available && !root.busy
                                 placeholderText: Model.endpointHint(provider.value)
@@ -331,7 +353,7 @@ Item {
                                 id: model
                                 foreground: root.foreground
                                 objectName: "modelInput"
-                                onTextChanged: root.resetConnection()
+                                onTextChanged: root.invalidateConnection()
                                 width: parent.width
                                 enabled: root.available && !root.busy
                                 placeholderText: root.localProvider ? "Choose or enter an installed model" : "Keep saved model or provider default"

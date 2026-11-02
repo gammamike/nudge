@@ -93,9 +93,10 @@ AUR packages and public release downloads have not been published yet.
 5. Select **Save settings**. Changes apply on Nudge's next request. **Reload**
    discards unsaved edits and rereads the configuration.
 
-Connection status starts at **Not tested**. Editing the provider, model, or
-endpoint, or reloading settings, clears the previous result. A successful test
-shows the tested model and time; it is not continuous monitoring. Testing is
+Connection status starts at **Not tested**. Changing the provider, model, or
+endpoint clears the previous result. Saving or reloading unchanged choices and
+switching between Settings and Setup preserve the result and test time. A
+successful test shows the tested model and time; it is not continuous monitoring. Testing is
 explicit and still sends a request when terminal correction fallback is disabled
 with `NUDGE_LOCAL_ONLY=1`. Opening the panel does not contact providers.
 

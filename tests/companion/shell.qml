@@ -86,7 +86,38 @@ ShellRoot {
             settled();
             compare(panel.connectionState, "connected", panel.connectionMessage);
             compare(panel.savedConfig.provider, "claude", "Testing unsaved Ollama settings must not switch the saved provider");
+            var testMessage = panel.connectionMessage;
+            control("setupTab").clicked();
+            verify(panel.setupVisible);
+            control("settingsTab").clicked();
+            verify(!panel.setupVisible);
+            compare(panel.connectionState, "connected", "Switching tabs must preserve the result");
+            compare(panel.connectionMessage, testMessage, "Tab switches must preserve the test timestamp");
+            save.clicked();
+            settled();
+            compare(panel.savedConfig.provider, "ollama");
+            compare(panel.connectionState, "connected", "Saving tested choices must preserve the result");
+            compare(panel.connectionMessage, testMessage);
+            reload.clicked();
+            settled();
+            compare(panel.connectionState, "connected", "Reloading unchanged choices must preserve the result");
+            compare(panel.connectionMessage, testMessage);
+            // The CLI trims entered fields before use. Saving that same
+            // normalized text must preserve the original result and time.
+            model.text = " qwen3:0.6b ";
+            compare(panel.connectionState, "connected", "Whitespace does not change the tested model");
+            save.clicked();
+            settled();
+            compare(model.text, "qwen3:0.6b");
+            compare(panel.connectionState, "connected");
+            endpoint.text = " ";
+            compare(panel.connectionState, "connected", "Whitespace keeps the blank endpoint choice");
+            save.clicked();
+            settled();
+            compare(panel.connectionState, "connected", "Trimming saved fields must not invalidate the result");
+            testConnection.clicked();
             model.text = "another-model";
+            settled();
             compare(panel.connectionState, "untested", "Model edits invalidate the result");
             model.text = "qwen3:0.6b";
             verify(save.enabled);
