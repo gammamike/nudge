@@ -12,13 +12,18 @@ cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked
 python3 -m unittest discover -s tests -v
-for script in nudge.bash interactive.bash try-bash install.sh scripts/*.sh tests/distribution-smoke.sh; do bash -n "$script"; done
+for script in nudge.bash interactive.bash try-bash install.sh scripts/*.sh companion/omarchy/*.sh tests/distribution-smoke.sh; do bash -n "$script"; done
 ```
 
 Use `--offline` with Cargo after the locked dependencies have been downloaded.
-Integration tests need Python 3, `curl`, pseudo-terminals, and permission to bind
+Integration tests need Python 3.11+, `curl`, `jq`, pseudo-terminals, and permission to bind
 loopback test servers. They use temporary state and mock providers; they do not
 need subscription credentials or execute proposed real-world operations.
+
+The optional desktop companion lives in `companion/omarchy/` and shares the
+root manifest's version with Cargo. Its adapter tests run in the regular suite;
+the [companion guide](OMARCHY_COMPANION.md#validation) describes the additional
+offscreen QML and theme checks on an Omarchy machine.
 
 The integration harness in `tests/` invokes the compiled Rust binary. Shared
 PTY helpers live in `tests/support.py`; expected catalog behavior is stored as

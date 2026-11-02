@@ -1,0 +1,15 @@
+# Bash completion for Nudge's management commands; never invokes a provider.
+_nudge_bash_complete() {
+    local current=${COMP_WORDS[COMP_CWORD]} previous=${COMP_WORDS[COMP_CWORD-1]}
+    COMPREPLY=()
+    case $previous in
+        --provider) mapfile -t COMPREPLY < <(compgen -W 'codex claude ollama local' -- "$current"); return ;;
+        --model|--endpoint|--command|--status) return ;;
+    esac
+    if (( COMP_CWORD == 1 )); then
+        mapfile -t COMPREPLY < <(compgen -W 'refresh suggest confirm config models check-provider supported --help --version' -- "$current")
+    elif [[ $current == -* ]]; then
+        mapfile -t COMPREPLY < <(compgen -W '--command --status --local-only --provider --model --endpoint --force-ai' -- "$current")
+    fi
+}
+complete -F _nudge_bash_complete nudge-bash

@@ -41,10 +41,22 @@ pub(crate) fn pick<'a>(
     options: &Options<'_>,
     runner: &Runner,
 ) -> Result<(Option<&'a Entry>, Option<String>)> {
-    let auth = runner.run(
+    let auth = match runner.run(
         command().args(["login", "status"]).stdin(Stdio::null()),
         Duration::from_secs(4),
-    )?;
+    ) {
+        Ok(auth) => auth,
+        Err(_) => {
+            runner.check_interrupt()?;
+            return Ok((
+                None,
+                Some(
+                    "Codex authentication check failed; check CLI installation and login"
+                        .to_owned(),
+                ),
+            ));
+        }
+    };
     if !auth.status.success()
         || !format!("{}{}", auth.stdout, auth.stderr).contains("Logged in using ChatGPT")
     {
@@ -121,7 +133,7 @@ pub(crate) fn pick<'a>(
             let reason = if error.to_string().contains("timed out") {
                 format!("Codex timed out after {}s", options.timeout.as_secs_f64())
             } else {
-                "Codex returned no valid selection".to_owned()
+                "Codex returned an invalid response; no correction suggested".to_owned()
             };
             return Ok((None, Some(reason)));
         }
@@ -139,10 +151,10 @@ pub(crate) fn pick<'a>(
         .ok()
         .and_then(|bytes| serde_json::from_slice::<Value>(&bytes).ok());
     let Some(parsed) = parsed else {
-        return Ok((None, Some("Codex returned no valid selection".to_owned())));
+        return Ok((
+            None,
+            Some("Codex returned an invalid response; no correction suggested".to_owned()),
+        ));
     };
-    match ai::selected(&parsed, &choices) {
-        Some(entry) => Ok((Some(entry), None)),
-        None => Ok((None, Some("Codex declined".to_owned()))),
-    }
+    Ok(ai::selection_result(&parsed, &choices, options.provider))
 }

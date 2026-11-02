@@ -6,6 +6,9 @@ The executable must be spelled correctly and installed. Support is scoped to
 reviewed syntax; it does not diagnose permissions, connection failures, missing
 packages, devices, sessions, or processes.
 
+This report records the original four-tool batch. The
+[latest expansion](CLI_EXPANSION.md) documents subsequent additions.
+
 ## Supported forms
 
 | Executable | Reviewed command forms | Boundaries |

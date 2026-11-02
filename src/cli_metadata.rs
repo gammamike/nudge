@@ -115,6 +115,9 @@ pub(crate) fn help_status(
         )?
         .hash(&mut hasher);
     }
+    if args.first().is_some_and(|arg| arg == "buildx") {
+        capture(executable, &["buildx".into(), "version".into()], runner)?.hash(&mut hasher);
+    }
     let file = cache.join(format!("cli-{:016x}.json", hasher.finish()));
     let now = SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs();
     if let Ok(bytes) = fs::read(&file)

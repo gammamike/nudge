@@ -45,8 +45,7 @@ ambiguous setup. It does not rewrite unrelated shell configuration.
 
 The packaging workflow builds an **x86_64 Linux** archive with a statically
 linked musl executable, matching source archive, checksums, and license notices.
-These are local/CI artifacts until a maintainer publishes a release; an archive
-name in this guide does not imply that a public download already exists.
+Download all three from [GitHub Releases](https://github.com/gammamike/nudge/releases).
 
 Obtain the bundle, source archive, and `SHA256SUMS` from the same trusted release
 location. In their download directory, verify and extract them. For example,

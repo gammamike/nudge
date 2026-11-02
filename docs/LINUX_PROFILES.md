@@ -10,6 +10,9 @@ This is scoped syntax correction, not complete CLI emulation. The remaining
 [launch inventory](CLI_SUPPORT.md) and [additional roadmap](CLI_ADDITIONS.md) are
 still open. The coverage batch did not publish a release or install extra CLI packages.
 
+For current coverage beyond this historical batch, see the
+[latest expansion report](CLI_EXPANSION.md).
+
 ## Behavior and boundaries
 
 - Each profile defines literal read-only help queries, eligible commands/options,

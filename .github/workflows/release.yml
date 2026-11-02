@@ -1,0 +1,44 @@
+name: Prepare release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    uses: ./.github/workflows/ci.yml
+  packages:
+    uses: ./.github/workflows/packages.yml
+  draft:
+    needs: [checks, packages]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: linux-x86_64
+          path: dist
+      - name: Verify release identity
+        run: python3 scripts/verify-release.py --dist dist --tag "$GITHUB_REF_NAME" --commit "$(git rev-parse HEAD)"
+      - name: Create a draft with immutable versioned assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            printf 'A release already exists for this tag; assets will not be replaced.\n' >&2
+            exit 1
+          fi
+          gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --draft \
+            --title "Nudge $GITHUB_REF_NAME" --notes-file "docs/releases/$GITHUB_REF_NAME.md"

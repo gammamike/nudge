@@ -36,7 +36,7 @@ then defaults. An exported environment setting overrides a saved setting.
 | Setting | Behavior |
 |---|---|
 | `NUDGE_ENABLED` | Set to `0` to disable the Bash hook |
-| `NUDGE_LOCAL_ONLY` | Set to `1` to disable every model provider, including local models |
+| `NUDGE_LOCAL_ONLY` | Set to `1` to disable model fallback for corrections, including local models |
 | `NUDGE_PROVIDER` | `codex` (default), `claude`, `ollama`, or `local` |
 | `NUDGE_CODEX_MODEL` | Default `gpt-6-luna`; legacy `NUDGE_MODEL` also supported |
 | `NUDGE_CLAUDE_MODEL` | Default `haiku` |
@@ -120,6 +120,28 @@ source label means model inference; `local` means deterministic matching.
 Protocol behavior is tested against controlled HTTP servers. Compatibility and
 accuracy have not been certified for every server version or model.
 
+## Test a provider
+
+```bash
+nudge check-provider
+nudge check-provider --provider claude --model YOUR_MODEL_ID
+nudge check-provider --provider ollama --model YOUR_INSTALLED_MODEL_ID
+```
+
+The same action supports Codex, Claude Code, and both local LLM backends, with
+the normal provider/model/endpoint options and authentication restrictions.
+It sends one small synthetic correction request, without saving settings,
+discovering installed commands, reading history, or executing a correction.
+It consumes provider allowance or local compute. This explicit test sends a
+request even when `NUDGE_LOCAL_ONLY=1` disables correction fallback.
+
+The JSON result includes `ok`, the tested provider and model, a message, and
+elapsed milliseconds. `ok: true` means the selected model returned a usable
+response. A completed test with `ok: false` is a failed readiness check, even
+when the command exits zero; argument/configuration errors exit nonzero.
+The Omarchy panel exposes this action as **Test connection** and clears its
+result when choices change.
+
 ## Data sent and failure handling
 
 No provider receives terminal scrollback, unrelated history, or command output.
@@ -133,3 +155,8 @@ A missing CLI/model, refused authentication, timeout, invalid response, or
 out-of-range candidate produces no correction. Providers are not automatically
 switched. Ctrl+C cancels the local request and terminates CLI subprocess groups;
 a local HTTP server may continue inference until it notices disconnection.
+
+An explicit model abstention is reported as **no suitable correction found**.
+Malformed or out-of-range selections report **invalid response; no correction
+suggested**. Authentication and timeout failures have separate messages. No
+message claiming a model declined is used for an invalid selection.

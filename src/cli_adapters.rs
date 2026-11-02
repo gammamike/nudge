@@ -92,8 +92,10 @@ fn eligible(root: &str, parent: &str) -> &'static [&'static str] {
         ("docker", "image") => &["ls", "inspect", "history", "pull", "push", "tag", "build"],
         ("docker", "network" | "volume") => &["ls", "inspect"],
         ("docker", "system") => &["df", "info", "events"],
+        ("docker", "buildx") => &["ls", "inspect", "du", "version"],
         ("docker", "") => &[
             "compose",
+            "buildx",
             "container",
             "image",
             "network",
@@ -149,6 +151,7 @@ fn blocked_flag(root: &str, command: &str, flag: &str) -> bool {
         "--discard-changes",
         "--overwrite",
         "--prune",
+        "--bootstrap",
     ]
     .iter()
     .any(|prefix| name == *prefix || name.starts_with(&format!("{prefix}-")))
@@ -506,7 +509,7 @@ fn analyze(
     if root == "docker"
         && matches!(
             route[0].as_str(),
-            "compose" | "container" | "image" | "network" | "volume" | "system"
+            "compose" | "buildx" | "container" | "image" | "network" | "volume" | "system"
         )
     {
         let args = vec![route[0].clone(), "--help".into()];
@@ -596,7 +599,11 @@ pub(crate) fn suggest(line: &str, options: &Options<'_>, runner: &Runner) -> Res
         if close.len() == 1 && !options.force_ai {
             selected = Some(close[0].clone());
             result.source = "local".into();
-        } else if !options.local_only && !problem.flag {
+        } else if !options.local_only
+            && !problem.flag
+            && !crate::cli_profiles::local_only(&words[0])
+            && !crate::cli_nested::local_only(&words[0])
+        {
             // Only command syntax is sent to AI. Arguments, resource names,
             // option values, paths and config data never leave this adapter.
             let entries: Vec<_> = problem

@@ -6,7 +6,7 @@ create tags, upload releases, or install software on the development host.
 ## Build artifacts
 
 Use a clean Git checkout, Rust/Cargo, the `x86_64-unknown-linux-musl` target,
-Python 3 for notice collection, and GNU tar, gzip, sha256sum, readelf, and standard
+Python 3 for notice collection, and GNU tar, gzip, sha256sum, readelf, strip, and standard
 file utilities. Fetch locked Cargo dependencies before working offline.
 
 ```bash
@@ -21,6 +21,7 @@ Output in `dist/`:
 - `nudge-VERSION-source.tar.gz`: corresponding tracked source and build files.
 - `SHA256SUMS`: SHA-256 checksums of both archives.
 
+The staged release copy is stripped of symbols; input build files are unchanged.
 The binary is checked for the expected version, architecture, and absence of a
 runtime ELF interpreter or shared-library requirements. Build paths are remapped
 to neutral source prefixes. The installer retains bundled license notices when
@@ -73,6 +74,12 @@ still require their own versioned metadata and tests.
 4. Verify install and removal from the published downloads and record the result.
 5. Enable private vulnerability reporting in repository settings.
 
-AUR, DEB/RPM packages, package repositories, ARM binaries, and automatic network
-updates are not provided by this installer. Users update explicitly from source
-or a verified bundle.
+AUR source and binary recipes use the separate staged-install layout; see the
+[release guide](RELEASING.md). DEB/RPM packages, package repositories, ARM binaries,
+and automatic network updates are not provided by this installer.
+
+## Distribution planning
+
+The [distribution research](DISTRIBUTION_OPTIONS.md) compares GitHub Releases,
+AUR packaging, and the desktop plugin marketplace, including the existing AUR
+name collision and package-managed installation work still needed.

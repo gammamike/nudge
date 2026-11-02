@@ -3,13 +3,23 @@
 User-visible changes are recorded here. Unreleased entries are available in the
 source tree and do not imply a published package or stable release.
 
-## Unreleased
+## 0.1.0 — 2026-11-01
 
 ### Added
 
+- Explicit provider/model connection tests in the settings panel and CLI,
+  using synthetic data without changing saved choices.
+- Optional Omarchy settings panel with live theme integration, Codex, Claude
+  Code, and local LLM provider/model selection, local model discovery, and
+  installation and Bash activation instructions.
+- Staged Makefile installation, a `nudge-bash` entry point, man page, Bash
+  completion, and package-managed lifecycle protection.
+- Checksum-pinned AUR recipe generation, isolated Arch package checks, and
+  a version/commit-verified draft-release workflow.
+
 - Rust correction engine and interactive Bash 5+ integration for Linux.
 - Enter-to-run confirmation, single-key cancellation, and literal argument passing.
-- 120 scoped executable adapters, with installed command metadata and explicit
+- 267 scoped executable adapters, with installed command metadata and explicit
   eligibility rules. See the [coverage documentation](README.md#command-coverage).
 - Nix, iwctl, Zellij, and strace adapters with nested-command, selector, option,
   and command-payload handling.
@@ -24,8 +34,18 @@ source tree and do not imply a published package or stable release.
 - Static x86_64 Linux bundle, matching source archive, checksums, and dependency
   notices; package CI matrix for Ubuntu, Debian, Fedora, and Alpine.
 
+- 147 additional executable adapters across 12 tested batches, plus Docker Buildx
+  inspection commands, with captured metadata and regression cases.
+
 ### Changed
 
+- Keep connection-test results when saving or reloading unchanged choices or
+  switching settings tabs; clear them when connection choices change.
+- Fallback messages distinguish no suitable correction from invalid model
+  responses, alongside separate authentication and timeout errors.
+- Local-only adapter policies also apply when `--force-ai` is requested.
+- Nested aliases and Kubectl global options are validated against installed help.
+- Required inspection/dry-run flags cannot be satisfied by argument values.
 - Clarify default cloud fallback, request timing, data sent, and persistent
   local-only setup in the quick-start, provider guide, and binary bundle.
 - Installation reports the configured fallback mode without contacting a provider.
@@ -37,8 +57,8 @@ source tree and do not imply a published package or stable release.
 
 ### Release status
 
-Source and binary-bundle installation are implemented. Local lifecycle tests
-passed in isolated Ubuntu, Debian, Fedora, and Alpine userspaces. Public release
-artifacts, native distribution packages, other architectures, and broader CLI
-coverage remain pending. Hosted CI results must be reviewed after the workflows
-are first pushed.
+Initial release for Linux and interactive Bash 5+, with a portable x86_64 binary
+bundle and matching source archive. The optional Omarchy companion is installed
+from this repository. AUR recipes are prepared; AUR and marketplace listings are
+separate submissions. Other binary architectures and additional shells are not
+part of this release.

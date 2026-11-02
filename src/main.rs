@@ -17,6 +17,7 @@ mod install;
 mod local;
 mod paths;
 mod process;
+mod provider_check;
 mod shell_words;
 mod terminal;
 
@@ -62,12 +63,20 @@ fn execute(runner: &Runner) -> Result<()> {
     }
     if matches!(action.as_str(), "--help" | "-h") {
         println!(
-            "nudge <refresh|suggest|confirm|config|models|supported> [--command TEXT] [--status CODE] [--local-only] [--provider codex|claude|ollama|local] [--model ID] [--endpoint URL] [--force-ai]\nnudge <install|uninstall|rollback> [--prefix PATH]; install also accepts --bashrc PATH and --no-modify-shell.\nnudge --version\nconfig: show effective settings, or save supplied provider/model/endpoint.\nmodels: list models from the selected local server.\nsupported: list registered Linux executable adapters; see docs for each adapter's scope. Settings precedence: flags > environment > config > defaults."
+            "nudge <refresh|suggest|confirm|config|models|check-provider|supported> [--command TEXT] [--status CODE] [--local-only] [--provider codex|claude|ollama|local] [--model ID] [--endpoint URL] [--force-ai]\nnudge <install|uninstall|rollback> [--prefix PATH]; install also accepts --bashrc PATH and --no-modify-shell.\nnudge --version\nconfig: show effective settings, or save supplied provider/model/endpoint.\nmodels: list models from the selected local server.\ncheck-provider: send a small synthetic model request without saving settings, even in local-only mode.\nsupported: list registered Linux executable adapters; see docs for each adapter's scope. Settings precedence: flags > environment > config > defaults."
         );
         return Ok(());
     }
     ensure!(
-        ["refresh", "suggest", "confirm", "config", "models"].contains(&action.as_str()),
+        [
+            "refresh",
+            "suggest",
+            "confirm",
+            "config",
+            "models",
+            "check-provider"
+        ]
+        .contains(&action.as_str()),
         "unknown action"
     );
     let cache = paths::cache()?;
@@ -181,6 +190,13 @@ fn execute(runner: &Runner) -> Result<()> {
         endpoint: &endpoint,
         timeout: Duration::try_from_secs_f64(seconds)?,
     };
+    if action == "check-provider" {
+        println!(
+            "{}",
+            serde_json::to_string(&provider_check::run(&options, runner)?)?
+        );
+        return Ok(());
+    }
     if action == "models" {
         let models = local::models(provider, &endpoint, options.timeout, runner)?;
         println!("{}", json!({"provider": provider.key(), "models": models}));

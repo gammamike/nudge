@@ -1,0 +1,20 @@
+# Maintainer: gammamike (https://github.com/gammamike)
+pkgname=nudge-bash-bin
+pkgver=@VERSION@
+pkgrel=1
+pkgdesc='Local-first command correction for Bash on Linux (prebuilt binary)'
+arch=('x86_64')
+url='https://github.com/gammamike/nudge'
+license=('GPL-3.0-only')
+depends=('bash>=5')
+optdepends=('bash-completion: management command completion' 'curl: local LLM HTTP backends')
+provides=("nudge-bash=$pkgver")
+conflicts=('nudge-bash')
+options=('!strip' '!debug')
+source=("$url/releases/download/v$pkgver/nudge-$pkgver-linux-$CARCH.tar.gz")
+sha256sums=('@SHA256@')
+
+package() {
+  cd "nudge-$pkgver-linux-$CARCH"
+  make install DESTDIR="$pkgdir" PREFIX=/usr BINARY=bin/nudge NOTICE_DIR=.
+}

@@ -599,5 +599,1775 @@
         "--help"
       ]
     }
+  },
+  "atuin": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -V",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "status": {
+          "help": [
+            "status",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "min": 0,
+          "max": 0
+        },
+        "stats": {
+          "help": [
+            "stats",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "min": 0,
+          "max": 1
+        },
+        "search": {
+          "help": [
+            "search",
+            "--help"
+          ],
+          "flags": "--help -h --cmd-only --limit= --filter-mode= --search-mode= --reverse -r",
+          "min": 0,
+          "max": 32
+        },
+        "history": {
+          "help": [
+            "history",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "history",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --cmd-only --format= --limit=",
+              "min": 0,
+              "max": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "buildah": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -v --log-level=",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "images": {
+          "help": [
+            "images",
+            "--help"
+          ],
+          "flags": "--all -a --quiet -q --format= --filter= -f=",
+          "min": 0,
+          "max": 1
+        },
+        "containers": {
+          "help": [
+            "containers",
+            "--help"
+          ],
+          "flags": "--all -a --quiet -q --format=",
+          "min": 0,
+          "max": 0
+        },
+        "inspect": {
+          "help": [
+            "inspect",
+            "--help"
+          ],
+          "flags": "--format= -f= --type=",
+          "min": 1,
+          "max": 1
+        },
+        "info": {
+          "help": [
+            "info",
+            "--help"
+          ],
+          "flags": "--format=",
+          "min": 0,
+          "max": 0
+        },
+        "version": {
+          "help": [
+            "version",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0
+        }
+      }
+    }
+  },
+  "chezmoi": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --source= -S= --destination= -D= --color= --no-pager",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "status": {
+          "help": [
+            "status",
+            "--help"
+          ],
+          "flags": "--help -h --exclude= --include= --path-style=",
+          "min": 0,
+          "max": 32
+        },
+        "diff": {
+          "help": [
+            "diff",
+            "--help"
+          ],
+          "flags": "--help -h --exclude= --include= --pager=",
+          "min": 0,
+          "max": 32
+        },
+        "doctor": {
+          "help": [
+            "doctor",
+            "--help"
+          ],
+          "flags": "--help -h --no-network",
+          "min": 0,
+          "max": 0
+        },
+        "managed": {
+          "help": [
+            "managed",
+            "--help"
+          ],
+          "flags": "--help -h --path-style= --tree --include= --exclude=",
+          "min": 0,
+          "max": 32
+        }
+      }
+    }
+  },
+  "ctr": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -v --address= -a= --namespace= -n= --timeout= --connect-timeout=",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "images": {
+          "help": [
+            "images",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "images",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q",
+              "min": 0,
+              "max": 0,
+              "aliases": [
+                "ls"
+              ]
+            },
+            "check": {
+              "help": [
+                "images",
+                "check",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q",
+              "min": 0,
+              "max": 0
+            }
+          },
+          "aliases": [
+            "image",
+            "i"
+          ]
+        },
+        "containers": {
+          "help": [
+            "containers",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "containers",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q",
+              "min": 0,
+              "max": 0,
+              "aliases": [
+                "ls"
+              ]
+            },
+            "info": {
+              "help": [
+                "containers",
+                "info",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q",
+              "min": 1,
+              "max": 1
+            }
+          },
+          "aliases": [
+            "container",
+            "c"
+          ]
+        },
+        "namespaces": {
+          "help": [
+            "namespaces",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "namespaces",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q",
+              "min": 0,
+              "max": 0,
+              "aliases": [
+                "ls"
+              ]
+            }
+          },
+          "aliases": [
+            "namespace",
+            "ns"
+          ]
+        },
+        "tasks": {
+          "help": [
+            "tasks",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "tasks",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q",
+              "min": 0,
+              "max": 0,
+              "aliases": [
+                "ls"
+              ]
+            },
+            "ps": {
+              "help": [
+                "tasks",
+                "ps",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q",
+              "min": 1,
+              "max": 1
+            }
+          },
+          "aliases": [
+            "task",
+            "t"
+          ]
+        },
+        "plugins": {
+          "help": [
+            "plugins",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "plugins",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q",
+              "min": 0,
+              "max": 0,
+              "aliases": [
+                "ls"
+              ]
+            }
+          },
+          "aliases": [
+            "plugin"
+          ]
+        },
+        "version": {
+          "help": [
+            "version",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0
+        },
+        "info": {
+          "help": [
+            "info",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0
+        }
+      }
+    }
+  },
+  "deno": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -V",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "check": {
+          "help": [
+            "check",
+            "--help"
+          ],
+          "flags": "--help -h --quiet -q --all --no-remote --no-npm --no-config",
+          "min": 1,
+          "max": 32
+        },
+        "lint": {
+          "help": [
+            "lint",
+            "--help"
+          ],
+          "flags": "--help -h --quiet -q --json --rules --no-config --ignore?",
+          "min": 0,
+          "max": 32
+        },
+        "info": {
+          "help": [
+            "info",
+            "--help"
+          ],
+          "flags": "--help -h --json --no-config",
+          "min": 0,
+          "max": 1
+        },
+        "doc": {
+          "help": [
+            "doc",
+            "--help"
+          ],
+          "flags": "--help -h --json --private",
+          "min": 0,
+          "max": 32
+        },
+        "types": {
+          "help": [
+            "types",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "min": 0,
+          "max": 0
+        }
+      }
+    }
+  },
+  "docker-compose": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help --file= -f= --project-name= -p= --project-directory= --profile= --env-file= --ansi= --progress=",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "ps": {
+          "help": [
+            "ps",
+            "--help"
+          ],
+          "flags": "--help --file= -f= --project-name= -p= --project-directory= --profile= --env-file= --ansi= --progress= --all -a --quiet -q --format= --status=",
+          "min": 0,
+          "max": 32
+        },
+        "ls": {
+          "help": [
+            "ls",
+            "--help"
+          ],
+          "flags": "--help --file= -f= --project-name= -p= --project-directory= --profile= --env-file= --ansi= --progress= --all -a --quiet -q --format=",
+          "min": 0,
+          "max": 0
+        },
+        "logs": {
+          "help": [
+            "logs",
+            "--help"
+          ],
+          "flags": "--help --file= -f --project-name= -p= --project-directory= --profile= --env-file= --ansi= --progress= --follow --tail= --since= --timestamps -t --no-color --no-log-prefix",
+          "min": 0,
+          "max": 32
+        },
+        "config": {
+          "help": [
+            "config",
+            "--help"
+          ],
+          "flags": "--help --file= -f= --project-name= -p= --project-directory= --profile= --env-file= --ansi= --progress= --quiet -q --services --images --volumes --format= --no-interpolate",
+          "min": 0,
+          "max": 0
+        },
+        "images": {
+          "help": [
+            "images",
+            "--help"
+          ],
+          "flags": "--help --file= -f= --project-name= -p= --project-directory= --profile= --env-file= --ansi= --progress= --quiet -q --format=",
+          "min": 0,
+          "max": 32
+        },
+        "version": {
+          "help": [
+            "version",
+            "--help"
+          ],
+          "flags": "--help --file= -f= --project-name= -p= --project-directory= --profile= --env-file= --ansi= --progress= --short",
+          "min": 0,
+          "max": 0
+        }
+      }
+    }
+  },
+  "gh": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help --version",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "pr": {
+          "help": [
+            "pr",
+            "--help"
+          ],
+          "flags": "--help --repo= -R=",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "pr",
+                "list",
+                "--help"
+              ],
+              "flags": "--help --state= -s= --limit= -L= --json= --jq= -q= --repo= -R=",
+              "min": 0,
+              "max": 0
+            },
+            "view": {
+              "help": [
+                "pr",
+                "view",
+                "--help"
+              ],
+              "flags": "--help --json= --jq= -q= --comments -c --repo= -R=",
+              "min": 0,
+              "max": 1
+            },
+            "status": {
+              "help": [
+                "pr",
+                "status",
+                "--help"
+              ],
+              "flags": "--help --json= --jq= -q= --repo= -R=",
+              "min": 0,
+              "max": 0
+            },
+            "checks": {
+              "help": [
+                "pr",
+                "checks",
+                "--help"
+              ],
+              "flags": "--help --repo= -R= --json= --jq= -q=",
+              "min": 0,
+              "max": 1
+            }
+          }
+        },
+        "issue": {
+          "help": [
+            "issue",
+            "--help"
+          ],
+          "flags": "--help --repo= -R=",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "issue",
+                "list",
+                "--help"
+              ],
+              "flags": "--help --state= -s= --limit= -L= --json= --jq= -q= --repo= -R=",
+              "min": 0,
+              "max": 0
+            },
+            "view": {
+              "help": [
+                "issue",
+                "view",
+                "--help"
+              ],
+              "flags": "--help --comments -c --repo= -R= --json= --jq= -q=",
+              "min": 1,
+              "max": 1
+            }
+          }
+        },
+        "repo": {
+          "help": [
+            "repo",
+            "--help"
+          ],
+          "flags": "--help --repo= -R=",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "view": {
+              "help": [
+                "repo",
+                "view",
+                "--help"
+              ],
+              "flags": "--help --json= --jq= -q=",
+              "min": 0,
+              "max": 1
+            },
+            "list": {
+              "help": [
+                "repo",
+                "list",
+                "--help"
+              ],
+              "flags": "--help --limit= -L= --json= --jq= -q=",
+              "min": 0,
+              "max": 1
+            }
+          }
+        },
+        "run": {
+          "help": [
+            "run",
+            "--help"
+          ],
+          "flags": "--help --repo= -R=",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "run",
+                "list",
+                "--help"
+              ],
+              "flags": "--help --limit= -L= --workflow= -w= --repo= -R= --json= --jq= -q=",
+              "min": 0,
+              "max": 0
+            },
+            "view": {
+              "help": [
+                "run",
+                "view",
+                "--help"
+              ],
+              "flags": "--help --log --log-failed --repo= -R= --json= --jq= -q=",
+              "min": 0,
+              "max": 1
+            }
+          }
+        },
+        "release": {
+          "help": [
+            "release",
+            "--help"
+          ],
+          "flags": "--help --repo= -R=",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "release",
+                "list",
+                "--help"
+              ],
+              "flags": "--help --limit= -L= --repo= -R= --json= --jq= -q=",
+              "min": 0,
+              "max": 0
+            },
+            "view": {
+              "help": [
+                "release",
+                "view",
+                "--help"
+              ],
+              "flags": "--help --repo= -R= --json= --jq= -q=",
+              "min": 0,
+              "max": 1
+            }
+          }
+        },
+        "auth": {
+          "help": [
+            "auth",
+            "--help"
+          ],
+          "flags": "--help --repo= -R=",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "status": {
+              "help": [
+                "auth",
+                "status",
+                "--help"
+              ],
+              "flags": "--help --active --hostname= -h= --json= --jq= -q=",
+              "min": 0,
+              "max": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "helm": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --namespace= -n= --kube-context= --kubeconfig= --debug",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "list": {
+          "help": [
+            "list",
+            "--help"
+          ],
+          "flags": "--all-namespaces -A --namespace= -n= --output= -o= --filter= -f= --all -a --short -q",
+          "min": 0,
+          "max": 0
+        },
+        "status": {
+          "help": [
+            "status",
+            "--help"
+          ],
+          "flags": "--namespace= -n= --output= -o= --show-resources",
+          "min": 1,
+          "max": 1
+        },
+        "history": {
+          "help": [
+            "history",
+            "--help"
+          ],
+          "flags": "--namespace= -n= --output= -o= --max=",
+          "min": 1,
+          "max": 1
+        },
+        "lint": {
+          "help": [
+            "lint",
+            "--help"
+          ],
+          "flags": "--strict --quiet --values= -f=",
+          "min": 1,
+          "max": 32
+        },
+        "version": {
+          "help": [
+            "version",
+            "--help"
+          ],
+          "flags": "--short --template=",
+          "min": 0,
+          "max": 0
+        },
+        "repo": {
+          "help": [
+            "repo",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "repo",
+                "list",
+                "--help"
+              ],
+              "flags": "--output= -o=",
+              "min": 0,
+              "max": 0
+            }
+          }
+        },
+        "show": {
+          "help": [
+            "show",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "chart": {
+              "help": [
+                "show",
+                "chart",
+                "--help"
+              ],
+              "flags": "--version=",
+              "min": 1,
+              "max": 1
+            },
+            "values": {
+              "help": [
+                "show",
+                "values",
+                "--help"
+              ],
+              "flags": "--version=",
+              "min": 1,
+              "max": 1
+            },
+            "readme": {
+              "help": [
+                "show",
+                "readme",
+                "--help"
+              ],
+              "flags": "--version=",
+              "min": 1,
+              "max": 1
+            },
+            "all": {
+              "help": [
+                "show",
+                "all",
+                "--help"
+              ],
+              "flags": "--version=",
+              "min": 1,
+              "max": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "kubectl": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --namespace= -n= --context= --kubeconfig= --cluster= --request-timeout=",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "get": {
+          "help": [
+            "get",
+            "--help"
+          ],
+          "flags": "--output= -o= --namespace= -n= --selector= -l= --field-selector= --all-namespaces -A --show-labels --no-headers --watch -w",
+          "min": 1,
+          "max": 32
+        },
+        "describe": {
+          "help": [
+            "describe",
+            "--help"
+          ],
+          "flags": "--namespace= -n= --selector= -l= --all-namespaces -A --show-events?",
+          "min": 1,
+          "max": 32
+        },
+        "logs": {
+          "help": [
+            "logs",
+            "--help"
+          ],
+          "flags": "--namespace= -n= --container= -c= --follow -f --tail= --since= --timestamps? --previous -p",
+          "min": 1,
+          "max": 1
+        },
+        "explain": {
+          "help": [
+            "explain",
+            "--help"
+          ],
+          "flags": "--recursive --api-version= --output= -o=",
+          "min": 1,
+          "max": 1
+        },
+        "api-resources": {
+          "help": [
+            "api-resources",
+            "--help"
+          ],
+          "flags": "--namespaced? --verbs= --api-group= --output= -o=",
+          "min": 0,
+          "max": 0
+        },
+        "version": {
+          "help": [
+            "version",
+            "--help"
+          ],
+          "flags": "--client --output= -o=",
+          "min": 0,
+          "max": 0
+        },
+        "config": {
+          "help": [
+            "config",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "current-context": {
+              "help": [
+                "config",
+                "current-context",
+                "--help"
+              ],
+              "flags": "",
+              "min": 0,
+              "max": 0
+            },
+            "get-contexts": {
+              "help": [
+                "config",
+                "get-contexts",
+                "--help"
+              ],
+              "flags": "--no-headers --output= -o=",
+              "min": 0,
+              "max": 32
+            }
+          }
+        },
+        "top": {
+          "help": [
+            "top",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "node": {
+              "help": [
+                "top",
+                "nodes",
+                "--help"
+              ],
+              "flags": "--namespace= -n= --all-namespaces -A --no-headers --sort-by=",
+              "min": 0,
+              "max": 1,
+              "aliases": [
+                "nodes"
+              ]
+            },
+            "pod": {
+              "help": [
+                "top",
+                "pods",
+                "--help"
+              ],
+              "flags": "--namespace= -n= --all-namespaces -A --no-headers --sort-by=",
+              "min": 0,
+              "max": 1,
+              "aliases": [
+                "pods"
+              ]
+            }
+          }
+        }
+      },
+      "extra_help": [
+        [
+          "options"
+        ]
+      ]
+    }
+  },
+  "kustomize": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --stack-trace",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "build": {
+          "help": [
+            "build",
+            "--help"
+          ],
+          "flags": "--help -h --load-restrictor= --reorder=",
+          "min": 0,
+          "max": 1
+        },
+        "version": {
+          "help": [
+            "version",
+            "--help"
+          ],
+          "flags": "--short",
+          "min": 0,
+          "max": 0
+        }
+      }
+    }
+  },
+  "meson": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -V",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "introspect": {
+          "help": [
+            "introspect",
+            "--help"
+          ],
+          "flags": "--help -h --targets --buildoptions --dependencies --installed --tests --projectinfo --benchmarks --buildsystem-files --scan-dependencies -a --all -i --indent",
+          "min": 0,
+          "max": 1
+        },
+        "configure": {
+          "help": [
+            "configure",
+            "--help"
+          ],
+          "flags": "--help -h --no-pager",
+          "min": 0,
+          "max": 1
+        }
+      }
+    }
+  },
+  "nerdctl": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -v --namespace= -n=",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "ps": {
+          "help": [
+            "ps",
+            "--help"
+          ],
+          "flags": "--all -a --quiet -q --format= --filter= -f= --no-trunc",
+          "min": 0,
+          "max": 0
+        },
+        "images": {
+          "help": [
+            "images",
+            "--help"
+          ],
+          "flags": "--all -a --quiet -q --format= --filter= -f= --no-trunc",
+          "min": 0,
+          "max": 1
+        },
+        "inspect": {
+          "help": [
+            "inspect",
+            "--help"
+          ],
+          "flags": "--format= -f= --type=",
+          "min": 1,
+          "max": 32
+        },
+        "logs": {
+          "help": [
+            "logs",
+            "--help"
+          ],
+          "flags": "--follow -f --tail= --since= --timestamps -t",
+          "min": 1,
+          "max": 1
+        },
+        "info": {
+          "help": [
+            "info",
+            "--help"
+          ],
+          "flags": "--format= -f=",
+          "min": 0,
+          "max": 0
+        },
+        "version": {
+          "help": [
+            "version",
+            "--help"
+          ],
+          "flags": "--format= -f=",
+          "min": 0,
+          "max": 0
+        },
+        "image": {
+          "help": [
+            "image",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "ls": {
+              "help": [
+                "image",
+                "ls",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 0,
+              "max": 1
+            },
+            "inspect": {
+              "help": [
+                "image",
+                "inspect",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 32
+            },
+            "history": {
+              "help": [
+                "image",
+                "history",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 1
+            }
+          }
+        },
+        "container": {
+          "help": [
+            "container",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "ls": {
+              "help": [
+                "container",
+                "ls",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 0,
+              "max": 0
+            },
+            "inspect": {
+              "help": [
+                "container",
+                "inspect",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 32
+            }
+          }
+        },
+        "network": {
+          "help": [
+            "network",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "ls": {
+              "help": [
+                "network",
+                "ls",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 0,
+              "max": 0
+            },
+            "inspect": {
+              "help": [
+                "network",
+                "inspect",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 32
+            }
+          }
+        },
+        "volume": {
+          "help": [
+            "volume",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "ls": {
+              "help": [
+                "volume",
+                "ls",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 0,
+              "max": 0
+            },
+            "inspect": {
+              "help": [
+                "volume",
+                "inspect",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 32
+            }
+          }
+        }
+      }
+    }
+  },
+  "podman": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -v --connection= -c= --log-level=",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "ps": {
+          "help": [
+            "ps",
+            "--help"
+          ],
+          "flags": "--all -a --quiet -q --format= --filter= -f= --no-trunc",
+          "min": 0,
+          "max": 0
+        },
+        "images": {
+          "help": [
+            "images",
+            "--help"
+          ],
+          "flags": "--all -a --quiet -q --format= --filter= -f= --no-trunc",
+          "min": 0,
+          "max": 1
+        },
+        "inspect": {
+          "help": [
+            "inspect",
+            "--help"
+          ],
+          "flags": "--format= -f= --type=",
+          "min": 1,
+          "max": 32
+        },
+        "logs": {
+          "help": [
+            "logs",
+            "--help"
+          ],
+          "flags": "--follow -f --tail= --since= --timestamps -t",
+          "min": 1,
+          "max": 1
+        },
+        "info": {
+          "help": [
+            "info",
+            "--help"
+          ],
+          "flags": "--format= -f=",
+          "min": 0,
+          "max": 0
+        },
+        "version": {
+          "help": [
+            "version",
+            "--help"
+          ],
+          "flags": "--format= -f=",
+          "min": 0,
+          "max": 0
+        },
+        "image": {
+          "help": [
+            "image",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "inspect": {
+              "help": [
+                "image",
+                "inspect",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 32
+            },
+            "history": {
+              "help": [
+                "image",
+                "history",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 1
+            },
+            "list": {
+              "help": [
+                "image",
+                "ls",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 0,
+              "max": 1,
+              "aliases": [
+                "ls"
+              ]
+            }
+          }
+        },
+        "container": {
+          "help": [
+            "container",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "inspect": {
+              "help": [
+                "container",
+                "inspect",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 32
+            },
+            "list": {
+              "help": [
+                "container",
+                "ls",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 0,
+              "max": 0,
+              "aliases": [
+                "ls"
+              ]
+            }
+          }
+        },
+        "network": {
+          "help": [
+            "network",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "ls": {
+              "help": [
+                "network",
+                "ls",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 0,
+              "max": 0
+            },
+            "inspect": {
+              "help": [
+                "network",
+                "inspect",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 32
+            }
+          }
+        },
+        "volume": {
+          "help": [
+            "volume",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "ls": {
+              "help": [
+                "volume",
+                "ls",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 0,
+              "max": 0
+            },
+            "inspect": {
+              "help": [
+                "volume",
+                "inspect",
+                "--help"
+              ],
+              "flags": "--help -h --format= -f= --quiet -q --filter= --no-trunc --all -a",
+              "min": 1,
+              "max": 32
+            }
+          }
+        }
+      }
+    }
+  },
+  "pre-commit": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -V",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "validate-config": {
+          "help": [
+            "validate-config",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "min": 0,
+          "max": 32
+        },
+        "validate-manifest": {
+          "help": [
+            "validate-manifest",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "min": 0,
+          "max": 32
+        },
+        "sample-config": {
+          "help": [
+            "sample-config",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "min": 0,
+          "max": 0
+        }
+      }
+    }
+  },
+  "ruff": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -V",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "check": {
+          "help": [
+            "check",
+            "--help"
+          ],
+          "flags": "--help -h --no-fix --no-cache --output-format= --select= --ignore= --exclude= --show-source --statistics --quiet -q --verbose -v",
+          "min": 0,
+          "max": 32
+        },
+        "rule": {
+          "help": [
+            "rule",
+            "--help"
+          ],
+          "flags": "--help -h --all --output-format=",
+          "min": 0,
+          "max": 1
+        },
+        "linter": {
+          "help": [
+            "linter",
+            "--help"
+          ],
+          "flags": "--help -h --output-format=",
+          "min": 0,
+          "max": 0
+        }
+      }
+    }
+  },
+  "skopeo": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --debug --command-timeout= --override-arch= --override-os=",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "inspect": {
+          "help": [
+            "inspect",
+            "--help"
+          ],
+          "flags": "--format= -f= --raw --config --no-tags",
+          "min": 1,
+          "max": 1
+        },
+        "list-tags": {
+          "help": [
+            "list-tags",
+            "--help"
+          ],
+          "flags": "",
+          "min": 1,
+          "max": 1
+        },
+        "manifest-digest": {
+          "help": [
+            "manifest-digest",
+            "--help"
+          ],
+          "flags": "",
+          "min": 1,
+          "max": 1
+        }
+      }
+    }
+  },
+  "starship": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -V",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "print-config": {
+          "help": [
+            "print-config",
+            "--help"
+          ],
+          "flags": "--help -h --default",
+          "min": 0,
+          "max": 0
+        },
+        "preset": {
+          "help": [
+            "preset",
+            "--help"
+          ],
+          "flags": "--help -h --list",
+          "min": 0,
+          "max": 1
+        }
+      }
+    }
+  },
+  "uv": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "tree": {
+          "help": [
+            "tree",
+            "--help"
+          ],
+          "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads --depth= -d= --invert --no-dedupe",
+          "min": 0,
+          "max": 0
+        },
+        "audit": {
+          "help": [
+            "audit",
+            "--help"
+          ],
+          "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads --format=",
+          "min": 0,
+          "max": 0
+        },
+        "pip": {
+          "help": [
+            "pip",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "pip",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads --format= --outdated --editable -e --exclude-editable --system --python= -p=",
+              "min": 0,
+              "max": 0
+            },
+            "show": {
+              "help": [
+                "pip",
+                "show",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads --files -f --system --python= -p=",
+              "min": 1,
+              "max": 32
+            },
+            "freeze": {
+              "help": [
+                "pip",
+                "freeze",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads --exclude-editable --system --python= -p=",
+              "min": 0,
+              "max": 0
+            },
+            "check": {
+              "help": [
+                "pip",
+                "check",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads --system --python= -p=",
+              "min": 0,
+              "max": 0
+            }
+          }
+        },
+        "python": {
+          "help": [
+            "python",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "python",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads --all-versions --only-installed --output-format=",
+              "min": 0,
+              "max": 32
+            },
+            "find": {
+              "help": [
+                "python",
+                "find",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads",
+              "min": 0,
+              "max": 1
+            }
+          }
+        },
+        "tool": {
+          "help": [
+            "tool",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "list": {
+              "help": [
+                "tool",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads --show-paths",
+              "min": 0,
+              "max": 0
+            }
+          }
+        },
+        "cache": {
+          "help": [
+            "cache",
+            "--help"
+          ],
+          "flags": "",
+          "min": 0,
+          "max": 0,
+          "commands": {
+            "dir": {
+              "help": [
+                "cache",
+                "dir",
+                "--help"
+              ],
+              "flags": "--help -h --quiet -q --verbose -v --color= --offline --no-progress --no-config --directory= --project= --no-python-downloads",
+              "min": 0,
+              "max": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "zoxide": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -V",
+      "min": 0,
+      "max": 0,
+      "commands": {
+        "query": {
+          "help": [
+            "query",
+            "--help"
+          ],
+          "flags": "--help -h --list -l --score -s --exclude= --all -a",
+          "min": 1,
+          "max": 32
+        }
+      }
+    }
   }
 }

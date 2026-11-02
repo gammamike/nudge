@@ -21,8 +21,9 @@ git status
 
 Nudge is written in Rust for **Linux and Bash 5+**. It does not require a specific
 Linux distribution or desktop environment. It is under active development;
-command coverage is still expanding. A per-user installer and portable x86_64
-Linux bundle are available; public release artifacts have not been published.
+command coverage is still expanding. Download the portable x86_64 Linux bundle
+from [GitHub Releases](https://github.com/gammamike/nudge/releases/latest), or
+build from source. The license is GPL-3.0-only.
 
 ## How it works
 
@@ -40,12 +41,26 @@ connectivity, or missing resources are not automatically retried.
 
 ## Install and enable
 
-From source, requirements are Linux, Bash 5+, and Rust 1.88+ with Cargo:
+The Linux x86_64 bundle requires Bash 5+ and no Rust toolchain. Download the binary
+archive, matching source archive, and `SHA256SUMS` from the
+[v0.1.0 release](https://github.com/gammamike/nudge/releases/tag/v0.1.0).
 
 With the defaults below, unresolved eligible commands can trigger a cloud request
 through your existing Codex login. For local rules only, add
 `export NUDGE_LOCAL_ONLY=1` to `~/.bashrc` **before** starting the new shell. Run
 the same export in your current shell to disable model requests there too.
+
+In the download directory:
+
+```bash
+sha256sum -c SHA256SUMS
+tar -xzf nudge-0.1.0-linux-x86_64.tar.gz
+cd nudge-0.1.0-linux-x86_64
+./install.sh
+exec bash
+```
+
+Alternatively, build from source with Git, Rust 1.88+, and Cargo:
 
 ```bash
 git clone https://github.com/gammamike/nudge.git
@@ -78,6 +93,37 @@ Set `NUDGE_ENABLED=0` to disable the hook in the current shell.
 
 For development without installation, build with `cargo build --locked --release`
 and run `./try-bash`. The source-build executable is `target/release/nudge-rust`.
+
+## System and package installation
+
+For staged installs and distro packages, use the `nudge-bash` command. The
+Makefile supports `PREFIX` and `DESTDIR` and installs a man page, Bash completion,
+and license notices. Activation is explicit; package installation does not edit
+user startup files. See [system installation](docs/SYSTEM_INSTALL.md).
+
+AUR recipes for `nudge-bash` and `nudge-bash-bin` are prepared; AUR listings are
+not yet published. Use the GitHub release or source installer in the meantime.
+See the [release and AUR guide](docs/RELEASING.md) for validation and submission.
+
+### Optional desktop companion
+
+An optional [Omarchy companion](docs/OMARCHY_COMPANION.md) provides a settings
+panel for Codex, Claude Code, and local LLMs, including local model discovery,
+an explicit connection test, and Bash setup instructions. It requires Omarchy
+Shell with plugin support, `jq`, and GNU `timeout`; the CLI is installed separately.
+The panel follows the active Omarchy theme. Install and open it with:
+
+```bash
+omarchy plugin add https://github.com/gammamike/nudge.git --enable
+omarchy-shell shell summon gammamike.nudge '{}'
+```
+
+Remove it with `omarchy plugin remove gammamike.nudge`. This leaves the CLI,
+Bash hook, and saved settings in place. Installing the companion does not install
+the CLI, change Bash startup files, or contact a model. **Test connection** sends
+a small synthetic request only when selected. Marketplace listing is separate
+from installation directly from this repository. Nudge works without this
+companion or desktop.
 
 ## Local corrections and model providers
 
@@ -131,7 +177,7 @@ restrictions.
 
 ## Command coverage
 
-The registry currently contains **120 executable adapters**, with deliberately
+The registry currently contains **267 executable adapters**, with deliberately
 scoped support. It includes Git, Docker/Compose, systemd, common file/text tools,
 desktop utilities, Cargo, Pacman/Yay query operations, Nix, iwctl, Zellij, and strace.
 A listed executable does not imply support for every option or subcommand.
@@ -139,6 +185,8 @@ A listed executable does not imply support for every option or subcommand.
 - [Git, Docker/Compose, and systemd support](docs/FIRST_CLI_BATCH.md)
 - [Additional Linux profiles, exact scopes, and timings](docs/LINUX_PROFILES.md)
 - [Nix, iwctl, Zellij, and strace scopes and tests](docs/NESTED_CLI_BATCH.md)
+- [Latest 147 adapters, Buildx scopes, and tests](docs/CLI_EXPANSION.md)
+- [Supported and pending requested commands](docs/CLI_STATUS.md)
 - [Launch coverage checklist](docs/CLI_SUPPORT.md)
 - [Additional requested tools](docs/CLI_ADDITIONS.md)
 
@@ -178,15 +226,15 @@ cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked
 python3 -m unittest discover -s tests -v
-for script in nudge.bash interactive.bash try-bash install.sh scripts/*.sh tests/distribution-smoke.sh; do bash -n "$script"; done
+for script in nudge.bash interactive.bash try-bash install.sh scripts/*.sh companion/omarchy/*.sh tests/distribution-smoke.sh; do bash -n "$script"; done
 ```
 
-Integration tests require Python 3 and `curl`. They exercise the Rust binary
+Integration tests require Python 3.11+, `curl`, and `jq`. They exercise the Rust binary
 using captured metadata, mock executables, and loopback servers. No model login
 or live model requests are needed.
 
 See [contribution guidelines](CONTRIBUTING.md), [development notes](docs/DEVELOPMENT.md),
-[packaging instructions](docs/PACKAGING.md), the [distribution test report](docs/DISTRIBUTION_TESTS.md),
+[packaging instructions](docs/PACKAGING.md), [distribution options](docs/DISTRIBUTION_OPTIONS.md), the [distribution test report](docs/DISTRIBUTION_TESTS.md),
 and the [changelog](CHANGELOG.md). For setup problems, see
 [troubleshooting](docs/TROUBLESHOOTING.md).
 

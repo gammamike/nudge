@@ -343,6 +343,13 @@ pub(crate) fn execute(action: &str, arguments: Vec<String>) -> Result<()> {
         "--bashrc and --no-modify-shell cannot be combined"
     );
     let executable = env::current_exe()?;
+    ensure!(
+        !executable
+            .parent()
+            .and_then(Path::parent)
+            .is_some_and(|root| root.join("package-managed").exists()),
+        "This installation is managed externally. Use your package manager or the Makefile to update/remove it; enable Bash using the documented source line."
+    );
     let (root, bin_dir) = if let Some(prefix) = prefix {
         path_text(&prefix)?;
         (prefix.join("share/nudge"), prefix.join("bin"))

@@ -1,0 +1,39 @@
+# Maintainer: gammamike (https://github.com/gammamike)
+pkgname=nudge-bash
+pkgver=@VERSION@
+pkgrel=1
+pkgdesc='Local-first command correction for Bash on Linux'
+arch=('x86_64')
+url='https://github.com/gammamike/nudge'
+license=('GPL-3.0-only')
+depends=('bash>=5' 'glibc' 'libgcc')
+makedepends=('cargo' 'python')
+checkdepends=('python')
+optdepends=('bash-completion: management command completion' 'curl: local LLM HTTP backends')
+source=("$url/releases/download/v$pkgver/nudge-$pkgver-source.tar.gz")
+sha256sums=('@SHA256@')
+
+prepare() {
+  cd "nudge-$pkgver-source"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/^host: //p')"
+}
+
+build() {
+  cd "nudge-$pkgver-source"
+  export RUSTUP_TOOLCHAIN=stable CARGO_TARGET_DIR=target
+  cargo build --frozen --release
+  make notices
+}
+
+check() {
+  cd "nudge-$pkgver-source"
+  export RUSTUP_TOOLCHAIN=stable CARGO_TARGET_DIR=target
+  cargo test --frozen
+  python -m unittest discover -s tests -p test_system_package.py -v
+}
+
+package() {
+  cd "nudge-$pkgver-source"
+  make install DESTDIR="$pkgdir" PREFIX=/usr
+}

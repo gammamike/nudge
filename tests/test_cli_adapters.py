@@ -7,6 +7,7 @@ import select
 import shlex
 import signal
 import subprocess
+import sys
 import tempfile
 import time
 import unittest
@@ -15,7 +16,7 @@ from support import BINARY, ROOT
 
 FIXTURES = Path(__file__).parent / 'fixtures/linux-cli-help.json'
 
-TOOL = '''#!/usr/bin/env python3
+TOOL = f'#!{sys.executable}\n' + '''
 import json,os,sys
 from pathlib import Path
 name=Path(sys.argv[0]).name
@@ -49,7 +50,7 @@ print('unknown or failed test command',file=sys.stderr)
 sys.exit(2)
 '''
 
-CODEX = '''#!/usr/bin/env python3
+CODEX = f'#!{sys.executable}\n' + '''
 import json,os,sys
 from pathlib import Path
 if sys.argv[1:] == ['login','status']:

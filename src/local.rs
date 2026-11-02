@@ -239,13 +239,7 @@ pub(crate) fn pick<'a>(
         return Ok((None, Some("no eligible commands".to_owned())));
     }
     match completion(words, &choices, options, runner) {
-        Ok(value) => match ai::selected(&value, &choices) {
-            Some(entry) => Ok((Some(entry), None)),
-            None => Ok((
-                None,
-                Some("local model declined or returned an invalid selection".to_owned()),
-            )),
-        },
+        Ok(value) => Ok(ai::selection_result(&value, &choices, options.provider)),
         Err(error) => {
             runner.check_interrupt()?;
             Ok((None, Some(error.to_string())))

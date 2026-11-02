@@ -15,7 +15,7 @@ while (( $# )); do
         *) printf 'Unknown option: %s\n' "$1" >&2; exit 1 ;;
     esac
 done
-for tool in git tar gzip sha256sum readelf python3 cargo rustc; do command -v "$tool" >/dev/null; done
+for tool in git tar gzip sha256sum readelf strip python3 cargo rustc; do command -v "$tool" >/dev/null; done
 nudge_version=$(sed -n 's/^version = "\([^"]*\)"/\1/p' "$nudge_root/Cargo.toml")
 [[ $nudge_version =~ ^[0-9]+\.[0-9]+\.[0-9]+([-+][a-zA-Z0-9.-]+)?$ ]] || exit 1
 nudge_dirty=$(git -C "$nudge_root" status --porcelain)
@@ -52,8 +52,13 @@ trap 'rm -rf -- "$nudge_stage"' EXIT
 nudge_name=nudge-$nudge_version-linux-x86_64
 mkdir -p "$nudge_stage/$nudge_name/bin"
 install -m755 "$nudge_binary" "$nudge_stage/$nudge_name/bin/nudge"
+strip --strip-all "$nudge_stage/$nudge_name/bin/nudge"
 install -m755 "$nudge_root/install.sh" "$nudge_stage/$nudge_name/install.sh"
 cp "$nudge_root/LICENSE" "$nudge_root/CHANGELOG.md" "$nudge_stage/$nudge_name/"
+cp "$nudge_root/Makefile" "$nudge_root/nudge.bash" "$nudge_stage/$nudge_name/"
+mkdir -p "$nudge_stage/$nudge_name/packaging"
+cp "$nudge_root/packaging/package-managed" "$nudge_stage/$nudge_name/packaging/"
+cp -R "$nudge_root/man" "$nudge_root/completions" "$nudge_stage/$nudge_name/"
 cat > "$nudge_stage/$nudge_name/README.md" <<'README'
 # Nudge for Linux x86_64
 

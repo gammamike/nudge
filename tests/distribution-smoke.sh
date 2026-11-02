@@ -11,7 +11,9 @@ nudge_installed=$nudge_test_home/.local/bin/nudge
 [[ -x $nudge_installed ]]
 env HOME="$nudge_test_home" "$nudge_installed" --version
 env HOME="$nudge_test_home" "$nudge_installed" supported > "$nudge_test_home/supported"
-[[ $(wc -l < "$nudge_test_home/supported") == 120 ]]
+/bundle/bin/nudge supported > "$nudge_test_home/expected-supported"
+[[ $(sha256sum < "$nudge_test_home/supported") == $(sha256sum < "$nudge_test_home/expected-supported") ]]
+[[ $(wc -l < "$nudge_test_home/supported") -ge 120 ]]
 # A second install must not duplicate the hook or create another release.
 env HOME="$nudge_test_home" /bundle/install.sh
 [[ $(grep -c '^# >>> nudge managed setup >>>$' "$nudge_test_home/.bashrc") == 1 ]]
