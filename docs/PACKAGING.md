@@ -49,7 +49,7 @@ artifacts for 14 days and does not publish a release.
 To run one image locally with Docker:
 
 ```bash
-scripts/test-distribution.sh dist/nudge-0.1.0-linux-x86_64.tar.gz ubuntu:24.04
+scripts/test-distribution.sh dist/nudge-0.1.1-linux-x86_64.tar.gz ubuntu:24.04
 ```
 
 Use the digests recorded in [the validation report](DISTRIBUTION_TESTS.md) for

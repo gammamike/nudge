@@ -43,7 +43,7 @@ connectivity, or missing resources are not automatically retried.
 
 The Linux x86_64 bundle requires Bash 5+ and no Rust toolchain. Download the binary
 archive, matching source archive, and `SHA256SUMS` from the
-[v0.1.0 release](https://github.com/gammamike/nudge/releases/tag/v0.1.0).
+[v0.1.1 release](https://github.com/gammamike/nudge/releases/tag/v0.1.1).
 
 With the defaults below, unresolved eligible commands can trigger a cloud request
 through your existing Codex login. For local rules only, add
@@ -54,8 +54,8 @@ In the download directory:
 
 ```bash
 sha256sum -c SHA256SUMS
-tar -xzf nudge-0.1.0-linux-x86_64.tar.gz
-cd nudge-0.1.0-linux-x86_64
+tar -xzf nudge-0.1.1-linux-x86_64.tar.gz
+cd nudge-0.1.1-linux-x86_64
 ./install.sh
 exec bash
 ```

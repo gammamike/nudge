@@ -3,7 +3,7 @@
 User-visible changes are recorded here. Unreleased entries are available in the
 source tree and do not imply a published package or stable release.
 
-## Unreleased
+## 0.1.1 — 2026-11-01
 
 ### Added
 
