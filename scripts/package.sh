@@ -67,6 +67,11 @@ contains a static Linux binary. Rust and Python are not needed to run it.
 
 ## Build and enable
 
+Cloud fallback through your existing Codex login is enabled by default when
+local rules cannot choose an eligible correction. For local rules only, add
+`export NUDGE_LOCAL_ONLY=1` to ~/.bashrc before starting a new shell, and run
+the same export in the current shell. This disables all model requests.
+
 Verify SHA256SUMS from the trusted download location before extracting. From
 this extracted directory, run `./install.sh` as your normal user, then `exec bash`.
 The installer adds one managed block to ~/.bashrc and keeps a backup.
@@ -79,9 +84,14 @@ Settings, cache, unrelated shell settings, and backups are retained.
 
 ## Providers
 
-Optional providers are Codex, Claude Code, and local LLMs through Ollama or a
-compatible local HTTP server. Codex is the default. Set NUDGE_LOCAL_ONLY=1 to
-use deterministic corrections only. See docs/PROVIDERS.md and docs/INSTALLATION.md.
+Providers are Codex (OpenAI), Claude Code (Anthropic), and local LLMs through
+Ollama or a compatible local HTTP server. Model requests happen automatically
+before the Enter-to-run prompt; Enter confirms execution, not sending data.
+Requests include command syntax and candidate routes with descriptions, not
+scrollback, unrelated history, or command output. Argument-aware adapters omit
+operands; catalog matchers send accepted literal command words without redaction.
+Ensure your local server performs inference locally. See docs/PROVIDERS.md
+for data handling and docs/INSTALLATION.md for setup.
 Local LLM inference also requires curl and a separately running model server.
 
 ## Source and notices

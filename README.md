@@ -4,6 +4,13 @@ Fast, local-first command correction for Bash on Linux. Nudge checks a failed
 command, offers a correction, and waits for **Enter** before running it. Press any
 other key to cancel.
 
+**Local rules run first; cloud fallback is enabled by default.** If local rules
+cannot choose an eligible correction, Nudge automatically asks **Codex (OpenAI)**
+using your existing CLI login. **Claude Code (Anthropic)** and **local LLMs** are
+selectable alternatives. Set `NUDGE_LOCAL_ONLY=1` to disable all model requests.
+Enter confirms running the proposed command; the model request happens before
+that prompt, without separate confirmation.
+
 ```text
 $ git statsu
 …unknown subcommand…
@@ -22,7 +29,7 @@ Linux bundle are available; public release artifacts have not been published.
 - A Bash prompt hook checks failed commands without replacing the shell.
 - Local rules correct unambiguous syntax errors using reviewed adapters and
   installed command metadata.
-- Optional model selection supports **Codex**, **Claude Code**, and **local LLMs**
+- Model fallback supports **Codex** (the default), **Claude Code**, and **local LLMs**
   through Ollama or a local server implementing the OpenAI-compatible API.
 - The proposed command is displayed before execution. Arguments are passed
   literally; model output is never evaluated as shell code.
@@ -34,6 +41,11 @@ connectivity, or missing resources are not automatically retried.
 ## Install and enable
 
 From source, requirements are Linux, Bash 5+, and Rust 1.88+ with Cargo:
+
+With the defaults below, unresolved eligible commands can trigger a cloud request
+through your existing Codex login. For local rules only, add
+`export NUDGE_LOCAL_ONLY=1` to `~/.bashrc` **before** starting the new shell. Run
+the same export in your current shell to disable model requests there too.
 
 ```bash
 git clone https://github.com/gammamike/nudge.git
@@ -96,6 +108,8 @@ export NUDGE_LOCAL_ONLY=1
 Unset that variable, or set it to `0`, to allow the selected provider. Models are
 optional; missing authentication or an unavailable provider produces no model
 suggestion. Nudge does not switch providers automatically.
+Add the export to `~/.bashrc` to keep it enabled in future Bash shells. This mode
+also disables local LLM requests; deterministic local corrections still work.
 
 Choose one provider; the following are alternatives, not a setup sequence:
 
@@ -117,6 +131,21 @@ settings still apply. Local inference requires a model loaded on your server.
 
 See [provider configuration](docs/PROVIDERS.md) for authentication, local server
 endpoints, model overrides, privacy boundaries, and environment settings.
+
+## What leaves your machine
+
+When cloud fallback runs, Codex sends the selection request to OpenAI, or Claude
+Code sends it to Anthropic. Nudge supplies command/subcommand syntax and candidate
+routes (including their descriptions), not terminal scrollback, unrelated shell
+history, or command output. Argument-aware adapters omit paths, IDs, option
+values, and other preserved operands. Catalog-based matchers send the accepted
+literal command words with shortlisted routes, so those words are not redacted.
+
+Local LLM providers use a loopback server. Ensure that server performs inference
+locally rather than forwarding requests elsewhere. `NUDGE_LOCAL_ONLY=1` disables
+all model requests. See [data sent and failure handling](docs/PROVIDERS.md#data-sent-and-failure-handling)
+for details and [local inference](docs/PROVIDERS.md#local-inference) for server
+restrictions.
 
 ## Command coverage
 

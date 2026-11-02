@@ -46,6 +46,9 @@ source tree and do not imply a published package or stable release.
 - Local-only adapter policies also apply when `--force-ai` is requested.
 - Nested aliases and Kubectl global options are validated against installed help.
 - Required inspection/dry-run flags cannot be satisfied by argument values.
+- Clarify default cloud fallback, request timing, data sent, and persistent
+  local-only setup in the quick-start, provider guide, and binary bundle.
+- Installation reports the configured fallback mode without contacting a provider.
 - Configuration and cache follow XDG paths; installed copies no longer depend
   on the source checkout.
 - Literal `#` inside an argument is accepted for forms such as Nix flake references.
