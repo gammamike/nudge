@@ -49,12 +49,12 @@ Download all three from [GitHub Releases](https://github.com/gammamike/nudge/rel
 
 Obtain the bundle, source archive, and `SHA256SUMS` from the same trusted release
 location. In their download directory, verify and extract them. For example,
-replace `0.1.0` below with the version you downloaded:
+replace `0.1.1` below with the version you downloaded:
 
 ```bash
 sha256sum -c SHA256SUMS
-tar -xzf nudge-0.1.0-linux-x86_64.tar.gz
-cd nudge-0.1.0-linux-x86_64
+tar -xzf nudge-0.1.1-linux-x86_64.tar.gz
+cd nudge-0.1.1-linux-x86_64
 ./install.sh
 exec bash
 ```

@@ -37,7 +37,7 @@ def main():
         bin_dir.mkdir(parents=True)
         bin_dir.joinpath("nudge-bash").symlink_to(BINARY)
         # Allow the bridge's dependencies, but no provider CLI or live curl.
-        for name in ("jq", "timeout", "fc-match"):
+        for name in ("jq", "timeout", "fc-match", "cmp", "mkdir", "mktemp", "cat", "chmod", "ln", "rm"):
             bin_dir.joinpath(name).symlink_to(shutil.which(name))
         curl = bin_dir / "curl"
         curl.write_text('''#!/bin/bash

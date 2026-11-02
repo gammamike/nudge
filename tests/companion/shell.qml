@@ -89,6 +89,13 @@ ShellRoot {
             var testMessage = panel.connectionMessage;
             control("setupTab").clicked();
             verify(panel.setupVisible);
+            verify(!panel.launcherInstalled);
+            control("installLauncher").clicked();
+            settled();
+            verify(panel.launcherInstalled, panel.notice);
+            compare(panel.connectionState, "connected");
+            verify(!control("installLauncher").enabled);
+            verify(control("removeLauncher").enabled);
             control("settingsTab").clicked();
             verify(!panel.setupVisible);
             compare(panel.connectionState, "connected", "Switching tabs must preserve the result");
@@ -98,6 +105,7 @@ ShellRoot {
             compare(panel.savedConfig.provider, "ollama");
             compare(panel.connectionState, "connected", "Saving tested choices must preserve the result");
             compare(panel.connectionMessage, testMessage);
+            verify(panel.launcherInstalled, "Reload must preserve launcher status");
             reload.clicked();
             settled();
             compare(panel.connectionState, "connected", "Reloading unchanged choices must preserve the result");
@@ -144,6 +152,22 @@ ShellRoot {
             Commons.Color.loadShell('[font]\nbase-size = 12');
             compare(window.color.toString(), "#101315");
             compare(model.color.toString(), "#cacccc");
+            var scroll = control("panelScrollView");
+            var scrollbar = control("panelScrollBar");
+            wait(100);
+            verify(scrollbar.size >= 1, "Default-size text should fit in the window");
+            verify(!scrollbar.contentItem.visible || scrollbar.contentItem.opacity === 0,
+                   "A scrollbar thumb must not appear when all content fits");
+            Commons.Color.loadShell('[font]\nbase-size = 16');
+            wait(100);
+            verify(scrollbar.size < 1, "Larger text must remain scrollable");
+            var scrollbarOrigin = scrollbar.mapToItem(scroll, 0, 0);
+            verify(scrollbarOrigin.x >= scroll.width - scrollbar.width - 1,
+                   "The vertical scrollbar must stay at the right edge, away from the title");
+            compare(Math.round(scrollbar.height), Math.round(scroll.availableHeight));
+            verify(scrollbar.contentItem.visible && scrollbar.contentItem.opacity > 0);
+            Commons.Color.loadShell('[font]\nbase-size = 12');
+            wait(100);
             capture("settings-dark");
 
             Commons.Color.loadColors('background = "#ffffff"\nforeground = "#202020"\naccent = "#005f87"\nred = "#b02020"');
@@ -158,6 +182,9 @@ ShellRoot {
 
             control("setupTab").clicked();
             verify(panel.setupVisible);
+            control("removeLauncher").clicked();
+            settled();
+            verify(!panel.launcherInstalled, panel.notice);
             capture("setup-light");
             control("settingsTab").clicked();
             verify(!panel.setupVisible);

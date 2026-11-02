@@ -17,7 +17,7 @@ class CompanionTests(unittest.TestCase):
         self.home = Path(self.directory.name)
         self.bin = self.home / "bin"
         self.bin.mkdir()
-        for name in ("jq", "timeout"):
+        for name in ("jq", "timeout", "cmp", "mkdir", "mktemp", "cat", "chmod", "ln", "rm"):
             self.bin.joinpath(name).symlink_to(shutil.which(name))
         self.bin.joinpath("nudge-bash").symlink_to(BINARY)
         self.config = self.home / "config" / "nudge" / "config.json"
@@ -96,7 +96,7 @@ class CompanionTests(unittest.TestCase):
         unrelated = self.bin / "nudge"
         unrelated.write_text('#!/bin/bash\nprintf unsafe > "$HOME/executed"\n')
         unrelated.chmod(0o700)
-        self.assertEqual(self.run_bridge("status"), {"available": False})
+        self.assertEqual(self.run_bridge("status"), {"available": False, "launcher": {"installed": False}})
         self.assertFalse(self.home.joinpath("executed").exists())
         self.run_bridge("save", "codex", "model", "", success=False)
 
@@ -152,6 +152,64 @@ printf '%s\\n' '{"models":[{"name":"qwen3:0.6b"},{"name":"cloud-model","remote_h
         self.assertFalse(entry.is_absolute())
         self.assertNotIn("..", entry.parts)
         self.assertTrue(ROOT.joinpath(entry).is_file())
+
+    def test_launcher_lifecycle_and_exact_launch_arguments(self):
+        desktop = self.home / "data/applications/gammamike.nudge.desktop"
+        self.assertEqual(self.run_bridge("status")["launcher"], {"installed": False})
+        self.assertFalse(desktop.parent.exists(), "Status must not create application files")
+        self.assertEqual(self.run_bridge("launcher-install"), {"installed": True})
+        self.assertEqual(desktop.stat().st_mode & 0o777, 0o644)
+        first = desktop.stat().st_ino
+        self.run_bridge("launcher-install")
+        self.assertEqual(desktop.stat().st_ino, first, "Repeated setup must preserve the shortcut")
+        self.assertEqual(self.run_bridge("status")["launcher"], {"installed": True})
+        self.assertFalse(self.config.exists(), "Launcher setup must not write provider settings")
+
+        # Check the literal Exec arguments against a mock shell host.
+        mock = self.bin / "omarchy-shell"
+        mock.write_text('#!/bin/bash\nprintf "%s\\n" "$@" > "$HOME/launched"\n')
+        mock.chmod(0o755)
+        fields = dict(line.split("=", 1) for line in desktop.read_text().splitlines() if "=" in line)
+        self.assertEqual(fields["TryExec"], "omarchy-shell")
+        self.assertEqual(fields["Terminal"], "false")
+        import shlex
+        subprocess.run(shlex.split(fields["Exec"]), env=self.env, check=True)
+        self.assertEqual((self.home / "launched").read_text().splitlines(),
+                         ["shell", "summon", "gammamike.nudge", "{}"])
+        self.run_bridge("launcher-remove")
+        self.run_bridge("launcher-remove")
+        self.assertFalse(desktop.exists())
+        self.assertFalse(self.run_bridge("status")["launcher"]["installed"])
+
+    def test_launcher_conflicts_and_symlinks_are_preserved(self):
+        desktop = self.home / "data/applications/gammamike.nudge.desktop"
+        desktop.parent.mkdir(parents=True)
+        desktop.write_text("unrelated entry")
+        for action in ("launcher-install", "launcher-remove"):
+            self.run_bridge(action, success=False)
+            self.assertEqual(desktop.read_text(), "unrelated entry")
+        desktop.unlink()
+        target = self.home / "personal.desktop"
+        target.write_text("personal shortcut")
+        desktop.symlink_to(target)
+        for action in ("launcher-install", "launcher-remove"):
+            self.run_bridge(action, success=False)
+            self.assertTrue(desktop.is_symlink())
+            self.assertEqual(target.read_text(), "personal shortcut")
+        target.unlink()
+        self.run_bridge("launcher-install", success=False)
+        self.run_bridge("launcher-remove", success=False)
+        self.assertTrue(desktop.is_symlink())
+
+    def test_launcher_setup_without_cli_and_relative_xdg_fallback(self):
+        self.bin.joinpath("nudge-bash").unlink()
+        self.env["XDG_DATA_HOME"] = "relative"
+        self.run_bridge("launcher-install")
+        desktop = self.home / ".local/share/applications/gammamike.nudge.desktop"
+        self.assertTrue(desktop.is_file())
+        self.run_bridge("launcher-install", "extra", success=False)
+        self.run_bridge("launcher-remove")
+        self.assertFalse(desktop.exists())
 
 
 if __name__ == "__main__":

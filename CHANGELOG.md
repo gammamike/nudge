@@ -3,6 +3,18 @@
 User-visible changes are recorded here. Unreleased entries are available in the
 source tree and do not imply a published package or stable release.
 
+## 0.1.1 — 2026-11-01
+
+### Added
+
+- An optional Nudge Settings application shortcut for Super+Space search,
+  with explicit add/remove controls in the companion's Setup tab.
+
+### Fixed
+
+- Keep the companion scrollbar at the right edge and hide its thumb when the
+  content fits, preventing it from covering the panel title.
+
 ## 0.1.0 — 2026-11-01
 
 ### Added

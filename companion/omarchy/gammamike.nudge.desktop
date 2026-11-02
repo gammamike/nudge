@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Nudge Settings
+Comment=Configure command corrections, model providers, and Bash setup
+Exec=omarchy-shell shell summon gammamike.nudge {}
+TryExec=omarchy-shell
+Icon=utilities-terminal
+Terminal=false
+StartupNotify=false
+Categories=Settings;
+Keywords=Nudge;Bash;Terminal;Commands;Corrections;Models;
