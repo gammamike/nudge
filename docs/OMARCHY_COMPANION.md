@@ -47,6 +47,10 @@ installation before replacing it. Do not copy `target/`, `dist/`, or personal
 configuration. Omarchy rejects symlinks in plugin packages. Never edit the
 plugins shipped under `/usr/share/omarchy`.
 
+Omarchy reloads plugins asynchronously when their files change. If the first
+open is interrupted by that reload, run the `summon` command again after the
+reload completes. A shell restart is not required.
+
 ## Install Nudge and activate Bash
 
 Use one installation method. From source, with Git, Rust 1.88+, and Cargo:
@@ -165,3 +169,11 @@ binary, and a mocked local server. It tests settings changes, Save/Reload,
 local model selection, error recovery, window closure, and live theme updates.
 It renders dark and light screenshots, including larger text, for visual review.
 It does not change the running desktop's theme, plugins, or settings.
+
+A live installation check on Omarchy 4.0.6-1 also verified the managed CLI
+installation, Bash hook activation in a fresh shell, companion discovery,
+rendering with the active desktop theme, and close/reopen through the shell
+host. The initial launch overlapped the plugin reload and required reopening;
+subsequent close/reopen checks passed. Provider settings were preserved.
+Separate disposable-home checks verified missing-CLI detection, source
+installation, repeated installation without duplicate hooks, and uninstall.
