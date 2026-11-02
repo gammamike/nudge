@@ -229,17 +229,18 @@ Item {
 
             Controls.ScrollView {
                 id: scroll
+                objectName: "panelScrollView"
                 anchors.fill: parent
                 anchors.margins: Commons.Style.space(24)
                 clip: true
-                Controls.ScrollBar.vertical: Controls.ScrollBar {
-                    contentItem: Rectangle {
-                        implicitWidth: Commons.Style.space(5)
-                        implicitHeight: Commons.Style.space(30)
-                        color: root.foreground
-                        opacity: parent.pressed ? 0.8 : 0.4
-                        radius: Commons.Style.cornerRadius
-                    }
+                Controls.ScrollBar.vertical.objectName: "panelScrollBar"
+                Controls.ScrollBar.vertical.contentItem: Rectangle {
+                    implicitWidth: Commons.Style.space(5)
+                    implicitHeight: Commons.Style.space(30)
+                    visible: scroll.Controls.ScrollBar.vertical.size < 1
+                    color: root.foreground
+                    opacity: scroll.Controls.ScrollBar.vertical.pressed ? 0.8 : 0.4
+                    radius: Commons.Style.cornerRadius
                 }
                 Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
 
