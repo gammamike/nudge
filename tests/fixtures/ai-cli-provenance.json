@@ -1,0 +1,25 @@
+{
+  "captured": "2026-11-02",
+  "platform": "Linux x86_64",
+  "notes": "Only fixed --help/--version queries; disposable home/config and no account credentials. The Gemini updating wrapper was bypassed. Ollama/Gemini package archives were checksum-verified against the local pacman sync database and extracted into /tmp; no packages were installed, models run, or proposed commands executed.",
+  "tools": {
+    "codex": {
+      "version": "codex-cli 0.166.0",
+      "source": "installed Linux executable"
+    },
+    "claude": {
+      "version": "2.1.316 (Claude Code)",
+      "source": "installed Linux executable"
+    },
+    "ollama": {
+      "version": "0.40.7-1",
+      "source": "Arch extra package",
+      "sha256": "f95aa2f1a7635048e3f8e95c1b32b64aed9c570b818a2ee2d17d927db31516d8"
+    },
+    "gemini": {
+      "version": "0.64.0 (package 1:0.64.0-1)",
+      "source": "Arch extra package, bundled CLI invoked directly with Node",
+      "sha256": "28bcd2c5745a61b64965566e748bbc162b23465bd1000e3edc3637f51da15bce"
+    }
+  }
+}

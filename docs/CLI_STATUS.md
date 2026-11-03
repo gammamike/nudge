@@ -1,6 +1,6 @@
 # Requested command status
 
-The registry contains **267 executable names**. This ledger preserves the
+The registry contains **271 executable names**. This ledger preserves the
 requested inventory and distinguishes scoped support from pending work.
 The full requested inventory is **not yet complete**. See the
 [expansion report](CLI_EXPANSION.md) and previous batch reports for exact scopes.
@@ -24,7 +24,7 @@ not add executable names to the registry.
 | Data and databases | `jq`, `sqlite3`, `psql` | `yq`, `mysql`, `mariadb`, `redis-cli` |
 | Cloud and infrastructure | — | `aws`, `gcloud`, `az`, `terraform`, `tofu`, `ansible`, `ansible-playbook` |
 | Interactive tools and editors | `screen`, `fzf`, `zoxide`, `bat`, `eza`, `vim`, `nvim`, `nano` | `tmux`, `code` |
-| AI command-line tools | — | `codex`, `claude`, `ollama` |
+| AI command-line tools | `codex`, `claude`, `ollama` | — |
 | Shell builtins and wrappers | — | `cd`, `pwd`, `export`, `unset`, `source`, `type`, `command`, `history`, `jobs`, `fg`, `bg`, `alias`, `unalias`, `sudo`, `doas` |
 | Desktop / Wayland | `hyprctl`, `hyprpaper`, `hyprlock`, `hypridle`, `waybar`, `walker`, `mako`, `makoctl`, `notify-send`, `wl-copy`, `wl-paste`, `xdg-open`, `playerctl`, `brightnessctl`, `wpctl`, `pamixer`, `bluetoothctl`, `iwctl`, `gsettings`, `fc-list`, `fc-cache` | `grim`, `slurp`, `xdg-mime`, `pactl`, `swww`, `wlr-randr` |
 | Boot, kernel, and low-level system | `mkinitcpio`, `dracut`, `limine`, `bootctl`, `efibootmgr`, `modprobe`, `lsmod`, `sysctl`, `udevadm`, `systemd-analyze`, `coredumpctl`, `networkctl`, `busctl` | `grub-mkconfig`, `rmmod`, `systemd-run`, `reflector`, `fwupdmgr` |
@@ -45,7 +45,11 @@ not add executable names to the registry.
 | Shell, dotfiles, and help | `man`, `tldr`, `info`, `apropos`, `stow`, `chezmoi`, `starship`, `atuin`, `direnv` | `zsh`, `fish`, `chsh`, `echo`, `printf`, `read`, `test`, `eval`, `exec`, `trap`, `set`, `ulimit`, `umask`, `wait`, `disown` |
 | Interactive tools and editors | `zellij`, `micro`, `glow` | `byobu`, `hx`, `emacs`, `yazi`, `ranger`, `nnn`, `lf`, `broot` |
 | Modern replacements | `dust`, `duf`, `procs`, `sd`, `delta`, `lsd`, `btm`, `tokei` | — |
-| AI command-line tools | — | `gemini`, `aider`, `opencode`, `llm`, `gh copilot`, `goose`, `crush`, `amp`, `cursor-agent` |
+| AI command-line tools | `gemini` | `aider`, `opencode`, `llm`, `gh copilot`, `goose`, `crush`, `amp`, `cursor-agent` |
+
+The [AI CLI batch](AI_CLI_BATCH.md) records the exact informational and inspection
+commands supported for Codex, Claude Code, Ollama, and Gemini. Inference and
+configuration mutation remain outside that batch.
 
 ## Work still required
 

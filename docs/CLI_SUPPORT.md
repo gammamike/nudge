@@ -21,9 +21,10 @@ tested, scoped adapters. The inventory below identifies registered tools; detail
 per-command matrices define the actual supported forms and exclusions.
 The [nested CLI batch](NESTED_CLI_BATCH.md) adds Nix, iwctl, Zellij, and strace,
 bringing the registry at that point to 120 executable names.
+The [AI CLI batch](AI_CLI_BATCH.md) adds Codex, Claude Code, Ollama, and Gemini.
 All tools absent from these implementation reports remain planned.
 
-Current registry: **267 executable names**. See the [latest expansion](CLI_EXPANSION.md)
+Current registry: **271 executable names**. See the [latest expansion](CLI_EXPANSION.md)
 and [complete requested-status ledger](CLI_STATUS.md) before assuming a listed
 tool or nested command is supported.
 
@@ -52,7 +53,7 @@ does not establish compatibility with every version or implementation.
 | Data and databases | `jq`, `yq`, `sqlite3`, `psql`, `mysql`, `mariadb`, `redis-cli` | Scoped adapters: `jq`, `sqlite3`, `psql`. Remaining names planned. |
 | Cloud and infrastructure | `aws`, `gcloud`, `az`, `terraform`, `tofu`, `ansible`, `ansible-playbook` | Remaining names planned. |
 | Interactive tools and editors | `tmux`, `screen`, `fzf`, `zoxide`, `bat`, `eza`, `vim`, `nvim`, `nano`, `code` | Scoped adapters: `screen`, `fzf`, `zoxide`, `bat`, `eza`, `vim`, `nvim`, `nano`. Remaining names planned. |
-| AI command-line tools | `codex`, `claude`, `ollama` | Remaining names planned. |
+| AI command-line tools | `codex`, `claude`, `ollama`, `gemini` | Scoped informational/inspection adapters. See [AI CLI batch](AI_CLI_BATCH.md). |
 | Shell builtins and wrappers | `cd`, `pwd`, `export`, `unset`, `source`, `type`, `command`, `history`, `jobs`, `fg`, `bg`, `alias`, `unalias`, `sudo`, `doas` | Remaining names planned. |
 
 `ctr` and `nerdctl` are the containerd client targets. Treating the containerd

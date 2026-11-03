@@ -3,6 +3,17 @@
 User-visible changes are recorded here. Unreleased entries are available in the
 source tree and do not imply a published package or stable release.
 
+## Unreleased
+
+### Added
+
+- Local command corrections for Codex, Claude Code, Ollama, and Gemini CLI:
+  help/version options and reviewed authentication-status, MCP-listing,
+  model-inspection, and extension-listing commands. Agent prompt text and
+  inference, installation, deletion, and configuration mutation are excluded.
+- Support for command columns containing argument annotations and explicitly
+  prefixed command paths, checked against the installed executable's help.
+
 ## 0.1.2 — 2026-11-02
 
 ### Added

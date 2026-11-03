@@ -2369,5 +2369,275 @@
         }
       }
     }
+  },
+  "codex": {
+    "kind": "agent-cli",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -V",
+      "standalone_flags": [
+        "--help",
+        "-h",
+        "--version",
+        "-V"
+      ],
+      "commands": {
+        "login": {
+          "help": [
+            "login",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "commands": {
+            "status": {
+              "help": [
+                "login",
+                "status",
+                "--help"
+              ],
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0
+            }
+          },
+          "standalone_flags": [
+            "--help",
+            "-h"
+          ]
+        },
+        "mcp": {
+          "help": [
+            "mcp",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "commands": {
+            "list": {
+              "help": [
+                "mcp",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --json",
+              "min": 0,
+              "max": 0
+            },
+            "get": {
+              "help": [
+                "mcp",
+                "get",
+                "--help"
+              ],
+              "flags": "--help -h --json",
+              "min": 1,
+              "max": 1
+            }
+          },
+          "standalone_flags": [
+            "--help",
+            "-h"
+          ]
+        }
+      }
+    }
+  },
+  "ollama": {
+    "kind": "generic",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -v",
+      "standalone_flags": [
+        "--help",
+        "-h",
+        "--version",
+        "-v"
+      ],
+      "commands": {
+        "list": {
+          "help": [
+            "list",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "min": 0,
+          "max": 0,
+          "aliases": [
+            "ls"
+          ]
+        },
+        "ps": {
+          "help": [
+            "ps",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "min": 0,
+          "max": 0
+        },
+        "show": {
+          "help": [
+            "show",
+            "--help"
+          ],
+          "flags": "--help -h --license --modelfile --parameters --system --template --verbose -v",
+          "min": 1,
+          "max": 1
+        }
+      }
+    }
+  },
+  "claude": {
+    "kind": "agent-cli",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "flags": "--help -h --version -v",
+      "standalone_flags": [
+        "--help",
+        "-h",
+        "--version",
+        "-v"
+      ],
+      "commands": {
+        "auth": {
+          "help": [
+            "auth",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "commands": {
+            "status": {
+              "help": [
+                "auth",
+                "status",
+                "--help"
+              ],
+              "flags": "--help -h --json --text",
+              "min": 0,
+              "max": 0
+            }
+          },
+          "standalone_flags": [
+            "--help",
+            "-h"
+          ]
+        },
+        "mcp": {
+          "help": [
+            "mcp",
+            "--help"
+          ],
+          "flags": "--help -h",
+          "commands": {
+            "list": {
+              "help": [
+                "mcp",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0
+            },
+            "get": {
+              "help": [
+                "mcp",
+                "get",
+                "--help"
+              ],
+              "flags": "--help -h",
+              "min": 1,
+              "max": 1
+            }
+          },
+          "standalone_flags": [
+            "--help",
+            "-h"
+          ]
+        }
+      }
+    }
+  },
+  "gemini": {
+    "kind": "agent-cli",
+    "root": {
+      "help": [
+        "--help"
+      ],
+      "command_prefix": [
+        "gemini"
+      ],
+      "flags": "--help -h --version -v --list-sessions --list-extensions -l",
+      "standalone_flags": [
+        "--help",
+        "-h",
+        "--version",
+        "-v",
+        "--list-sessions",
+        "--list-extensions",
+        "-l"
+      ],
+      "commands": {
+        "mcp": {
+          "help": [
+            "mcp",
+            "--help"
+          ],
+          "command_prefix": [
+            "gemini",
+            "mcp"
+          ],
+          "flags": "--help -h",
+          "commands": {
+            "list": {
+              "help": [
+                "mcp",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h",
+              "min": 0,
+              "max": 0
+            }
+          },
+          "standalone_flags": [
+            "--help",
+            "-h"
+          ]
+        },
+        "extensions": {
+          "help": [
+            "extensions",
+            "--help"
+          ],
+          "command_prefix": [
+            "gemini",
+            "extensions"
+          ],
+          "flags": "--help -h",
+          "commands": {
+            "list": {
+              "help": [
+                "extensions",
+                "list",
+                "--help"
+              ],
+              "flags": "--help -h --output-format= -o=",
+              "min": 0,
+              "max": 0
+            }
+          },
+          "standalone_flags": [
+            "--help",
+            "-h"
+          ]
+        }
+      }
+    }
   }
 }
