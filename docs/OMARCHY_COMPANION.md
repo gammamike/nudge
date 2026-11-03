@@ -2,7 +2,10 @@
 
 Nudge works on Linux with interactive Bash 5+, independently of a desktop.
 The optional Omarchy companion provides a settings window for **Codex, Claude
-Code, and local LLMs**, plus installation and Bash activation instructions.
+Code, and local LLMs**, plus guided installation and Bash activation. Nudge is
+suggested autocorrect for Linux commands: after an eligible command fails, review a correction in your
+terminal, then press Enter to run it or any other key to cancel. This helps with
+mistyped syntax and unfamiliar tools; the panel is its setup interface.
 It uses the Omarchy Shell plugin interface tested with Omarchy 4.0.6-1.
 Older installations without `omarchy plugin` and `omarchy-shell` are not supported.
 
@@ -12,8 +15,20 @@ update with theme changes, including `shell.toml` overrides. The font family
 follows Omarchy's system monospace selection.
 
 The companion and CLI share this repository and version. The root
-`manifest.json` identifies `gammamike.nudge`; its entry point is
-`companion/omarchy/Panel.qml`. No fork or separate runtime is needed.
+`manifest.json` identifies `gammamike.nudge`; its panel entry point is
+`companion/omarchy/Panel.qml`; `Welcome.qml` is the first-run service. No fork or
+separate runtime is needed.
+
+## Screenshots
+
+The welcome panel explains command correction before setup. Both screenshots
+use disposable settings and the real Omarchy controls.
+
+![First-run setup using a dark theme](images/welcome-dark.png)
+
+![First-run setup using a light theme](images/welcome-light.png)
+
+![Provider and model settings](images/settings-dark.png)
 
 ## Install the companion
 
@@ -22,17 +37,52 @@ required:
 
 ```bash
 omarchy plugin add https://github.com/gammamike/nudge.git --enable
+```
+
+The welcome panel opens once when the plugin is first enabled. Select **Install
+Nudge & enable Bash**, then open a new Bash terminal. No copy/paste commands or
+Rust toolchain are needed for the Linux x86_64 guided installation.
+
+The button explicitly authorizes three changes:
+
+1. Download this version's Linux x86_64 release from GitHub over HTTPS and verify
+   its published SHA-256 checksum, then install it in your per-user directories.
+2. Back up `~/.bashrc` and add one managed Bash hook through Nudge's existing
+   installer. Existing manual source lines must be removed first.
+3. Add the **Nudge Settings** application shortcut for Super+Space.
+
+Existing managed user installations reuse their current CLI and safely restore
+its hook. Guided setup does not replace package/custom installations. Use their
+activation instructions below. Provider choices and existing settings are kept.
+The installer needs `curl`, `tar`, `gzip`, `sha256sum`, `flock`, and GNU core
+utilities; it does not request administrator access or install a provider CLI.
+Downloads have time and size limits. A checksum/download/archive failure stops
+before installation. If shortcut creation fails after installation, the panel
+reports that partial result and the launcher button can retry it separately.
+
+**Codex cloud fallback remains the default**; Claude Code and local LLMs are
+alternatives. Requests happen automatically for unresolved eligible commands,
+before Enter-to-run confirmation. For local rules only, add
+`export NUDGE_LOCAL_ONLY=1` to `~/.bashrc` before opening a new terminal. Setup
+itself makes no model request. See [provider data handling](PROVIDERS.md).
+
+Opening, enabling, or updating the companion does not install the CLI or edit
+Bash startup files. Its small welcome service checks a local marker once per
+shell load and then stays idle. The panel marks the welcome seen under
+`${XDG_STATE_HOME:-$HOME/.local/state}/nudge/companion-welcome-seen` when opened.
+Shell restarts, plugin updates, and re-enabling do not keep reopening it. Relative
+XDG paths use the home-directory default. This marker is retained on removal.
+
+To reopen the panel, including if you dismissed first-run setup:
+
+```bash
 omarchy-shell shell summon gammamike.nudge '{}'
 ```
 
-This adds a standalone settings panel, not a replacement bar. Installing the
-companion does not build or install Nudge, authenticate a provider, or edit
-`~/.bashrc`. The Setup tab explains those separate steps.
-
 ## Open from Super+Space
 
-Open the panel once with the `summon` command above. In **Setup**, select
-**Add launcher shortcut**. Press **Super+Space**, type **Nudge**, and choose
+Guided setup adds this shortcut. Otherwise open the panel with the `summon`
+command above and select **Setup → Add launcher shortcut**. Press **Super+Space**, type **Nudge**, and choose
 **Nudge Settings**. This also works in application launchers that read desktop
 entries. It opens the existing panel without launching a terminal or contacting
 a model.
@@ -84,7 +134,7 @@ Omarchy reloads plugins asynchronously when their files change. If the first
 open is interrupted by that reload, run the `summon` command again after the
 reload completes. A shell restart is not required.
 
-## Install Nudge and activate Bash
+## Alternative CLI installation and Bash activation
 
 Use one installation method. From source, with Git, Rust 1.88+, and Cargo:
 
@@ -175,7 +225,8 @@ loopback server. **Test connection** uses the CLI's existing subscription or
 local-model boundaries and only fixed test data. Arguments are passed directly
 to the CLI without shell evaluation. Ordinary invocations are limited to 15
 seconds; connection tests allow 25 seconds including CLI authentication, with a
-15-second model request budget. The CLI can be tested separately with
+15-second model request budget. Explicit guided setup has a separate five-minute
+limit, including download and installer time. The CLI can be tested separately with
 `nudge check-provider` or `nudge-bash check-provider`.
 
 ## Update and remove

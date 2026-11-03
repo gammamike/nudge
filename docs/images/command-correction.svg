@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#101315"/>
+  <g font-family="DejaVu Sans, sans-serif">
+    <text x="54" y="67" fill="#8faef4" font-size="23" font-weight="bold" letter-spacing="3">NUDGE</text>
+    <text x="54" y="133" fill="#eef1f3" font-size="45" font-weight="bold">Suggested autocorrect</text>
+    <text x="54" y="188" fill="#eef1f3" font-size="45" font-weight="bold">for Linux commands.</text>
+    <text x="54" y="232" fill="#afb8c1" font-size="23">New tool? Forgotten subcommand? Get a nudge in your terminal.</text>
+    <rect x="54" y="269" width="1092" height="358" rx="12" fill="#191f24" stroke="#3c4650"/>
+    <path d="M54 317 H1146" stroke="#3c4650"/>
+    <circle cx="80" cy="293" r="5" fill="#8faef4"/>
+    <text x="98" y="300" fill="#afb8c1" font-size="18">Bash · local correction example</text>
+    <g font-family="DejaVu Sans Mono, monospace" font-size="24">
+      <text x="84" y="360" fill="#eef1f3"><tspan fill="#8faef4">$</tspan><tspan dx="14">git statsu</tspan></text>
+      <text x="84" y="402" fill="#afb8c1">git: 'statsu' is not a git command. See 'git --help'.</text>
+      <text x="84" y="452" fill="#afb8c1">The most similar command is</text>
+      <text x="116" y="486" fill="#afb8c1">status</text>
+      <text x="84" y="544" fill="#9dccac">nudge [local, 12 ms]: git status</text>
+      <text x="84" y="588" fill="#eef1f3">Enter to run · Any other key to cancel</text>
+    </g>
+    <text x="54" y="681" fill="#eef1f3" font-size="23" font-weight="bold">Stay in Bash.</text>
+    <text x="414" y="681" fill="#eef1f3" font-size="23" font-weight="bold">Learn new CLIs.</text>
+    <text x="790" y="681" fill="#eef1f3" font-size="23" font-weight="bold">You choose what runs.</text>
+    <text x="54" y="728" fill="#afb8c1" font-size="20">Local rules first · Codex, Claude Code, or local LLM fallback</text>
+    <text x="54" y="767" fill="#7b8792" font-size="16">Real command output, typeset for readability. Example timing varies by machine and command.</text>
+  </g>
+</svg>

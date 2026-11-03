@@ -1,8 +1,14 @@
 # Nudge
 
-Fast, local-first command correction for Bash on Linux. Nudge checks a failed
-command, offers a correction, and waits for **Enter** before running it. Press any
-other key to cancel.
+**Suggested autocorrect for Linux commands.** Spend less time remembering syntax
+and more time using your tools—especially a new CLI you are still learning.
+
+After an eligible command fails, Nudge suggests a correction in your existing
+Bash terminal. **Press Enter to run it, or any other key to cancel.** It can fix
+mistyped subcommands and supported missing command paths; it does not silently
+rerun commands.
+
+![Nudge suggests git status after git statsu, with Enter-to-run confirmation](preview.png)
 
 **Local rules run first; cloud fallback is enabled by default.** If local rules
 cannot choose an eligible correction, Nudge automatically asks **Codex (OpenAI)**
@@ -43,7 +49,7 @@ connectivity, or missing resources are not automatically retried.
 
 The Linux x86_64 bundle requires Bash 5+ and no Rust toolchain. Download the binary
 archive, matching source archive, and `SHA256SUMS` from the
-[v0.1.1 release](https://github.com/gammamike/nudge/releases/tag/v0.1.1).
+[v0.1.2 release](https://github.com/gammamike/nudge/releases/tag/v0.1.2).
 
 With the defaults below, unresolved eligible commands can trigger a cloud request
 through your existing Codex login. For local rules only, add
@@ -54,8 +60,8 @@ In the download directory:
 
 ```bash
 sha256sum -c SHA256SUMS
-tar -xzf nudge-0.1.1-linux-x86_64.tar.gz
-cd nudge-0.1.1-linux-x86_64
+tar -xzf nudge-0.1.2-linux-x86_64.tar.gz
+cd nudge-0.1.2-linux-x86_64
 ./install.sh
 exec bash
 ```
@@ -107,27 +113,37 @@ See the [release and AUR guide](docs/RELEASING.md) for validation and submission
 
 ### Optional desktop companion
 
-An optional [Omarchy companion](docs/OMARCHY_COMPANION.md) provides a settings
-panel for Codex, Claude Code, and local LLMs, including local model discovery,
-an explicit connection test, and Bash setup instructions. It requires Omarchy
-Shell with plugin support, `jq`, and GNU `timeout`; the CLI is installed separately.
-The panel follows the active Omarchy theme. Install and open it with:
+The [Omarchy companion](docs/OMARCHY_COMPANION.md) adds a welcome/setup panel and
+settings for **Codex, Claude Code, and local LLMs**. Command corrections happen in
+your terminal; the panel helps you install and configure them. Its controls follow
+your active Omarchy theme.
 
 ```bash
 omarchy plugin add https://github.com/gammamike/nudge.git --enable
+```
+
+The welcome panel opens once after first enable. Select **Install Nudge & enable
+Bash**, then open a new Bash terminal. On Linux x86_64, the button downloads and
+verifies this version's release, installs the CLI for your user, backs up and
+updates `~/.bashrc`, and adds **Nudge Settings** to **Super+Space**. No Rust
+toolchain or administrator password is needed. Installation is explicit; opening
+the panel does not install software or contact a model.
+
+To reopen it without a launcher:
+
+```bash
 omarchy-shell shell summon gammamike.nudge '{}'
 ```
 
-To open it from **Super+Space**, select **Setup → Add launcher shortcut** in the
-panel, then search for **Nudge Settings**. The shortcut uses your theme's terminal
-icon. Select **Remove launcher shortcut** before removing the companion.
+It requires Omarchy Shell plugin support, `jq`, GNU core utilities, `curl`,
+`tar`, `gzip`, and `flock`. Existing package/custom installations and other
+architectures use the [installation guide](docs/INSTALLATION.md). Existing
+managed user installations reuse their installed CLI during setup.
 
-Remove the companion with `omarchy plugin remove gammamike.nudge`. This leaves the CLI,
-Bash hook, and saved settings in place. Installing the companion does not install
-the CLI, change Bash startup files, or contact a model. **Test connection** sends
-a small synthetic request only when selected. Marketplace listing is separate
-from installation directly from this repository. Nudge works without this
-companion or desktop.
+Remove the launcher from Setup before running
+`omarchy plugin remove gammamike.nudge`. Removing the companion preserves the
+CLI, Bash hook, and provider settings; run `nudge uninstall` separately to remove
+the managed CLI installation. Nudge also works without a companion or desktop.
 
 ## Local corrections and model providers
 

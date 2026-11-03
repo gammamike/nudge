@@ -2,12 +2,13 @@
   "schemaVersion": 1,
   "id": "gammamike.nudge",
   "name": "Nudge",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "gammamike",
   "license": "GPL-3.0-only",
-  "description": "Settings and Bash setup for Nudge command correction on Linux.",
-  "kinds": ["panel"],
+  "description": "Suggested autocorrect for Linux commands. Learn unfamiliar tools faster: review a correction in Bash, then press Enter to run it.",
+  "kinds": ["panel", "service"],
   "entryPoints": {
-    "panel": "companion/omarchy/Panel.qml"
+    "panel": "companion/omarchy/Panel.qml",
+    "service": "companion/omarchy/Welcome.qml"
   }
 }
