@@ -17,6 +17,7 @@ use crate::process::Runner;
 #[serde(rename_all = "kebab-case")]
 enum Kind {
     Generic,
+    AgentCli,
     Nix,
     Iwctl,
     Zellij,
@@ -36,6 +37,10 @@ enum Payload {
 #[derive(Default, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Node {
+    #[serde(default)]
+    command_prefix: Vec<String>,
+    #[serde(default)]
+    standalone_flags: Vec<String>,
     #[serde(default)]
     help: Vec<String>,
     #[serde(default)]
@@ -84,7 +89,7 @@ pub(crate) fn supports(root: &str) -> bool {
 pub(crate) fn local_only(root: &str) -> bool {
     registry()
         .get(root)
-        .is_some_and(|profile| profile.kind == Kind::Generic)
+        .is_some_and(|profile| matches!(profile.kind, Kind::Generic | Kind::AgentCli))
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -148,7 +153,7 @@ fn command_names(text: &str) -> BTreeSet<String> {
     static COBRA_ALIASES: OnceLock<Regex> = OnceLock::new();
     let mut names: BTreeSet<_> = COMMANDS
         .get_or_init(|| {
-            Regex::new(r"(?m)^[ \t]{2,}([a-z][a-z0-9-]*(?:, [a-z][a-z0-9-]*)*):?[ \t]{2,}")
+            Regex::new(r"(?m)^[ \t]{2,}([a-z][a-z0-9-]*(?:, [a-z][a-z0-9-]*)*):?(?:[ \t]+(?:\[[^\]\r\n]+\]|<[^>\r\n]+>))*[ \t]{2,}")
                 .expect("literal regex")
         })
         .captures_iter(text)
@@ -274,10 +279,25 @@ impl Context<'_> {
             .into_iter()
             .filter(|(name, _)| known_flags.contains(name))
             .collect();
+        // Yargs prints complete command paths in its command column. Strip
+        // only the literal prefix declared for this reviewed help query.
+        let prefix = format!("{} ", node.command_prefix.join(" "));
+        let commands_text = if node.command_prefix.is_empty() {
+            text.clone()
+        } else {
+            text.lines()
+                .map(|line| {
+                    line.strip_prefix("  ")
+                        .and_then(|line| line.strip_prefix(&prefix))
+                        .map_or_else(|| line.to_owned(), |tail| format!("  {tail}"))
+                })
+                .collect::<Vec<_>>()
+                .join("\n")
+        };
         Ok(Evidence {
             flags,
             known_flags,
-            commands: command_names(&text),
+            commands: command_names(&commands_text),
         })
     }
 
@@ -326,7 +346,17 @@ impl Context<'_> {
             );
         }
         let Some(word) = self.words.get(index) else {
-            return Ok(Analysis::Refuse);
+            return Ok(
+                if node
+                    .standalone_flags
+                    .iter()
+                    .any(|flag| scanner.seen.contains(flag))
+                {
+                    Analysis::Valid
+                } else {
+                    Analysis::Refuse
+                },
+            );
         };
         // Kubectl plugins are real commands even when root help omits them.
         // Check only executable existence; never run a user-supplied route.
@@ -354,6 +384,12 @@ impl Context<'_> {
                     && evidence.commands.contains(*name))
         });
         let Some((name, child)) = child else {
+            // Agent CLIs accept free-form prompts at the root. Never turn a
+            // prompt word into a command; corrections begin inside an exact
+            // reviewed namespace, or at an explicitly informational flag.
+            if self.kind == Kind::AgentCli && route.is_empty() {
+                return Ok(Analysis::Refuse);
+            }
             let choices: Vec<_> = node
                 .commands
                 .keys()
@@ -363,7 +399,7 @@ impl Context<'_> {
             // Generic nested grammars intentionally handle local typos only.
             // Unknown extension names or absent destructive commands must not
             // become model requests for unrelated inspection commands.
-            if self.kind == Kind::Generic
+            if matches!(self.kind, Kind::Generic | Kind::AgentCli)
                 && choices
                     .iter()
                     .filter(|name| engine::typo(word, name) == 1)
@@ -802,8 +838,11 @@ mod tests {
                 node.flags.split_whitespace().count()
             );
             assert!(node.max.is_none_or(|max| max >= node.min));
-            if matches!(kind, Kind::Zellij | Kind::Generic) {
+            if matches!(kind, Kind::Zellij | Kind::Generic | Kind::AgentCli) {
                 assert_eq!(node.help.last().map(String::as_str), Some("--help"));
+            }
+            for flag in &node.standalone_flags {
+                assert_eq!(declarations(&node.flags).get(flag), Some(&Arity::Count(0)));
             }
             for child in node.commands.values() {
                 check(child, kind);
@@ -821,14 +860,16 @@ mod tests {
     #[test]
     fn command_columns_include_advertised_aliases() {
         let names = command_names(
-            "Commands:\n   images, image, i   Manage images\n  inspect  Inspect a resource\n  repo:  Repository commands\nAliases:\n  list, ls\n",
+            "Commands:\n   images, image, i   Manage images\n  inspect  Inspect a resource\n  repo:  Repository commands\n  status [options]  Show status\n  get <name>  Inspect a name\nAliases:\n  list, ls\n",
         );
         assert_eq!(
             names,
-            ["i", "image", "images", "inspect", "list", "ls", "repo"]
-                .into_iter()
-                .map(str::to_owned)
-                .collect()
+            [
+                "get", "i", "image", "images", "inspect", "list", "ls", "repo", "status"
+            ]
+            .into_iter()
+            .map(str::to_owned)
+            .collect()
         );
     }
 }

@@ -197,7 +197,7 @@ restrictions.
 
 ## Command coverage
 
-The registry currently contains **267 executable adapters**, with deliberately
+The registry currently contains **271 executable adapters**, with deliberately
 scoped support. It includes Git, Docker/Compose, systemd, common file/text tools,
 desktop utilities, Cargo, Pacman/Yay query operations, Nix, iwctl, Zellij, and strace.
 A listed executable does not imply support for every option or subcommand.
@@ -206,6 +206,7 @@ A listed executable does not imply support for every option or subcommand.
 - [Additional Linux profiles, exact scopes, and timings](docs/LINUX_PROFILES.md)
 - [Nix, iwctl, Zellij, and strace scopes and tests](docs/NESTED_CLI_BATCH.md)
 - [Latest 147 adapters, Buildx scopes, and tests](docs/CLI_EXPANSION.md)
+- [Codex, Claude Code, Ollama, and Gemini command scopes](docs/AI_CLI_BATCH.md)
 - [Supported and pending requested commands](docs/CLI_STATUS.md)
 - [Launch coverage checklist](docs/CLI_SUPPORT.md)
 - [Additional requested tools](docs/CLI_ADDITIONS.md)
