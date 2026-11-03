@@ -32,7 +32,13 @@ Item {
 
     function open(payloadJson) {
         closingFromHost = false;
+        try {
+            if (JSON.parse(payloadJson || "{}").welcome === true)
+                setupVisible = true;
+        } catch (e) {}
         window.visible = true;
+        if (!welcomeMarker.running)
+            welcomeMarker.running = true;
         if (!busy)
             run("status", []);
     }
@@ -85,6 +91,8 @@ Item {
         busy = true;
         failed = false;
         notice = action === "save" ? "Saving…" : "Loading…";
+        if (action === "setup")
+            notice = "Setting up Nudge… Downloads can take a few minutes. Keep this panel open.";
         if (action === "test") {
             testedConnectionKey = connectionKey();
             connectionState = "testing";
@@ -133,18 +141,20 @@ Item {
                 notice = discoveredModels.length ? "Choose a discovered model or enter an ID below." : "No local models found. Load a model on your server, then refresh.";
                 return;
             }
+            var preserveChoices = operation === "setup" && available;
             available = result.available === true;
             launcherInstalled = !!result.launcher && result.launcher.installed === true;
             if (available) {
                 binaryPath = result.binary;
                 configPath = result.settings.path;
                 savedConfig = result.settings.config;
-                selectProvider(savedConfig.provider || "codex");
-                notice = operation === "save" ? "Settings saved. Nudge reads them on its next request." : "Installed · ready to configure";
+                if (!preserveChoices)
+                    selectProvider(savedConfig.provider || "codex");
+                notice = operation === "setup" ? "Setup complete. Open a new Bash terminal to start using Nudge. Press Super+Space to find Nudge Settings." : operation === "save" ? "Settings saved. Nudge reads them on its next request." : "CLI installed · open a new Bash terminal after setup";
             } else {
                 resetConnection();
                 setupVisible = true;
-                notice = "Install Nudge to configure it, then select Reload.";
+                notice = "Welcome to Nudge. Complete setup below to enable command corrections.";
             }
         } catch (e) {
             failed = true;
@@ -155,6 +165,12 @@ Item {
                 notice = "";
             }
         }
+    }
+
+    Process {
+        id: welcomeMarker
+        command: ["/bin/bash", Model.localPath(Qt.resolvedUrl("welcome.sh").toString()), "mark"]
+        stderr: StdioCollector { waitForEnd: true }
     }
 
     Process {
@@ -186,34 +202,6 @@ Item {
         bordered: true
         foreground: root.foreground
         opacity: enabled ? 1 : 0.45
-    }
-
-    component CommandBox: Column {
-        property alias text: commandText.text
-        width: parent.width
-        spacing: Commons.Style.space(6)
-        Controls.TextArea {
-            id: commandText
-            width: parent.width
-            readOnly: true
-            selectByMouse: true
-            wrapMode: TextEdit.Wrap
-            textFormat: TextEdit.PlainText
-            color: root.foreground
-            selectionColor: Commons.Style.selectionFillFor(root.foreground, Commons.Color.accent)
-            selectedTextColor: root.foreground
-            font.family: Commons.Style.font.family
-            font.pixelSize: Commons.Style.font.body
-            background: Ui.BorderSurface {
-                color: "transparent"
-                borderSpec: Commons.Border.controlSpec(commandText.activeFocus ? "focus" : "normal", root.foreground, Commons.Color.accent)
-                radius: Commons.Style.cornerRadius
-            }
-        }
-        Action {
-            text: "Copy commands"
-            onClicked: Quickshell.clipboardText = commandText.text
-        }
     }
 
     FloatingWindow {
@@ -254,7 +242,7 @@ Item {
                 Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
 
                 Column {
-                    width: scroll.availableWidth
+                    width: scroll.availableWidth - Commons.Style.space(12)
                     spacing: Commons.Style.space(16)
 
                     BodyText {
@@ -264,7 +252,7 @@ Item {
                         font.bold: true
                     }
                     BodyText {
-                        text: "Command correction for Linux and Bash"
+                        text: "Suggested autocorrect for Linux commands"
                     }
                     Flow {
                         width: parent.width
@@ -422,44 +410,48 @@ Item {
                         spacing: Commons.Style.space(16)
                         visible: root.setupVisible
                         BodyText {
-                            text: "1. Install Nudge"
+                            text: "Learn unfamiliar commands with fewer retries"
                             font.bold: true
                         }
                         BodyText {
-                            text: "The companion configures Nudge; install the CLI separately. From source, you need Git, Bash 5+, and Rust 1.88+ with Cargo. Run these commands in a terminal:"
-                        }
-                        CommandBox {
-                            text: "git clone https://github.com/gammamike/nudge.git\ncd nudge\n./install.sh\nexec bash"
+                            text: "New tool? Forgotten subcommand? Nudge checks failed commands in Bash and suggests a correction. Enter runs it; any other key cancels. Keep working in your usual terminal."
                         }
                         BodyText {
-                            text: "The per-user installer backs up ~/.bashrc and enables the hook. Remove an earlier manual Nudge source line before installing. Start a new Bash shell after installation or updates."
+                            text: "$ git statsu\n\n nudge [local]: git status\n Enter to run · Any other key to cancel"
                         }
                         BodyText {
-                            text: "2. Enable the Bash hook"
+                            text: "Install once, then open a new terminal"
                             font.bold: true
                         }
                         BodyText {
-                            text: "If you used ./install.sh, this is already done. For a system package installed under /usr, add the following line once to ~/.bashrc, then open a new terminal. Change the prefix for a manual installation elsewhere."
-                        }
-                        CommandBox {
-                            text: "[[ -r /usr/lib/nudge-bash/nudge.bash ]] && source /usr/lib/nudge-bash/nudge.bash"
+                            text: "Installs the Linux x86_64 CLI for your user, backs up ~/.bashrc and adds its Bash hook, and adds Nudge Settings to Super+Space. No administrator password or Rust toolchain needed. Existing settings are preserved."
                         }
                         BodyText {
-                            text: "Verify in the new terminal with: declare -p _NUDGE_LOADED (expect 1). This desktop panel cannot inspect a terminal's hook state. To use only local rules, add export NUDGE_LOCAL_ONLY=1 to ~/.bashrc."
+                            text: "Local rules run first. Unresolved eligible commands use Codex cloud fallback by default; Claude Code and local LLMs are alternatives. Model requests happen before Enter-to-run confirmation. Setup does not contact a model."
+                        }
+                        Action {
+                            text: root.busy && root.operation === "setup" ? "Setting up…" : root.available ? "Complete Bash & launcher setup" : "Install Nudge & enable Bash"
+                            objectName: "installNudge"
+                            enabled: !root.busy
+                            onClicked: root.run("setup", [])
                         }
                         BodyText {
-                            text: "3. Choose an optional provider"
+                            text: "For local rules only, add export NUDGE_LOCAL_ONLY=1 to ~/.bashrc before opening the new terminal. Package/custom installations and other architectures: use the installation guide below."
+                            font.pixelSize: Commons.Style.font.caption
+                        }
+                        BodyText {
+                            text: "Provider and model"
                             font.bold: true
                         }
                         BodyText {
-                            text: "Codex and Claude Code use their existing subscription CLI login. For a local LLM, start Ollama or a compatible loopback server; local model discovery also needs curl. Then open Settings, choose a provider and model, and save."
+                            text: "Choose Codex, Claude Code, or a local LLM in Settings. Cloud providers use their separately installed CLI login. Local models need a running Ollama or compatible loopback server. Test connection checks your selection."
                         }
                         BodyText {
-                            text: "4. Add an app launcher shortcut"
+                            text: "Launcher shortcut"
                             font.bold: true
                         }
                         BodyText {
-                            text: "Open this panel from Super+Space by searching for Nudge Settings. The shortcut is stored in your user applications directory. Remove it here before uninstalling the companion."
+                            text: "Included in guided setup. Add or remove it separately here. Remove it before uninstalling the companion."
                         }
                         Flow {
                             width: parent.width

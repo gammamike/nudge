@@ -13,6 +13,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True,
                         help="Directory for dark/light screenshots")
+    parser.add_argument("--welcome-only", action="store_true", help="Capture first-run setup without a CLI installation")
     parser.add_argument("--omarchy", type=Path, default=Path("/usr/share/omarchy"))
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
@@ -25,7 +26,7 @@ def main():
             root.joinpath(name).symlink_to(args.omarchy / "shell" / name,
                                          target_is_directory=True)
         shutil.copytree(ROOT / "companion/omarchy", root / "Companion")
-        shutil.copyfile(ROOT / "tests/companion/shell.qml", root / "shell.qml")
+        shutil.copyfile(ROOT / ("tests/companion/welcome.qml" if args.welcome_only else "tests/companion/shell.qml"), root / "shell.qml")
         home = root / "home"
         fontconfig = home / ".config/fontconfig/fonts.conf"
         fontconfig.parent.mkdir(parents=True)
@@ -35,9 +36,10 @@ def main():
 ''')
         bin_dir = home / "bin"
         bin_dir.mkdir(parents=True)
-        bin_dir.joinpath("nudge-bash").symlink_to(BINARY)
+        if not args.welcome_only:
+            bin_dir.joinpath("nudge-bash").symlink_to(BINARY)
         # Allow the bridge's dependencies, but no provider CLI or live curl.
-        for name in ("jq", "timeout", "fc-match", "cmp", "mkdir", "mktemp", "cat", "chmod", "ln", "rm"):
+        for name in ("jq", "timeout", "fc-match", "cmp", "mkdir", "mktemp", "cat", "chmod", "ln", "rm", "uname", "tar", "gzip", "sha256sum", "flock"):
             bin_dir.joinpath(name).symlink_to(shutil.which(name))
         curl = bin_dir / "curl"
         curl.write_text('''#!/bin/bash
@@ -58,19 +60,23 @@ esac
             "XDG_CONFIG_HOME": str(home / ".config"),
             "XDG_DATA_HOME": str(home / ".local/share"),
             "XDG_CACHE_HOME": str(home / ".cache"),
+            "XDG_STATE_HOME": str(home / ".local/state"),
             "XDG_RUNTIME_DIR": str(runtime),
             "QT_QPA_PLATFORM": "offscreen", "QT_QPA_PLATFORMTHEME": "generic",
             "QT_QUICK_CONTROLS_STYLE": "Basic", "QT_QUICK_BACKEND": "software",
             "NUDGE_UI_OUTPUT": str(args.output.resolve()),
             "NO_COLOR": "1",
         }
+        if not args.welcome_only:
+            subprocess.run([str(BINARY), "install"], env=env, check=True, capture_output=True)
         result = subprocess.run([quickshell, "--path", str(root), "--no-duplicate"],
                                 env=env, capture_output=True, text=True, timeout=30)
         output = result.stdout + result.stderr
         print(output, end="")
         if result.returncode or "NUDGE_COMPANION_UI_PASS" not in output:
             raise SystemExit("Companion UI checks failed")
-        for name in ("settings-dark", "settings-light-large-type", "setup-light"):
+        names = ("welcome-dark", "welcome-light") if args.welcome_only else ("settings-dark", "settings-light-large-type", "setup-light")
+        for name in names:
             if not args.output.joinpath(name + ".png").is_file():
                 raise SystemExit(f"Missing screenshot: {name}")
         print(f"UI checks passed; screenshots: {args.output.resolve()}")

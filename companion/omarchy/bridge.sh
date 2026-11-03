@@ -59,6 +59,12 @@ status() {
 action=${1:-}
 (( $# > 0 )) && shift
 case "$action" in
+  setup)
+    (( $# == 0 )) || fail 'Setup takes no arguments'
+    timeout --signal=TERM --kill-after=5s 300s /bin/bash "$companion_dir/setup.sh" >/dev/null
+    # Rediscover the newly installed executable in a fresh invocation.
+    exec /bin/bash "${BASH_SOURCE[0]}" status
+    ;;
   launcher-install|launcher-remove)
     (( $# == 0 )) || fail 'Launcher actions take no arguments'
     /bin/bash "$companion_dir/launcher.sh" "${action#launcher-}"
@@ -105,5 +111,5 @@ case "$action" in
       invoke "${args[@]}"
     fi
     ;;
-  *) fail 'Usage: bridge.sh status | launcher-install | launcher-remove | save PROVIDER MODEL ENDPOINT | test PROVIDER MODEL ENDPOINT | models PROVIDER ENDPOINT' ;;
+  *) fail 'Usage: bridge.sh status | setup | launcher-install | launcher-remove | save PROVIDER MODEL ENDPOINT | test PROVIDER MODEL ENDPOINT | models PROVIDER ENDPOINT' ;;
 esac

@@ -3,6 +3,23 @@
 User-visible changes are recorded here. Unreleased entries are available in the
 source tree and do not imply a published package or stable release.
 
+## 0.1.2 — 2026-11-02
+
+### Added
+
+- One-time welcome panel after enabling the Omarchy companion, explaining
+  suggested autocorrect for Linux commands and Enter-to-run confirmation.
+- Explicit guided setup for Linux x86_64: verified release download, per-user
+  CLI installation, backed-up Bash hook activation, and launcher shortcut.
+- Terminal-first preview and dark/light setup screenshots, with clearer
+  documentation for learning unfamiliar command-line tools.
+
+### Changed
+
+- Existing managed installations reuse their CLI during setup. Package/custom
+  installations are preserved and continue using their own activation method.
+- Setup preserves unsaved provider choices and connection-test results.
+
 ## 0.1.1 — 2026-11-01
 
 ### Added

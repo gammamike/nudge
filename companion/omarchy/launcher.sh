@@ -7,8 +7,8 @@ fail() {
   exit 1
 }
 
-(( $# == 1 )) || fail 'Usage: launcher.sh install | remove | status'
-case "$1" in install|remove|status) ;; *) fail 'Unknown launcher action' ;; esac
+(( $# == 1 )) || fail 'Usage: launcher.sh install | remove | status | check'
+case "$1" in install|remove|status|check) ;; *) fail 'Unknown launcher action' ;; esac
 
 directory=${BASH_SOURCE[0]%/*}
 [[ $directory != "${BASH_SOURCE[0]}" ]] || directory=.
@@ -35,6 +35,7 @@ if [[ -e $destination || -L $destination ]]; then
 fi
 
 case "$1" in
+  check) exit 0 ;;
   install)
     if [[ ! -e $destination ]]; then
       mkdir -p -- "$applications"
